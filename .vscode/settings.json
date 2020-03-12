@@ -1,0 +1,50 @@
+{
+  "python.pythonPath": "venv/bin/python3.7",
+  "window.zoomLevel": 0,
+  "git.enableSmartCommit": true,
+  "files.autoSave": "onWindowChange",
+  // workbench configuration
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.colorTheme": "Dracula",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "extensions.ignoreRecommendations": false,
+  "explorer.confirmDelete": false,
+  // Editor configuration 
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.wordWrap": "on",
+  "editor.fontFamily": "Fira Code",
+  "editor.fontSize": 16,
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 24,
+  "editor.tabSize": 2,
+  "editor.rulers": [
+    80,
+    120
+  ],
+  "terminal.integrated.fontSize": 14,
+  // Emmet configuration
+  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+  },
+  // python configuration 
+  "python.linting.pylintEnabled": true,
+  "python.formatting.provider": "yapf",
+  "python.formatting.yapfArgs": [
+    "--style=${workspaceFolder}/.style.yapf"
+  ],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.wordWrapColumn": 80,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.formatOnPaste": true,
+  },
+  "python.linting.pylintUseMinimalCheckers": false,
+  "python.linting.pylintCategorySeverity.warning": "Hint",
+}
