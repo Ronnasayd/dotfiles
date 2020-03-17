@@ -28,6 +28,10 @@
       "python -m pytest"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ronnasayd/dotfiles.git"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
