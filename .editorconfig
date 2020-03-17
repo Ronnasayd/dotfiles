@@ -4,13 +4,28 @@ root = true
 indent_style = space
 indent_size = 2
 charset = utf-8
-trim_trailing_whitespace = false
+trim_trailing_whitespace = true
 insert_final_newline = false
 
-
-# 4 space indentation
 [*.py]
-max_line_length = 80
+charset = utf-8
+trim_trailing_whitespace = true
 indent_style = space
 indent_size = 4
+
+[*.php]
+indent_style = space
+indent_size = 4
+
+[*.html]
+charset = utf-8
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.js]
+charset = utf-8
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
 

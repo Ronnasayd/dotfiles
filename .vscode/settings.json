@@ -5,12 +5,11 @@
   "files.autoSave": "onWindowChange",
   // workbench configuration
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Dracula",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "extensions.ignoreRecommendations": false,
   "explorer.confirmDelete": false,
-  // Editor configuration 
+  // Editor configuration
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.wordWrap": "on",
@@ -33,7 +32,7 @@
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
   },
-  // python configuration 
+  // python configuration
   "python.linting.pylintEnabled": true,
   "python.formatting.provider": "yapf",
   "python.formatting.yapfArgs": [
