@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/Ronnasayd/dotfiles/compare/v1.0.3...v1.0.4) (2020-03-17)
+
+
+### Bug Fixes
+
+* fsdffsdfsd ([c5fdf39](https://github.com/Ronnasayd/dotfiles/commit/c5fdf39ec517234a36eb043b939d0a5b7f388bd9))
+
 ### [1.0.3](https://github.com/Ronnasayd/dotfiles/compare/v1.0.2...v1.0.3) (2020-03-17)
 
 
