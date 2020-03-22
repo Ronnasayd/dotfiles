@@ -1,49 +1,53 @@
 {
   "python.pythonPath": "venv/bin/python3.7",
   "window.zoomLevel": 0,
+  // git len configuration
   "git.enableSmartCommit": true,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.enabled": false,
   "files.autoSave": "onWindowChange",
   // workbench configuration
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Dracula",
-  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.activityBar.visible": true,
+  "javascript.updateImportsOnFileMove.enabled": "never",
   "extensions.ignoreRecommendations": false,
   "explorer.confirmDelete": false,
+  "explorer.compactFolders": false,
   // Editor configuration
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.wordWrap": "on",
   "editor.fontFamily": "Fira Code",
-  "editor.fontSize": 16,
+  "editor.fontSize": 17,
   "editor.fontLigatures": true,
   "editor.lineHeight": 24,
   "editor.tabSize": 2,
-  "editor.rulers": [
-    80,
-    120
-  ],
-  "terminal.integrated.fontSize": 14,
+  "editor.rulers": [80, 120],
+  "editor.renderLineHighlight": "gutter",
+  // Terminal configuration
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.shell.osx": "/bin/zsh",
   // Emmet configuration
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.triggerExpansionOnTab": true,
   "emmet.syntaxProfiles": {
-    "javascript": "jsx",
+    "javascript": "jsx"
   },
   "emmet.includeLanguages": {
-    "javascript": "javascriptreact",
+    "javascript": "javascriptreact"
   },
+  "prettier.useEditorConfig": true,
   // python configuration
   "python.linting.pylintEnabled": true,
   "python.formatting.provider": "yapf",
-  "python.formatting.yapfArgs": [
-    "--style=${workspaceFolder}/.style.yapf"
-  ],
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python",
-    "editor.wordWrapColumn": 80,
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.formatOnPaste": true,
-  },
+  "python.formatting.yapfArgs": ["--style=${workspaceFolder}/.style.yapf"],
   "python.linting.pylintUseMinimalCheckers": false,
   "python.linting.pylintCategorySeverity.warning": "Hint",
+
+  "prettier.packageManager": "yarn",
+  "stylelint.packageManager": "yarn",
+  "breadcrumbs.enabled": true,
+  "editor.parameterHints.enabled": false
 }
