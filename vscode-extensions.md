@@ -28,4 +28,5 @@ ext install streetsidesoftware.code-spell-checker # code spell checker
 ext install oderwat.indent-rainbow # indent rainbow
 ext install formulahendry.auto-rename-tag  # auto rename tag
 ext install planbcoding.vscode-react-refactor # react refactor
+ext install VisualStudioExptTeam.vscodeintellicode # inellicode
 ```
