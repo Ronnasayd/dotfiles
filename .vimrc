@@ -8,3 +8,5 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='light'
 
 map <C-n> :NERDTreeToggle<CR>
+
+set number
