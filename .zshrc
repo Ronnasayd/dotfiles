@@ -48,7 +48,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery ram time)
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
- ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -129,3 +129,5 @@ zinit light-mode for \
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
