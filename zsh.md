@@ -52,11 +52,11 @@ zinit light zsh-users/zsh-completions
 
 ```
 
-7 - Add `asdf` to plugins if you will use
+7 - Add `asdf` and `virtualenv` to plugins if you will use
 
 ```
 
-plugins=(git asdf)
+plugins=(git asdf virtualenv)
 
 ```
 
@@ -68,6 +68,9 @@ https://github.com/supercrabtree/k
 
 ```
 
-```
+9 - set vim as default
 
+```
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim
 ```
