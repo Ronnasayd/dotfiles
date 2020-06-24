@@ -18,7 +18,7 @@ let g:airline_theme='light'
 let g:rainbow_active = 1
 let g:NERDToggleCheckAllLines = 1
 let g:gitgutter_terminal_reports_focus=0
-let g:gitgutter_async=0 
+let g:gitgutter_async=0
 
 "map keys
 map <silent><C-n> :NERDTreeToggle<CR>
@@ -29,7 +29,6 @@ vmap <C-c> y
 vmap <C-x> x
 imap <C-v> <esc>P
 nmap <C-z> u
-
 map <C-Up> <C-w><Up>
 map <C-Down> <C-w><Down>
 map <C-Right> <C-w><Right>
