@@ -9,6 +9,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'mileszs/ack.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'ryanoasis/vim-devicons'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 colorscheme dracula
@@ -24,6 +27,7 @@ let g:gitgutter_async=0
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 3
+let NERDTreeShowHidden=1
 
 "map keys
 map <silent><C-n> :NERDTreeToggle<CR>
@@ -38,13 +42,23 @@ map <C-Up> <C-w><Up>
 map <C-Down> <C-w><Down>
 map <C-Right> <C-w><Right>
 map <C-Left> <C-w><Left>
+map <C-a> :Ack! 
 
 
 set number
 set termguicolors
+set encoding=utf8
 
-" Notes
+if executable('ag')
+  let g:ackprg = 'ag --hidden  --vimgrep'
+endif
+
+" NOTES
+"
+" Install font FiraCode
+"
 " to install youcompleteme
+
 " apt install build-essential cmake vim python3-dev
 " :PlugInstall
 " cd ~/.vim/plugged/YouCompleteMe
