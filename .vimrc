@@ -12,6 +12,7 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 colorscheme dracula
@@ -42,7 +43,7 @@ map <C-Up> <C-w><Up>
 map <C-Down> <C-w><Down>
 map <C-Right> <C-w><Right>
 map <C-Left> <C-w><Left>
-map <C-a> :Ack! 
+map <C-a> :Ack!
 
 
 set number
