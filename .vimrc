@@ -41,9 +41,13 @@ vmap <C-x> x
 imap <C-v> <esc>P
 nmap <C-z> u
 map <C-Up> <C-w><Up>
+map <C-k> <C-w><Up>
 map <C-Down> <C-w><Down>
+map <C-j> <C-w><Down>
 map <C-Right> <C-w><Right>
+map <C-l> <C-w><Right>
 map <C-Left> <C-w><Left>
+map <C-h> <C-w><Left>
 map <C-a> :Ack! 
 
 
