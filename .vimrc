@@ -19,16 +19,16 @@ colorscheme dracula
 syntax enable
 
 " variables
-let g:airline_powerline_fonts = 1
 let g:airline_theme='light'
+let g:airline_powerline_fonts = 1
 let g:rainbow_active = 1
-let g:NERDToggleCheckAllLines = 1
 let g:gitgutter_terminal_reports_focus=0
 let g:gitgutter_async=0
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 20
-let NERDTreeShowHidden=1
+let g:NERDToggleCheckAllLines = 1
+let g:NERDTreeShowHidden=1
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|venv'
 
 "map keys
@@ -50,6 +50,14 @@ map <C-Left> <C-w><Left>
 map <C-h> <C-w><Left>
 map <C-a> :Ack! 
 
+map <Esc>j <A-j>
+map <Esc>k <A-k>
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 set number
 set termguicolors
@@ -69,3 +77,8 @@ endif
 " :PlugInstall
 " cd ~/.vim/plugged/YouCompleteMe
 " python3 python3 install.py --all
+"
+"
+"Print key codes to vim
+"sed -n l
+

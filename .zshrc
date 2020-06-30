@@ -6,6 +6,7 @@ export ZSH="/home/ronnasayd/.oh-my-zsh"
 
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
+alias vim="stty stop '' -ixoff ; vim"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
