@@ -27,8 +27,9 @@ let g:gitgutter_terminal_reports_focus=0
 let g:gitgutter_async=0
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
-let g:indent_guides_color_change_percent = 3
+let g:indent_guides_color_change_percent = 20
 let NERDTreeShowHidden=1
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|venv'
 
 "map keys
 map <silent><C-n> :NERDTreeToggle<CR>
@@ -43,7 +44,7 @@ map <C-Up> <C-w><Up>
 map <C-Down> <C-w><Down>
 map <C-Right> <C-w><Right>
 map <C-Left> <C-w><Left>
-map <C-a> :Ack!
+map <C-a> :Ack! 
 
 
 set number
