@@ -20,6 +20,9 @@ alias pvenv36="virtualenv --python=python3.6 venv"
 alias pvenv27="virtualenv --python=python2.7 venv"
 alias dps="docker ps"
 alias dpi="docker images"
+alias yst="yarn start"
+alias yb="yarn build"
+alias co="code"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
