@@ -13,6 +13,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'dense-analysis/ale'
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'Galooshi/vim-import-js'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 call plug#end()
 
 colorscheme dracula
@@ -30,6 +37,13 @@ let g:indent_guides_color_change_percent = 20
 let g:NERDToggleCheckAllLines = 1
 let g:NERDTreeShowHidden=1
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|venv'
+let g:javascript_plugin_jsdoc = 1
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql PrettierAsync
+
+let b:ale_linters = {'javascript': ['eslint'],'python': ['flake8', 'pylint']}
+let g:ale_fixers = {'javascript': ['eslint'],'typescript': ['prettier', 'tslint'],'vue': ['eslint'],'scss': ['prettier'],'html': ['prettier'],'reason': ['refmt']}
+let g:ale_fix_on_save = 1
 
 "map keys
 map <silent><C-n> :NERDTreeToggle<CR>
@@ -82,3 +96,6 @@ endif
 "Print key codes to vim
 "sed -n l
 
+" Vim import js
+" npm install -g import-js
+" usage: \j or \i

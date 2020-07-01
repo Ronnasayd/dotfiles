@@ -6,7 +6,16 @@ export ZSH="/home/ronnasayd/.oh-my-zsh"
 
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
+
+# ALIASES
 alias vim="stty stop '' -ixoff ; vim"
+alias gst="git status"
+alias gl="git pull"
+alias gp="git push"
+alias gc="git commit"
+alias gb="git branch"
+alias gco="git checkout"
+alias ga="git add"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
