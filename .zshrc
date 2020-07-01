@@ -9,12 +9,12 @@ export VISUAL=/usr/bin/vim
 
 # ALIASES
 alias vim="stty stop '' -ixoff ; vim"
-alias gst="git status"
+alias gs="git status"
 alias gl="git pull"
 alias gp="git push"
 alias gc="git commit"
 alias gb="git branch"
-alias gco="git checkout"
+alias gt="git checkout"
 alias ga="git add"
 alias pvenv36="virtualenv --python=python3.6 venv"
 alias pvenv27="virtualenv --python=python2.7 venv"
