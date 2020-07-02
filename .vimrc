@@ -104,6 +104,10 @@ set termguicolors
 set encoding=utf8
 set cursorline
 
+" Css Autocomplete <C-w><C-o>
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete 
+
 " Use search silverlight
 if executable('ag')
   let g:ackprg = 'ag --hidden  --vimgrep'
