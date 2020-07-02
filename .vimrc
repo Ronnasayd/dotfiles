@@ -38,14 +38,22 @@ let g:NERDToggleCheckAllLines = 1
 let g:NERDTreeShowHidden=1
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|venv'
 let g:javascript_plugin_jsdoc = 1
+let g:ycm_autoclose_preview_window_after_completion=1
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql PrettierAsync
 
 let b:ale_linters = {'javascript': ['eslint'],'python': ['flake8', 'pylint']}
 let g:ale_fixers = {'javascript': ['eslint'],'typescript': ['prettier', 'tslint'],'vue': ['eslint'],'scss': ['prettier'],'html': ['prettier'],'reason': ['refmt']}
 let g:ale_fix_on_save = 1
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
 
 "map keys
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <silent><C-n> :NERDTreeToggle<CR>
 map <silent><C-_> :call NERDComment(0,"toggle")<CR>
 map <silent><S-e> :vsp<CR>
