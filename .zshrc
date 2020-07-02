@@ -21,6 +21,7 @@ alias pvenv27="virtualenv --python=python2.7 venv"
 alias dps="docker ps"
 alias dpi="docker images"
 alias yst="yarn start"
+alias ya="yarn add"
 alias yb="yarn build"
 alias co="code"
 
