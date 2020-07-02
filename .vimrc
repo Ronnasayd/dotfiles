@@ -20,6 +20,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'Galooshi/vim-import-js'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'wakatime/vim-wakatime' 
 call plug#end()
 
 colorscheme dracula
@@ -73,6 +74,7 @@ map <C-Left> <C-w><Left>
 map <C-h> <C-w><Left>
 map <C-a> :Ack! 
 
+" Move line
 map <Esc>j <A-j>
 map <Esc>k <A-k>
 nnoremap <A-j> :m .+1<CR>==
@@ -82,19 +84,36 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
+" Zoom / Restore window (toggle maximize split windos <Alt>x).
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+	execute t:zoom_winrestcmd
+	let t:zoomed = 0
+    else
+	let t:zoom_winrestcmd = winrestcmd()
+	resize
+	vertical resize
+	let t:zoomed = 1
+    endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <silent> <Esc>x :ZoomToggle<CR>
+
 set number
 set termguicolors
 set encoding=utf8
+set cursorline
 
+" Use search silverlight
 if executable('ag')
   let g:ackprg = 'ag --hidden  --vimgrep'
 endif
 
 " NOTES
-"
+
 " Install font FiraCode
 "
-" to install youcompleteme
+" To install youcompleteme
 
 " apt install build-essential cmake vim python3-dev
 " :PlugInstall
