@@ -20,11 +20,15 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'Galooshi/vim-import-js'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'wakatime/vim-wakatime' 
+Plug 'wakatime/vim-wakatime'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'ap/vim-css-color'
+Plug 'alvan/vim-closetag'
 call plug#end()
-
 colorscheme dracula
-syntax enable
+
+syntax on
 
 " variables
 let g:airline_theme='light'

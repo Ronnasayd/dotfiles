@@ -1,3 +1,4 @@
+export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +9,7 @@ export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 
 # ALIASES
-alias vim="stty stop '' -ixoff ; vim"
+#alias vim="stty stop '' -ixoff ; vim"
 alias gs="git status"
 alias gl="git pull"
 alias gp="git push"
