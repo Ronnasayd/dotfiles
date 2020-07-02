@@ -34,7 +34,7 @@ syntax on
 
 " variables
 let g:colorizer_auto_color = 1
-let g:airline_theme='light'
+let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 let g:rainbow_active = 1
 let g:gitgutter_terminal_reports_focus=0
