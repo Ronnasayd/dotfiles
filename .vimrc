@@ -25,12 +25,15 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color'
 Plug 'alvan/vim-closetag'
+Plug 'kendling/taghighlight'
+Plug 'chrisbra/Colorizer'
 call plug#end()
 colorscheme dracula
 
 syntax on
 
 " variables
+let g:colorizer_auto_color = 1
 let g:airline_theme='light'
 let g:airline_powerline_fonts = 1
 let g:rainbow_active = 1
@@ -107,6 +110,8 @@ set number
 set termguicolors
 set encoding=utf8
 set cursorline
+set autoindent
+
 
 " Css Autocomplete <C-w><C-o>
 filetype plugin on
