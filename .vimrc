@@ -100,15 +100,15 @@ vnoremap <C-[> <
 
 " Zoom / Restore window (toggle maximize split windos <Alt>x).
 function! s:ZoomToggle() abort
-    if exists('t:zoomed') && t:zoomed
-	execute t:zoom_winrestcmd
-	let t:zoomed = 0
-    else
-	let t:zoom_winrestcmd = winrestcmd()
-	resize
-	vertical resize
-	let t:zoomed = 1
-    endif
+  if exists('t:zoomed') && t:zoomed
+    execute t:zoom_winrestcmd
+    let t:zoomed = 0
+  else
+    let t:zoom_winrestcmd = winrestcmd()
+    resize
+    vertical resize
+    let t:zoomed = 1
+  endif
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <Esc>x :ZoomToggle<CR>
@@ -118,9 +118,10 @@ set termguicolors
 set encoding=utf8
 "set cursorline " diable because is slow down vim
 set lazyredraw
-set synmaxcol=128
-syntax sync minlines=256
+set synmaxcol=80
+syntax sync minlines=64
 set ttyfast
+set regexpengine=1
 set autoindent
 
 
