@@ -91,6 +91,9 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
+vnoremap <C-]> >
+vnoremap <C-[> <
+
 " Zoom / Restore window (toggle maximize split windos <Alt>x).
 function! s:ZoomToggle() abort
     if exists('t:zoomed') && t:zoomed
@@ -109,7 +112,12 @@ nnoremap <silent> <Esc>x :ZoomToggle<CR>
 set number
 set termguicolors
 set encoding=utf8
-set cursorline
+"set cursorline " diable because is slow down vim
+set lazyredraw
+set synmaxcol=128
+syntax sync minlines=256
+set ttyfast
+set ttyscroll=3
 set autoindent
 
 
