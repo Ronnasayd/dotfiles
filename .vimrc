@@ -61,6 +61,10 @@ let g:user_emmet_settings = {
     \  },
   \}
 
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#3d4150  ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#757c9a ctermbg=4
+
 "map keys
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <silent><C-n> :NERDTreeToggle<CR>
@@ -117,7 +121,6 @@ set lazyredraw
 set synmaxcol=128
 syntax sync minlines=256
 set ttyfast
-set ttyscroll=3
 set autoindent
 
 
