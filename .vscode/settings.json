@@ -1,5 +1,5 @@
 {
-  "python.pythonPath": "venv/bin/python3.7",
+  "python.pythonPath": "/usr/bin/python3.7",
   "window.zoomLevel": 0,
   // git len configuration
   "git.enableSmartCommit": true,
@@ -11,13 +11,11 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Dracula",
   "workbench.activityBar.visible": true,
+  "workbench.editor.enablePreview": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "extensions.ignoreRecommendations": false,
   "explorer.confirmDelete": false,
   "explorer.compactFolders": false,
-  // Editor configuration
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
   "editor.wordWrap": "on",
   "editor.fontFamily": "Fira Code",
   "editor.fontSize": 17,
@@ -45,9 +43,26 @@
   "python.formatting.yapfArgs": ["--style=${workspaceFolder}/.style.yapf"],
   "python.linting.pylintUseMinimalCheckers": false,
   "python.linting.pylintCategorySeverity.warning": "Hint",
-
   "prettier.packageManager": "yarn",
   "stylelint.packageManager": "yarn",
   "breadcrumbs.enabled": true,
-  "editor.parameterHints.enabled": false
+  "editor.parameterHints.enabled": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.renderIndentGuides": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "python.jediEnabled": false,
+  "editor.formatOnSave": true
 }
+// keybindings
+// <ctrl>+<tab> : switch between open files
+// <ctrl>+g : go to line
+// <ctrl>+p : search file
+// <ctrl>+~ : toggle side bar
+// <ctrl>+, : toggle terminal
+// <ctrl>+w : close window
+// <ctrl>+f : search word current file
+// <ctrl>+<shift>+f : search word in all files
+// <ctrl>+h : replace word in current file
+// <ctrl>+<shift>+h : replace word in all files
+// <ctrl>+d+d : delete line

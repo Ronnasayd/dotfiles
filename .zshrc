@@ -25,6 +25,9 @@ alias yst="yarn start"
 alias ya="yarn add"
 alias yb="yarn build"
 alias co="code"
+alias sv="source venv/bin/activate"
+alias deac="deactivate"
+alias pipr="pip install -r requirements.txt"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
