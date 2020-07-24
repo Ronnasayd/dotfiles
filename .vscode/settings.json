@@ -1,21 +1,29 @@
 {
-  "python.pythonPath": "/usr/bin/python3.7",
+  // general configuration--------------------------------------
   "window.zoomLevel": 0,
-  // git len configuration
-  "git.enableSmartCommit": true,
-  "gitlens.codeLens.recentChange.enabled": false,
-  "gitlens.codeLens.authors.enabled": false,
-  "gitlens.codeLens.enabled": false,
-  "files.autoSave": "onWindowChange",
-  // workbench configuration
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Dracula",
-  "workbench.activityBar.visible": true,
-  "workbench.editor.enablePreview": false,
+  // "files.autoSave": "onWindowChange",
+  "stylelint.packageManager": "yarn",
+  "breadcrumbs.enabled": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "javascript.updateImportsOnFileMove.enabled": "never",
   "extensions.ignoreRecommendations": false,
   "explorer.confirmDelete": false,
   "explorer.compactFolders": false,
+  //------------------------------------------------------------
+  // git len configuration--------------------------------------
+  "git.enableSmartCommit": true,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  //-------------------------------------------------------------
+  // workbench configuration-------------------------------------
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Dracula",
+  "workbench.activityBar.visible": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.startupEditor": "newUntitledFile",
+  //-------------------------------------------------------------
+  // Editor configuration-----------------------------------------
   "editor.wordWrap": "on",
   "editor.fontFamily": "Fira Code",
   "editor.fontSize": 17,
@@ -24,10 +32,16 @@
   "editor.tabSize": 2,
   "editor.rulers": [80, 120],
   "editor.renderLineHighlight": "gutter",
-  // Terminal configuration
+  "editor.renderIndentGuides": false,
+  "editor.suggestSelection": "first",
+  "editor.parameterHints.enabled": false,
+  "editor.formatOnSave": true,
+  //--------------------------------------------------------------
+  // Terminal configuration---------------------------------------
   "terminal.integrated.fontSize": 15,
   "terminal.integrated.shell.osx": "/bin/zsh",
-  // Emmet configuration
+  //--------------------------------------------------------------
+  // Emmet configuration------------------------------------------
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.triggerExpansionOnTab": true,
   "emmet.syntaxProfiles": {
@@ -36,33 +50,31 @@
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
+  //--------------------------------------------------------------
+  // prettier configuration--------------------------------------------
   "prettier.useEditorConfig": true,
-  // python configuration
+  "prettier.packageManager": "yarn",
+  //------------------------------------------------------------------------
+  // python configuration---------------------------------------------------
   "python.linting.pylintEnabled": true,
   "python.formatting.provider": "yapf",
   "python.formatting.yapfArgs": ["--style=${workspaceFolder}/.style.yapf"],
   "python.linting.pylintUseMinimalCheckers": false,
   "python.linting.pylintCategorySeverity.warning": "Hint",
-  "prettier.packageManager": "yarn",
-  "stylelint.packageManager": "yarn",
-  "breadcrumbs.enabled": true,
-  "editor.parameterHints.enabled": false,
-  "workbench.startupEditor": "newUntitledFile",
-  "editor.renderIndentGuides": false,
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "python.jediEnabled": false,
-  "editor.formatOnSave": true
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  "python.testing.pytestEnabled": true,
+  "python.languageServer": "Microsoft",
+  //------------------------------------------------------------------------
+  // Sync configuration-------------------------------------------
+  "sync.autoDownload": true,
+  "sync.autoUpload": true,
+  "sync.quietSync": true,
+  "sync.forceDownload": true,
+  "sync.forceUpload": true,
+  "sync.gist": "ee0f6e17f064beb3f7a118b514cc161f",
+  //---------------------------------------------------------------
+  // cSpeel configuration---------------------------------------------
+  "cSpell.language": "pt,en,en-GB,en-US",
+  "cSpell.enabled": true
+  //-----------------------------------------------------------------
 }
-// keybindings
-// <ctrl>+<tab> : switch between open files
-// <ctrl>+g : go to line
-// <ctrl>+p : search file
-// <ctrl>+~ : toggle side bar
-// <ctrl>+, : toggle terminal
-// <ctrl>+w : close window
-// <ctrl>+f : search word current file
-// <ctrl>+<shift>+f : search word in all files
-// <ctrl>+h : replace word in current file
-// <ctrl>+<shift>+h : replace word in all files
-// <ctrl>+d+d : delete line
