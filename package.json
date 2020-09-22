@@ -11,7 +11,7 @@
     "devmoji": "^2.1.9",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
-    "standard-version": "^7.1.0"
+    "standard-version": "^8.0.1"
   },
   "scripts": {
     "release": "HUSKY_SKIP_HOOKS=1 standard-version",
