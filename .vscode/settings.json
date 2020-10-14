@@ -55,10 +55,13 @@
   "editor.suggestSelection": "first",
   "editor.parameterHints.enabled": false,
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.renderControlCharacters": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.organizeImports": true
+  },
+  "[javascript,typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   //--------------------------------------------------------------
 
@@ -108,8 +111,5 @@
   // cSpeel configuration---------------------------------------------
   "cSpell.language": "pt,en,en-GB,en-US",
   "cSpell.enabled": true,
-  "editor.renderControlCharacters": true,
-  "python.pythonPath": "/usr/bin/python3",
-  "liveServer.settings.donotShowInfoMsg": true
   //-----------------------------------------------------------------
 }
