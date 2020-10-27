@@ -17,6 +17,8 @@
     "**/.DS_Store": true,
     "**/node_modules": true,
     "**/__pycache__": true,
+    "**/.scannerwork": true,
+    "**/htmlcov": true,
     "**/.pytest_cache": true
   },
   "search.exclude": {
@@ -55,12 +57,11 @@
   "editor.suggestSelection": "first",
   "editor.parameterHints.enabled": false,
   "editor.formatOnSave": true,
-  "editor.renderControlCharacters": true,
+  "editor.renderControlCharacters": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-    "source.organizeImports": true
   },
-  "[javascript,typescript]": {
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   //--------------------------------------------------------------
@@ -88,8 +89,8 @@
 
   // python configuration---------------------------------------------------
   "python.linting.pylintEnabled": true,
-  "python.formatting.provider": "yapf",
-  "python.formatting.yapfArgs": ["--style=${workspaceFolder}/.style.yapf"],
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length", "80"],
   "python.linting.pylintUseMinimalCheckers": false,
   "python.linting.pylintCategorySeverity.warning": "Hint",
   "python.testing.autoTestDiscoverOnSaveEnabled": true,
