@@ -1,7 +1,4 @@
 {
-  // general configuration--------------------------------------
-  "window.zoomLevel": 0,
-  // "files.autoSave": "onWindowChange",
   "stylelint.packageManager": "yarn",
   "breadcrumbs.enabled": true,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -28,6 +25,10 @@
     "**/venv": true,
     "**/build": true
   },
+  //-------------------------------------------------------------
+  "guides.active.width": 2,
+  "guides.active.color.dark": "rgba(224, 255, 255, 0.7)",
+  //-------------------------------------------------------------
   //------------------------------------------------------------
   // git len configuration--------------------------------------
   "git.enableSmartCommit": true,
@@ -73,6 +74,7 @@
  "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
  },
+
   //--------------------------------------------------------------
 
   // Terminal configuration---------------------------------------
@@ -121,15 +123,20 @@
   // cSpeel configuration---------------------------------------------
   "cSpell.language": "pt,en,en-GB,en-US",
   "cSpell.enabled": true,
-  "python.pythonPath": "/usr/bin/python3",
   //-----------------------------------------------------------------
   // vetur configuration----------------------------------------------
-  "vetur.completion.autoImport": true,
+  "vetur.validation.template": false,
   "vetur.format.defaultFormatter.ts": "prettier",
   "vetur.format.defaultFormatter.js": "prettier",
   "vetur.format.defaultFormatter.css": "prettier",
   "vetur.format.defaultFormatter.scss": "prettier",
   "vetur.format.defaultFormatter.pug": "prettier",
   "vetur.format.defaultFormatter.html": "prettier",
+  "terminal.integrated.shell.linux": "/bin/zsh",
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   //-------------------------------------------------------------------
+
 }
