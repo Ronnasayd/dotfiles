@@ -56,10 +56,10 @@ let g:ale_fixers = {'javascript': ['eslint'],'typescript': ['prettier', 'tslint'
 let g:ale_fix_on_save = 1
 let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_settings = {
-  \  'javascript.jsx' : {
-    \      'extends' : 'jsx',
-    \  },
-  \}
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#3d4150  ctermbg=3
@@ -67,21 +67,37 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#757c9a ctermbg=4
 
 "map keys
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" <CTRL+n> toggle NERDTree
 map <silent><C-n> :NERDTreeToggle<CR>
+" <CTRL + /> comment code
 map <silent><C-_> :call NERDComment(0,"toggle")<CR>
+" <SHIFT + e> split horizontal
 map <silent><S-e> :vsp<CR>
+" <SHIFT + 0> split vertical
 map <silent><S-o> :sp<CR>
+" <CTRL + c> copy
 vmap <C-c> y
+" <CTRL + x> cut
 vmap <C-x> x
+" <CTRL + v> paste
 imap <C-v> <esc>P
+" <CTRTL + z> undo
 nmap <C-z> u
+" <CTRL + up> move to up split
 map <C-Up> <C-w><Up>
+" <CTRL + k> move to up split
 map <C-k> <C-w><Up>
+" <CTRL + down> move to down split
 map <C-Down> <C-w><Down>
+" <CTRL + j> move to down split
 map <C-j> <C-w><Down>
+" <CTRL + right> move to right split
 map <C-Right> <C-w><Right>
+" <CTRL + l> move to right split
 map <C-l> <C-w><Right>
+" <CTRL + left> move to left split
 map <C-Left> <C-w><Left>
+" <CTRL + h> move to left split
 map <C-h> <C-w><Left>
 map <C-a> :Ack! 
 
@@ -100,15 +116,15 @@ vnoremap <C-[> <
 
 " Zoom / Restore window (toggle maximize split windos <Alt>x).
 function! s:ZoomToggle() abort
-  if exists('t:zoomed') && t:zoomed
-    execute t:zoom_winrestcmd
-    let t:zoomed = 0
-  else
-    let t:zoom_winrestcmd = winrestcmd()
-    resize
-    vertical resize
-    let t:zoomed = 1
-  endif
+if exists('t:zoomed') && t:zoomed
+execute t:zoom_winrestcmd
+let t:zoomed = 0
+else
+let t:zoom_winrestcmd = winrestcmd()
+resize
+vertical resize
+let t:zoomed = 1
+endif
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <Esc>x :ZoomToggle<CR>
@@ -131,7 +147,7 @@ set omnifunc=syntaxcomplete#Complete
 
 " Use search silverlight
 if executable('ag')
-  let g:ackprg = 'ag --hidden  --vimgrep'
+let g:ackprg = 'ag --hidden  --vimgrep'
 endif
 
 " NOTES
