@@ -3,7 +3,7 @@ export TERM="xterm-256color"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ronnasayd/.oh-my-zsh"
+export ZSH="/home/ronnas/.oh-my-zsh"
 
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
@@ -17,17 +17,29 @@ alias gc="git commit"
 alias gb="git branch"
 alias gt="git checkout"
 alias ga="git add"
+alias gm="git merge"
+alias gpm="git pull origin master"
+alias pvenv="python3 -m venv venv"
 alias pvenv36="virtualenv --python=python3.6 venv"
 alias pvenv27="virtualenv --python=python2.7 venv"
 alias dps="docker ps"
 alias dpi="docker images"
-alias yst="yarn start"
+alias ys="yarn start"
 alias ya="yarn add"
+alias yad="yarn add --dev"
 alias yb="yarn build"
+alias yd="yarn dev"
+alias yi="yarn init"
+alias yins="yarn install"
+alias yt="yarn test"
+alias yrm="yarn remove"
+alias yrun="yarn run"
 alias co="code"
-alias sv="source venv/bin/activate"
+alias sac="source venv/bin/activate"
 alias deac="deactivate"
 alias pipr="pip install -r requirements.txt"
+alias cox="code . && exit"
+alias chromeqq="google-chrome --user-data-dir='/home/ronnas/browser-dirs/queroQuitar'  --password-store=basic"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -96,7 +108,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery ram time)
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf k virtualenv)
+plugins=(git asdf virtualenv gitignore gulp)
 
 source $ZSH/oh-my-zsh.sh
 

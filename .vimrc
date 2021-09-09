@@ -99,7 +99,7 @@ map <C-l> <C-w><Right>
 map <C-Left> <C-w><Left>
 " <CTRL + h> move to left split
 map <C-h> <C-w><Left>
-map <C-a> :Ack! 
+map <C-a> :Ack!
 
 " Move line
 map <Esc>j <A-j>
@@ -143,7 +143,7 @@ set autoindent
 
 " Css Autocomplete <C-w><C-o>
 filetype plugin on
-set omnifunc=syntaxcomplete#Complete 
+set omnifunc=syntaxcomplete#Complete
 
 " Use search silverlight
 if executable('ag')
