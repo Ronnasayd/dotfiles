@@ -9,7 +9,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'mileszs/ack.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ycm-core/YouCompleteMe'
-Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
@@ -27,6 +26,7 @@ Plug 'ap/vim-css-color'
 Plug 'alvan/vim-closetag'
 Plug 'kendling/taghighlight'
 Plug 'chrisbra/Colorizer'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 colorscheme dracula
 
@@ -44,6 +44,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 20
 let g:NERDToggleCheckAllLines = 1
 let g:NERDTreeShowHidden=1
+let g:NERDTreeIgnore = ['^node_modules$']
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|venv'
 let g:ctrlp_show_hidden = 1
 let g:javascript_plugin_jsdoc = 1
@@ -99,7 +100,7 @@ map <C-l> <C-w><Right>
 map <C-Left> <C-w><Left>
 " <CTRL + h> move to left split
 map <C-h> <C-w><Left>
-map <C-a> :Ack!
+map <C-a> :Ack! 
 
 " Move line
 map <Esc>j <A-j>
@@ -143,7 +144,7 @@ set autoindent
 
 " Css Autocomplete <C-w><C-o>
 filetype plugin on
-set omnifunc=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete 
 
 " Use search silverlight
 if executable('ag')

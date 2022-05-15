@@ -19,9 +19,9 @@ alias gt="git checkout"
 alias ga="git add"
 alias gm="git merge"
 alias gpm="git pull origin master"
-alias pvenv="python3 -m venv venv"
-alias pvenv36="virtualenv --python=python3.6 venv"
-alias pvenv27="virtualenv --python=python2.7 venv"
+alias pvv="python3 -m venv venv"
+alias pvv36="virtualenv --python=python3.6 venv"
+alias pvv27="virtualenv --python=python2.7 venv"
 alias dps="docker ps"
 alias dpi="docker images"
 alias ys="yarn start"
@@ -39,17 +39,17 @@ alias sac="source venv/bin/activate"
 alias deac="deactivate"
 alias pipr="pip install -r requirements.txt"
 alias cox="code . && exit"
-alias chromeqq="google-chrome --user-data-dir='/home/ronnas/browser-dirs/queroQuitar'  --password-store=basic"
-
+alias gob="go build"
+alias gor="go run"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs virtualenv)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs virtualenv)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery ram time)
-
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
