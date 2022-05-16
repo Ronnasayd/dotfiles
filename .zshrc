@@ -54,7 +54,7 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰─# "
 #POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="\n"
 #POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="#"
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳" 
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
