@@ -43,8 +43,9 @@ if !empty(glob('~/.vim/plugged/nerdtree'))
   "  @ variables
   let g:NERDToggleCheckAllLines = 1
   let g:NERDTreeShowHidden=1
-  let g:NERDTreeIgnore = ['^node_modules$']
-  let g:NERDTreeMapOpenInTab='<ENTER>'
+  let g:NERDTreeIgnore = ['^node_modules$','^venv$']
+  let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
+  "let g:NERDTreeMapOpenInTab='<C-ENTER>'
   "  @ <CTRL+n> toggle NERDTree
   map <silent><C-n> :NERDTreeToggle<CR>
   " Start NERDTree when Vim is started without file arguments.
