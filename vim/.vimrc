@@ -150,7 +150,7 @@ endif
 if !empty(glob('~/.vim/plugged/YouCompleteMe'))
   "  Execute this commands to compile
   "  >> apt-get install -y make python3-dev build-essential vim-nox
-  "  >> silent execute 'python3 ~/.vim/plugged/YouCompleteMe/install.py --all'
+  "  >> python3 ~/.vim/plugged/YouCompleteMe/install.py --all
   let g:ycm_autoclose_preview_window_after_completion=1
   map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 endif
