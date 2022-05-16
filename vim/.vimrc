@@ -44,8 +44,12 @@ if !empty(glob('~/.vim/plugged/nerdtree'))
   let g:NERDToggleCheckAllLines = 1
   let g:NERDTreeShowHidden=1
   let g:NERDTreeIgnore = ['^node_modules$']
+  let g:NERDTreeMapOpenInTab='<ENTER>'
   "  @ <CTRL+n> toggle NERDTree
   map <silent><C-n> :NERDTreeToggle<CR>
+  " Start NERDTree when Vim is started without file arguments.
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 endif
 
 "  @ NERDCommenter
@@ -159,7 +163,8 @@ endif
 "  @ definitions
 set number
 set termguicolors
-set encoding=utf8
+set encoding=utf-8
+set fileencoding=utf-8
 set lazyredraw
 set synmaxcol=80
 set ttyfast
@@ -211,3 +216,6 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 vnoremap <C-]> >
 vnoremap <C-[> <
+
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
