@@ -68,6 +68,8 @@ POWERLEVEL9K_RAM_BACKGROUND="#9b6cdd"
 POWERLEVEL9K_TIME_BACKGROUND="#7C40DF"
 POWERLEVEL9K_TIME_FOREGROUND="#eee"
 POWERLEVEL9K_DISK_USAGE_FOREGROUND="#ccc"
+POWERLEVEL9K_SHORTEN_DELIMITER=...
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
