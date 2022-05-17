@@ -47,12 +47,15 @@ alias gor="go run"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs virtualenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery ram time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir  vcs virtualenv)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status disk_usage battery ram time)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰─# "
-
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰─⚡️ "
+POWERLEVEL9K_RAM_BACKGROUND="#9b6cdd"
+POWERLEVEL9K_TIME_BACKGROUND="#7C40DF"
+POWERLEVEL9K_TIME_FOREGROUND="#eee"
+POWERLEVEL9K_DISK_USAGE_FOREGROUND="#ccc"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
