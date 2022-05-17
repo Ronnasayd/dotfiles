@@ -28,6 +28,8 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript'
+Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -107,6 +109,8 @@ if !empty(glob('~/.vim/plugged/ale'))
   let g:ale_fixers = {'javascript': ['eslint'],'typescript': ['prettier', 'tslint'],'vue': ['eslint'],'scss': ['prettier'],'html': ['prettier'],'reason': ['refmt']}
   let g:ale_fix_on_save = 1
   let g:ale_linters_explicit = 1
+  let g:ale_sign_error = '❌'
+  let g:ale_sign_warning = '⚠️'
 endif
 
 "  @ emmet-vim
@@ -160,6 +164,10 @@ if !empty(glob('~/.vim/plugged/YouCompleteMe'))
   map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 endif
 
+ "  @ vim-javascript
+ if !empty(glob('~/.vim/plugged/vim-javascript'))
+    let g:javascript_plugin_jsdoc = 1
+ endif
 
 "  @ definitions
 set number
