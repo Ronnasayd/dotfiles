@@ -41,14 +41,26 @@ alias cox="code . && exit"
 alias gob="go build"
 alias gor="go run"
 
+
+function prompt_my_cpu_temp() {
+integer cpu_temp=" ($(</sys/class/thermal/thermal_zone0/temp) + $(</sys/class/thermal/thermal_zone1/temp)) / 2000"
+if (( cpu_temp >= 80 ));then
+	p10k segment -s HOT -f red -i '🔥' -t "${cpu_temp}°C"
+elif (( cpu_temp >= 60 ));then
+	p10k segment -s WARN -f yellow  -t "${cpu_temp}°C"
+else
+	p10k segment -s INFO -f green  -t "${cpu_temp}°C"
+fi
+}
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir  vcs virtualenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status disk_usage battery ram time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir  vcs virtualenv)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status my_cpu_temp battery ram time)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰─⚡️ "
