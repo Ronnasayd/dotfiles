@@ -174,6 +174,7 @@ endif
 
 "  @ definitions
 set number
+set mouse=a
 set termguicolors
 set encoding=utf-8
 set fileencoding=utf-8
@@ -230,4 +231,4 @@ vnoremap <C-[> <
 
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
-
+nnoremap <C-LeftMouse> <LeftMouse>:YcmCompleter GoTo<CR>
