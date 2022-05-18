@@ -168,6 +168,5 @@ plugins=(git asdf virtualenv gitignore gulp zsh-autosuggestions tmux)
 ZSH_TMUX_AUTOSTART=true
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 ZSH_TMUX_AUTOCONNECT=false
-ZSH_TMUX_AUTOQUIT=false
 
 source $ZSH/oh-my-zsh.sh
