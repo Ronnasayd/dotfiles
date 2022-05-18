@@ -40,6 +40,11 @@ alias pipr="pip install -r requirements.txt"
 alias cox="code . && exit"
 alias gob="go build"
 alias gor="go run"
+alias tma="tmux attach"
+alias tmat="tmux attach -t"
+alias tmls="tmux ls"
+alias tmd="tmux detach"
+alias tmks="tmux kill-server"
 
 
 function prompt_my_cpu_temp() {
@@ -59,7 +64,7 @@ fi
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir  vcs virtualenv)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs virtualenv)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status my_cpu_temp battery ram time)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─"
@@ -130,9 +135,9 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf virtualenv gitignore gulp zsh-autosuggestions)
+plugins=(git asdf virtualenv gitignore gulp zsh-autosuggestions tmux)
 
-source $ZSH/oh-my-zsh.sh
+
 
 # User configuration
 
@@ -160,5 +165,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
+ZSH_TMUX_AUTOSTART=true
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+ZSH_TMUX_AUTOCONNECT=false
+ZSH_TMUX_AUTOQUIT=false
+
+source $ZSH/oh-my-zsh.sh
