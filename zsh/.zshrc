@@ -135,7 +135,7 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf virtualenv gitignore gulp zsh-autosuggestions)
+plugins=(git asdf virtualenv gitignore gulp zsh-autosuggestions zsh-syntax-highlighting)
 
 
 
