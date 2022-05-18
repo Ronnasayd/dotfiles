@@ -135,7 +135,7 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf virtualenv gitignore gulp zsh-autosuggestions tmux)
+plugins=(git asdf virtualenv gitignore gulp zsh-autosuggestions)
 
 
 
@@ -165,8 +165,8 @@ plugins=(git asdf virtualenv gitignore gulp zsh-autosuggestions tmux)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-ZSH_TMUX_AUTOSTART=true
+#ZSH_TMUX_AUTOSTART=true
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
-ZSH_TMUX_AUTOCONNECT=false
+#ZSH_TMUX_AUTOCONNECT=false
 
 source $ZSH/oh-my-zsh.sh
