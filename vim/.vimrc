@@ -12,7 +12,6 @@ Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'frazrepo/vim-rainbow'
 Plug 'jiangmiao/auto-pairs'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -70,15 +69,13 @@ if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_powerline_fonts = 1
 endif
 
-"  @ vim-rainbow
-if !empty(glob('~/.vim/plugged/vim-rainbow'))
-  let g:rainbow_active = 1
-endif
 
 "  @ vim-indent-guides
 if !empty(glob('~/.vim/plugged/vim-indent-guides'))
+  set ts=1 sw=2 et
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_guide_size = 1
+  let g:indent_guides_start_level=2
   let g:indent_guides_color_change_percent = 20
   let g:indent_guides_auto_colors = 0
   autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#3d4150  ctermbg=3
@@ -89,6 +86,8 @@ endif
 if !empty(glob('~/.vim/plugged/ctrlp.vim'))
   let g:ctrlp_custom_ignore = '\.node_modules\|\.git\|\.venv\|vendor'
   let g:ctrlp_show_hidden = 1
+  let g:ctrlp_user_command = 'fd --type f --hidden --follow --exclude .git'
+  let g:ctrlp_use_caching = 0
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
 endif
@@ -103,7 +102,8 @@ endif
 "  @ vim-prettier
 if !empty(glob('~/.vim/plugged/vim-prettier'))
   let g:prettier#autoformat = 1
-  autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql PrettierAsync
+  let g:prettier#autoformat_require_pragma = 0
+  autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql,*.html,*.vue PrettierAsync
 endif
 
 "  @ ale
@@ -119,7 +119,7 @@ endif
 "  @ emmet-vim
 if !empty(glob('~/.vim/plugged/emmet-vim'))
   let g:user_emmet_install_global = 0
-  let g:user_emmet_leader_key='<Tab>'
+  let g:user_emmet_leader_key='<C-m>'
   let g:user_emmet_settings = {
   \  'javascript.jsx' : {
   \      'extends' : 'jsx',
@@ -201,22 +201,23 @@ nmap <C-z> u
 map <silent><S-e> :vsp<CR>
 " <SHIFT + o> split vertical
 map <silent><S-o> :sp<CR>
-" <CTRL + up> move to up split
-map <C-Up> <C-w><Up>
-" <CTRL + k> move to up split
-map <C-k> <C-w><Up>
-" <CTRL + down> move to down split
-map <C-Down> <C-w><Down>
-" <CTRL + j> move to down split
-map <C-j> <C-w><Down>
-" <CTRL + right> move to right split
-map <C-Right> <C-w><Right>
-" <CTRL + l> move to right split
-map <C-l> <C-w><Right>
-" <CTRL + left> move to left split
-map <C-Left> <C-w><Left>
-" <CTRL + h> move to left split
-map <C-h> <C-w><Left>
+" <SHIFT + up> move to up split
+map <S-Up> <C-w><Up>
+" <SHIFT + k> move to up split
+map <S-k> <C-w><Up>
+" <SHIFT + down> move to down split
+map <S-Down> <C-w><Down>
+" <SHIFT + j> move to down split
+map <S-j> <C-w><Down>
+" <SHIFT + right> move to right split
+map <S-Right> <C-w><Right>
+" <SHIFT + l> move to right split
+map <S-l> <C-w><Right>
+" <SHIFT + left> move to left split
+map <S-Left> <C-w><Left>
+" <SHIFT + h> move to left split
+map <S-h> <C-w><Left>
+
 
 " Move line
 map <Esc>j <A-j>
@@ -231,5 +232,4 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 vnoremap <C-]> >
 vnoremap <C-[> <
 
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+nnoremap <S-Tab> :tabnext<CR>
