@@ -185,6 +185,7 @@ set synmaxcol=80
 set ttyfast
 set regexpengine=1
 set autoindent
+set guifont=FiraCode\ Nerd\ Font\ Medium\ 12
 syntax on
 syntax sync minlines=64
 filetype plugin on
