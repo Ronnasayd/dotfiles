@@ -1,31 +1,31 @@
 "  @@ install plug-vim 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
 "  @@ list of plugins
 call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'preservim/nerdtree'
-Plug 'preservim/nerdcommenter'
-Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/nerdtree'
+Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
-Plug 'editorconfig/editorconfig-vim'
+Plug 'preservim/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'editorconfig/editorconfig-vim'
 Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
-Plug 'chrisbra/Colorizer'
 Plug 'wakatime/vim-wakatime'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'chrisbra/Colorizer'
 Plug 'alvan/vim-closetag'
 Plug 'ycm-core/YouCompleteMe'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'leafgarland/typescript-vim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 Plug 'sheerun/vim-polyglot'
@@ -35,50 +35,50 @@ call plug#end()
 
 "  @@ dracula
 if !empty(glob('~/.vim/plugged/dracula'))
-  syntax enable
-  colorscheme dracula
-  "let g:dracula_colorterm = 0
-  "let g:dracula_italic = 0
-  set background=dark
+syntax enable
+colorscheme dracula
+"let g:dracula_colorterm = 0
+"let g:dracula_italic = 0
+set background=dark
 endif
 
 "  @@ NERDTREE
 if !empty(glob('~/.vim/plugged/nerdtree'))
-  "  @ variables
-  let g:NERDToggleCheckAllLines = 1
-  let g:NERDTreeShowHidden=1
-  let g:NERDTreeIgnore = ['^node_modules$','^venv$']
-  let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
-  "let g:NERDTreeMapOpenInTab='<C-ENTER>'
-  "  @ <CTRL+n> toggle NERDTree
-  map <silent><C-n> :NERDTreeToggle<CR>
-  " Start NERDTree when Vim is started without file arguments.
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+"  @ variables
+let g:NERDToggleCheckAllLines = 1
+let g:NERDTreeShowHidden=1
+let g:NERDTreeIgnore = ['^node_modules$','^venv$']
+let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
+"let g:NERDTreeMapOpenInTab='<C-ENTER>'
+"  @ <CTRL+n> toggle NERDTree
+map <silent><C-n> :NERDTreeToggle<CR>
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 endif
 
 "  @ NERDCommenter
 if !empty(glob('~/.vim/plugged/nerdcommenter'))
-  "  @ <CTRL + /> comment code
-  map <silent><C-_> :call NERDComment(0,"toggle")<CR>
+"  @ <CTRL + /> comment code
+map <silent><C-_> :call NERDComment(0,"toggle")<CR>
 endif
 
 "  @ vim-airline
 if !empty(glob('~/.vim/plugged/vim-airline'))
-  let g:airline_theme='dark'
-  let g:airline_powerline_fonts = 1
+let g:airline_theme='dark'
+let g:airline_powerline_fonts = 1
 endif
 
 
 "  @ vim-indent-guides
 if !empty(glob('~/.vim/plugged/vim-indent-guides'))
-  set ts=1 sw=2 et
-  let g:indent_guides_enable_on_vim_startup = 1
-  let g:indent_guides_guide_size = 1
-  let g:indent_guides_start_level=2
-  let g:indent_guides_color_change_percent = 20
-  let g:indent_guides_auto_colors = 0
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#3d4150  ctermbg=3
+set ts=1 sw=2 et
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level=2
+let g:indent_guides_color_change_percent = 20
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#3d4150  ctermbg=3
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#757c9a ctermbg=4
 endif
 
@@ -91,14 +91,14 @@ if !empty(glob('~/.vim/plugged/ctrlp.vim'))
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
 endif
-
-
+  
+  
 "  @ vim-gitgutter
 if !empty(glob('~/.vim/plugged/vim-gitgutter'))
   let g:gitgutter_terminal_reports_focus=0
   let g:gitgutter_async=0
 endif
-
+  
 "  @ vim-prettier
 if !empty(glob('~/.vim/plugged/vim-prettier'))
   let g:prettier#autoformat = 1
@@ -115,7 +115,7 @@ if !empty(glob('~/.vim/plugged/ale'))
   let g:ale_sign_error = '❌'
   let g:ale_sign_warning = '⚠️'
 endif
-
+ 
 "  @ emmet-vim
 if !empty(glob('~/.vim/plugged/emmet-vim'))
   let g:user_emmet_install_global = 0
@@ -124,20 +124,20 @@ if !empty(glob('~/.vim/plugged/emmet-vim'))
   \  'javascript.jsx' : {
   \      'extends' : 'jsx',
   \  },
-  \}
+  \} 
   autocmd FileType html,css EmmetInstall
 endif
-
+  
 "  @ Colorizer
 if !empty(glob('~/.vim/plugged/Colorizer'))
   let g:colorizer_auto_color = 1
 endif
-
+ 
 "  @ vim-closetag
 if !empty(glob('~/.vim/plugged/vim-closetag'))
-  let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+  let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
   let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-  let g:closetag_filetypes = 'html,xhtml,phtml'
+  let g:closetag_filetypes = 'html,xhtml,phtml,vue'
   let g:closetag_xhtml_filetypes = 'xhtml,jsx'
   let g:closetag_emptyTags_caseSensitive = 1
   let g:closetag_shortcut = '>'
@@ -148,7 +148,7 @@ if !empty(glob('~/.vim/plugged/vim-closetag'))
     \ 'javascriptreact': 'jsxRegion',
     \ }
 endif
-
+ 
 "  @ vim-devicons
 if !empty(glob('~/.vim/plugged/vim-devicons'))
   let g:webdevicons_enable = 1
@@ -158,8 +158,8 @@ if !empty(glob('~/.vim/plugged/vim-devicons'))
   let g:webdevicons_enable_ctrlp = 1
 endif
 
-"  @ YouCompleteMe
 if !empty(glob('~/.vim/plugged/YouCompleteMe'))
+"  @ YouCompleteMe
   "  Execute this commands to compile
   "  >> apt-get install -y make python3-dev build-essential vim-nox
   "  >> python3 ~/.vim/plugged/YouCompleteMe/install.py --all
@@ -172,6 +172,14 @@ endif
  "  @ vim-javascript
  if !empty(glob('~/.vim/plugged/vim-javascript'))
     let g:javascript_plugin_jsdoc = 1
+ endif
+
+ if !empty(glob('~/.coc.vim'))
+   source ~/.coc.vim
+   let g:tailwindcss_enable = 1
+   let g:tailwindcss_trace_server = 'off'
+   let g:tailwindcss_custom_server_path = ''
+   let g:tailwindcss_emmet_completions = 1
  endif
 
 "  @ definitions
@@ -191,11 +199,14 @@ syntax sync minlines=64
 filetype plugin on
 "  @ map keys
 " <CTRL + c> copy
-vmap <C-c> y
+vmap <C-c> "+y
+nmap <C-c> "+yy
 " <CTRL + x> cut
 vmap <C-x> x
+nmap <C-x> "+yy dd 
 " <CTRL + v> paste
 imap <C-v> <esc>P
+nmap <C-v> <esc>P
 " <CTRTL + z> undo
 nmap <C-z> u
 " <SHIFT + e> split horizontal
