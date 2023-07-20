@@ -6,6 +6,7 @@ autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 "  @@ list of plugins
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
@@ -67,6 +68,7 @@ endif
 if !empty(glob('~/.vim/plugged/vim-airline'))
 let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 1
 endif
 
 
@@ -91,17 +93,17 @@ if !empty(glob('~/.vim/plugged/ctrlp.vim'))
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
 endif
-  
-  
+
+
 "  @ vim-gitgutter
 if !empty(glob('~/.vim/plugged/vim-gitgutter'))
-  let g:gitgutter_terminal_reports_focus=0
-  let g:gitgutter_async=0
+let g:gitgutter_terminal_reports_focus=0
+let g:gitgutter_async=0
 endif
-  
+
 "  @ vim-prettier
 if !empty(glob('~/.vim/plugged/vim-prettier'))
-  let g:prettier#autoformat = 1
+let g:prettier#autoformat = 1
   let g:prettier#autoformat_require_pragma = 0
   autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql,*.html,*.vue PrettierAsync
 endif
@@ -189,7 +191,7 @@ set termguicolors
 set encoding=utf-8
 set fileencoding=utf-8
 set lazyredraw
-set synmaxcol=80
+"set synmaxcol=100
 set ttyfast
 set regexpengine=1
 set autoindent
@@ -230,6 +232,8 @@ map <S-Left> <C-w><Left>
 " <SHIFT + h> move to left split
 map <S-h> <C-w><Left>
 
+nmap <C-s> :w<CR>
+nmap <C-q> :q<CR>
 
 " Move line
 map <Esc>j <A-j>
