@@ -1,5 +1,6 @@
 "  @@ install plug-vim 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+"vnoremap <C-[> 0
 if empty(glob(data_dir . '/autoload/plug.vim'))
 silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -186,6 +187,7 @@ endif
 
 "  @ definitions
 set number
+set nocompatible
 set mouse=a
 set termguicolors
 set encoding=utf-8
@@ -245,7 +247,8 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-"vnoremap <C-]> >
-"vnoremap <C-[> <
+noremap <C-a> <Esc>ggVG
+noremap <S-a> Vat
 
+nnoremap <S-n> :new<CR>
 nnoremap <S-Tab> :tabnext<CR>
