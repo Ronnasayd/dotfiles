@@ -8,6 +8,11 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 
+export ANDROID_HOME=$HOME/android
+export PATH=$ANDROID_HOME/platform-tools/:$PATH
+export PATH=$ANDROID_HOME/cmdline-tools/:$PATH
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
+
 # ALIASES
 alias gs="git status"
 alias gl="git pull"
@@ -18,23 +23,25 @@ alias gt="git checkout"
 alias ga="git add"
 alias gm="git merge"
 alias gpm="git pull origin master"
-alias pvv="python3 -m venv venv"
-alias pvv36="virtualenv --python=python3.6 venv"
-alias pvv27="virtualenv --python=python2.7 venv"
+alias pvenv="python3 -m venv venv"
+alias pvenv3="virtualenv --python=python3.6 venv"
+alias pvenv4="virtualenv --python=python2.7 venv"
+alias svenv="source venv/bin/activate"
+alias py3="python3"
+alias py2="python"
 alias dps="docker ps"
 alias dpi="docker images"
 alias ys="yarn start"
-alias ya="yarn add"
 alias yad="yarn add --dev"
+alias ya="yarn add"
 alias yb="yarn build"
 alias yd="yarn dev"
 alias yi="yarn init"
-alias yins="yarn install"
+alias yil="yarn install"
 alias yt="yarn test"
 alias yrm="yarn remove"
 alias yrun="yarn run"
 alias co="code"
-alias sac="source venv/bin/activate"
 alias deac="deactivate"
 alias pipr="pip install -r requirements.txt"
 alias cox="code . && exit"
@@ -45,6 +52,7 @@ alias tmat="tmux attach -t"
 alias tmls="tmux ls"
 alias tmd="tmux detach"
 alias tmks="tmux kill-server"
+alias cpwd="pwd | xclip -selection clipboard"
 
 
 function prompt_my_cpu_temp() {
@@ -183,3 +191,21 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 #ZSH_TMUX_AUTOCONNECT=false
 
 source $ZSH/oh-my-zsh.sh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ronnas/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ronnas/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ronnas/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ronnas/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
