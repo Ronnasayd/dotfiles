@@ -16,16 +16,19 @@ export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
 # ALIASES
 alias gs="git status"
 alias gl="git pull"
+alias glo="git pull origin"
+alias glom="git pull origin master"
+alias glod="git pull origin develop"
 alias gp="git push"
 alias gc="git commit"
 alias gb="git branch"
 alias gt="git checkout"
 alias ga="git add"
 alias gm="git merge"
-alias gpm="git pull origin master"
-alias pvenv="python3 -m venv venv"
-alias pvenv3="virtualenv --python=python3.6 venv"
-alias pvenv4="virtualenv --python=python2.7 venv"
+alias pyserver="python3 -m http.server 8000 --directory"
+alias pyenv="python3 -m venv venv"
+alias pyenv3="virtualenv --python=python3.6 venv"
+alias pyenv4="virtualenv --python=python2.7 venv"
 alias svenv="source venv/bin/activate"
 alias py3="python3"
 alias py2="python"
@@ -42,9 +45,9 @@ alias yt="yarn test"
 alias yrm="yarn remove"
 alias yrun="yarn run"
 alias co="code"
+alias cox="code . && exit"
 alias deac="deactivate"
 alias pipr="pip install -r requirements.txt"
-alias cox="code . && exit"
 alias gob="go build"
 alias gor="go run"
 alias tma="tmux attach"
@@ -53,6 +56,7 @@ alias tmls="tmux ls"
 alias tmd="tmux detach"
 alias tmks="tmux kill-server"
 alias cpwd="pwd | xclip -selection clipboard"
+alias xpwd="terminator --working-directory=$(pwd) &"
 
 
 function prompt_my_cpu_temp() {
@@ -156,6 +160,15 @@ plugins=(
 	zsh-syntax-highlighting
 	urltools
 	yarn
+	docker
+	docker-compose
+	dotenv
+	extract
+	jsontools
+	pip
+	yarn
+	zsh-alias-finder
+	command-not-found
 )
 
 
