@@ -14,11 +14,12 @@ export PATH=$ANDROID_HOME/cmdline-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
 
 # ALIASES
+alias glom="git pull origin master"
+alias glod="git pull origin develop"
 alias gs="git status"
 alias gl="git pull"
 alias glo="git pull origin"
-alias glom="git pull origin master"
-alias glod="git pull origin develop"
+alias gcl="git clone"
 alias gp="git push"
 alias gc="git commit"
 alias gb="git branch"
@@ -149,26 +150,25 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git 
-	asdf 
-	virtualenv 
+	virtualenv
 	gitignore 
 	gulp 
 	extract 
 	golang 
 	fd 
-	zsh-autosuggestions 
-	zsh-syntax-highlighting
 	urltools
-	yarn
 	docker
 	docker-compose
 	dotenv
-	extract
 	jsontools
 	pip
 	yarn
-	zsh-alias-finder
 	command-not-found
+
+	asdf 
+	zsh-autosuggestions 
+	zsh-syntax-highlighting
+	alias-tips
 )
 
 
