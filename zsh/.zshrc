@@ -58,6 +58,8 @@ alias tmd="tmux detach"
 alias tmks="tmux kill-server"
 alias cpwd="pwd | xclip -selection clipboard"
 alias xpwd="terminator --working-directory=$(pwd) &"
+alias agdi="ag --path-to-ignore .dockerignore --files-with-matches"
+alias aggi="ag --path-to-ignore .gitignore --files-with-matches"
 
 
 function prompt_my_cpu_temp() {
