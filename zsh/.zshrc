@@ -14,6 +14,7 @@ export PATH=$ANDROID_HOME/cmdline-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
 
 # ALIASES
+alias lsa="ls -la"
 alias glom="git pull origin master"
 alias glod="git pull origin develop"
 alias gs="git status"
@@ -31,7 +32,7 @@ alias pyenv="python3 -m venv venv"
 alias pyenv3="virtualenv --python=python3.6 venv"
 alias pyenv4="virtualenv --python=python2.7 venv"
 alias svenv="source venv/bin/activate"
-alias py3="python3"
+alias py="python3"
 alias py2="python"
 alias dps="docker ps"
 alias dpi="docker images"
@@ -60,17 +61,30 @@ alias cpwd="pwd | xclip -selection clipboard"
 alias xpwd="terminator --working-directory=$(pwd) &"
 alias agdi="ag --path-to-ignore .dockerignore --files-with-matches"
 alias aggi="ag --path-to-ignore .gitignore --files-with-matches"
+alias kubectl="minikube kubectl --"
+alias size="du -d 1 -h"
+alias chmdn="stat --format '%a'"
 
 
 function prompt_my_cpu_temp() {
 integer cpu_temp=" ($(</sys/class/thermal/thermal_zone0/temp) + $(</sys/class/thermal/thermal_zone1/temp)) / 2000"
 if (( cpu_temp >= 80 ));then
-	p10k segment -s HOT -f red -i '🔥' -t "${cpu_temp}°C"
-elif (( cpu_temp >= 60 ));then
-	p10k segment -s WARN -f yellow  -t "${cpu_temp}°C"
+	p10k segment -s HOT -f red -b '#fff' -i '🔥' -t "${cpu_temp}°C"
+# elif (( cpu_temp >= 60 ));then
+# 	p10k segment -s WARN -f yellow -i '🌡️' -t "${cpu_temp}°C"
 else
-	p10k segment -s INFO -f green  -t "${cpu_temp}°C"
+	p10k segment -s INFO -f '#333' -b '#70f0ae' -i '🌡️'  -t "${cpu_temp}°C"
 fi
+}
+
+function prompt_my_cpu_avg(){
+	# local cpu_avg="$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"
+	integer cpu_avg="$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"
+	if (( cpu_avg >= 80 ));then
+		p10k segment -s HOT -f red -b '#fff' -t "${cpu_avg}%%"
+	else
+		p10k segment -s INFO -f '#333' -b '#fc97d2'  -i '🔲'  -t "${cpu_avg}%%"
+	fi
 }
 
 # Set name of the theme to load --- if set to "random", it will
@@ -79,8 +93,8 @@ fi
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs virtualenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status my_cpu_temp battery ram time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir virtualenv vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery my_cpu_avg my_cpu_temp ram time)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰─⚡️ "
@@ -90,6 +104,13 @@ POWERLEVEL9K_TIME_FOREGROUND="#eee"
 POWERLEVEL9K_DISK_USAGE_FOREGROUND="#ccc"
 POWERLEVEL9K_SHORTEN_DELIMITER=...
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_BATTERY_FOREGROUND="#70f0ae"
+POWERLEVEL9K_BATTERY_BACKGROUND="#546e7a"
+POWERLEVEL9K_VIRTUALENV_BACKGROUND="#E6744C"
+
+
+# POWERLEVEL9K_MY_CPU_AVG_BACKGROUND="#fc97d2"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
