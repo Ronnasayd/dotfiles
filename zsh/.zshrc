@@ -80,11 +80,7 @@ fi
 function prompt_my_cpu_avg(){
 	# local cpu_avg="$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"
 	integer cpu_avg="$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"
-	if (( cpu_avg >= 80 ));then
-		p10k segment -s HOT -f red -b '#fff' -t "${cpu_avg}%%"
-	else
-		p10k segment -s INFO -f '#333' -b '#fc97d2'  -i '🔲'  -t "${cpu_avg}%%"
-	fi
+	p10k segment -s INFO -f '#333' -b '#fc97d2'  -i '🔲'  -t "${cpu_avg}%%"
 }
 
 # Set name of the theme to load --- if set to "random", it will
