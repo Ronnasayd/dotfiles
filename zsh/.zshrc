@@ -67,13 +67,18 @@ alias chmdn="stat --format '%a'"
 alias apt-search="apt-cache search"
 
 function prompt_my_cpu_status() {
-	integer cpu_temp=" ($(</sys/class/thermal/thermal_zone0/temp) + $(</sys/class/thermal/thermal_zone1/temp)) / 2000"
-	integer cpu_avg="$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"
+	integer cpu_avg
+	integer cpu_temp="($(</sys/class/thermal/thermal_zone0/temp) + $(</sys/class/thermal/thermal_zone1/temp)) / 2000"
+	integer cpu_avg_inv="$(vmstat 1 2|tail -1|awk '{print $15}')"
+
+	if ((cpu_avg >= 0));then
+		cpu_avg="(100 - cpu_avg_inv)"
+	fi
 
 	if (( cpu_temp >= 80 ));then
-		p10k segment -s INFO -f '#333' -b '#70f0ae' -i '🔥' -t "${cpu_avg}%%/${cpu_temp}°C CPU"
+		p10k segment -s INFO -f "#333" -b "#70f0ae" -i "🔥" -t "${cpu_avg}%%/${cpu_temp}°C CPU"
 	else
-		p10k segment -s INFO -f '#333' -b '#70f0ae' -t "${cpu_avg}%%/${cpu_temp}°C CPU"
+		p10k segment -s INFO -f "#333" -b "#70f0ae" -t "${cpu_avg}%%/${cpu_temp}°C CPU"
 	fi
 }
 
@@ -101,8 +106,8 @@ function prompt_my_cpu_status() {
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir virtualenv asdf vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery my_cpu_status ram time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir virtualenv  vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status asdf battery my_cpu_status ram time)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰─⚡️ "
