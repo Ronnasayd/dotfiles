@@ -64,24 +64,36 @@ alias aggi="ag --path-to-ignore .gitignore --files-with-matches"
 alias kubectl="minikube kubectl --"
 alias size="du -d 1 -h"
 alias chmdn="stat --format '%a'"
+alias apt-search="apt-cache search"
 
-
-function prompt_my_cpu_temp() {
-integer cpu_temp=" ($(</sys/class/thermal/thermal_zone0/temp) + $(</sys/class/thermal/thermal_zone1/temp)) / 2000"
-if (( cpu_temp >= 80 ));then
-	p10k segment -s HOT -f red -b '#fff' -i '🔥' -t "${cpu_temp}°C"
-# elif (( cpu_temp >= 60 ));then
-# 	p10k segment -s WARN -f yellow -i '🌡️' -t "${cpu_temp}°C"
-else
-	p10k segment -s INFO -f '#333' -b '#70f0ae' -i '🌡️'  -t "${cpu_temp}°C"
-fi
-}
-
-function prompt_my_cpu_avg(){
-	# local cpu_avg="$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"
+function prompt_my_cpu_status() {
+	integer cpu_temp=" ($(</sys/class/thermal/thermal_zone0/temp) + $(</sys/class/thermal/thermal_zone1/temp)) / 2000"
 	integer cpu_avg="$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"
-	p10k segment -s INFO -f '#333' -b '#fc97d2'  -i '🔲'  -t "${cpu_avg}%%"
+
+	if (( cpu_temp >= 80 ));then
+		p10k segment -s INFO -f '#333' -b '#70f0ae' -i '🔥' -t "${cpu_avg}%%/${cpu_temp}°C CPU"
+	else
+		p10k segment -s INFO -f '#333' -b '#70f0ae' -t "${cpu_avg}%%/${cpu_temp}°C CPU"
+	fi
 }
+
+# function prompt_my_cpu_temp() {
+# integer cpu_temp=" ($(</sys/class/thermal/thermal_zone0/temp) + $(</sys/class/thermal/thermal_zone1/temp)) / 2000"
+# if (( cpu_temp >= 80 ));then
+# 	p10k segment -s HOT -f red -b '#fff' -i '🔥' -t "${cpu_temp}°C"
+# # elif (( cpu_temp >= 60 ));then
+# # 	p10k segment -s WARN -f yellow -i '🌡️' -t "${cpu_temp}°C"
+# else
+# 	p10k segment -s INFO -f '#333' -b '#70f0ae' -i '🌡️'  -t "${cpu_temp}°C"
+# fi
+# }
+
+# function prompt_my_cpu_avg(){
+# 	# local cpu_avg="$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"
+# 	integer cpu_avg="$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"
+# 	p10k segment -s INFO -f '#333' -b '#70f0ae'  -i '🔲'  -t "${cpu_avg}%%"
+# }
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -89,8 +101,8 @@ function prompt_my_cpu_avg(){
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir virtualenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery my_cpu_avg my_cpu_temp ram time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir virtualenv asdf vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery my_cpu_status ram time)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰─⚡️ "
@@ -100,8 +112,8 @@ POWERLEVEL9K_TIME_FOREGROUND="#eee"
 POWERLEVEL9K_DISK_USAGE_FOREGROUND="#ccc"
 POWERLEVEL9K_SHORTEN_DELIMITER=...
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_BATTERY_FOREGROUND="#70f0ae"
-POWERLEVEL9K_BATTERY_BACKGROUND="#546e7a"
+POWERLEVEL9K_BATTERY_FOREGROUND="#fff"
+POWERLEVEL9K_BATTERY_BACKGROUND="#747de7"
 POWERLEVEL9K_VIRTUALENV_BACKGROUND="#E6744C"
 
 
