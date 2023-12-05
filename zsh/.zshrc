@@ -14,7 +14,6 @@ export PATH=$ANDROID_HOME/cmdline-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
 
 # ALIASES
-alias lsa="ls -la"
 alias glom="git pull origin master"
 alias glod="git pull origin develop"
 alias gs="git status"
@@ -52,6 +51,7 @@ alias deac="deactivate"
 alias pipr="pip install -r requirements.txt"
 alias gob="go build"
 alias gor="go run"
+alias gog="go get"
 alias tma="tmux attach"
 alias tmat="tmux attach -t"
 alias tmls="tmux ls"
@@ -65,6 +65,11 @@ alias kubectl="minikube kubectl --"
 alias size="du -d 1 -h"
 alias chmdn="stat --format '%a'"
 alias apt-search="apt-cache search"
+alias cpf="copyfile"
+alias cplc="fc -ln -1 | xsel --clipboard"
+alias json="pp_json"
+alias vjson="is_json"
+alias alg="alias | grep"
 
 function prompt_my_cpu_status() {
 	integer cpu_avg
@@ -204,6 +209,10 @@ plugins=(
 	pip
 	yarn
 	command-not-found
+	copyfile
+	dirhistory
+	history
+	jsontools
 
 	asdf 
 	zsh-autosuggestions 
