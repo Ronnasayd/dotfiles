@@ -201,6 +201,9 @@ set guifont=FiraCode\ Nerd\ Font\ Medium\ 12
 syntax on
 syntax sync minlines=64
 filetype plugin on
+
+let g:vue_disable_pre_processors=1
+
 "  @ map keys
 " <CTRL + c> copy
 vmap <C-c> "+y
@@ -252,3 +255,5 @@ noremap <S-a> Vat
 
 nnoremap <S-n> :new<CR>
 nnoremap <S-Tab> :tabnext<CR>
+
+
