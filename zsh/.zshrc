@@ -22,7 +22,6 @@ alias glo="git pull origin"
 alias gcl="git clone"
 alias gp="git push"
 alias gc="git commit"
-alias gcm="git commit -m"
 alias gb="git branch"
 alias gt="git checkout"
 alias ga="git add"
@@ -214,6 +213,7 @@ plugins=(
 	dirhistory
 	history
 	jsontools
+	dotenv
 
 	asdf 
 	zsh-autosuggestions 
@@ -250,8 +250,10 @@ plugins=(
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #ZSH_TMUX_AUTOSTART=true
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 #ZSH_TMUX_AUTOCONNECT=false
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+ZSH_DOTENV_FILE=.env
+ZSH_DOTENV_PROMPT=false
 
 source $ZSH/oh-my-zsh.sh
 
@@ -271,4 +273,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
