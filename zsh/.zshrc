@@ -46,7 +46,8 @@ alias yt="yarn test"
 alias yrm="yarn remove"
 alias yrun="yarn run"
 alias co="code"
-alias cox="code . && exit"
+alias cox="code code . && exit"
+alias cof="fzf --bind 'enter:become(code {})'"
 alias deac="deactivate"
 alias pipr="pip install -r requirements.txt"
 alias gob="go build"
@@ -70,6 +71,7 @@ alias cplc="fc -ln -1 | xsel --clipboard"
 alias json="pp_json"
 alias vjson="is_json"
 alias alg="alias | grep"
+
 
 function prompt_my_cpu_status() {
 	integer cpu_avg
