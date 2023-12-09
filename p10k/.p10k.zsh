@@ -236,7 +236,7 @@
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=#70f0ae
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=#7dd3fc
   # Default current directory foreground color.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=#000
   # If directory is too long, shorten some of its segments to the shortest possible unique
@@ -287,7 +287,7 @@
   # This moves the truncation point to the right (positive offset) or to the left (negative offset)
   # relative to the marker. Plain "first" and "last" are equivalent to "first:0" and "last:0"
   # respectively.
-  typeset -g POWERLEVEL9K_DIR_TRUNCATE_BEFORE_MARKER=false
+  typeset -g POWERLEVEL9K_DIR_TRUNCATE_BEFORE_MARKER=last:0
   # Don't shorten this many last directory segments. They are anchors.
   typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
   # Shorten directory if it's longer than this even if there is space for it. The value can
@@ -311,6 +311,7 @@
   # Enable special styling for non-writable and non-existent directories. See POWERLEVEL9K_LOCK_ICON
   # and POWERLEVEL9K_DIR_CLASSES below.
   typeset -g POWERLEVEL9K_DIR_SHOW_WRITABLE=v3
+
 
   # The default icon shown next to non-writable and non-existent directories when
   # POWERLEVEL9K_DIR_SHOW_WRITABLE is set to v3.
@@ -1647,7 +1648,7 @@
   # Don't show the remaining time to charge/discharge.
   typeset -g POWERLEVEL9K_BATTERY_VERBOSE=false
   typeset -g POWERLEVEL9K_BATTERY_FOREGROUND="#fff"
-  typeset -g POWERLEVEL9K_BATTERY_BACKGROUND="#7C40DF"
+  typeset -g POWERLEVEL9K_BATTERY_BACKGROUND="#8b5cf6"
 
   #####################################[ wifi: wifi speed ]#####################################
   # WiFi color.
@@ -1679,7 +1680,7 @@
   ####################################[ time: current time ]####################################
   # Current time color.
   typeset -g POWERLEVEL9K_TIME_FOREGROUND="#eee"
-  typeset -g POWERLEVEL9K_TIME_BACKGROUND="#7C40DF"
+  typeset -g POWERLEVEL9K_TIME_BACKGROUND="#8b5cf6"
   # Format for the current time: 09:51:02. See `man 3 strftime`.
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
   # If set to true, time will update when you hit enter. This way prompts for the past
