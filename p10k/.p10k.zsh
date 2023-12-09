@@ -39,9 +39,9 @@
     fi
 
     if (( cpu_temp >= 80 ));then
-      p10k segment -s INFO -f "#333" -b "#a78bfa" -i "🔥" -t "${cpu_avg}%% ${cpu_temp}°C"
+      p10k segment -s INFO -f "#333" -b "#a78bfa" -i "🔥 " -t "${cpu_avg}%% ${cpu_temp}°C"
     else
-      p10k segment -s INFO -f "#333" -b "#a78bfa" -i "" -t "${cpu_avg}%% ${cpu_temp}°C"
+      p10k segment -s INFO -f "#333" -b "#a78bfa" -i $'\uf4bc ' -t "${cpu_avg}%% ${cpu_temp}°C"
     fi
 }
 
@@ -669,12 +669,14 @@
   # Go version from asdf.
   typeset -g POWERLEVEL9K_ASDF_GOLANG_FOREGROUND=0
   typeset -g POWERLEVEL9K_ASDF_GOLANG_BACKGROUND=4
+  typeset -g POWERLEVEL9K_ASDF_GOLANG_ICON=$'\ue627 '
   # typeset -g POWERLEVEL9K_ASDF_GOLANG_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_GOLANG_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Node.js version from asdf.
   typeset -g POWERLEVEL9K_ASDF_NODEJS_FOREGROUND=0
   typeset -g POWERLEVEL9K_ASDF_NODEJS_BACKGROUND=2
+   typeset -g POWERLEVEL9K_ASDF_NODEJS_ICON=$'\ue74f '
   # typeset -g POWERLEVEL9K_ASDF_NODEJS_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_NODEJS_SHOW_ON_UPGLOB='*.foo|*.bar'
 
@@ -840,8 +842,8 @@
 
   ######################################[ ram: free RAM ]#######################################
   # RAM color.
-  typeset -g POWERLEVEL9K_RAM_FOREGROUND=0
-  typeset -g POWERLEVEL9K_RAM_BACKGROUND="#a78bfa"
+  typeset -g POWERLEVEL9K_RAM_FOREGROUND=#333
+  typeset -g POWERLEVEL9K_RAM_BACKGROUND=#a78bfa
   # Custom icon.
   # typeset -g POWERLEVEL9K_RAM_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -1645,7 +1647,8 @@
   # Show battery in yellow when it's discharging.
   typeset -g POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND="#fff"
   # Battery pictograms going from low to high level of charge.
-  typeset -g POWERLEVEL9K_BATTERY_STAGES='\uf58d\uf579\uf57a\uf57b\uf57c\uf57d\uf57e\uf57f\uf580\uf581\uf578'
+  # typeset -g POWERLEVEL9K_BATTERY_STAGES='\uf58d\uf579\uf57a\uf57b\uf57c\uf57d\uf57e\uf57f\uf580\uf581\uf578'
+  typeset -g POWERLEVEL9K_BATTERY_STAGES=($'\uf244 ' $'\uf243 ' $'\uf242 ' $'\uf241 ' $'\uf240 ')
 
   # Don't show the remaining time to charge/discharge.
   typeset -g POWERLEVEL9K_BATTERY_VERBOSE=false
