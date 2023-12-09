@@ -189,10 +189,11 @@ endif
 set number
 set nocompatible
 set mouse=a
-set termguicolors
 set encoding=utf-8
 set fileencoding=utf-8
 set lazyredraw
+set background=dark
+set termguicolors
 "set synmaxcol=100
 set ttyfast
 set regexpengine=1
@@ -255,5 +256,6 @@ noremap <S-a> Vat
 
 nnoremap <S-n> :new<CR>
 nnoremap <S-Tab> :tabnext<CR>
+
 
 
