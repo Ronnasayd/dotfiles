@@ -39,9 +39,9 @@
     fi
 
     if (( cpu_temp >= 80 ));then
-      p10k segment -s INFO -f "#333" -b "#a78bfa" -i "🔥" -t "${cpu_avg}%% ${cpu_temp}°C CPU"
+      p10k segment -s INFO -f "#333" -b "#a78bfa" -i "🔥" -t "${cpu_avg}%% ${cpu_temp}°C"
     else
-      p10k segment -s INFO -f "#333" -b "#a78bfa" -t "${cpu_avg}%% ${cpu_temp}°C CPU"
+      p10k segment -s INFO -f "#333" -b "#a78bfa" -i "" -t "${cpu_avg}%% ${cpu_temp}°C"
     fi
 }
 
