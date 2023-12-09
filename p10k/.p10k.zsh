@@ -237,7 +237,7 @@
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=#a78bfa
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=#fff
   # Default current directory foreground color.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=#222
   # If directory is too long, shorten some of its segments to the shortest possible unique
@@ -1655,7 +1655,7 @@
   #####################################[ wifi: wifi speed ]#####################################
   # WiFi color.
   typeset -g POWERLEVEL9K_WIFI_FOREGROUND=0
-  typeset -g POWERLEVEL9K_WIFI_BACKGROUND="#E5DB73"
+  typeset -g POWERLEVEL9K_WIFI_BACKGROUND="#fff"
   # Custom icon.
   # typeset -g POWERLEVEL9K_WIFI_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
