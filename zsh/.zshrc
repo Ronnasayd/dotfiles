@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -113,7 +120,7 @@ function prompt_my_cpu_status() {
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir virtualenv  vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir virtualenv  vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status asdf wifi my_cpu_status ram battery time)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─"
@@ -122,8 +129,8 @@ POWERLEVEL9K_RAM_BACKGROUND="#70f0ae"
 POWERLEVEL9K_TIME_BACKGROUND="#7C40DF"
 POWERLEVEL9K_TIME_FOREGROUND="#eee"
 POWERLEVEL9K_DISK_USAGE_FOREGROUND="#ccc"
-POWERLEVEL9K_SHORTEN_DELIMITER=...
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_DELIMITER=..
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_BATTERY_FOREGROUND="#fff"
 POWERLEVEL9K_BATTERY_BACKGROUND="#7C40DF"
 POWERLEVEL9K_BATTERY_ICON="🔌"
@@ -216,6 +223,7 @@ plugins=(
 	history
 	jsontools
 	dotenv
+	tmux
 
 	asdf 
 	zsh-autosuggestions 
@@ -251,11 +259,15 @@ plugins=(
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#ZSH_TMUX_AUTOSTART=true
-#ZSH_TMUX_AUTOCONNECT=false
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 ZSH_DOTENV_FILE=.env
 ZSH_DOTENV_PROMPT=false
+ZSH_TMUX_AUTOSTART_ONCE=true
+# ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_CONFIG="$HOME/.tmux.conf"
+# ZSH_TMUX_FIXTERM_WITH_256COLOR=true
+# ZSH_TMUX_FIXTERM=true
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -275,3 +287,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
