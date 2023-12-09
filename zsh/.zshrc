@@ -224,6 +224,9 @@ plugins=(
 	jsontools
 	dotenv
 	tmux
+	bgnotify
+	colorize
+	debian
 
 	asdf 
 	zsh-autosuggestions 
