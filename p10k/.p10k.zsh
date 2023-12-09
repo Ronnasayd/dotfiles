@@ -39,9 +39,9 @@
     fi
 
     if (( cpu_temp >= 80 ));then
-      p10k segment -s INFO -f "#333" -b "#70f0ae" -i "🔥" -t "${cpu_avg}%%/${cpu_temp}°C CPU"
+      p10k segment -s INFO -f "#333" -b "#a78bfa" -i "🔥" -t "${cpu_avg}%%/${cpu_temp}°C CPU"
     else
-      p10k segment -s INFO -f "#333" -b "#70f0ae" -t "${cpu_avg}%%/${cpu_temp}°C CPU"
+      p10k segment -s INFO -f "#333" -b "#a78bfa" -t "${cpu_avg}%%/${cpu_temp}°C CPU"
     fi
 }
 
@@ -237,7 +237,7 @@
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=#fff
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=#f3e8ff
   # Default current directory foreground color.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=#222
   # If directory is too long, shorten some of its segments to the shortest possible unique
@@ -841,7 +841,7 @@
   ######################################[ ram: free RAM ]#######################################
   # RAM color.
   typeset -g POWERLEVEL9K_RAM_FOREGROUND=0
-  typeset -g POWERLEVEL9K_RAM_BACKGROUND="#70f0ae"
+  typeset -g POWERLEVEL9K_RAM_BACKGROUND="#a78bfa"
   # Custom icon.
   # typeset -g POWERLEVEL9K_RAM_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -1650,12 +1650,12 @@
   # Don't show the remaining time to charge/discharge.
   typeset -g POWERLEVEL9K_BATTERY_VERBOSE=false
   typeset -g POWERLEVEL9K_BATTERY_FOREGROUND="#fff"
-  typeset -g POWERLEVEL9K_BATTERY_BACKGROUND="#8b5cf6"
+  typeset -g POWERLEVEL9K_BATTERY_BACKGROUND="#6b21a8"
 
   #####################################[ wifi: wifi speed ]#####################################
   # WiFi color.
-  typeset -g POWERLEVEL9K_WIFI_FOREGROUND=0
-  typeset -g POWERLEVEL9K_WIFI_BACKGROUND="#fff"
+  typeset -g POWERLEVEL9K_WIFI_FOREGROUND="#222"
+  typeset -g POWERLEVEL9K_WIFI_BACKGROUND="#f3e8ff"
   # Custom icon.
   # typeset -g POWERLEVEL9K_WIFI_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -1682,7 +1682,7 @@
   ####################################[ time: current time ]####################################
   # Current time color.
   typeset -g POWERLEVEL9K_TIME_FOREGROUND="#eee"
-  typeset -g POWERLEVEL9K_TIME_BACKGROUND="#8b5cf6"
+  typeset -g POWERLEVEL9K_TIME_BACKGROUND="#6b21a8"
   # Format for the current time: 09:51:02. See `man 3 strftime`.
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
   # If set to true, time will update when you hit enter. This way prompts for the past
