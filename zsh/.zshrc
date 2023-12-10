@@ -227,6 +227,8 @@ plugins=(
 	bgnotify
 	colorize
 	debian
+	wd
+	web-search
 
 	asdf 
 	zsh-autosuggestions 
