@@ -29,26 +29,13 @@
   # Zsh >= 5.1 is required.
   autoload -Uz is-at-least && is-at-least 5.1 || return
 
-  function prompt_my_cpu_status() {
-    integer cpu_avg
-    integer cpu_temp="($(</sys/class/thermal/thermal_zone0/temp) + $(</sys/class/thermal/thermal_zone1/temp)) / 2000"
-    integer cpu_avg_inv="$(vmstat 1 2|tail -1|awk '{print $15}')"
-
-    if ((cpu_avg >= 0));then
-      cpu_avg="(100 - cpu_avg_inv)"
-    fi
-
-    if (( cpu_temp >= 80 ));then
-      p10k segment -s INFO -f "#333" -b "#a78bfa" -i "🔥 " -t "${cpu_avg}%% ${cpu_temp}°C"
-    else
-      p10k segment -s INFO -f "#333" -b "#a78bfa" -i $'\uf4bc ' -t "${cpu_avg}%% ${cpu_temp}°C"
-    fi
-}
+ 
 
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     os_icon                 # os identifier
+    my_is_in_docker
     user                 
     dir                     # current directory
     vcs                     # git status
@@ -1771,3 +1758,25 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
+
+
+ function prompt_my_cpu_status() {
+    integer cpu_avg
+    integer cpu_temp="($(</sys/class/thermal/thermal_zone0/temp) + $(</sys/class/thermal/thermal_zone1/temp)) / 2000"
+    integer cpu_avg_inv="$(vmstat 1 2|tail -1|awk '{print $15}')"
+
+    if ((cpu_avg >= 0));then
+      cpu_avg="(100 - cpu_avg_inv)"
+    fi
+
+    if (( cpu_temp >= 80 ));then
+      p10k segment -s INFO -f "#333" -b "#a78bfa" -i "🔥 " -t "${cpu_avg}%% ${cpu_temp}°C"
+    else
+      p10k segment -s INFO -f "#333" -b "#a78bfa" -i $'\uf4bc ' -t "${cpu_avg}%% ${cpu_temp}°C"
+    fi
+}
+function prompt_my_is_in_docker() {
+  if [ -f /.dockerenv ]; then
+    p10k segment -s INFO -f "#fff" -b "#0fbfcf" -i $'\ue650 '
+  fi
+}
