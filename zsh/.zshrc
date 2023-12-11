@@ -20,6 +20,7 @@ export PATH=$ANDROID_HOME/platform-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
 
+
 # ALIASES
 alias glom="git pull origin master"
 alias glod="git pull origin develop"
@@ -78,7 +79,7 @@ alias cplc="fc -ln -1 | xsel --clipboard"
 alias json="pp_json"
 alias vjson="is_json"
 alias alg="alias | grep"
-alias q="exit"
+alias q="exit 0"
 
 
 # function prompt_my_cpu_status() {
