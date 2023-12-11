@@ -78,6 +78,7 @@ alias cplc="fc -ln -1 | xsel --clipboard"
 alias json="pp_json"
 alias vjson="is_json"
 alias alg="alias | grep"
+alias q="exit"
 
 
 # function prompt_my_cpu_status() {
