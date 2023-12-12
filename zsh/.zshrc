@@ -80,6 +80,7 @@ alias json="pp_json"
 alias vjson="is_json"
 alias alg="alias | grep"
 alias q="exit 0"
+alias duh="du -h --max-depth=1"
 
 
 # function prompt_my_cpu_status() {
