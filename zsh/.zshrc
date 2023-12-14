@@ -67,7 +67,7 @@ alias tmls="tmux ls"
 alias tmd="tmux detach"
 alias tmks="tmux kill-server"
 alias cpwd="pwd | xclip -selection clipboard"
-alias xpwd="terminator --working-directory=$(pwd) &"
+alias xpwd="terminator --working-directory=$(pwd) -e /bin/zsh"
 alias agdi="ag --path-to-ignore .dockerignore --files-with-matches"
 alias aggi="ag --path-to-ignore .gitignore --files-with-matches"
 alias kubectl="minikube kubectl --"
@@ -81,6 +81,8 @@ alias vjson="is_json"
 alias alg="alias | grep"
 alias q="exit 0"
 alias duh="du -h --max-depth=1"
+alias ka="killall"
+alias od="xdg-open"
 
 
 # function prompt_my_cpu_status() {
