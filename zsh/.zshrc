@@ -67,7 +67,7 @@ alias tmls="tmux ls"
 alias tmd="tmux detach"
 alias tmks="tmux kill-server"
 alias cpwd="pwd | xclip -selection clipboard"
-alias xpwd="terminator --working-directory=$(pwd) -e /bin/zsh"
+alias xpwd="terminator --working-directory=$(pwd) -e /bin/zsh &;disown %1"
 alias agdi="ag --path-to-ignore .dockerignore --files-with-matches"
 alias aggi="ag --path-to-ignore .gitignore --files-with-matches"
 alias kubectl="minikube kubectl --"
@@ -83,6 +83,7 @@ alias q="exit 0"
 alias ka="killall"
 alias od="xdg-open"
 alias remove="sudo apt-get autoremove && sudo apt-get autoclean"
+alias curbg="gsettings get org.cinnamon.desktop.background picture-uri"
 
 
 # function prompt_my_cpu_status() {

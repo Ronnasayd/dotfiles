@@ -31,17 +31,26 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
+Plug 'Brettm12345/moonlight.vim'
 call plug#end()
 
 
 "  @@ dracula
-if !empty(glob('~/.vim/plugged/dracula'))
-syntax enable
-colorscheme dracula
+"if !empty(glob('~/.vim/plugged/dracula'))
+"syntax enable
+"colorscheme dracula
 "let g:dracula_colorterm = 0
 "let g:dracula_italic = 0
+"set background=dark
+"endif
+
+"moonlight
+if !empty(glob('~/.vim/plugged/moonlight.vim'))
+syntax enable
+colorscheme moonlight
 set background=dark
 endif
+
 
 "  @@ NERDTREE
 if !empty(glob('~/.vim/plugged/nerdtree'))
