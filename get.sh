@@ -5,3 +5,5 @@ cp ~/.p10k.zsh $(pwd)/p10k/.p10k.zsh
 cp ~/.tmux.conf $(pwd)/tmux/.tmux.conf
 cp ~/.conkyrc $(pwd)/conky/.conkyrc
 cp ~/.config/terminator/config $(pwd)/terminator/config
+cp ~/.vim/coc-settings.json $(pwd)/vim/coc-settings.json
+cp ~/.coc.vim $(pwd)/vim/.coc.vim
