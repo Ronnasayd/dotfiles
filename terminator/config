@@ -18,15 +18,26 @@
   broadcast_off = <Primary><Alt>Right
 [profiles]
   [[default]]
-    background_color = "#282a36"
+    background_color = "#141b31"
     background_darkness = 0.95
     background_type = transparent
     cursor_color = "#f8f8f2"
     font = FiraCode Nerd Font Medium 12
     foreground_color = "#f8f8f2"
     show_titlebar = False
-    scrollbar_position = hidden
     palette = "#262626:#e356a7:#42e66c:#e4f34a:#9b6bdf:#98f3bf:#75d7ec:#efa554:#7a7a7a:#ff79c6:#50fa7b:#f1fa8c:#bd93f9:#ff5555:#8be9fd:#ffb86c"
+    custom_command = tmux new-session
+    use_system_font = False
+  [[tokyonight]]
+    background_color = "#1a1b26"
+    background_darkness = 0.95
+    background_type = transparent
+    cursor_color = "#c0caf5"
+    cursor_color_fg = False
+    font = FiraCode Nerd Font Medium 12
+    foreground_color = "#c0caf5"
+    show_titlebar = False
+    palette = "#15161e:#f7768e:#9ece6a:#e0af68:#7aa2f7:#bb9af7:#7dcfff:#a9b1d6:#414868:#f7768e:#9ece6a:#e0af68:#7aa2f7:#bb9af7:#7dcfff:#c0caf5"
     custom_command = tmux new-session
     use_system_font = False
 [layouts]
@@ -34,7 +45,7 @@
     [[[child1]]]
       parent = window0
       type = Terminal
-      profile = default
+      profile = tokyonight
     [[[window0]]]
       parent = ""
       type = Window

@@ -267,6 +267,7 @@ noremap <S-a> Vat
 nnoremap <S-n> :new<CR>
 nnoremap <S-Tab> :tabnext<CR>
 
+
 " make vim terminal transparent
 hi Normal guibg=NONE ctermbg=NONE
 
