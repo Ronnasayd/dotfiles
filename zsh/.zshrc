@@ -84,6 +84,7 @@ alias ka="killall"
 alias od="xdg-open"
 alias remove="sudo apt-get autoremove && sudo apt-get autoclean"
 alias curbg="gsettings get org.cinnamon.desktop.background picture-uri"
+alias portainer="docker run --rm -d -p 9000:9000 --name portainer  -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer && xdg-open http://localhost:9000"
 
 
 # function prompt_my_cpu_status() {
