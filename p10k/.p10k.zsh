@@ -832,8 +832,8 @@
 
   ######################################[ ram: free RAM ]#######################################
   # RAM color.
-  typeset -g POWERLEVEL9K_RAM_FOREGROUND=#333
-  typeset -g POWERLEVEL9K_RAM_BACKGROUND=#a78bfa
+  typeset -g POWERLEVEL9K_RAM_FOREGROUND="0"
+  typeset -g POWERLEVEL9K_RAM_BACKGROUND="5"
   # Custom icon.
   # typeset -g POWERLEVEL9K_RAM_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -1631,19 +1631,19 @@
   ################################[ battery: internal battery ]#################################
   # Show battery in red when it's below this level and not connected to power supply.
   typeset -g POWERLEVEL9K_BATTERY_LOW_THRESHOLD=20
-  typeset -g POWERLEVEL9K_BATTERY_LOW_FOREGROUND="#fff"
+  typeset -g POWERLEVEL9K_BATTERY_LOW_FOREGROUND="2"
   # Show battery in green when it's charging or fully charged.
-  typeset -g POWERLEVEL9K_BATTERY_{CHARGING,CHARGED}_FOREGROUND="#fff"
+  typeset -g POWERLEVEL9K_BATTERY_{CHARGING,CHARGED}_FOREGROUND="2"
   # Show battery in yellow when it's discharging.
-  typeset -g POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND="#fff"
+  typeset -g POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND="2"
   # Battery pictograms going from low to high level of charge.
   # typeset -g POWERLEVEL9K_BATTERY_STAGES='\uf58d\uf579\uf57a\uf57b\uf57c\uf57d\uf57e\uf57f\uf580\uf581\uf578'
   typeset -g POWERLEVEL9K_BATTERY_STAGES=($'\uf244 ' $'\uf243 ' $'\uf242 ' $'\uf241 ' $'\uf240 ')
 
   # Don't show the remaining time to charge/discharge.
   typeset -g POWERLEVEL9K_BATTERY_VERBOSE=false
-  typeset -g POWERLEVEL9K_BATTERY_FOREGROUND="#fff"
-  typeset -g POWERLEVEL9K_BATTERY_BACKGROUND="#6b21a8"
+  typeset -g POWERLEVEL9K_BATTERY_FOREGROUND="2"
+  typeset -g POWERLEVEL9K_BATTERY_BACKGROUND="0"
 
   #####################################[ wifi: wifi speed ]#####################################
   # WiFi color.
@@ -1674,8 +1674,8 @@
 
   ####################################[ time: current time ]####################################
   # Current time color.
-  typeset -g POWERLEVEL9K_TIME_FOREGROUND="#eee"
-  typeset -g POWERLEVEL9K_TIME_BACKGROUND="#6b21a8"
+  typeset -g POWERLEVEL9K_TIME_FOREGROUND="2"
+  typeset -g POWERLEVEL9K_TIME_BACKGROUND="0"
   # Format for the current time: 09:51:02. See `man 3 strftime`.
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
   # If set to true, time will update when you hit enter. This way prompts for the past
@@ -1683,7 +1683,7 @@
   # behavior where they contain the end times of their preceding commands.
   typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=false
   # Custom icon.
-  typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION=
+  typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION=''
   # Custom prefix.
   # typeset -g POWERLEVEL9K_TIME_PREFIX='at '
 
@@ -1770,9 +1770,9 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
     fi
 
     if (( cpu_temp >= 80 ));then
-      p10k segment -s INFO -f "#333" -b "#a78bfa" -i "🔥 " -t "${cpu_avg}%% ${cpu_temp}°C"
+      p10k segment -s INFO -f "0" -b "5" -i "🔥 " -t "${cpu_avg}%% ${cpu_temp}°C"
     else
-      p10k segment -s INFO -f "#333" -b "#a78bfa" -i $'\uf4bc ' -t "${cpu_avg}%% ${cpu_temp}°C"
+      p10k segment -s INFO -f "0" -b "5" -i $'\uf4bc ' -t "${cpu_avg}%% ${cpu_temp}°C"
     fi
 }
 function prompt_my_is_in_docker() {
