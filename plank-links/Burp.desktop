@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Burp
+Exec=java -noverify -javaagent:/home/ronnas/burpsuite/burploader.jar -jar /home/ronnas/burpsuite/burpsuite_pro_v2021.2.1.jar
+Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/burp.png
+Type=Application
+
