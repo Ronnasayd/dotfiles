@@ -104,7 +104,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/95e64b9b22b762a8aa5621c87c8208f7.png'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/84825616a6086731a447953fab3054ae.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -237,6 +237,7 @@ secondary-click-enabled=false
 secondary-click-time=1.2
 
 [org/gnome/desktop/interface]
+clock-format='24h'
 toolkit-accessibility=false
 
 [org/gnome/desktop/privacy]
