@@ -20,7 +20,7 @@ ignored-reports=['timeshift-no-setup', 'release']
 autorefresh-hours=2
 default-repo-is-ok=true
 install-last-run=1704249481
-refresh-last-run=1704333026
+refresh-last-run=1704340232
 refresh-minutes=10
 show-welcome-page=false
 window-height=570
@@ -104,7 +104,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/8ec9c18a82611ca163ad321d51b4dc3c.png'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/c67cdac863d3deab36d060348e77db04.jpg'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -119,8 +119,8 @@ clock-show-date=false
 clock-show-seconds=false
 cursor-blink-time=1200
 font-name='Ubuntu 10'
-gtk-theme='Mint-Y-Dark-Teal'
-icon-theme='breeze-dark'
+gtk-theme='Mint-Y-Dark'
+icon-theme='Uos-fulldistro-icons'
 scaling-factor=uint32 0
 text-scaling-factor=1.0
 
@@ -583,7 +583,7 @@ geometry='559x430+403+173'
 maximized=true
 side-pane-view='places'
 sidebar-bookmark-breakpoint=4
-sidebar-width=230
+sidebar-width=151
 start-with-sidebar=true
 
 [org/x/editor/plugins]
