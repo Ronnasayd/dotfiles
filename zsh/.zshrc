@@ -88,6 +88,7 @@ alias curbg="gsettings get org.cinnamon.desktop.background picture-uri"
 alias portainer="docker run --rm -d -p 9000:9000 --name portainer  -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer 2>/dev/null; xdg-open http://localhost:9000 2>/dev/null"
 alias gports="sudo netstat -tulpn | grep "
 alias lports="sudo netstat -tulpn"
+alias pkgc="dpkg --list | wc --lines"
 
 
 # function prompt_my_cpu_status() {
