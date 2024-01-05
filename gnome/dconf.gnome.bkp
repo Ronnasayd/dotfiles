@@ -20,7 +20,7 @@ ignored-reports=['timeshift-no-setup', 'release']
 autorefresh-hours=2
 default-repo-is-ok=true
 install-last-run=1704249481
-refresh-last-run=1704388427
+refresh-last-run=1704478537
 refresh-minutes=10
 show-welcome-page=false
 window-height=570
@@ -104,7 +104,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/2f7b1917-9ea7-40b6-ac50-f53d40470d94.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/f797bc8891f972200cfe3700e97f46ff.jpg'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -467,9 +467,9 @@ show-type-column=true
 sidebar-width=181
 sort-column='name'
 sort-directories-first=true
-sort-order='descending'
+sort-order='ascending'
 type-format='category'
-window-position=(120, 43)
+window-position=(120, 40)
 window-size=(1124, 694)
 
 [org/mate/panel/general]
@@ -571,7 +571,7 @@ trash-icon-visible=false
 volumes-visible=true
 
 [org/nemo/preferences]
-show-hidden-files=false
+show-hidden-files=true
 show-location-entry=false
 
 [org/nemo/search]
