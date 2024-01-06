@@ -20,7 +20,7 @@ ignored-reports=['timeshift-no-setup', 'release']
 autorefresh-hours=2
 default-repo-is-ok=true
 install-last-run=1704249481
-refresh-last-run=1704542602
+refresh-last-run=1704552011
 refresh-minutes=10
 show-welcome-page=false
 window-height=570
@@ -104,7 +104,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/73289e93fc039e54a0bc736724850a77.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/8b4f2bc8b908cd3ad767c3e1c6149b24.jpg'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
