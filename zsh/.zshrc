@@ -89,6 +89,8 @@ alias portainer="docker run --rm -d -p 9000:9000 --name portainer  -v /var/run/d
 alias gports="sudo netstat -tulpn | grep "
 alias lports="sudo netstat -tulpn"
 alias pkgc="dpkg --list | wc --lines"
+alias ffont="fc-list | grep " # find font location
+alias lfont="fc-list" # list all fonts
 
 
 # function prompt_my_cpu_status() {
