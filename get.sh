@@ -9,8 +9,4 @@ cp ~/.coc.vim $(pwd)/vim/.coc.vim
 dconf dump / > $(pwd)/gnome/dconf.gnome.bkp
 # copy mymimosa
 cp -r ~/.config/conky/MyMimosa/ $(pwd)/conky/themes/MyMimosa
-cd $(pwd)/conky/themes
-rm ./MyMimosa.zip
-zip -r MyMimosa.zip ./MyMimosa
-rm -rf ./MyMimosa
 
