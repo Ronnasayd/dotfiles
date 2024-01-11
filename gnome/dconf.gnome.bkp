@@ -20,7 +20,7 @@ ignored-reports=['timeshift-no-setup', 'release']
 autorefresh-hours=2
 default-repo-is-ok=true
 install-last-run=1704249481
-refresh-last-run=1704806654
+refresh-last-run=1704920716
 refresh-minutes=10
 show-welcome-page=false
 window-height=570
@@ -104,7 +104,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/ea7ec9ff9ae1d637a8277d6aed2a0e4f.jpg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/11e8e41f94b1033700a78c6e789b4fa0.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -571,7 +571,7 @@ trash-icon-visible=false
 volumes-visible=true
 
 [org/nemo/preferences]
-show-hidden-files=false
+show-hidden-files=true
 show-location-entry=false
 
 [org/nemo/search]
