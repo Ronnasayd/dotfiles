@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Copilot with GPT-4
+Exec=/opt/microsoft/msedge-beta/microsoft-edge-beta --profile-directory=Default --app-id=dopmfnolidldcecaneliflhkmamkljmo "--app-url=https://www.bing.com/search?form=NTPCHB&q=Bing+AI&showconv=1&wlexpsignin=1"
+Icon=msedge-dopmfnolidldcecaneliflhkmamkljmo-Default
+StartupWMClass=crx__dopmfnolidldcecaneliflhkmamkljmo
+Name[en_US]=Copilot-GPT-4

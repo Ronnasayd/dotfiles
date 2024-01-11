@@ -20,7 +20,7 @@ ignored-reports=['timeshift-no-setup', 'release']
 autorefresh-hours=2
 default-repo-is-ok=true
 install-last-run=1704249481
-refresh-last-run=1704935947
+refresh-last-run=1705008338
 refresh-minutes=10
 show-welcome-page=false
 window-height=570
@@ -44,7 +44,7 @@ width=1020
 alignment='center'
 auto-pinning=true
 current-workspace-only=false
-dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'discord.dockitem', 'com.stremio.Stremio.dockitem', 'webtorrent-desktop.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'Robo3T.cinnamon-generated.dockitem', 'terminator-1.dockitem', 'org.gnome.Calculator.dockitem', 'zsnes.dockitem', 'nemo.dockitem', 'plank.dockitem', 'trash.dockitem']
+dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'Copilot-GPT-4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'com.stremio.Stremio.dockitem', 'webtorrent-desktop.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'Robo3T.cinnamon-generated.dockitem', 'terminator-1.dockitem', 'org.gnome.Calculator.dockitem', 'zsnes.dockitem', 'nemo.dockitem', 'plank.dockitem', 'trash.dockitem']
 hide-delay=0
 hide-mode='intelligent'
 icon-size=32
@@ -104,7 +104,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/ddcede51a54748f12c1720198c444a4c.png'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/a8606d77ec9e9322274aee58dae5171f.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
