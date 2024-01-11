@@ -3,6 +3,37 @@ export LC_NUMERIC="en_US.UTF-8"
 IS_DAY=$(cat ~/.cache/my-weather.json | jq -r '.current.is_day')
 WEATHER_CODE=$(cat ~/.cache/my-weather.json | jq -r '.current.weather_code')
 WEATHER_ICON=
+
+player_elapsed(){
+total_string=$(playerctl metadata --format '{{duration(mpris:length)}}')
+progress_string=$(playerctl metadata --format '{{duration(position)}}')
+
+if [[ $total_string == *":"*":"* ]]; then
+    total_hours=$(echo $total_string | cut -d':' -f1)
+    total_minutes=$(echo $total_string | cut -d':' -f2)
+    total_seconds=$(echo $total_string | cut -d':' -f3)
+else
+    total_hours=0
+    total_minutes=$(echo $total_string | cut -d':' -f1)
+    total_seconds=$(echo $total_string | cut -d':' -f2)
+fi
+
+if [[ $progress_string == *":"*":"* ]]; then
+    progress_hours=$(echo $progress_string | cut -d':' -f1)
+    progress_minutes=$(echo $progress_string | cut -d':' -f2)
+    progress_seconds=$(echo $progress_string | cut -d':' -f3)
+else
+    progress_hours=0
+    progress_minutes=$(echo $progress_string | cut -d':' -f1)
+    progress_seconds=$(echo $progress_string | cut -d':' -f2)
+fi
+den=$((total_hours*3600 + total_minutes*60 + total_seconds*1))
+num=$((progress_hours*3600 + progress_minutes*60 + progress_seconds*1))
+result=$((100*num/den))
+echo ${result}
+}
+
+
 case $1 in
   CUR_IS_DAY)
     if [ "$IS_DAY" -eq "0" ];then
@@ -61,4 +92,8 @@ case $1 in
   DAILY_PREC_MEAN)
     cat ~/.cache/my-weather.json | jq -r '.daily.precipitation_probability_mean['$2']'| xargs printf "%02d"
   ;;
+  PLAYER_ELAPSED)
+    player_elapsed
+  ;;
 esac
+
