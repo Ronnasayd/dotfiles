@@ -104,7 +104,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/a1e8edd37c621e8b65a4f991b3e010bf.png'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/ddcede51a54748f12c1720198c444a4c.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -297,7 +297,7 @@ current-tab='resources'
 maximized=true
 show-dependencies=false
 show-whose-processes='all'
-window-state=(1366, 695, 0, 40)
+window-state=(1366, 697, 0, 40)
 
 [org/gnome/gnome-system-monitor/disktreenew]
 col-6-visible=true
