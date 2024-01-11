@@ -4,6 +4,6 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=WhatsApp Web
-Exec=/opt/google/chrome/google-chrome "--profile-directory=Profile 4" --app-id=hnpfjngllnobngcgfapefoaidbinmjnm
-Icon=chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4
+Exec=/opt/google/chrome/google-chrome https://web.whatsapp.com/
+Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/whatsapp.png
 StartupWMClass=crx_hnpfjngllnobngcgfapefoaidbinmjnm

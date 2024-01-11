@@ -4,6 +4,6 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Spotify
-Exec=/opt/google/chrome/google-chrome "--profile-directory=Profile 4" --app-id=pjibgclleladliembfgfagdaldikeohf
-Icon=chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4
+Exec=/opt/google/chrome/google-chrome https://open.spotify.com/intl-pt
+Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/spotify.png
 StartupWMClass=crx_pjibgclleladliembfgfagdaldikeohf
