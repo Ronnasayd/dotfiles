@@ -20,7 +20,7 @@ ignored-reports=['timeshift-no-setup', 'release']
 autorefresh-hours=2
 default-repo-is-ok=true
 install-last-run=1704249481
-refresh-last-run=1705025828
+refresh-last-run=1707234509
 refresh-minutes=10
 show-welcome-page=false
 window-height=570
@@ -71,6 +71,7 @@ desklet-snap-interval=25
 device-aliases=['/org/freedesktop/UPower/devices/battery_BAT0:=Samsung SDI DELL 5WFK618']
 enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:left:1:show-desktop@cinnamon.org:1', 'panel1:left:2:grouped-window-list@cinnamon.org:2', 'panel1:right:1:systray@cinnamon.org:3', 'panel1:right:2:xapp-status@cinnamon.org:4', 'panel1:right:3:notifications@cinnamon.org:5', 'panel1:right:4:printers@cinnamon.org:6', 'panel1:right:5:removable-drives@cinnamon.org:7', 'panel1:right:6:keyboard@cinnamon.org:8', 'panel1:right:7:network@cinnamon.org:9', 'panel1:right:8:sound@cinnamon.org:10', 'panel1:right:9:power@cinnamon.org:11', 'panel1:right:10:calendar@cinnamon.org:12', 'panel1:right:0:temperature@fevimu:13']
 enabled-desklets=@as []
+enabled-extensions=@as []
 favorite-apps=@as []
 next-applet-id=14
 next-desklet-id=4
@@ -78,7 +79,7 @@ panel-edit-mode=false
 panel-zone-icon-sizes='[{"panelId": 1, "left": 24, "center": 0, "right": 24}]'
 panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 28, "center": 28, "right": 16}]'
 panels-enabled=['1:0:top']
-panels-height=['1:40']
+panels-height=['1:41']
 
 [org/cinnamon/cinnamon-session]
 quit-time-delay=60
@@ -104,7 +105,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/9b63e348daeaf98623917704c26b34e7.jpg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/0341fb42424b20d5db0ef8d9f5f852e4.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -158,7 +159,7 @@ resize-threshold=24
 
 [org/cinnamon/settings-daemon/peripherals/keyboard]
 delay=uint32 500
-numlock-state='off'
+numlock-state='on'
 repeat-interval=uint32 30
 
 [org/cinnamon/settings-daemon/peripherals/touchpad]
@@ -286,7 +287,7 @@ sort-type='descending'
 
 [org/gnome/file-roller/ui]
 sidebar-width=200
-window-height=681
+window-height=680
 window-width=1366
 
 [org/gnome/gnome-screenshot]
@@ -465,7 +466,7 @@ show-hidden=false
 show-size-column=true
 show-type-column=true
 sidebar-width=181
-sort-column='name'
+sort-column='modified'
 sort-directories-first=true
 sort-order='ascending'
 type-format='category'
@@ -572,7 +573,7 @@ volumes-visible=true
 
 [org/nemo/preferences]
 show-hidden-files=false
-show-location-entry=false
+show-location-entry=true
 
 [org/nemo/search]
 search-content-use-regex=true
@@ -614,7 +615,7 @@ state=43908
 document-directory=@ms 'file:///home/ronnas/Desktop'
 
 [org/x/reader/default]
-window-ratio=(2.2275231823679609, 0.82433572081863427)
+window-ratio=(2.2320829791638417, 0.82668188964941769)
 
 [org/x/viewer/ui]
 statusbar=true
