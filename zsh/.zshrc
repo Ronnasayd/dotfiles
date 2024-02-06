@@ -91,7 +91,6 @@ alias lports="sudo netstat -tulpn"
 alias pkgc="dpkg --list | wc --lines"
 alias ffont="fc-list | grep " # find font location
 alias lfont="fc-list" # list all fonts
-alias conda="~/miniconda3/bin/conda"
 
 
 # function prompt_my_cpu_status() {
@@ -293,20 +292,21 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/ronnas/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/ronnas/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/ronnas/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/ronnas/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+export CONDA_AUTO_ACTIVATE_BASE=false
+__conda_setup="$('/home/ronnas/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ronnas/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ronnas/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ronnas/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
