@@ -36,10 +36,10 @@ alias gtb="git checkout -b "
 alias ga="git add"
 alias gm="git merge"
 alias pyserver="python3 -m http.server 8000 --directory"
-alias pyenv="python3 -m venv venv"
-alias pyenv3="virtualenv --python=python3.6 venv"
-alias pyenv4="virtualenv --python=python2.7 venv"
-alias svenv="source venv/bin/activate"
+alias pyv="python3 -m venv venv"
+alias pyv3="virtualenv --python=python3.6 venv"
+alias pyv4="virtualenv --python=python2.7 venv"
+alias sv="source venv/bin/activate"
 alias py="python3"
 alias py2="python"
 alias dps="docker ps"
@@ -242,6 +242,7 @@ plugins=(
 	debian
 	wd
 	web-search
+	python
 
 	asdf 
 	zsh-autosuggestions 
