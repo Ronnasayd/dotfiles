@@ -5,6 +5,22 @@ item-filter='any'
 height=476
 width=917
 
+[com/github/maoschanz/drawing]
+last-active-tool='pencil'
+last-version='0.8.4'
+maximized=false
+
+[com/github/maoschanz/drawing/tools-options]
+last-active-shape='polygon'
+last-delete-replace='alpha'
+last-font-name='Sans'
+last-left-rgba=['0.8', '0.0', '0.0', '1.0']
+last-right-rgba=['1.0', '1.0', '0.0', '0.5']
+last-shape-filling='empty'
+last-size=5
+last-text-background='outline'
+use-antialiasing=true
+
 [com/linuxmint/install]
 flatpak-remotes=['flathub::https://dl.flathub.org/repo/::False']
 installed-apps=['apt:ack', 'apt:adb', 'apt:azure-cli', 'apt:bluez-hcidump', 'apt:build-essential', 'apt:cheese', 'apt:cloudflared', 'apt:cmake', 'apt:code', 'apt:containerd', 'apt:crunch', 'apt:dbeaver-ce', 'apt:discord', 'apt:docker-compose', 'apt:docker.io', 'apt:dsniff', 'apt:espeak', 'apt:fd-find', 'apt:ffmpeg', 'apt:fonts-wine', 'apt:g++', 'apt:gfortran', 'apt:git', 'apt:go-dep', 'apt:google-chrome-stable', 'apt:heroku', 'apt:htop', 'apt:icoutils', 'apt:imagemagick', 'apt:insomnia', 'apt:iotop', 'apt:jq', 'apt:lens', 'apt:linux-modules-extra-5.4.0-135-generic', 'apt:llvm', 'apt:lxc-utils', 'apt:lxcfs', 'apt:lzip', 'apt:mbrola', 'apt:mbrola-en1', 'apt:microsoft-edge-beta', 'apt:mintupgrade', 'apt:openvpn3', 'apt:pavucontrol', 'apt:plank', 'apt:playonlinux', 'apt:python-dev-is-python2', 'apt:python-is-python2', 'apt:python-wxgtk3.0', 'apt:python-wxversion', 'apt:python3-pip', 'apt:python3-pyaudio', 'apt:python3-tk', 'apt:python3-venv', 'apt:python3.7', 'apt:python3.7-tk', 'apt:scrcpy', 'apt:sysstat', 'apt:teams', 'apt:terminator', 'apt:tmux', 'apt:uidmap', 'apt:unityhub', 'apt:usrmerge', 'apt:vim', 'apt:vim-gtk3', 'apt:vim-nox', 'apt:virtualbox', 'apt:virtualbox-dkms', 'apt:virtualbox-qt', 'apt:vlc', 'apt:webp', 'apt:webtorrent-desktop', 'apt:weston', 'apt:wine', 'apt:wine64', 'apt:xclip', 'apt:xpra', 'apt:xsel', 'apt:xsltproc', 'apt:xvfb', 'apt:yarn', 'apt:zsh', 'fp:flathub:app/com.stremio.Stremio/x86_64/stable', 'apt:anki']
@@ -19,8 +35,8 @@ ignored-reports=['timeshift-no-setup', 'release']
 [com/linuxmint/updates]
 autorefresh-hours=2
 default-repo-is-ok=true
-install-last-run=1704249481
-refresh-last-run=1707407006
+install-last-run=1714670007
+refresh-last-run=1714700228
 refresh-minutes=10
 show-welcome-page=false
 window-height=570
@@ -105,7 +121,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/3abcdc0b9855c32dda5602d72b00b079.jpg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/d24524713ee4c81602d1b3f67e5d2cd3.jpeg'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -294,17 +310,19 @@ window-width=1366
 last-save-directory='file:///home/ronnas/Pictures'
 
 [org/gnome/gnome-system-monitor]
-current-tab='resources'
+current-tab='processes'
 maximized=true
 show-dependencies=false
 show-whose-processes='all'
-window-state=(1366, 697, 0, 40)
+window-state=(1366, 696, 0, 41)
 
 [org/gnome/gnome-system-monitor/disktreenew]
 col-6-visible=true
 col-6-width=0
 
 [org/gnome/gnome-system-monitor/proctree]
+col-26-visible=true
+col-26-width=432
 columns-order=[12, 0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
 sort-col=15
 sort-order=0
@@ -453,8 +471,8 @@ use-theme-transparency=false
 use-transparent-background=true
 
 [org/gtk/settings/color-chooser]
-custom-colors=[(0.07926666666666668, 0.10839007092198583, 0.19333333333333336, 1.0), (0.13333333333333333, 0.1803921568627451, 0.31764705882352939, 1.0), (0.13333333333333333, 0.18039215686274504, 0.31764705882352939, 1.0), (0.098039215686274508, 0.090196078431372548, 0.14901960784313725, 1.0), (0.10151067615658364, 0.090500000000000025, 0.15000000000000002, 1.0), (0.14117647058823529, 0.13725490196078433, 0.24313725490196078, 1.0), (0.1409890075128509, 0.13951111111111111, 0.24333333333333335, 1.0), (0.21176470588235294, 0.16078431372549021, 0.39215686274509803, 1.0)]
-selected-color=(true, 0.0, 0.0, 0.0, 1.0)
+custom-colors=[(1.0, 1.0, 0.0, 0.5), (0.07926666666666668, 0.10839007092198583, 0.19333333333333336, 1.0), (0.13333333333333333, 0.1803921568627451, 0.31764705882352939, 1.0), (0.13333333333333333, 0.18039215686274504, 0.31764705882352939, 1.0), (0.098039215686274508, 0.090196078431372548, 0.14901960784313725, 1.0), (0.10151067615658364, 0.090500000000000025, 0.15000000000000002, 1.0), (0.14117647058823529, 0.13725490196078433, 0.24313725490196078, 1.0), (0.1409890075128509, 0.13951111111111111, 0.24333333333333335, 1.0)]
+selected-color=(true, 0.80000000000000004, 0.0, 0.0, 1.0)
 
 [org/gtk/settings/emoji-chooser]
 recent-emoji=[(([uint32 128526], 'smiling face with sunglasses', ':sunglasses:'), uint32 0)]
@@ -462,15 +480,15 @@ recent-emoji=[(([uint32 128526], 'smiling face with sunglasses', ':sunglasses:')
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
-show-hidden=false
+show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=181
-sort-column='modified'
+sort-column='name'
 sort-directories-first=true
 sort-order='ascending'
 type-format='category'
-window-position=(0, 41)
+window-position=(120, 43)
 window-size=(1124, 694)
 
 [org/mate/panel/general]
@@ -609,13 +627,13 @@ bottom-panel-size=140
 side-panel-active-page=827629879
 side-panel-size=200
 size=(650, 500)
-state=43908
+state=4
 
 [org/x/reader]
 document-directory=@ms 'file:///home/ronnas/Desktop'
 
 [org/x/reader/default]
-window-ratio=(2.2320829791638417, 0.82668188964941769)
+window-ratio=(2.2885906040268456, 0.82660332541567694)
 
 [org/x/viewer/ui]
 statusbar=true

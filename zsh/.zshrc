@@ -56,6 +56,7 @@ alias yrm="yarn remove"
 alias yrun="yarn run"
 alias co="code"
 alias cox="code . && exit"
+alias cco="code --user-data-dir='/tmp/code-user-data-dir' --extensions-dir='/tmp/code-extensions-dir'
 alias cof="fzf --bind 'enter:become(code {})'"
 alias deac="deactivate"
 alias pipr="pip install -r requirements.txt"
