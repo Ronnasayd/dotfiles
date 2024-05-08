@@ -56,7 +56,7 @@ alias yrm="yarn remove"
 alias yrun="yarn run"
 alias co="code"
 alias cox="code . && exit"
-alias cco="code --user-data-dir='/tmp/code-user-data-dir' --extensions-dir='/tmp/code-extensions-dir'"
+alias cco="code --disable-extensions --user-data-dir='/tmp/code-user-data-dir' --extensions-dir='/tmp/code-extensions-dir'"
 alias cof="fzf --bind 'enter:become(code {})'"
 alias deac="deactivate"
 alias pipr="pip install -r requirements.txt"
@@ -92,7 +92,8 @@ alias lports="sudo netstat -tulpn"
 alias pkgc="dpkg --list | wc --lines"
 alias ffont="fc-list | grep " # find font location
 alias lfont="fc-list" # list all fonts
-
+alias stopplex="sudo service plexmediaserver stop"
+alias sconky="~/.config/conky/MyMimosa/start.sh"
 
 # function prompt_my_cpu_status() {
 # 	integer cpu_avg
