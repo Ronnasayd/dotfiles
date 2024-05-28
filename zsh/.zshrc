@@ -94,6 +94,10 @@ alias ffont="fc-list | grep " # find font location
 alias lfont="fc-list" # list all fonts
 alias stopplex="sudo service plexmediaserver stop"
 alias sconky="~/.config/conky/MyMimosa/start.sh"
+alias cswap="sudo swapoff -a; sudo swapon -a"
+alias limit="ulimit -Sv"
+alias dockerstopall="docker ps -aq | xargs docker stop"
+alias dockerrmall="docker ps -aq | xargs docker rm -f"
 
 # function prompt_my_cpu_status() {
 # 	integer cpu_avg
@@ -289,6 +293,9 @@ ZSH_TMUX_UNICODE=true
 # ZSH_TMUX_AUTOSTART=true
 # ZSH_TMUX_FIXTERM_WITH_256COLOR=true
 # ZSH_TMUX_FIXTERM=true
+
+GITSTATUS_LOG_LEVEL=DEBUG
+
 
 
 source $ZSH/oh-my-zsh.sh

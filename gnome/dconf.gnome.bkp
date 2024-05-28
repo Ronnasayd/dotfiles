@@ -35,8 +35,8 @@ ignored-reports=['timeshift-no-setup', 'release']
 [com/linuxmint/updates]
 autorefresh-hours=2
 default-repo-is-ok=true
-install-last-run=1714670007
-refresh-last-run=1715192785
+install-last-run=1716827129
+refresh-last-run=1716838204
 refresh-minutes=10
 show-welcome-page=false
 window-height=570
@@ -121,7 +121,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/a32009ebff2f3e13f089fef495b5c100.png'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/67a6b3f3a153091b8922c59601b4cd63.jpeg'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -334,6 +334,14 @@ disable-connected-notifications=true
 ignore-ca-cert=false
 ignore-phase2-ca-cert=false
 
+[org/gnome/nm-applet/eap/3eee0f76-e8b9-4e18-9e1c-28b43debcb78]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/5049dfc2-86cc-4121-8b5a-3f8bf4499e2f]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
 [org/gnome/nm-applet/eap/51d3877d-fe66-4071-80a3-4adb8abe5455]
 ignore-ca-cert=false
 ignore-phase2-ca-cert=false
@@ -351,6 +359,10 @@ ignore-ca-cert=false
 ignore-phase2-ca-cert=false
 
 [org/gnome/nm-applet/eap/7121c979-9683-4aa1-84c5-009256e0a285]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/71e03977-6162-4163-b6c0-121bb2d39ccb]
 ignore-ca-cert=false
 ignore-phase2-ca-cert=false
 
@@ -399,6 +411,10 @@ ignore-ca-cert=false
 ignore-phase2-ca-cert=false
 
 [org/gnome/nm-applet/eap/f21be7b4-1098-43b1-b97c-edca699d624a]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/f6323f6f-ada8-4cad-89f0-7b1185ad99a1]
 ignore-ca-cert=false
 ignore-phase2-ca-cert=false
 
@@ -484,9 +500,9 @@ show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=181
-sort-column='name'
+sort-column='modified'
 sort-directories-first=true
-sort-order='ascending'
+sort-order='descending'
 type-format='category'
 window-position=(120, 43)
 window-size=(1124, 694)
@@ -590,7 +606,7 @@ trash-icon-visible=false
 volumes-visible=true
 
 [org/nemo/preferences]
-show-hidden-files=false
+show-hidden-files=true
 show-location-entry=true
 
 [org/nemo/search]
@@ -628,6 +644,24 @@ side-panel-active-page=827629879
 side-panel-size=200
 size=(650, 500)
 state=4
+
+[org/x/pix/browser]
+filterbar-visible=true
+maximized=false
+properties-visible=true
+show-thumbnails=true
+sort-inverse=false
+sort-type='file::mtime'
+startup-current-file='file://~/Downloads/b568275fdf3023b9a925b03ff69205d0%20%5BMConverter.eu%5D.jxl.jpeg'
+startup-location='file://~/Downloads'
+thumbnail-list-size=126
+viewer-sidebar='hidden'
+
+[org/x/pix/data-migration]
+catalogs-2-10=true
+
+[org/x/pix/general]
+active-extensions=['23hq', 'bookmarks', 'burn_disc', 'catalogs', 'change_date', 'comments', 'contact_sheet', 'convert_format', 'desktop_background', 'edit_metadata', 'exiv2_tools', 'facebook', 'file_manager', 'file_tools', 'find_duplicates', 'flicker', 'gstreamer_tools', 'gstreamer_utils', 'image_print', 'image_rotation', 'image_viewer', 'importer', 'jpeg_utils', 'list_tools', 'oauth', 'photo_importer', 'photobucket', 'picasaweb', 'raw_files', 'red_eye_removal', 'rename_series', 'resize_images', 'search', 'selections', 'slideshow', 'webalbums']
 
 [org/x/reader]
 document-directory=@ms 'file:///home/ronnas/Desktop'
