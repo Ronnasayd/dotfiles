@@ -35,8 +35,8 @@ ignored-reports=['timeshift-no-setup', 'release']
 [com/linuxmint/updates]
 autorefresh-hours=2
 default-repo-is-ok=true
-install-last-run=1716827129
-refresh-last-run=1716838204
+install-last-run=1718980393
+refresh-last-run=1718984323
 refresh-minutes=10
 show-welcome-page=false
 window-height=570
@@ -121,7 +121,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/67a6b3f3a153091b8922c59601b4cd63.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/d45e8f7efe27243aa5909caec04b9e76.jpeg'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -425,7 +425,7 @@ ignore-phase2-ca-cert=false
 [org/gnome/power-manager]
 info-history-type='charge'
 info-last-device='/org/freedesktop/UPower/devices/battery_BAT0'
-info-page-number=0
+info-page-number=2
 info-stats-type='discharge-accuracy'
 
 [org/gnome/terminal/legacy/profiles:]
@@ -496,7 +496,7 @@ recent-emoji=[(([uint32 128526], 'smiling face with sunglasses', ':sunglasses:')
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
-show-hidden=true
+show-hidden=false
 show-size-column=true
 show-type-column=true
 sidebar-width=181
@@ -606,8 +606,8 @@ trash-icon-visible=false
 volumes-visible=true
 
 [org/nemo/preferences]
-show-hidden-files=true
-show-location-entry=true
+show-hidden-files=false
+show-location-entry=false
 
 [org/nemo/search]
 search-content-use-regex=true

@@ -21,6 +21,13 @@ export PATH=$ANDROID_HOME/cmdline-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
 
 
+rename_all() {
+NAME="$1"
+NEW_NAME="$2"
+find . -depth -name "$NAME" -exec sh -c 'mv "$1" "${1%/*}/'$NEW_NAME'"' - '{}' \;
+}
+
+
 # ALIASES
 alias glom="git pull origin master"
 alias glod="git pull origin develop"
@@ -85,6 +92,7 @@ alias q="exit 0"
 alias ka="killall"
 alias open="xdg-open 2>/dev/null"
 alias remove="sudo apt-get autoremove && sudo apt-get autoclean"
+alias removefiles="sudo dpkg --purge `dpkg --get-selections | grep deinstall | cut -f1`"
 alias curbg="gsettings get org.cinnamon.desktop.background picture-uri"
 alias portainer="docker run --rm -d -p 9000:9000 --name portainer  -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer 2>/dev/null; xdg-open http://localhost:9000 2>/dev/null"
 alias gports="sudo netstat -tulpn | grep "
@@ -98,6 +106,8 @@ alias cswap="sudo swapoff -a; sudo swapon -a"
 alias limit="ulimit -Sv"
 alias dockerstopall="docker ps -aq | xargs docker stop"
 alias dockerrmall="docker ps -aq | xargs docker rm -f"
+alias find_node_modules='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1'
+alias rename_all="rename_all"
 
 # function prompt_my_cpu_status() {
 # 	integer cpu_avg
