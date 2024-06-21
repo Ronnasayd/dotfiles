@@ -24,7 +24,8 @@ export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
 rename_all() {
 NAME="$1"
 NEW_NAME="$2"
-find . -depth -name "$NAME" -exec sh -c 'mv "$1" "${1%/*}/'$NEW_NAME'"' - '{}' \;
+fd -t d "$NAME" -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
+fd -t f "$NAME" -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
 }
 
 
