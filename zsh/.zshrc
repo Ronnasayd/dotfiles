@@ -28,6 +28,10 @@ fd -t d "$NAME" -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
 fd -t f "$NAME" -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
 }
 
+git_search_in_branches(){
+	git branch | cut -c3- | xargs git grep "$1"
+}
+
 
 # ALIASES
 alias glom="git pull origin master"
@@ -39,10 +43,12 @@ alias gcl="git clone"
 alias gp="git push"
 alias gc="git commit"
 alias gb="git branch"
+alias gbcd="git branch --sort=-committerdate"
 alias gt="git checkout"
 alias gtb="git checkout -b "
 alias ga="git add"
 alias gm="git merge"
+alias git_search_in_branches="git_search_in_branches"
 alias pyserver="python3 -m http.server 8000 --directory"
 alias pyv="python3 -m venv venv"
 alias pyv3="virtualenv --python=python3.6 venv"
