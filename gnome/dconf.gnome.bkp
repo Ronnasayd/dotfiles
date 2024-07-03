@@ -35,8 +35,8 @@ ignored-reports=['timeshift-no-setup', 'release']
 [com/linuxmint/updates]
 autorefresh-hours=2
 default-repo-is-ok=true
-install-last-run=1719870320
-refresh-last-run=1719933259
+install-last-run=1720014878
+refresh-last-run=1720015390
 refresh-minutes=10
 show-welcome-page=false
 window-height=570
@@ -121,7 +121,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/905812646e561fa4b782d1d177187287.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/1ddca65ae5ef36c185ad77400d6f4110.jpeg'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -142,12 +142,22 @@ scaling-factor=uint32 0
 text-scaling-factor=1.0
 
 [org/cinnamon/desktop/keybindings]
-custom-list=['custom0', '__dummy__']
+custom-list=['custom2', 'custom1', '__dummy__', 'custom0']
 
 [org/cinnamon/desktop/keybindings/custom-keybindings/custom0]
-binding=['<Primary><Alt>Delete']
+binding=['<Primary><Alt>Delete', '<Primary><Alt>Delete', '<Primary><Alt>Delete']
 command='/bin/bash -c "pkill chrome && pkill code"'
-name='close programs'
+name='Close Programs'
+
+[org/cinnamon/desktop/keybindings/custom-keybindings/custom1]
+binding=['<Primary><Alt>g', '<Primary><Alt>g', '<Primary><Alt>g']
+command='/usr/bin/google-chrome'
+name='Lauch Browser'
+
+[org/cinnamon/desktop/keybindings/custom-keybindings/custom2]
+binding=['<Primary><Alt>c', '<Primary><Alt>c', '<Primary><Alt>c']
+command='/usr/bin/code'
+name='Launch Code'
 
 [org/cinnamon/desktop/keybindings/media-keys]
 logout=@as []
@@ -619,7 +629,7 @@ geometry='559x430+403+173'
 maximized=true
 side-pane-view='places'
 sidebar-bookmark-breakpoint=4
-sidebar-width=151
+sidebar-width=233
 start-with-sidebar=true
 
 [org/x/editor/plugins]
@@ -653,10 +663,12 @@ properties-visible=true
 show-thumbnails=true
 sort-inverse=false
 sort-type='file::mtime'
-startup-current-file='file://~/Pictures/wallpapers/images/11e8e41f94b1033700a78c6e789b4fa0.jpeg'
-startup-location='file://~/Pictures/wallpapers/images'
+startup-current-file='file://~/Downloads/2028e7de-02e4-4f00-ad64-5a9e5dac701f.png'
+startup-location='file://~/Downloads'
+statusbar-visible=true
 thumbnail-list-size=126
-thumbnail-list-visible=true
+thumbnail-list-visible=false
+toolbar-visible=true
 viewer-sidebar='hidden'
 viewer-sidebar-width=420
 
@@ -664,7 +676,7 @@ viewer-sidebar-width=420
 catalogs-2-10=true
 
 [org/x/pix/file-manager]
-copy-destination-history=['file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process']
+copy-destination-history=['file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process']
 last-folder='file:///home/ronnas/Pictures/wallpapers/src/to_process'
 view-destination=true
 
