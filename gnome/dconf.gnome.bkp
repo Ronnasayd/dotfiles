@@ -121,7 +121,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/1ddca65ae5ef36c185ad77400d6f4110.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/42cd4f04b5b28ed490d12b16356ebc23.jpeg'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -142,7 +142,7 @@ scaling-factor=uint32 0
 text-scaling-factor=1.0
 
 [org/cinnamon/desktop/keybindings]
-custom-list=['custom2', 'custom1', '__dummy__', 'custom0']
+custom-list=['custom0', '__dummy__', 'custom1', 'custom2']
 
 [org/cinnamon/desktop/keybindings/custom-keybindings/custom0]
 binding=['<Primary><Alt>Delete', '<Primary><Alt>Delete', '<Primary><Alt>Delete']
@@ -156,7 +156,7 @@ name='Lauch Browser'
 
 [org/cinnamon/desktop/keybindings/custom-keybindings/custom2]
 binding=['<Primary><Alt>c', '<Primary><Alt>c', '<Primary><Alt>c']
-command='/usr/bin/code'
+command='/usr/share/code/code '
 name='Launch Code'
 
 [org/cinnamon/desktop/keybindings/media-keys]
