@@ -36,7 +36,7 @@ ignored-reports=['timeshift-no-setup', 'release']
 autorefresh-hours=2
 default-repo-is-ok=true
 install-last-run=1720014878
-refresh-last-run=1720015390
+refresh-last-run=1720022596
 refresh-minutes=10
 show-welcome-page=false
 window-height=570
@@ -121,8 +121,8 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/42cd4f04b5b28ed490d12b16356ebc23.jpeg'
-primary-color='#000000000000'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/b47ba6ef101e98a279486cbb3fcff716.jpeg'
+primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
 [org/cinnamon/desktop/background/slideshow]
@@ -497,8 +497,8 @@ use-theme-transparency=false
 use-transparent-background=true
 
 [org/gtk/settings/color-chooser]
-custom-colors=[(1.0, 1.0, 0.0, 0.5), (0.07926666666666668, 0.10839007092198583, 0.19333333333333336, 1.0), (0.13333333333333333, 0.1803921568627451, 0.31764705882352939, 1.0), (0.13333333333333333, 0.18039215686274504, 0.31764705882352939, 1.0), (0.098039215686274508, 0.090196078431372548, 0.14901960784313725, 1.0), (0.10151067615658364, 0.090500000000000025, 0.15000000000000002, 1.0), (0.14117647058823529, 0.13725490196078433, 0.24313725490196078, 1.0), (0.1409890075128509, 0.13951111111111111, 0.24333333333333335, 1.0)]
-selected-color=(true, 0.80000000000000004, 0.0, 0.0, 1.0)
+custom-colors=[(0.14000000000000001, 0.10033333333333334, 0.10033333333333334, 0.51601423487544484), (1.0, 1.0, 0.0, 0.5), (0.07926666666666668, 0.10839007092198583, 0.19333333333333336, 1.0), (0.13333333333333333, 0.1803921568627451, 0.31764705882352939, 1.0), (0.13333333333333333, 0.18039215686274504, 0.31764705882352939, 1.0), (0.098039215686274508, 0.090196078431372548, 0.14901960784313725, 1.0), (0.10151067615658364, 0.090500000000000025, 0.15000000000000002, 1.0), (0.14117647058823529, 0.13725490196078433, 0.24313725490196078, 1.0)]
+selected-color=(true, 0.14000000000000001, 0.10033333333333334, 0.10033333333333334, 0.51601423487544484)
 
 [org/gtk/settings/emoji-chooser]
 recent-emoji=[(([uint32 128526], 'smiling face with sunglasses', ':sunglasses:'), uint32 0)]
@@ -629,7 +629,7 @@ geometry='559x430+403+173'
 maximized=true
 side-pane-view='places'
 sidebar-bookmark-breakpoint=4
-sidebar-width=233
+sidebar-width=151
 start-with-sidebar=true
 
 [org/x/editor/plugins]
