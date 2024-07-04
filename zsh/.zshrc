@@ -37,6 +37,14 @@ git_search_in_branches(){
 	git branch | cut -c3- | xargs git grep "$1"
 }
 
+code_list_workspaces_date(){
+fd -t f  workspace.json ~/.config/Code/User/workspaceStorage | while read line; do
+  date=$(stat -c %y $line)
+  file=$(jq .folder $line)
+  echo "$date $file $line" |  awk '{print $1" "$4" "$5}'
+done | sort -k1 | tee /tmp/workspaces.log.txt
+}
+
 
 # ALIASES
 alias glom="git pull origin master"
@@ -120,6 +128,7 @@ alias dockerstopall="docker ps -aq | xargs docker stop"
 alias dockerrmall="docker ps -aq | xargs docker rm -f"
 alias find_node_modules='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1'
 alias rename_all="rename_all"
+alias code_list_workspaces_date="code_list_workspaces_date"
 
 # function prompt_my_cpu_status() {
 # 	integer cpu_avg

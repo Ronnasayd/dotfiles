@@ -36,7 +36,7 @@ ignored-reports=['timeshift-no-setup', 'release']
 autorefresh-hours=2
 default-repo-is-ok=true
 install-last-run=1720014878
-refresh-last-run=1720116702
+refresh-last-run=1720125600
 refresh-minutes=10
 show-welcome-page=false
 window-height=570
@@ -121,7 +121,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/599e1c1d1ee5309ea666f1097c442434.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/3e07e425089ed32bae0be1552596f7a0.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -161,6 +161,7 @@ name='Launch Code'
 
 [org/cinnamon/desktop/keybindings/media-keys]
 logout=@as []
+screensaver=['<Primary><Alt>m', 'XF86ScreenSaver']
 
 [org/cinnamon/desktop/media-handling]
 autorun-never=false
@@ -663,8 +664,8 @@ properties-visible=true
 show-thumbnails=true
 sort-inverse=false
 sort-type='file::mtime'
-startup-current-file='file://~/Desktop/saas_logos/4ce0be9b-5b0a-4385-b927-769a70001c3c.png'
-startup-location='file://~/Desktop/saas_logos'
+startup-current-file=''
+startup-location='file://~/Pictures/wallpapers/src/to_process'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false
@@ -676,7 +677,7 @@ viewer-sidebar-width=420
 catalogs-2-10=true
 
 [org/x/pix/file-manager]
-copy-destination-history=['file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process']
+copy-destination-history=['file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process']
 last-folder='file:///home/ronnas/Pictures/wallpapers/src/to_process'
 view-destination=true
 
