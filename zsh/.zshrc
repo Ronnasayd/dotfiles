@@ -45,6 +45,8 @@ fd -t f  workspace.json ~/.config/Code/User/workspaceStorage | while read line; 
 done | sort -k1 | tee /tmp/workspaces.log.txt
 }
 
+mkfile() { mkdir -p "$(dirname "$1")" && touch "$1" ;  }
+
 
 # ALIASES
 alias glom="git pull origin master"
@@ -129,6 +131,8 @@ alias dockerrmall="docker ps -aq | xargs docker rm -f"
 alias find_node_modules='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1'
 alias rename_all="rename_all"
 alias code_list_workspaces_date="code_list_workspaces_date"
+alias mkfile="mkfile"
+alias watch_cpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
 
 # function prompt_my_cpu_status() {
 # 	integer cpu_avg
@@ -351,3 +355,4 @@ unset __conda_setup
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+

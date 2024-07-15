@@ -35,10 +35,15 @@ ignored-reports=['timeshift-no-setup', 'release']
 [com/linuxmint/updates]
 autorefresh-hours=2
 default-repo-is-ok=true
-install-last-run=1720014878
-refresh-last-run=1720125600
+hide-systray=true
+hide-window-after-update=true
+install-last-run=1720464921
+refresh-last-run=1721052193
 refresh-minutes=10
 show-welcome-page=false
+tracker-grace-period=30
+tracker-max-age=15
+tracker-max-days=7
 window-height=570
 window-pane-position=280
 window-width=790
@@ -121,7 +126,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/3e07e425089ed32bae0be1552596f7a0.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/e0ff04d9cbb66c41f28648f21d82c88d.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -617,8 +622,8 @@ trash-icon-visible=false
 volumes-visible=true
 
 [org/nemo/preferences]
-show-hidden-files=false
-show-location-entry=false
+show-hidden-files=true
+show-location-entry=true
 
 [org/nemo/search]
 search-content-use-regex=true
@@ -664,8 +669,8 @@ properties-visible=true
 show-thumbnails=true
 sort-inverse=false
 sort-type='file::mtime'
-startup-current-file=''
-startup-location='file://~/Pictures/wallpapers/src/to_process'
+startup-current-file='file:///tmp/pme_logo/binary/4ce0be9b-5b0a-4385-b927-769a70001c3c.png'
+startup-location='file:///tmp/pme_logo/binary'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false
@@ -683,6 +688,9 @@ view-destination=true
 
 [org/x/pix/general]
 active-extensions=['23hq', 'bookmarks', 'burn_disc', 'catalogs', 'change_date', 'comments', 'contact_sheet', 'convert_format', 'desktop_background', 'edit_metadata', 'exiv2_tools', 'facebook', 'file_manager', 'file_tools', 'find_duplicates', 'flicker', 'gstreamer_tools', 'gstreamer_utils', 'image_print', 'image_rotation', 'image_viewer', 'importer', 'jpeg_utils', 'list_tools', 'oauth', 'photo_importer', 'photobucket', 'picasaweb', 'raw_files', 'red_eye_removal', 'rename_series', 'resize_images', 'search', 'selections', 'slideshow', 'webalbums']
+
+[org/x/pix/gstreamer-tools]
+volume=100
 
 [org/x/reader]
 document-directory=@ms 'file:///home/ronnas/Desktop'
