@@ -45,6 +45,14 @@ fd -t f  workspace.json ~/.config/Code/User/workspaceStorage | while read line; 
 done | sort -k1 | tee /tmp/workspaces.log.txt
 }
 
+list_dir_by_date(){
+fd -t d  $1 $2 | while read line; do
+  date=$(stat -c %y $line)
+  echo "$date $line" 
+done | sort -k1
+}
+
+
 mkfile() { mkdir -p "$(dirname "$1")" && touch "$1" ;  }
 
 
@@ -133,6 +141,9 @@ alias rename_all="rename_all"
 alias code_list_workspaces_date="code_list_workspaces_date"
 alias mkfile="mkfile"
 alias watch_cpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
+alias list_dir_by_date="list_dir_by_date"
+alias fdd="fd -t d"
+alias fdf="fd -t f"
 
 # function prompt_my_cpu_status() {
 # 	integer cpu_avg
