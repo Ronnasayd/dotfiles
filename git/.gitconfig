@@ -1,0 +1,16 @@
+[user]
+	email = ronnasayd.machado@queroquitar.com.br
+	name = ronnasqueroquitar
+[credential]
+	helper = cache
+[color]
+	ui = auto
+[url "git@work.github.com:queroquitar"]
+	insteadOf = https://github.com/queroquitar
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[http]
+	postBuffer = 1048576000
