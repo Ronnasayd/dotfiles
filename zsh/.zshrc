@@ -9,6 +9,10 @@ if [ -f "go.mod" ]; then
 		export GO111MODULE=on
 fi
 
+if [ -f "Gopkg.toml" ]; then
+		export GO111MODULE=off
+fi
+
 if [ -d "venv" ]; then
 		source venv/bin/activate
 fi
