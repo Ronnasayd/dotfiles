@@ -23,7 +23,7 @@ use-antialiasing=true
 
 [com/linuxmint/install]
 flatpak-remotes=['flathub::https://dl.flathub.org/repo/::False']
-installed-apps=['apt:ack', 'apt:adb', 'apt:azure-cli', 'apt:bluez-hcidump', 'apt:build-essential', 'apt:cheese', 'apt:cloudflared', 'apt:cmake', 'apt:code', 'apt:containerd', 'apt:crunch', 'apt:dbeaver-ce', 'apt:discord', 'apt:docker-compose', 'apt:docker.io', 'apt:dsniff', 'apt:espeak', 'apt:fd-find', 'apt:ffmpeg', 'apt:fonts-wine', 'apt:g++', 'apt:gfortran', 'apt:git', 'apt:go-dep', 'apt:google-chrome-stable', 'apt:heroku', 'apt:htop', 'apt:icoutils', 'apt:imagemagick', 'apt:insomnia', 'apt:iotop', 'apt:jq', 'apt:lens', 'apt:linux-modules-extra-5.4.0-135-generic', 'apt:llvm', 'apt:lxc-utils', 'apt:lxcfs', 'apt:lzip', 'apt:mbrola', 'apt:mbrola-en1', 'apt:microsoft-edge-beta', 'apt:mintupgrade', 'apt:openvpn3', 'apt:pavucontrol', 'apt:plank', 'apt:playonlinux', 'apt:python-dev-is-python2', 'apt:python-is-python2', 'apt:python-wxgtk3.0', 'apt:python-wxversion', 'apt:python3-pip', 'apt:python3-pyaudio', 'apt:python3-tk', 'apt:python3-venv', 'apt:python3.7', 'apt:python3.7-tk', 'apt:scrcpy', 'apt:sysstat', 'apt:teams', 'apt:terminator', 'apt:tmux', 'apt:uidmap', 'apt:unityhub', 'apt:usrmerge', 'apt:vim', 'apt:vim-gtk3', 'apt:vim-nox', 'apt:virtualbox', 'apt:virtualbox-dkms', 'apt:virtualbox-qt', 'apt:vlc', 'apt:webp', 'apt:webtorrent-desktop', 'apt:weston', 'apt:wine', 'apt:wine64', 'apt:xclip', 'apt:xpra', 'apt:xsel', 'apt:xsltproc', 'apt:xvfb', 'apt:yarn', 'apt:zsh', 'fp:flathub:app/com.stremio.Stremio/x86_64/stable', 'apt:anki']
+installed-apps=['apt:ack', 'apt:adb', 'apt:aircrack-ng', 'apt:anki', 'apt:autoconf', 'apt:azure-cli', 'apt:bluez-hcidump', 'apt:build-essential', 'apt:cloudflared', 'apt:cmake', 'apt:code', 'apt:conky-all', 'apt:containerd', 'apt:crunch', 'apt:dbeaver-ce', 'apt:discord', 'apt:docker-compose', 'apt:docker.io', 'apt:dsniff', 'apt:espeak', 'apt:extundelete', 'apt:fd-find', 'apt:ffmpeg', 'apt:fonts-lyx', 'apt:fonts-wine', 'apt:foremost', 'apt:g++', 'apt:gfortran', 'apt:git', 'apt:go-dep', 'apt:google-chrome-stable', 'apt:heroku', 'apt:htop', 'apt:icoutils', 'apt:imagemagick', 'apt:insomnia', 'apt:iotop', 'apt:jq', 'apt:linux-headers-5.4.0-165-generic', 'apt:linux-modules-extra-5.4.0-135-generic', 'apt:llvm', 'apt:lua5.3', 'apt:lxc-utils', 'apt:lxcfs', 'apt:lzip', 'apt:mbrola', 'apt:mbrola-en1', 'apt:mdk3', 'apt:microsoft-edge-beta', 'apt:mintupgrade', 'apt:mplayer', 'apt:ocs-url', 'apt:openvpn3', 'apt:pavucontrol', 'apt:pixiewps', 'apt:plank', 'apt:playerctl', 'apt:playonlinux', 'apt:plexmediaserver', 'apt:python-dev-is-python2', 'apt:python-is-python2', 'apt:python-wxgtk3.0', 'apt:python-wxversion', 'apt:python3-cycler', 'apt:python3-kiwisolver', 'apt:python3-markdown', 'apt:python3-matplotlib', 'apt:python3-pip', 'apt:python3-pyaudio', 'apt:python3-pyqt5', 'apt:python3-pyqt5.qtwebchannel', 'apt:python3-pyqt5.qtwebengine', 'apt:python3-scapy', 'apt:python3-send2trash', 'apt:python3-sip', 'apt:python3-tk', 'apt:python3-venv', 'apt:python3.7', 'apt:python3.7-tk', 'apt:qbittorrent', 'apt:reaver', 'apt:resolvconf', 'apt:scrcpy', 'apt:screenkey', 'apt:silversearcher-ag', 'apt:sqlite3', 'apt:sshpass', 'apt:sysstat', 'apt:terminator', 'apt:testdisk', 'apt:tmux', 'apt:ttf-bitstream-vera', 'apt:uidmap', 'apt:usrmerge', 'apt:vim', 'apt:vim-gtk3', 'apt:vim-nox', 'apt:virtualbox', 'apt:virtualbox-dkms', 'apt:virtualbox-qt', 'apt:vlc', 'apt:webp', 'apt:webp-pixbuf-loader', 'apt:weston', 'apt:wine', 'apt:wine64', 'apt:xclip', 'apt:xpra', 'apt:xsel', 'apt:xsltproc', 'apt:xterm', 'apt:xvfb', 'apt:yarn', 'apt:zsh', 'fp:flathub:app/com.stremio.Stremio/x86_64/stable']
 
 [com/linuxmint/mintmenu/plugins/applications]
 favorite-apps-list=['location:/usr/share/applications/firefox.desktop\n', 'location:/usr/share/applications/thunderbird.desktop\n', 'location:/usr/share/applications/pix.desktop\n', 'location:/usr/share/applications/rhythmbox.desktop\n', 'separator\n', 'location:/usr/share/applications/gnome-calculator.desktop\n', 'location:/usr/share/applications/gcalctool.desktop\n', 'location:/usr/share/applications/org.gnome.Calculator.desktop\n', 'location:/usr/share/applications/xed.desktop\n', 'location:/usr/share/applications/mate-terminal.desktop\n', 'location:/usr/share/applications/gnome-terminal.desktop\n', 'location:/usr/share/applications/mate-volume-control.desktop\n', 'location:/usr/share/applications/cinnamon-settings-sound.desktop\n', 'location:/usr/share/applications/xfce4-mixer.desktop\n', 'separator\n', 'location:/usr/share/applications/mate-display-properties.desktop\n', 'location:/usr/share/applications/cinnamon-display-panel.desktop\n', 'location:/usr/share/applications/xfce-display-settings.desktop\n', 'location:/usr/share/applications/mate-system-monitor.desktop\n', 'location:/usr/share/applications/gnome-system-monitor.desktop\n', 'location:/usr/share/applications/xfce4-taskmanager.desktop\n']
@@ -37,8 +37,8 @@ autorefresh-hours=2
 default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
-install-last-run=1721151259
-refresh-last-run=1721684986
+install-last-run=1722433566
+refresh-last-run=1722434123
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -126,7 +126,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/1eb0a86372f18cf9872349797529e7e7.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/8ca638e4038f20273444ce6119905484.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -340,7 +340,7 @@ col-6-width=0
 col-26-visible=true
 col-26-width=432
 columns-order=[12, 0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
-sort-col=15
+sort-col=8
 sort-order=0
 
 [org/gnome/nm-applet]
@@ -673,8 +673,8 @@ properties-visible=true
 show-thumbnails=true
 sort-inverse=false
 sort-type='file::mtime'
-startup-current-file='file://~/Pictures/wallpapers/src/gpu/output/mel-maia-usa-biquini-verde-em-passeio_2_52854.jpg'
-startup-location='file://~/Pictures/wallpapers/src/gpu/output'
+startup-current-file='file://~/develop/poc/qq-lab/images/rappi-bank_imgs-1.png'
+startup-location='file://~/develop/poc/qq-lab/images'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false
@@ -685,8 +685,11 @@ viewer-sidebar-width=420
 [org/x/pix/data-migration]
 catalogs-2-10=true
 
+[org/x/pix/dialogs/save-file]
+show-options=true
+
 [org/x/pix/file-manager]
-copy-destination-history=['file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process']
+copy-destination-history=['file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process', 'file:///home/ronnas/Pictures/wallpapers/src/to_process']
 last-folder='file:///home/ronnas/Pictures/wallpapers/src/to_process'
 view-destination=true
 
@@ -695,6 +698,9 @@ active-extensions=['23hq', 'bookmarks', 'burn_disc', 'catalogs', 'change_date', 
 
 [org/x/pix/gstreamer-tools]
 volume=100
+
+[org/x/pix/pixbuf-savers/png]
+compression-level=0
 
 [org/x/reader]
 document-directory=@ms 'file:///home/ronnas/Desktop'

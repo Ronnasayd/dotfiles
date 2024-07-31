@@ -9,7 +9,13 @@ if [ -f "go.mod" ]; then
 		export GO111MODULE=on
 fi
 
-export GOPRIVATE=github.com/queroquitar/*
+if [ -d "venv" ]; then
+		source venv/bin/activate
+fi
+
+if [[ "$(pwd)" == "/home/ronnas/develop/QQ/"* ]]; then
+    export GOPRIVATE=github.com/queroquitar/*
+fi
 
 export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
@@ -52,8 +58,17 @@ fd -t d  $1 $2 | while read line; do
 done | sort -k1
 }
 
-
 mkfile() { mkdir -p "$(dirname "$1")" && touch "$1" ;  }
+
+yd:(){
+	yarn dev:$1
+}
+yb:(){
+	yarn build:$1
+}
+yt:(){
+	yarn test:$1
+}
 
 
 # ALIASES
@@ -85,18 +100,20 @@ alias ys="yarn start"
 alias yad="yarn add --dev"
 alias ya="yarn add"
 alias yb="yarn build"
+alias yb_="yarn build:"
 alias yd="yarn dev"
+alias yd_="yarn dev:"
 alias yi="yarn init"
 alias yil="yarn install"
 alias yt="yarn test"
 alias yrm="yarn remove"
-alias yrun="yarn run"
+alias yr="yarn run"
 alias co="code"
 alias cox="code . && exit"
 alias cco="code --disable-extensions --user-data-dir='/tmp/code-user-data-dir' --extensions-dir='/tmp/code-extensions-dir'"
 alias cof="fzf --bind 'enter:become(code {})'"
 alias deac="deactivate"
-alias pipr="pip install -r requirements.txt"
+alias pir="pip install -r requirements.txt"
 alias gob="go build"
 alias gor="go run"
 alias gog="go get"
@@ -112,7 +129,7 @@ alias aggi="ag --path-to-ignore .gitignore --files-with-matches"
 alias kubectl="minikube kubectl --"
 alias dsize="du -d 1 -h"
 alias chmdn="stat --format '%a'"
-alias apt-search="apt-cache search"
+alias apt_search="apt-cache search"
 alias cpf="copyfile"
 alias cplc="fc -ln -1 | xsel --clipboard"
 alias json="pp_json"
@@ -122,7 +139,7 @@ alias q="exit 0"
 alias ka="killall"
 alias open="xdg-open 2>/dev/null"
 alias remove="sudo apt-get autoremove && sudo apt-get autoclean"
-alias removefiles="sudo dpkg --purge `dpkg --get-selections | grep deinstall | cut -f1`"
+alias remove_files="sudo dpkg --purge `dpkg --get-selections | grep deinstall | cut -f1`"
 alias curbg="gsettings get org.cinnamon.desktop.background picture-uri"
 alias portainer="docker run --rm -d -p 9000:9000 --name portainer  -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer 2>/dev/null; xdg-open http://localhost:9000 2>/dev/null"
 alias gports="sudo netstat -tulpn | grep "
@@ -134,50 +151,12 @@ alias stopplex="sudo service plexmediaserver stop"
 alias sconky="~/.config/conky/MyMimosa/start.sh"
 alias cswap="sudo swapoff -a; sudo swapon -a"
 alias limit="ulimit -Sv"
-alias dockerstopall="docker ps -aq | xargs docker stop"
-alias dockerrmall="docker ps -aq | xargs docker rm -f"
-alias find_node_modules='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1'
-alias rename_all="rename_all"
-alias code_list_workspaces_date="code_list_workspaces_date"
-alias mkfile="mkfile"
-alias watch_cpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
-alias list_dir_by_date="list_dir_by_date"
 alias fdd="fd -t d"
 alias fdf="fd -t f"
-
-# function prompt_my_cpu_status() {
-# 	integer cpu_avg
-# 	integer cpu_temp="($(</sys/class/thermal/thermal_zone0/temp) + $(</sys/class/thermal/thermal_zone1/temp)) / 2000"
-# 	integer cpu_avg_inv="$(vmstat 1 2|tail -1|awk '{print $15}')"
-
-# 	if ((cpu_avg >= 0));then
-# 		cpu_avg="(100 - cpu_avg_inv)"
-# 	fi
-
-# 	if (( cpu_temp >= 80 ));then
-# 		p10k segment -s INFO -f "#333" -b "#70f0ae" -i "🔥" -t "${cpu_avg}%%/${cpu_temp}°C CPU"
-# 	else
-# 		p10k segment -s INFO -f "#333" -b "#70f0ae" -t "${cpu_avg}%%/${cpu_temp}°C CPU"
-# 	fi
-# }
-
-# function prompt_my_cpu_temp() {
-# integer cpu_temp=" ($(</sys/class/thermal/thermal_zone0/temp) + $(</sys/class/thermal/thermal_zone1/temp)) / 2000"
-# if (( cpu_temp >= 80 ));then
-# 	p10k segment -s HOT -f red -b '#fff' -i '🔥' -t "${cpu_temp}°C"
-# # elif (( cpu_temp >= 60 ));then
-# # 	p10k segment -s WARN -f yellow -i '🌡️' -t "${cpu_temp}°C"
-# else
-# 	p10k segment -s INFO -f '#333' -b '#70f0ae' -i '🌡️'  -t "${cpu_temp}°C"
-# fi
-# }
-
-# function prompt_my_cpu_avg(){
-# 	# local cpu_avg="$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"
-# 	integer cpu_avg="$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"
-# 	p10k segment -s INFO -f '#333' -b '#70f0ae'  -i '🔲'  -t "${cpu_avg}%%"
-# }
-
+alias docker_sto_pall="docker ps -aq | xargs docker stop"
+alias docker_rm_all="docker ps -aq | xargs docker rm -f"
+alias find_node_modules='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1'
+alias watch_cpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -185,27 +164,6 @@ alias fdf="fd -t f"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir virtualenv  vcs)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status asdf wifi my_cpu_status ram battery time)
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─"
-# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰─⚡️ "
-# POWERLEVEL9K_RAM_BACKGROUND="#70f0ae"
-# POWERLEVEL9K_TIME_BACKGROUND="#7C40DF"
-# POWERLEVEL9K_TIME_FOREGROUND="#eee"
-# POWERLEVEL9K_DISK_USAGE_FOREGROUND="#ccc"
-# POWERLEVEL9K_SHORTEN_DELIMITER=..
-# POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-# POWERLEVEL9K_BATTERY_FOREGROUND="#fff"
-# POWERLEVEL9K_BATTERY_BACKGROUND="#7C40DF"
-# POWERLEVEL9K_BATTERY_ICON="🔌"
-# POWERLEVEL9K_VIRTUALENV_BACKGROUND="#E6744C"
-# POWERLEVEL9K_WIFI_ICON=""
-# POWERLEVEL9K_WIFI_BACKGROUND="#E5DB73"
-
-
-
-# POWERLEVEL9K_MY_CPU_AVG_BACKGROUND="#fc97d2"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -223,10 +181,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -238,7 +196,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
