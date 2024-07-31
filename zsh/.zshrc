@@ -5,21 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [ -f "go.mod" ]; then
-		export GO111MODULE=on
-fi
 
-if [ -f "Gopkg.toml" ]; then
-		export GO111MODULE=off
-fi
-
-if [ -d "venv" ]; then
-		source venv/bin/activate
-fi
-
-if [[ "$(pwd)" == "/home/ronnas/develop/QQ/"* ]]; then
-    export GOPRIVATE=github.com/queroquitar/*
-fi
 
 export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
@@ -35,6 +21,27 @@ export ANDROID_HOME=$HOME/android
 export PATH=$ANDROID_HOME/platform-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
+
+# this function is called every time a change a directory
+function chpwd {
+		if [ -f "go.mod" ]; then
+				export GO111MODULE=on
+		fi
+
+		if [ -f "Gopkg.toml" ]; then
+				export GO111MODULE=off
+		fi
+
+		if [ -d "venv" ]; then
+				source venv/bin/activate
+		fi
+
+		SPECIFIC_DIR="/home/ronnas/develop/QQ/"
+		CURRENT_DIR="$(pwd)"
+		if [[ "$CURRENT_DIR" == "$SPECIFIC_DIR"* ]]; then
+		    export GOPRIVATE=github.com/queroquitar/*
+		fi
+}
 
 rename_all() {
 NAME="$1"
