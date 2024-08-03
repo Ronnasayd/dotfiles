@@ -37,8 +37,8 @@ autorefresh-hours=2
 default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
-install-last-run=1722455925
-refresh-last-run=1722527943
+install-last-run=1722535889
+refresh-last-run=1722696444
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -126,7 +126,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/382937539113e2978d052c37a0ec39cf.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/4c8809029297fbcc7b6b7b627b7e6f54.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -626,7 +626,7 @@ trash-icon-visible=false
 volumes-visible=true
 
 [org/nemo/preferences]
-show-hidden-files=false
+show-hidden-files=true
 show-location-entry=true
 
 [org/nemo/search]
@@ -673,8 +673,8 @@ properties-visible=true
 show-thumbnails=true
 sort-inverse=false
 sort-type='file::mtime'
-startup-current-file='file://~/Pictures/wallpapers/images/b17948824d619f7b6b53a930da106107.jpeg'
-startup-location='file://~/Pictures/wallpapers/images'
+startup-current-file='file://~/Downloads/Group%20119.png'
+startup-location='file://~/Downloads'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false

@@ -4,8 +4,6 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
@@ -22,30 +20,30 @@ export PATH=$ANDROID_HOME/platform-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
 
-export GOPATH=$(~/.asdf/shims/go env GOPATH)
-
+on_enter_directory(){
+	if [ -f ".tool-versions" ] && grep -q "go" ".tool-versions"; then
+			export GOPATH=$(~/.asdf/shims/go env GOPATH)
+	fi
+	if [ -f "go.mod" ]; then
+			export GO111MODULE=on
+	fi
+	if [ -f "Gopkg.toml" ]; then
+			export GO111MODULE=off
+	fi
+	if [ -d "venv" ]; then
+			deactivate
+			source venv/bin/activate
+	fi
+	SPECIFIC_DIR="/home/ronnas/develop/QQ/"
+	CURRENT_DIR="$(pwd)"
+	if [[ "$CURRENT_DIR" == "$SPECIFIC_DIR"* ]]; then
+	    export GOPRIVATE=github.com/queroquitar/*
+	fi
+}
+on_enter_directory
 # this function is called every time a change a directory
 function chpwd {
-		if [ -f ".tool-versions" ]; then
-				export GOPATH=$(~/.asdf/shims/go env GOPATH)
-		fi
-		if [ -f "go.mod" ]; then
-				export GO111MODULE=on
-		fi
-
-		if [ -f "Gopkg.toml" ]; then
-				export GO111MODULE=off
-		fi
-
-		if [ -d "venv" ]; then
-				source venv/bin/activate
-		fi
-
-		SPECIFIC_DIR="/home/ronnas/develop/QQ/"
-		CURRENT_DIR="$(pwd)"
-		if [[ "$CURRENT_DIR" == "$SPECIFIC_DIR"* ]]; then
-		    export GOPRIVATE=github.com/queroquitar/*
-		fi
+	on_enter_directory
 }
 
 rename_all() {
@@ -102,7 +100,6 @@ alias gt="git checkout"
 alias gtb="git checkout -b "
 alias ga="git add"
 alias gm="git merge"
-alias git_search_in_branches="git_search_in_branches"
 alias pyserver="python3 -m http.server 8000 --directory"
 alias pyv="python3 -m venv venv"
 alias pyv3="virtualenv --python=python3.6 venv"
@@ -212,7 +209,7 @@ zstyle ':omz:update' frequency 13
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="t	rue"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -337,5 +334,8 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
