@@ -124,8 +124,8 @@ function draw_ring(cr, t, pt)
 
     if (pt['name'] == 'cpu' or pt['name'] == 'memperc' or pt['name'] == 'acpitemp') and t >= 0.95 then
         fgc = 0xd90707
-    elseif (pt['name'] == 'cpu' or pt['name'] == 'memperc' or pt['name'] == 'acpitemp') and t >= 0.8 then
-        fgc = 0xd98707
+    elseif (pt['name'] == 'cpu' or pt['name'] == 'memperc' or pt['name'] == 'acpitemp') and t >= 0.85 then
+        fgc = 0xeb9d09
     end
 
     local angle_0 = sa * (2 * math.pi / 360) - math.pi / 2
