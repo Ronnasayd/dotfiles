@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global, lowercase-global
 --[[
 Ring Meters by londonali1010 (2009)
 
@@ -120,6 +121,12 @@ function draw_ring(cr, t, pt)
     local xc, yc, ring_r, ring_w, sa, ea = pt['x'], pt['y'], pt['radius'], pt['thickness'], pt['start_angle'],
         pt['end_angle']
     local bgc, bga, fgc, fga = pt['bg_colour'], pt['bg_alpha'], pt['fg_colour'], pt['fg_alpha']
+
+    if (pt['name'] == 'cpu' or pt['name'] == 'memperc' or pt['name'] == 'acpitemp') and t >= 0.95 then
+        fgc = 0xd90707
+    elseif (pt['name'] == 'cpu' or pt['name'] == 'memperc' or pt['name'] == 'acpitemp') and t >= 0.8 then
+        fgc = 0xd98707
+    end
 
     local angle_0 = sa * (2 * math.pi / 360) - math.pi / 2
     local angle_f = ea * (2 * math.pi / 360) - math.pi / 2

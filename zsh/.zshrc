@@ -84,6 +84,10 @@ yt:(){
 	yarn test:$1
 }
 
+grep_hnr(){
+	grep -HnR  "$1" $2 | awk '{ print substr($0, 1, 130) }'
+}
+
 
 # ALIASES
 alias glom="git pull origin master"
@@ -124,6 +128,7 @@ alias yr="yarn run"
 alias co="code"
 alias cox="code . && exit"
 alias cco="code --disable-extensions --user-data-dir='/tmp/code-user-data-dir' --extensions-dir='/tmp/code-extensions-dir'"
+alias _co="sudo code --user-data-dir=~/.vscode-root --no-sandbox"
 alias cof="fzf --bind 'enter:become(code {})'"
 alias deac="deactivate"
 alias pir="pip install -r requirements.txt"
@@ -166,7 +171,7 @@ alias cswap="sudo swapoff -a; sudo swapon -a"
 alias limit="ulimit -Sv"
 alias fdd="fd -t d"
 alias fdf="fd -t f"
-alias docker_sto_pall="docker ps -aq | xargs docker stop"
+alias docker_stop_all="docker ps -aq | xargs docker stop"
 alias docker_rm_all="docker ps -aq | xargs docker rm -f"
 alias find_node_modules='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1'
 alias watch_cpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
