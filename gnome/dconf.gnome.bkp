@@ -37,8 +37,8 @@ autorefresh-hours=2
 default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
-install-last-run=1722962421
-refresh-last-run=1723395178
+install-last-run=1723478564
+refresh-last-run=1724344200
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -65,7 +65,7 @@ width=1020
 alignment='center'
 auto-pinning=true
 current-workspace-only=false
-dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'Copilot-GPT-4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'install4j_dp8lsw-Studio-3T.dockitem', 'terminator-1.dockitem', 'org.gnome.Calculator.dockitem', 'zsnes.dockitem', 'zsnes (copy).dockitem', 'Develop.dockitem', 'Wallpapers.dockitem', 'Downloads.dockitem', 'nemo.dockitem', 'plank.dockitem', 'trash.dockitem']
+dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'Copilot-GPT-4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'org.gnome.Calculator.dockitem', 'zsnes.dockitem', 'Develop.dockitem', 'Wallpapers.dockitem', 'Downloads.dockitem', 'nemo.dockitem', 'plank.dockitem', 'trash.dockitem']
 hide-delay=0
 hide-mode='intelligent'
 icon-size=32
@@ -126,7 +126,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/26f1e57dde069fcd29428c06c95ad75e.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/d299f44300fcd331cd1ab22805f70106.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -141,7 +141,7 @@ clock-show-date=false
 clock-show-seconds=false
 cursor-blink-time=1200
 font-name='Ubuntu 10'
-gtk-theme='Mint-Y-Dark'
+gtk-theme='Mint-Y-Dark-Blue'
 icon-theme='Uos-fulldistro-icons'
 scaling-factor=uint32 0
 text-scaling-factor=1.0
@@ -271,6 +271,7 @@ secondary-click-time=1.2
 
 [org/gnome/desktop/interface]
 clock-format='24h'
+gtk-theme='Breeze'
 toolkit-accessibility=false
 
 [org/gnome/desktop/privacy]
@@ -516,15 +517,15 @@ recent-emoji=[(([uint32 128526], 'smiling face with sunglasses', ':sunglasses:')
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
-show-hidden=false
+show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=181
-sort-column='modified'
+sort-column='name'
 sort-directories-first=true
-sort-order='descending'
+sort-order='ascending'
 type-format='category'
-window-position=(121, 43)
+window-position=(120, 43)
 window-size=(1124, 694)
 
 [org/mate/panel/general]
@@ -673,8 +674,8 @@ properties-visible=true
 show-thumbnails=true
 sort-inverse=false
 sort-type='file::mtime'
-startup-current-file='file://~/Pictures/wallpapers/src/to_process/19a4d738129f587882802cc9fdb5a77d.jpg'
-startup-location='file://~/Pictures/wallpapers/src/to_process'
+startup-current-file='file://~/.config/conky/MyMimosa/res/bg5.png'
+startup-location='file://~/.config/conky'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false
