@@ -298,3 +298,12 @@ function conky_icon_voffset(index)
     voffset = 46
     return string.format("${voffset %d}", voffset)
 end
+
+counter = 0
+function conky_rotate_text(text, limit)
+    counter = counter + 1
+    value = conky_parse(text)
+    value_size = string.len(value)
+    current = counter % value_size + 1
+    return string.sub(value, current, math.min(current + limit, value_size))
+end

@@ -7,5 +7,7 @@ sleep 10s
 # Only the config listed below will be avtivated
 # if you want to combine with another theme, write the command here
 conky -c $HOME/.config/conky/MyMimosa/Mimosa.conf &> /dev/null &
+# conky -c $HOME/.config/conky/MyMimosa/Mimosa.conf 
+
 
 exit
