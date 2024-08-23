@@ -1,7 +1,0 @@
-{
-  "Lua.diagnostics.globals": [
-    "player",
-    "conky_player",
-    "conky_main"
-  ]
-}

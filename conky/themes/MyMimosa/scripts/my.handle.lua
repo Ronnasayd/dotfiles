@@ -1,29 +1,35 @@
---[[
-Ring Meters by londonali1010 (2009)
+---@diagnostic disable: lowercase-global, undefined-global
 
-This script draws percentage meters as rings. It is fully customisable; all options are described in the script.
+align_right = true
+window_width = 1366
+window_height = 768
+bg_padding_x = 10
+bg_padding_y = 70
+bg_width = 310
+bg_aspect = 1396 / 686
+bg_path = "~/.config/conky/MyMimosa/res/bg6.png"
 
-IMPORTANT: if you are using the 'cpu' function, it will cause a segmentation fault if it tries to draw a ring straight away. The if statement near the end of the script uses a delay to make sure that this doesn't happen. It calculates the length of the delay by the number of updates since Conky started. Generally, a value of 5s is long enough, so if you update Conky every 1s, use update_num > 5 in that if statement (the default). If you only update Conky every 2s, you should change it to update_num > 3; conversely if you update Conky every 0.5s, you should use update_num > 10. ALSO, if you change your Conky, is it best to use "killall conky; conky" to update it, otherwise the update_num will not be reset and you will get an error.
+bg_vert_path = "~/.config/conky/MyMimosa/res/bg-piece-v.png"
+bg_vert_width = 140
+bg_vert_aspect = 720 / 270
+bg_vert_padding_x = 10
+bg_vert_padding_y = 50
 
-To call this script in Conky, use the following (assuming that you save this script to ~/scripts/rings.lua):
-	lua_load ~/scripts/rings-v1.2.1.lua
-	lua_draw_hook_pre ring_stats
-	
-Changelog:
-+ v1.2.1 -- Fixed minor bug that caused script to crash if conky_parse() returns a nil value (20.10.2009)
-+ v1.2 -- Added option for the ending angle of the rings (07.10.2009)
-+ v1.1 -- Added options for the starting angle of the rings, and added the "max" variable, to allow for variables that output a numerical value rather than a percentage (29.09.2009)
-+ v1.0 -- Original release (28.09.2009)
-]]
+bg_player_path = "~/.config/conky/MyMimosa/res/bg-piece.png"
+bg_player_width = 310
+bg_player_aspect = 270 / 720
+bg_player_padding_x = 20
+bg_player_padding_y = 585
 
-width = 310
-height = 580
+player_img_width = 80
+player_img_height = 65
+player_img_padding_x = 20
+
 radius = 25
 thickness = 7
-
-padding = 3
-left_space = 320
-empty = ((width) - (4 * radius * 2)) / 5
+padding_y = 10
+initial_space = bg_vert_padding_y + 2 * radius
+empty = 25
 
 
 
@@ -37,12 +43,14 @@ settings_table = {
         bg_alpha = 0.2,
         fg_colour = 0x00d4ff,
         fg_alpha = 1,
-        x = left_space + padding + radius + empty,
-        y = height / 2,
+        y = initial_space + padding_y,
+        x = align_right and bg_vert_padding_x + bg_vert_width / 2 + thickness / 2 or
+            window_width - bg_vert_padding_x - bg_vert_width / 2 + thickness / 2,
         radius = radius,
         thickness = thickness,
         start_angle = 0,
         end_angle = 360,
+        icon = ""
     },
     {
         name = 'memperc',
@@ -52,12 +60,14 @@ settings_table = {
         bg_alpha = 0.2,
         fg_colour = 0x03ffb1,
         fg_alpha = 1,
-        x = left_space + 3 * radius + 2 * empty + padding,
-        y = height / 2,
+        y = initial_space + padding_y + 2 * radius + thickness + empty,
+        x = align_right and bg_vert_padding_x + bg_vert_width / 2 + thickness / 2 or
+            window_width - bg_vert_padding_x - bg_vert_width / 2 + thickness / 2,
         radius = radius,
         thickness = 7,
         start_angle = 0,
-        end_angle = 360
+        end_angle = 360,
+        icon = ""
     },
     {
         name = 'swapperc',
@@ -67,12 +77,14 @@ settings_table = {
         bg_alpha = 0.0,
         fg_colour = 0x01c386,
         fg_alpha = 1,
-        x = left_space + 3 * radius + 2 * empty + padding,
-        y = height / 2,
+        y = initial_space + padding_y + 2 * radius + thickness + empty,
+        x = align_right and bg_vert_padding_x + bg_vert_width / 2 + thickness / 2 or
+            window_width - bg_vert_padding_x - bg_vert_width / 2 + thickness / 2,
         radius = radius,
         thickness = 7,
         start_angle = 0,
-        end_angle = 360
+        end_angle = 360,
+        icon = ''
     },
     {
         name = 'battery_percent',
@@ -82,12 +94,14 @@ settings_table = {
         bg_alpha = 0.2,
         fg_colour = 0x03ff60,
         fg_alpha = 1,
-        x = left_space + 5 * radius + 3 * empty + padding,
-        y = height / 2,
+        y = initial_space + padding_y + 2 * (2 * radius + thickness + empty),
+        x = align_right and bg_vert_padding_x + bg_vert_width / 2 + thickness / 2 or
+            window_width - bg_vert_padding_x - bg_vert_width / 2 + thickness / 2,
         radius = radius,
         thickness = 7,
         start_angle = 0,
-        end_angle = 360
+        end_angle = 360,
+        icon = "󰂎"
     },
     {
         name = 'acpitemp',
@@ -97,12 +111,14 @@ settings_table = {
         bg_alpha = 0.2,
         fg_colour = 0x03ff24,
         fg_alpha = 1,
-        x = left_space + 7 * radius + 4 * empty + padding,
-        y = height / 2,
+        y = initial_space + padding_y + 3 * (2 * radius + thickness + empty),
+        x = align_right and bg_vert_padding_x + bg_vert_width / 2 + thickness / 2 or
+            window_width - bg_vert_padding_x - bg_vert_width / 2 + thickness / 2,
         radius = radius,
         thickness = 7,
         start_angle = 0,
         end_angle = 360,
+        icon = ""
     },
 
 
@@ -114,7 +130,7 @@ function rgb_to_r_g_b(colour, alpha)
     return ((colour / 0x10000) % 0x100) / 255., ((colour / 0x100) % 0x100) / 255., (colour % 0x100) / 255., alpha
 end
 
-function draw_ring(cr, t, pt)
+function draw_ring(cr, cr2, t, pt)
     local w, h = conky_window.width, conky_window.height
 
     local xc, yc, ring_r, ring_w, sa, ea = pt['x'], pt['y'], pt['radius'], pt['thickness'], pt['start_angle'],
@@ -125,22 +141,36 @@ function draw_ring(cr, t, pt)
     local angle_f = ea * (2 * math.pi / 360) - math.pi / 2
     local t_arc = t * (angle_f - angle_0)
 
-    -- Draw background ring
 
+    -- Draw background ring
     cairo_arc(cr, xc, yc, ring_r, angle_0, angle_f)
     cairo_set_source_rgba(cr, rgb_to_r_g_b(bgc, bga))
     cairo_set_line_width(cr, ring_w)
     cairo_stroke(cr)
+
 
     -- Draw indicator ring
 
     cairo_arc(cr, xc, yc, ring_r, angle_0, angle_0 + t_arc)
     cairo_set_source_rgba(cr, rgb_to_r_g_b(fgc, fga))
     cairo_stroke(cr)
+
+    cairo_set_source_rgb(cr2, 1, 1, 1)
+    cairo_set_font_size(cr2, 16)
+    cairo_select_font_face(cr2, "FiraCode Nerd Font Mono", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
+    cairo_move_to(cr2, xc - 6, yc + 4)
+    cairo_show_text(cr2, pt["icon"])
+
+    if pt['name'] ~= 'swapperc' then
+        cairo_select_font_face(cr2, "Abel", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
+        cairo_set_font_size(cr2, 12)
+        cairo_move_to(cr2, xc - 14, yc + 45)
+        cairo_show_text(cr2, string.format("%03.0f%%", t * 100))
+    end
 end
 
 function conky_ring_stats()
-    local function setup_rings(cr, pt)
+    local function setup_rings(cr, cr2, pt)
         local str = ''
         local value = 0
 
@@ -151,7 +181,7 @@ function conky_ring_stats()
         if value == nil then value = 0 end
         pct = value / pt['max']
 
-        draw_ring(cr, pct, pt)
+        draw_ring(cr, cr2, pct, pt)
     end
 
     if conky_window == nil then return end
@@ -159,13 +189,15 @@ function conky_ring_stats()
         conky_window.width, conky_window.height)
 
     local cr = cairo_create(cs)
+    local cr2 = cairo_create(cs)
 
     local updates = conky_parse('${updates}')
     update_num = tonumber(updates)
 
+
     if update_num > 5 then
         for i in pairs(settings_table) do
-            setup_rings(cr, settings_table[i])
+            setup_rings(cr, cr2, settings_table[i])
         end
     end
     cairo_surface_destroy(cs)
@@ -174,4 +206,95 @@ end
 
 function conky_graph_example()
     return math.random(0, 100)
+end
+
+function conky_render_main_bg()
+    bg_height = bg_aspect * bg_width
+    bg_pos_x = 0
+    bg_pos_y = 0 + bg_padding_y
+    if (align_right) then
+        bg_pos_x = bg_pos_x + window_width - bg_width - bg_padding_x
+    else
+        bg_pos_x = bg_pos_x + bg_padding_x
+    end
+    return string.format("${image %s -s %dx%d -p %d,%d}", bg_path, bg_width, bg_height, bg_pos_x, bg_pos_y)
+end
+
+function conky_render_vert_bg()
+    bg_vert_height = bg_vert_aspect * bg_vert_width
+    bg_pos_x = 0
+    bg_pos_y = 0 + bg_vert_padding_y
+    if align_right then
+        bg_pos_x = bg_vert_padding_x
+    else
+        bg_pos_x = window_width - bg_vert_width - bg_vert_padding_x
+    end
+    return string.format("${image %s -s %dx%d -p %d,%d}", bg_vert_path, bg_vert_width, bg_vert_height, bg_pos_x, bg_pos_y)
+end
+
+function conky_render_player_bg()
+    bg_player_height = bg_player_aspect * bg_player_width
+    bg_pos_x = 0
+    bg_pos_y = 0 + bg_player_padding_y
+    if align_right then
+        bg_pos_x = bg_pos_x + window_width - bg_width - bg_player_width - bg_player_padding_x
+    else
+        bg_pos_x = bg_player_width + bg_player_padding_x
+    end
+    return string.format("${image %s -s %dx%d -p %d,%d}", bg_player_path, bg_player_width, bg_player_height, bg_pos_x,
+        bg_pos_y)
+end
+
+function conky_render_player_image(image_path)
+    bg_player_height = bg_player_aspect * bg_player_width
+    bg_pos_x = 0
+    bg_pos_y = 0 + bg_player_padding_y + bg_player_height / 4.5
+    if align_right then
+        bg_pos_x = bg_pos_x + window_width - bg_width - bg_player_width - bg_player_padding_x + player_img_padding_x
+    else
+        bg_pos_x = bg_player_width + bg_player_padding_x + player_img_padding_x
+    end
+    return string.format("${image %s -s %dx%d -p %d,%d}", image_path, player_img_width, player_img_height, bg_pos_x,
+        bg_pos_y)
+end
+
+function conky_base_offset()
+    offset = 0
+    if align_right then
+        offset = window_width - bg_width - bg_padding_x
+    else
+        offset = bg_padding_x
+    end
+    return string.format("${offset %d}", offset)
+end
+
+function conky_player_base_offset()
+    offset = 0
+    if align_right then
+        offset = window_width - bg_width - bg_player_padding_x - bg_player_width + player_img_width
+    else
+        offset = bg_width + bg_player_padding_x + player_img_width
+    end
+    return string.format("${offset %d}", offset)
+end
+
+function conky_base_voffset()
+    voffset = bg_padding_y + 8
+    return string.format("${voffset %d}", voffset)
+end
+
+function conky_base_vert_voffset()
+    voffset = bg_vert_padding_y
+    return string.format("${voffset %d}", voffset)
+end
+
+function conky_icon_offset()
+    offset = align_right and bg_vert_padding_x + bg_vert_width / 2 + thickness / 2 - 10 or
+        window_width - bg_vert_padding_x - bg_vert_width / 2 + thickness / 2 - 10
+    return string.format("${offset %d}", offset)
+end
+
+function conky_icon_voffset(index)
+    voffset = 46
+    return string.format("${voffset %d}", voffset)
 end
