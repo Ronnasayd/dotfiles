@@ -5,12 +5,12 @@ WEATHER_CODE=$(cat ~/.cache/my-weather.json | jq -r '.current.weather_code')
 WEATHER_ICON=
 function icons(){
   if [ $(docker ps | wc -l) -gt 1 ]; then
-    DOCKER_ICON=""
+    DOCKER_ICON=" "
   fi
   if [[ -n "$(nmcli con | grep -i vpn | grep wlp6s0)" ]]; then
-    VPN_ICON="󰷛"
+    VPN_ICON="󰷛 "
   fi
-  echo "${DOCKER_ICON} ${VPN_ICON}"
+  echo "${DOCKER_ICON}${VPN_ICON}"
 }
 case $1 in
   CUR_IS_DAY)
