@@ -10,8 +10,8 @@ bg_aspect = 1396 / 686
 bg_path = "~/.config/conky/MyMimosa/res/bg6.png"
 
 bg_vert_path = "~/.config/conky/MyMimosa/res/bg-piece-v.png"
-bg_vert_width = 140
-bg_vert_aspect = 720 / 270
+bg_vert_width = 120
+bg_vert_aspect = 840 / 270
 bg_vert_padding_x = 10
 bg_vert_padding_y = 50
 
