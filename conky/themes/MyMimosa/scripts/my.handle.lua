@@ -307,3 +307,42 @@ function conky_rotate_text(text, limit)
     current = counter % value_size + 1
     return string.sub(value, current, math.min(current + limit, value_size))
 end
+
+function conky_cpu_freq_mean(number_cpus)
+    value = 0.0
+    for i = 1, number_cpus, 1 do
+        value = value + tonumber(conky_parse(string.format('${freq %d}', i)))
+    end
+    return string.format("%.0f Mhz", value / number_cpus)
+end
+
+function conky_top_cpu(number)
+    name = conky_parse(string.format("${top name %d}", number))
+    value = conky_parse(string.format("${top cpu %d}", number))
+    name = name:gsub("%s+", "")
+    value = value:gsub("%s+", "")
+    value = tonumber(value)
+    if #name > 8 then
+        name = string.sub(name, 1, 8)
+    end
+    name = lpad(name, 16, ' ')
+    return string.format("%05.2f %% %s", value, name)
+end
+
+function conky_top_mem(number)
+    name = conky_parse(string.format("${top_mem name %d}", number))
+    value = conky_parse(string.format("${top_mem mem %d}", number))
+    name = name:gsub("%s+", "")
+    value = value:gsub("%s+", "")
+    value = tonumber(value)
+    if #name > 8 then
+        name = string.sub(name, 1, 8)
+    end
+    name = lpad(name, 16, ' ')
+    return string.format("%05.2f %% %s", value, name)
+end
+
+function lpad(str, len, char)
+    char = char or ' ' -- Default character is space
+    return string.rep(char, len - #str) .. str
+end
