@@ -10,7 +10,10 @@ function icons(){
   if [[ -n "$(nmcli con | grep -i vpn | grep wlp6s0)" ]]; then
     VPN_ICON="󰷛 "
   fi
-  echo "${DOCKER_ICON}${VPN_ICON}"
+  if [[ -n "$(amixer get Headphone | grep '\[on\]')" ]]; then
+    HEADSET_ICON="󰋎 "
+  fi
+  echo "${DOCKER_ICON}${VPN_ICON}${HEADSET_ICON}"
 }
 case $1 in
   CUR_IS_DAY)

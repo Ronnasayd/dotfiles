@@ -50,7 +50,8 @@ settings_table = {
         thickness = thickness,
         start_angle = 0,
         end_angle = 360,
-        icon = ""
+        icon = "",
+        icon_size = 24
     },
     {
         name = 'memperc',
@@ -67,7 +68,8 @@ settings_table = {
         thickness = 7,
         start_angle = 0,
         end_angle = 360,
-        icon = ""
+        icon = "",
+        icon_size = 20
     },
     {
         name = 'swapperc',
@@ -84,7 +86,8 @@ settings_table = {
         thickness = 7,
         start_angle = 0,
         end_angle = 360,
-        icon = ''
+        icon = '',
+        icon_size = 16
     },
     {
         name = 'battery_percent',
@@ -101,7 +104,8 @@ settings_table = {
         thickness = 7,
         start_angle = 0,
         end_angle = 360,
-        icon = "󰂎"
+        icon = "󰂎",
+        icon_size = 16
     },
     {
         name = 'acpitemp',
@@ -118,7 +122,8 @@ settings_table = {
         thickness = 7,
         start_angle = 0,
         end_angle = 360,
-        icon = ""
+        icon = "",
+        icon_size = 16
     },
 
 
@@ -156,9 +161,9 @@ function draw_ring(cr, cr2, t, pt)
     cairo_stroke(cr)
 
     cairo_set_source_rgb(cr2, 1, 1, 1)
-    cairo_set_font_size(cr2, 16)
+    cairo_set_font_size(cr2, pt['icon_size'])
     cairo_select_font_face(cr2, "FiraCode Nerd Font Mono", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
-    cairo_move_to(cr2, xc - 6, yc + 4)
+    cairo_move_to(cr2, xc - pt['icon_size'] / 3, yc + pt['icon_size'] / 4)
     cairo_show_text(cr2, pt["icon"])
 
     if pt['name'] ~= 'swapperc' then
