@@ -28,7 +28,6 @@ def main():
             "credentials.json", SCOPES
         )
         creds = flow.run_local_server(port=0)
-      token_name = input('digite the token filename:')
       with open(token, "w") as token:
         token.write(creds.to_json())
 
