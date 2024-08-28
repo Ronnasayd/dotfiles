@@ -15,6 +15,12 @@ bg_vert_aspect = 840 / 270
 bg_vert_padding_x = 10
 bg_vert_padding_y = 50
 
+bg_calendar_path = "~/.config/conky/MyMimosa/res/bg-piece.png"
+bg_calendar_width = 310
+bg_calendar_aspect = 270 / 720
+bg_calendar_padding_x = 10
+bg_calendar_padding_y = 590
+
 bg_player_path = "~/.config/conky/MyMimosa/res/bg-piece.png"
 bg_player_width = 310
 bg_player_aspect = 270 / 720
@@ -248,6 +254,19 @@ function conky_render_vert_bg()
     return string.format("${image %s -s %dx%d -p %d,%d}", bg_vert_path, bg_vert_width, bg_vert_height, bg_pos_x, bg_pos_y)
 end
 
+function conky_render_calendar_bg()
+    bg_calendar_height = bg_calendar_aspect * bg_calendar_width
+    bg_pos_x = 0
+    bg_pos_y = 0 + bg_calendar_padding_y
+    if align_right then
+        bg_pos_x = bg_calendar_padding_x
+    else
+        bg_pos_x = window_width - bg_calendar_width - bg_calendar_padding_x
+    end
+    return string.format("${image %s -s %dx%d -p %d,%d}", bg_calendar_path, bg_calendar_width, bg_calendar_height,
+        bg_pos_x, bg_pos_y)
+end
+
 function conky_render_player_bg()
     bg_player_height = bg_player_aspect * bg_player_width
     bg_pos_x = 0
@@ -358,7 +377,30 @@ function conky_top_mem(number)
     return string.format("%05.2f %% %s", value, name)
 end
 
+function conky_calendar()
+    file = io.open('/tmp/conky-calendar', 'r')
+    contents = file:read("*a")
+    file:close()
+    if align_right then
+        offset = bg_calendar_padding_x + 30
+    else
+        offset = window_width - bg_calendar_width - bg_calendar_padding_x + 30
+    end
+    offset_str = string.format('${offset %d}', offset)
+    contents = string.gsub(contents, "offset|", offset_str)
+    contents = offset_str .. "${font FiraCode Nerd Font:size=12}󰃭\n${font Abel:size=8}" .. contents
+    return conky_parse(contents)
+end
+
 function lpad(str, len, char)
     char = char or ' ' -- Default character is space
     return string.rep(char, len - #str) .. str
+end
+
+function split_lines(str, regex)
+    local lines = {}
+    for line in str:gmatch(regex) do
+        table.insert(lines, line)
+    end
+    return lines
 end
