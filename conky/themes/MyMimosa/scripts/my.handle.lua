@@ -51,7 +51,8 @@ settings_table = {
         start_angle = 0,
         end_angle = 360,
         icon = "",
-        icon_size = 24
+        icon_size = 24,
+        suffix = '%'
     },
     {
         name = 'memperc',
@@ -69,7 +70,8 @@ settings_table = {
         start_angle = 0,
         end_angle = 360,
         icon = "",
-        icon_size = 20
+        icon_size = 20,
+        suffix = '%'
     },
     {
         name = 'swapperc',
@@ -87,7 +89,8 @@ settings_table = {
         start_angle = 0,
         end_angle = 360,
         icon = '',
-        icon_size = 16
+        icon_size = 16,
+        suffix = '%'
     },
     {
         name = 'battery_percent',
@@ -105,7 +108,8 @@ settings_table = {
         start_angle = 0,
         end_angle = 360,
         icon = "󰂎",
-        icon_size = 16
+        icon_size = 16,
+        suffix = '%'
     },
     {
         name = 'acpitemp',
@@ -123,7 +127,8 @@ settings_table = {
         start_angle = 0,
         end_angle = 360,
         icon = "",
-        icon_size = 16
+        icon_size = 16,
+        suffix = '°'
     },
 
 
@@ -141,6 +146,12 @@ function draw_ring(cr, cr2, t, pt)
     local xc, yc, ring_r, ring_w, sa, ea = pt['x'], pt['y'], pt['radius'], pt['thickness'], pt['start_angle'],
         pt['end_angle']
     local bgc, bga, fgc, fga = pt['bg_colour'], pt['bg_alpha'], pt['fg_colour'], pt['fg_alpha']
+
+    if (pt['name'] == 'cpu' or pt['name'] == 'memperc' or pt['name'] == 'acpitemp') and t >= 0.95 then
+        fgc = 0xd90707
+    elseif (pt['name'] == 'cpu' or pt['name'] == 'memperc' or pt['name'] == 'acpitemp') and t >= 0.85 then
+        fgc = 0xeb9d09
+    end
 
     local angle_0 = sa * (2 * math.pi / 360) - math.pi / 2
     local angle_f = ea * (2 * math.pi / 360) - math.pi / 2
@@ -170,7 +181,7 @@ function draw_ring(cr, cr2, t, pt)
         cairo_select_font_face(cr2, "Abel", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
         cairo_set_font_size(cr2, 12)
         cairo_move_to(cr2, xc - 14, yc + 45)
-        cairo_show_text(cr2, string.format("%03.0f%%", t * 100))
+        cairo_show_text(cr2, string.format("%03.0f%s", t * 100, pt['suffix']))
     end
 end
 

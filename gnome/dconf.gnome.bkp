@@ -38,7 +38,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1724382721
-refresh-last-run=1724772721
+refresh-last-run=1724870176
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -65,7 +65,7 @@ width=1020
 alignment='center'
 auto-pinning=true
 current-workspace-only=false
-dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'Copilot-GPT-4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'org.gnome.Calculator.dockitem', 'zsnes.dockitem', 'Develop.dockitem', 'Wallpapers.dockitem', 'Downloads.dockitem', 'nemo.dockitem', 'plank.dockitem', 'trash.dockitem']
+dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'Copilot-GPT-4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'zsnes.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'rss.dockitem', 'org.gnome.Calculator.dockitem', 'Develop.dockitem', 'Wallpapers.dockitem', 'Downloads.dockitem', 'nemo.dockitem', 'plank.dockitem', 'trash.dockitem']
 hide-delay=0
 hide-mode='intelligent'
 icon-size=32
@@ -126,7 +126,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/cf94fec5950b7bbf2bbeffda5454547b.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/a5a169108a1a51b8b7eb0568a4f4f1bf.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -627,7 +627,7 @@ trash-icon-visible=false
 volumes-visible=true
 
 [org/nemo/preferences]
-show-hidden-files=true
+show-hidden-files=false
 show-location-entry=true
 
 [org/nemo/search]
@@ -674,8 +674,8 @@ properties-visible=true
 show-thumbnails=true
 sort-inverse=false
 sort-type='file::mtime'
-startup-current-file='file://~/.config/conky/MyMimosa/res/bg-piece-v.png'
-startup-location='file://~/.config/conky/MyMimosa/res'
+startup-current-file='file://~/.p/lilah%20love/25863268.webp.png'
+startup-location='file://~/.p/lilah%20love'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false

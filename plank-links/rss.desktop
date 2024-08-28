@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=ChromeBurp
+Exec=/home/ronnas/fluent.AppImage
+
+Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/rss.png
+Type=Application
+
+Name[en_US]=rss
