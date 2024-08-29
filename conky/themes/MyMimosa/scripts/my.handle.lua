@@ -388,7 +388,8 @@ function conky_calendar()
     end
     offset_str = string.format('${offset %d}', offset)
     contents = string.gsub(contents, "offset|", offset_str)
-    contents = offset_str .. "${font FiraCode Nerd Font:size=12}󰃭\n${font Abel:size=8}" .. contents
+    contents = offset_str ..
+        "${font FiraCode Nerd Font:size=12}󰃭${font Abel:bold:size=9}  Events\n${font Abel:size=8}" .. contents
     return conky_parse(contents)
 end
 

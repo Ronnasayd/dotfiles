@@ -45,7 +45,7 @@ def main():
               calendarId="primary",
               timeMin=now.isoformat() + "Z",
               timeMax=end_of_tomorrow.isoformat() + "Z",
-              maxResults=20,
+              maxResults=10,
               singleEvents=True,
               orderBy="startTime",
           )
@@ -61,7 +61,7 @@ def main():
         '%Y-%m-%d'
       ]
       # Prints the start and name of the next 10 events
-      with open('/tmp/conky-calendar','w') as file:
+      with open('/tmp/conky-calendar','a') as file:
         for event in events:
           start = event["start"].get("dateTime", event["start"].get("date"))
           for format in formats:
