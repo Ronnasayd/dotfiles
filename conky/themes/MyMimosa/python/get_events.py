@@ -40,7 +40,7 @@ def main():
     try:
       service = build("calendar", "v3", credentials=creds)
 
-      now = datetime.datetime.utcnow()
+      now = datetime.datetime.now()
       start_of_day = now.replace(hour=0, minute=0, second=0, microsecond=0)
       # end_of_day = now.replace(hour=23, minute=59, second=59, microsecond=999999)
       end_of_tomorrow = (now + datetime.timedelta(days=1)).replace(hour=23, minute=59, second=59, microsecond=999999)
@@ -50,7 +50,7 @@ def main():
               calendarId="primary",
               timeMin=now.isoformat() + "Z",
               timeMax=end_of_tomorrow.isoformat() + "Z",
-              maxResults=5,
+              maxResults=10,
               singleEvents=True,
               orderBy="startTime",
           )
@@ -72,12 +72,14 @@ def main():
         if index > 4:
           break
         start = event["start"].get("dateTime", event["start"].get("date"))
+        end = event["end"].get("dateTime", event["end"].get("date"))
         for format in formats:
           try:
             start = datetime.datetime.strptime(start,format).strftime('%d/%m %H:%M')
+            end = datetime.datetime.strptime(end,format).strftime('%H:%M')
           except ValueError:
             continue
-        line = f"offset|{start} - {event['summary']}\n"
+        line = f"offset|{start} to {end} - {event['summary']}\n"
         file.write(line)
         print(line)
       if(len(events_group) < 5):

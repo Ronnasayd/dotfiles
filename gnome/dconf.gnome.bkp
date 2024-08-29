@@ -38,7 +38,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1724382721
-refresh-last-run=1724944606
+refresh-last-run=1724951812
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -126,7 +126,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/aa01fa32a5d4156f308aca6473e70054.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/d3a55a316943190cbd8e7bb52be5040e.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
