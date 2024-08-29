@@ -17,6 +17,7 @@ def main():
     remove("/tmp/conky-calendar")
   tokens = glob(f"{basepath}/tokens/*.json")
   for token in tokens:
+    print(token)
     creds = None
     if os.path.exists(token):
       creds = Credentials.from_authorized_user_file(token, SCOPES)
@@ -35,7 +36,7 @@ def main():
       service = build("calendar", "v3", credentials=creds)
 
       now = datetime.datetime.utcnow()
-      # start_of_day = now.replace(hour=0, minute=0, second=0, microsecond=0)
+      start_of_day = now.replace(hour=0, minute=0, second=0, microsecond=0)
       # end_of_day = now.replace(hour=23, minute=59, second=59, microsecond=999999)
       end_of_tomorrow = (now + datetime.timedelta(days=1)).replace(hour=23, minute=59, second=59, microsecond=999999)
       events_result = (

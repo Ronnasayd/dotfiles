@@ -1,5 +1,6 @@
 #!/bin/bash
 /bin/bash -c $HOME/.config/conky/MyMimosa/scripts/my.download.sh
+/bin/bash -c $HOME/.config/conky/MyMimosa/calendar.sh
 # This command will close all active conky
 killall conky
 sleep 10s
