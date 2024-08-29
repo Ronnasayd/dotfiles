@@ -40,7 +40,7 @@ def main():
     try:
       service = build("calendar", "v3", credentials=creds)
 
-      now = datetime.datetime.now()
+      now = datetime.datetime.utcnow()
       start_of_day = now.replace(hour=0, minute=0, second=0, microsecond=0)
       # end_of_day = now.replace(hour=23, minute=59, second=59, microsecond=999999)
       end_of_tomorrow = (now + datetime.timedelta(days=1)).replace(hour=23, minute=59, second=59, microsecond=999999)
