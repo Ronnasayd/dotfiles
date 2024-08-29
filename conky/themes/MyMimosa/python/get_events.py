@@ -12,10 +12,15 @@ from os import remove,getcwd
 SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
 
 def main():
+  formats = [
+        '%Y-%m-%dT%H:%M:%S%z',
+        '%Y-%m-%d'
+      ]
   basepath = os.path.dirname(os.path.abspath(__file__))
   if os.path.exists("/tmp/conky-calendar"):
     remove("/tmp/conky-calendar")
   tokens = glob(f"{basepath}/tokens/*.json")
+  events_group = []
   for token in tokens:
     print(token)
     creds = None
@@ -45,7 +50,7 @@ def main():
               calendarId="primary",
               timeMin=now.isoformat() + "Z",
               timeMax=end_of_tomorrow.isoformat() + "Z",
-              maxResults=10,
+              maxResults=5,
               singleEvents=True,
               orderBy="startTime",
           )
@@ -54,28 +59,30 @@ def main():
       events = events_result.get("items", [])
 
       if not events:
-        return
-
-      formats = [
-        '%Y-%m-%dT%H:%M:%S%z',
-        '%Y-%m-%d'
-      ]
-      # Prints the start and name of the next 10 events
-      with open('/tmp/conky-calendar','a') as file:
-        for event in events:
-          start = event["start"].get("dateTime", event["start"].get("date"))
-          for format in formats:
-            try:
-              start = datetime.datetime.strptime(start,format).strftime('%d/%m %H:%M')
-            except ValueError:
-              continue
-          line = f"offset|{start} - {event['summary']}\n"
-          file.write(line)
-          print(line)
+        continue
+      
+      events_group = [*events_group,*events]
 
     except HttpError as error:
       print(f"An error occurred: {error}")
-
+  if(len(events_group)):
+    events_group = sorted(events_group,key=lambda x: x['start'].get('dateTime', x['start'].get('date')))
+    with open('/tmp/conky-calendar','w') as file:
+      for index,event in enumerate(events_group):
+        if index > 4:
+          break
+        start = event["start"].get("dateTime", event["start"].get("date"))
+        for format in formats:
+          try:
+            start = datetime.datetime.strptime(start,format).strftime('%d/%m %H:%M')
+          except ValueError:
+            continue
+        line = f"offset|{start} - {event['summary']}\n"
+        file.write(line)
+        print(line)
+      if(len(events_group) < 5):
+        file.write("\n"*(5-len(events_group)))
+  
 
 if __name__ == "__main__":
   main()
