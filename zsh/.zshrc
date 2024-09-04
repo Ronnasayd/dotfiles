@@ -26,18 +26,21 @@ on_enter_directory(){
 	fi
 	if [ -f "go.mod" ]; then
 			export GO111MODULE=on
+			export GOPATH=$(~/.asdf/shims/go env GOPATH)
 	fi
 	if [ -f "Gopkg.toml" ]; then
 			export GO111MODULE=off
+			export GOPATH=$(~/.asdf/shims/go env GOPATH)
 	fi
 	if [ -d "venv" ]; then
 			deactivate
 			source venv/bin/activate
 	fi
 	SPECIFIC_DIR="/home/ronnas/develop/QQ/"
+	QQ_DIR="$(~/.asdf/shims/go env GOPATH)/src/github.com/queroquitar/"
 	CURRENT_DIR="$(pwd)"
-	if [[ "$CURRENT_DIR" == "$SPECIFIC_DIR"* ]]; then
-	    export GOPRIVATE=github.com/queroquitar/*
+	if [[ "$CURRENT_DIR" == "$SPECIFIC_DIR"* ]] || [[ "$CURRENT_DIR" == "$QQ_DIR"* ]]; then
+    export GOPRIVATE=github.com/queroquitar/*
 	fi
 }
 on_enter_directory
@@ -157,7 +160,7 @@ alias q="exit 0"
 alias ka="killall"
 alias open="xdg-open 2>/dev/null"
 alias remove="sudo apt-get autoremove && sudo apt-get autoclean"
-alias remove_files="sudo dpkg --purge `dpkg --get-selections | grep deinstall | cut -f1`"
+alias remove_files="sudo dpkg --purge 'dpkg --get-selections | grep deinstall | cut -f1'"
 alias curbg="gsettings get org.cinnamon.desktop.background picture-uri"
 alias portainer="docker run --rm -d -p 9000:9000 --name portainer  -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer 2>/dev/null; xdg-open http://localhost:9000 2>/dev/null"
 alias gports="sudo netstat -tulpn | grep "
@@ -175,6 +178,7 @@ alias docker_stop_all="docker ps -aq | xargs docker stop"
 alias docker_rm_all="docker ps -aq | xargs docker rm -f"
 alias find_node_modules='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1'
 alias watch_cpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
+alias zsh_alias='cat ~/.zshrc | grep alias'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

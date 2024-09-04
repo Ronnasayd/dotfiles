@@ -23,7 +23,7 @@ use-antialiasing=true
 
 [com/linuxmint/install]
 flatpak-remotes=['flathub::https://dl.flathub.org/repo/::False']
-installed-apps=['apt:ack', 'apt:adb', 'apt:aircrack-ng', 'apt:anki', 'apt:autoconf', 'apt:azure-cli', 'apt:bluez-hcidump', 'apt:build-essential', 'apt:cloudflared', 'apt:cmake', 'apt:code', 'apt:conky-all', 'apt:containerd', 'apt:crunch', 'apt:dbeaver-ce', 'apt:discord', 'apt:docker-compose', 'apt:docker.io', 'apt:dsniff', 'apt:espeak', 'apt:extundelete', 'apt:fd-find', 'apt:ffmpeg', 'apt:fonts-lyx', 'apt:fonts-wine', 'apt:foremost', 'apt:g++', 'apt:gfortran', 'apt:git', 'apt:go-dep', 'apt:google-chrome-stable', 'apt:heroku', 'apt:htop', 'apt:icoutils', 'apt:imagemagick', 'apt:insomnia', 'apt:iotop', 'apt:jq', 'apt:linux-headers-5.4.0-165-generic', 'apt:linux-modules-extra-5.4.0-135-generic', 'apt:llvm', 'apt:lua5.3', 'apt:lxc-utils', 'apt:lxcfs', 'apt:lzip', 'apt:mbrola', 'apt:mbrola-en1', 'apt:mdk3', 'apt:microsoft-edge-beta', 'apt:mintupgrade', 'apt:mplayer', 'apt:ocs-url', 'apt:openvpn3', 'apt:pavucontrol', 'apt:pixiewps', 'apt:plank', 'apt:playerctl', 'apt:playonlinux', 'apt:plexmediaserver', 'apt:python-dev-is-python2', 'apt:python-is-python2', 'apt:python-wxgtk3.0', 'apt:python-wxversion', 'apt:python3-cycler', 'apt:python3-kiwisolver', 'apt:python3-markdown', 'apt:python3-matplotlib', 'apt:python3-pip', 'apt:python3-pyaudio', 'apt:python3-pyqt5', 'apt:python3-pyqt5.qtwebchannel', 'apt:python3-pyqt5.qtwebengine', 'apt:python3-scapy', 'apt:python3-send2trash', 'apt:python3-sip', 'apt:python3-tk', 'apt:python3-venv', 'apt:python3.7', 'apt:python3.7-tk', 'apt:qbittorrent', 'apt:reaver', 'apt:resolvconf', 'apt:scrcpy', 'apt:screenkey', 'apt:silversearcher-ag', 'apt:sqlite3', 'apt:sshpass', 'apt:sysstat', 'apt:terminator', 'apt:testdisk', 'apt:tmux', 'apt:ttf-bitstream-vera', 'apt:uidmap', 'apt:usrmerge', 'apt:vim', 'apt:vim-gtk3', 'apt:vim-nox', 'apt:virtualbox', 'apt:virtualbox-dkms', 'apt:virtualbox-qt', 'apt:vlc', 'apt:webp', 'apt:webp-pixbuf-loader', 'apt:weston', 'apt:wine', 'apt:wine64', 'apt:xclip', 'apt:xpra', 'apt:xsel', 'apt:xsltproc', 'apt:xterm', 'apt:xvfb', 'apt:yarn', 'apt:zsh', 'fp:flathub:app/com.stremio.Stremio/x86_64/stable']
+installed-apps=['apt:ack', 'apt:adb', 'apt:aircrack-ng', 'apt:alien', 'apt:anki', 'apt:autoconf', 'apt:azure-cli', 'apt:bluez-hcidump', 'apt:build-essential', 'apt:cloudflared', 'apt:cmake', 'apt:code', 'apt:conky-all', 'apt:containerd', 'apt:crunch', 'apt:debhelper', 'apt:deborphan', 'apt:discord', 'apt:docker-compose', 'apt:docker.io', 'apt:dsniff', 'apt:espeak', 'apt:extundelete', 'apt:fd-find', 'apt:ffmpeg', 'apt:fonts-lyx', 'apt:fonts-wine', 'apt:foremost', 'apt:g++', 'apt:gfortran', 'apt:git', 'apt:go-dep', 'apt:google-chrome-stable', 'apt:heroku', 'apt:htop', 'apt:icoutils', 'apt:imagemagick', 'apt:insomnia', 'apt:iotop', 'apt:jq', 'apt:kleopatra', 'apt:krb5-multidev', 'apt:lens', 'apt:linux-headers-5.4.0-165-generic', 'apt:linux-modules-extra-5.4.0-135-generic', 'apt:llvm', 'apt:lua5.3', 'apt:lxc-utils', 'apt:lxcfs', 'apt:lzip', 'apt:mbrola', 'apt:mbrola-en1', 'apt:mdk3', 'apt:microsoft-edge-beta', 'apt:mintupgrade', 'apt:mongodb-compass', 'apt:mplayer', 'apt:ocs-url', 'apt:openvpn3', 'apt:paperkey', 'apt:pavucontrol', 'apt:pinentry-qt', 'apt:pixiewps', 'apt:plank', 'apt:playerctl', 'apt:playonlinux', 'apt:python-dev-is-python2', 'apt:python-is-python2', 'apt:python-wxgtk3.0', 'apt:python-wxversion', 'apt:python3-cycler', 'apt:python3-kiwisolver', 'apt:python3-markdown', 'apt:python3-matplotlib', 'apt:python3-pip', 'apt:python3-pyaudio', 'apt:python3-pyqt5', 'apt:python3-pyqt5.qtwebchannel', 'apt:python3-pyqt5.qtwebengine', 'apt:python3-scapy', 'apt:python3-send2trash', 'apt:python3-sip', 'apt:python3-tk', 'apt:python3-venv', 'apt:python3.7', 'apt:python3.7-tk', 'apt:python3.8-venv', 'apt:qbittorrent', 'apt:reaver', 'apt:resolvconf', 'apt:scrcpy', 'apt:screenkey', 'apt:silversearcher-ag', 'apt:sqlite3', 'apt:sshpass', 'apt:sysstat', 'apt:terminator', 'apt:testdisk', 'apt:tmux', 'apt:ttf-bitstream-vera', 'apt:uidmap', 'apt:usrmerge', 'apt:vim', 'apt:vim-gtk3', 'apt:vim-nox', 'apt:virtualbox', 'apt:virtualbox-dkms', 'apt:virtualbox-qt', 'apt:vlc', 'apt:webp', 'apt:webp-pixbuf-loader', 'apt:weston', 'apt:wine', 'apt:wine64', 'apt:xclip', 'apt:xpra', 'apt:xsel', 'apt:xsltproc', 'apt:xterm', 'apt:xvfb', 'apt:yarn', 'apt:zsh', 'fp:flathub:app/com.stremio.Stremio/x86_64/stable', 'fp:flathub:app/org.gnome.NetworkDisplays/x86_64/stable']
 
 [com/linuxmint/mintmenu/plugins/applications]
 favorite-apps-list=['location:/usr/share/applications/firefox.desktop\n', 'location:/usr/share/applications/thunderbird.desktop\n', 'location:/usr/share/applications/pix.desktop\n', 'location:/usr/share/applications/rhythmbox.desktop\n', 'separator\n', 'location:/usr/share/applications/gnome-calculator.desktop\n', 'location:/usr/share/applications/gcalctool.desktop\n', 'location:/usr/share/applications/org.gnome.Calculator.desktop\n', 'location:/usr/share/applications/xed.desktop\n', 'location:/usr/share/applications/mate-terminal.desktop\n', 'location:/usr/share/applications/gnome-terminal.desktop\n', 'location:/usr/share/applications/mate-volume-control.desktop\n', 'location:/usr/share/applications/cinnamon-settings-sound.desktop\n', 'location:/usr/share/applications/xfce4-mixer.desktop\n', 'separator\n', 'location:/usr/share/applications/mate-display-properties.desktop\n', 'location:/usr/share/applications/cinnamon-display-panel.desktop\n', 'location:/usr/share/applications/xfce-display-settings.desktop\n', 'location:/usr/share/applications/mate-system-monitor.desktop\n', 'location:/usr/share/applications/gnome-system-monitor.desktop\n', 'location:/usr/share/applications/xfce4-taskmanager.desktop\n']
@@ -38,7 +38,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1724382721
-refresh-last-run=1724966236
+refresh-last-run=1725463641
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -65,7 +65,7 @@ width=1020
 alignment='center'
 auto-pinning=true
 current-workspace-only=false
-dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'Copilot-GPT-4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'zsnes.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'rss.dockitem', 'org.gnome.Calculator.dockitem', 'Develop.dockitem', 'Wallpapers.dockitem', 'Downloads.dockitem', 'nemo.dockitem', 'plank.dockitem', 'trash.dockitem']
+dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'Copilot-GPT-4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'zsnes.dockitem', 'zsnes-1.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'rss.dockitem', 'Develop.dockitem', 'Wallpapers.dockitem', 'Downloads.dockitem', 'nemo.dockitem', 'plank.dockitem', 'trash.dockitem']
 hide-delay=0
 hide-mode='intelligent'
 icon-size=32
@@ -126,7 +126,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/6f6041853caf92f032e327900a354e27.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/a494bc2e71b5cb57154efb6fcece836b.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -525,7 +525,7 @@ sort-column='name'
 sort-directories-first=true
 sort-order='ascending'
 type-format='category'
-window-position=(120, 43)
+window-position=(121, 43)
 window-size=(1124, 694)
 
 [org/mate/panel/general]
