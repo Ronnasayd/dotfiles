@@ -38,7 +38,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1724382721
-refresh-last-run=1725660275
+refresh-last-run=1726180482
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -126,7 +126,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/907cffe86f0de3c1dcecadcf3d930376.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/a9ad09fa5231599aaaeeaa099850de52.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -521,11 +521,11 @@ show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=181
-sort-column='name'
+sort-column='modified'
 sort-directories-first=true
-sort-order='ascending'
+sort-order='descending'
 type-format='category'
-window-position=(120, 43)
+window-position=(120, 41)
 window-size=(1124, 694)
 
 [org/mate/panel/general]
@@ -674,8 +674,8 @@ properties-visible=true
 show-thumbnails=true
 sort-inverse=false
 sort-type='file::mtime'
-startup-current-file='file://~/develop/QQ/qq_playground/documentations/modulo-ocorrencias/imgs/2.png'
-startup-location='file://~/develop/QQ/qq_playground/documentations/modulo-ocorrencias/imgs'
+startup-current-file='file://~/Downloads/image%20(5).png'
+startup-location='file://~/Downloads'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false
