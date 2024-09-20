@@ -87,8 +87,19 @@ yt:(){
 	yarn test:$1
 }
 
-grep_hnr(){
-	grep -HnR  "$1" $2 | awk '{ print substr($0, 1, 130) }'
+ftext(){
+	# $1 = text to search
+	# $2 = locate to search
+	grep --color=always -HnRE  "$1" $2 | awk '{ print substr($0, 1, length($0) < 250 ? length($0) : 250) }'
+}
+video2frames(){
+	# $1 = video path
+	ffmpeg -i $1 %010d.png
+}
+frames2video(){
+	# $1 = video filename
+	# $2 = fps
+	ffmpeg -r $2 -f image2 -pattern_type glob -i "*.png" -vcodec libx264 -crf 20 -pix_fmt yuv420p $1
 }
 
 
@@ -179,6 +190,8 @@ alias docker_rm_all="docker ps -aq | xargs docker rm -f"
 alias find_node_modules='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1'
 alias watch_cpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
 alias zsh_alias='cat ~/.zshrc | grep alias'
+alias ximage="xclip -selection clipboard -t image/png -o > "
+alias number_frames="ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
