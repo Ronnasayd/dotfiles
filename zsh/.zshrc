@@ -33,7 +33,6 @@ on_enter_directory(){
 			export GOPATH=$(~/.asdf/shims/go env GOPATH)
 	fi
 	if [ -d "venv" ]; then
-			deactivate
 			source venv/bin/activate
 	fi
 	SPECIFIC_DIR="/home/ronnas/develop/QQ/"
