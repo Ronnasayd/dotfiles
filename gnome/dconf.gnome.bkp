@@ -38,7 +38,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1724382721
-refresh-last-run=1727060391
+refresh-last-run=1727192622
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -126,7 +126,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/b43715a508c0240ff13c113df99ebd1f.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/54d93cd5cd06388ecacb416ce910f9e4.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -240,7 +240,7 @@ source-currency=''
 source-units='degree'
 target-currency=''
 target-units='radian'
-window-position=(814, 203)
+window-position=(157, 188)
 word-size=64
 
 [org/gnome/charmap]
@@ -674,8 +674,8 @@ properties-visible=true
 show-thumbnails=true
 sort-inverse=false
 sort-type='file::mtime'
-startup-current-file='file://~/.p/teste/0000000900.png'
-startup-location='file://~/.p/teste'
+startup-current-file='file://~/Desktop/1844dbe3-beb3-4d08-ba04-8252652bcb73.png'
+startup-location='file://~/Desktop'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false
