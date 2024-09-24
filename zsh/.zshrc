@@ -270,6 +270,9 @@ unset __conda_setup
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
+# Remove aliases
+unalias gcb
+
 # Custom aliases
 alias glom="git pull origin master"
 alias glod="git pull origin develop"
