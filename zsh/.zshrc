@@ -101,6 +101,19 @@ frames2video(){
 	ffmpeg -r $2 -f image2 -pattern_type glob -i "*.png" -vcodec libx264 -crf 20 -pix_fmt yuv420p $1
 }
 
+cutvideo(){
+	# $1 = filename
+	# $2 = initial time
+	# $3 = duration time
+	# $4 = output name
+	echo "ffmpeg -hide_banner -i $1 -ss $2 -t $3 -c copy  $4.mp4"
+	ffmpeg -hide_banner -i $1 -ss $2 -t $3 -c copy  $4.mp4
+}
+
+fps(){
+	fraction=$(ffprobe -v error -select_streams v:0 -show_entries stream=avg_frame_rate -of default=nw=1:nk=1 $1)
+	python -c "print(round(${fraction}))"
+}
 
 
 
