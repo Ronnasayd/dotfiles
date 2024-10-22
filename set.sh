@@ -10,5 +10,5 @@ cp  $(pwd)/git/.gitconfig ~/.gitconfig
 dconf dump / < $(pwd)/gnome/dconf.gnome.bkp
 # copy mymimosa
 cp -r  $(pwd)/plank ~/.config/plank
-cp -r  $(pwd)/conky/themes/ ~/.config/conky/MyMimosa/
+cp -r  $(pwd)/conky/themes/MyMimosa ~/.config/conky/
 

@@ -184,7 +184,7 @@ function draw_ring(cr, cr2, t, pt)
     cairo_show_text(cr2, pt["icon"])
 
     if pt['name'] ~= 'swapperc' then
-        cairo_select_font_face(cr2, "Abel", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
+        cairo_select_font_face(cr2, "Roboto", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
         cairo_set_font_size(cr2, 12)
         cairo_move_to(cr2, xc - 14, yc + 45)
         cairo_show_text(cr2, string.format("%03.0f%s", t * 100, pt['suffix']))
@@ -239,7 +239,7 @@ function conky_render_main_bg()
     else
         bg_pos_x = bg_pos_x + bg_padding_x
     end
-    return string.format("${image %s -s %dx%d -p %d,%d}", bg_path, bg_width, bg_height, bg_pos_x, bg_pos_y)
+    return string.format("${image %s -s %sx%s -p %s,%s}", bg_path, bg_width, bg_height, bg_pos_x, bg_pos_y)
 end
 
 function conky_render_vert_bg()
@@ -251,7 +251,7 @@ function conky_render_vert_bg()
     else
         bg_pos_x = window_width - bg_vert_width - bg_vert_padding_x
     end
-    return string.format("${image %s -s %dx%d -p %d,%d}", bg_vert_path, bg_vert_width, bg_vert_height, bg_pos_x, bg_pos_y)
+    return string.format("${image %s -s %sx%s -p %s,%s}", bg_vert_path, bg_vert_width, bg_vert_height, bg_pos_x, bg_pos_y)
 end
 
 function conky_render_calendar_bg()
@@ -389,7 +389,7 @@ function conky_calendar()
     offset_str = string.format('${offset %d}', offset)
     contents = string.gsub(contents, "offset|", offset_str)
     contents = offset_str ..
-        "${font FiraCode Nerd Font:size=12}󰃭${font Abel:bold:size=9}  Events\n${font Abel:size=8}" .. contents
+        "${font FiraCode Nerd Font:size=12}󰃭${font Roboto:bold:size=9}  Events\n${font Roboto:size=8}" .. contents
     return conky_parse(contents)
 end
 
