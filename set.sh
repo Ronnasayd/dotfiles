@@ -9,5 +9,6 @@ cp  $(pwd)/vim/.coc.vim ~/.coc.vim
 cp  $(pwd)/git/.gitconfig ~/.gitconfig
 dconf dump / < $(pwd)/gnome/dconf.gnome.bkp
 # copy mymimosa
+cp -r  $(pwd)/plank ~/.config/plank
 cp -r  $(pwd)/conky/themes/ ~/.config/conky/MyMimosa/
 

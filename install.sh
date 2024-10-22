@@ -6,4 +6,6 @@ sudo apt install -y tmux
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/chrome.deb
 sudo apt install /tmp/chrome.deb
 
-
+sudo add-apt-repository -y ppa:ricotz/docky
+sudo apt-get update
+sudo apt-get install -y plank
