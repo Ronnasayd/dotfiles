@@ -9,3 +9,8 @@ sudo apt install /tmp/chrome.deb
 sudo add-apt-repository -y ppa:ricotz/docky
 sudo apt-get update
 sudo apt-get install -y plank
+
+sudo apt install -y conky-all
+
+apt install playerctl
+apt install jq
