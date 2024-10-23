@@ -376,3 +376,4 @@ alias watch_cpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
 alias zsh_alias='cat ~/.zshrc | grep alias'
 alias ximage="xclip -selection clipboard -t image/png -o > "
 alias number_frames="ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1"
+alias echo_cancel="pactl load-module module-echo-cancel"

@@ -183,11 +183,18 @@ function draw_ring(cr, cr2, t, pt)
     cairo_move_to(cr2, xc - pt['icon_size'] / 3, yc + pt['icon_size'] / 4)
     cairo_show_text(cr2, pt["icon"])
 
+    cairo_select_font_face(cr2, "Roboto", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
+    cairo_set_font_size(cr2, 12)
     if pt['name'] ~= 'swapperc' then
-        cairo_select_font_face(cr2, "Roboto", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
-        cairo_set_font_size(cr2, 12)
-        cairo_move_to(cr2, xc - 14, yc + 45)
+        if pt['name'] == 'memperc' then
+            cairo_move_to(cr2, xc -28, yc + 45)
+        else
+            cairo_move_to(cr2, xc - 14, yc + 45)
+        end
         cairo_show_text(cr2, string.format("%03.0f%s", t * 100, pt['suffix']))
+    else
+        cairo_move_to(cr2, xc+2, yc + 45)
+        cairo_show_text(cr2, string.format("/%03.0f%s", t * 100, pt['suffix']))
     end
 end
 
