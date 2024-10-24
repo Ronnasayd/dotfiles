@@ -56,7 +56,7 @@
     background_jobs         # presence of background 
     asdf                    # asdf version manager (https://github.com/asdf-vm/asdf)
     wifi
-    # my_cpu_status
+    my_cpu_status
     ram 
     # battery
     time                    # current time

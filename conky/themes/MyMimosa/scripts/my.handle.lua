@@ -270,7 +270,7 @@ function conky_render_calendar_bg()
     else
         bg_pos_x = window_width - bg_calendar_width - bg_calendar_padding_x
     end
-    return string.format("${image %s -s %dx%d -p %d,%d}", bg_calendar_path, bg_calendar_width, bg_calendar_height,
+    return string.format("${image %s -s %sx%s -p %s,%s}", bg_calendar_path, bg_calendar_width, bg_calendar_height,
         bg_pos_x, bg_pos_y)
 end
 
@@ -283,7 +283,7 @@ function conky_render_player_bg()
     else
         bg_pos_x = bg_player_width + bg_player_padding_x
     end
-    return string.format("${image %s -s %dx%d -p %d,%d}", bg_player_path, bg_player_width, bg_player_height, bg_pos_x,
+    return string.format("${image %s -s %sx%s -p %s,%s}", bg_player_path, bg_player_width, bg_player_height, bg_pos_x,
         bg_pos_y)
 end
 
@@ -296,7 +296,7 @@ function conky_render_player_image(image_path)
     else
         bg_pos_x = bg_player_width + bg_player_padding_x + player_img_padding_x
     end
-    return string.format("${image %s -s %dx%d -p %d,%d}", image_path, player_img_width, player_img_height, bg_pos_x,
+    return string.format("${image %s -s %sx%s -p %s,%s}", image_path, player_img_width, player_img_height, bg_pos_x,
         bg_pos_y)
 end
 

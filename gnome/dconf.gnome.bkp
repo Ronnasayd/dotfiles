@@ -495,8 +495,8 @@ autorefresh-hours=2
 default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
-install-last-run=1729784113
-refresh-last-run=1729787991
+install-last-run=1729795305
+refresh-last-run=1729795197
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -1122,7 +1122,7 @@ sort-column='modified'
 sort-directories-first=true
 sort-order='descending'
 type-format='category'
-window-position=(121, 14)
+window-position=(121, 41)
 window-size=(1124, 694)
 
 [org/mate/panel/general]
@@ -1237,7 +1237,7 @@ geometry='559x430+403+173'
 maximized=true
 side-pane-view='places'
 sidebar-bookmark-breakpoint=4
-sidebar-width=153
+sidebar-width=246
 start-with-sidebar=true
 
 [org/x/editor/plugins]
