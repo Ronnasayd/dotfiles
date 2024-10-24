@@ -42,7 +42,17 @@ on_enter_directory(){
     export GOPRIVATE=github.com/queroquitar/*
 	fi
 }
-on_enter_directory
+
+function recursive_on_enter_directory(){
+	d=$(pwd)
+	while [ "$(pwd)" != "/" ]; do
+		on_enter_directory
+		cd ..
+	done
+	cd "$d"
+}
+
+recursive_on_enter_directory
 # this function is called every time a change a directory
 function chpwd {
 	on_enter_directory
@@ -91,6 +101,11 @@ ftext(){
 	# $2 = locate to search
 	grep --color=always -HnRE  "$1" $2 | awk '{ print substr($0, 1, length($0) < 250 ? length($0) : 250) }'
 }
+
+fdirr(){
+	find . -name "$1" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1
+}
+
 video2frames(){
 	# $1 = video path
 	ffmpeg -i $1 %010d.png
@@ -377,3 +392,11 @@ alias zsh_alias='cat ~/.zshrc | grep alias'
 alias ximage="xclip -selection clipboard -t image/png -o > "
 alias number_frames="ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1"
 alias echo_cancel="pactl load-module module-echo-cancel"
+
+# pnpm
+export PNPM_HOME="/home/ronnas/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

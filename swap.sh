@@ -7,3 +7,4 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 swapon --show
 sudo rm swapfile.old
+sudo echo "/swapfile   none   swap  sw  0  0" >> /etc/fstab
