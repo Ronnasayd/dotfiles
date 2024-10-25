@@ -8,12 +8,13 @@ fi
 export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$ASDF_DIR/shims:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/code
+export VISUAL=/usr/bin/code
 
 export ANDROID_HOME=$HOME/android
 export PATH=$ANDROID_HOME/platform-tools/:$PATH

@@ -496,7 +496,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1729795305
-refresh-last-run=1729795197
+refresh-last-run=1729823775
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -987,6 +987,10 @@ ignore-phase2-ca-cert=false
 ignore-ca-cert=false
 ignore-phase2-ca-cert=false
 
+[org/gnome/nm-applet/eap/ad1b22bb-5d1e-4640-a1c9-b793afbbc995]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
 [org/gnome/nm-applet/eap/b089c282-8aa5-42bd-a1fa-05c63b827c80]
 ignore-ca-cert=false
 ignore-phase2-ca-cert=false
@@ -1237,7 +1241,7 @@ geometry='559x430+403+173'
 maximized=true
 side-pane-view='places'
 sidebar-bookmark-breakpoint=4
-sidebar-width=246
+sidebar-width=153
 start-with-sidebar=true
 
 [org/x/editor/plugins]
@@ -1276,13 +1280,13 @@ sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthF
 sidebar-visible=true
 sort-inverse=false
 sort-type='file::mtime'
-startup-current-file='file:///home/ronnas/.p/raw/00035-1226901650.png'
-startup-location='file:///home/ronnas/.p/raw'
+startup-current-file=''
+startup-location='file:///home/ronnas/develop/QQ/qq_playground/adjust_creditor_logo/dst'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false
 toolbar-visible=true
-viewer-sidebar='tools'
+viewer-sidebar='hidden'
 viewer-sidebar-width=420
 
 [org/x/pix/crop]

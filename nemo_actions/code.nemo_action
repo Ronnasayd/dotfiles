@@ -1,0 +1,8 @@
+[Nemo Action]
+Name=Open in VS Code
+Comment=Open current folder in Visual Studio Code
+Exec=<code_nemo.sh "%F">
+Icon-Name=visual-studio-code
+#Quote=single
+Selection=Any
+Extensions=dir;
