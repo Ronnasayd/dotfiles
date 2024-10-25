@@ -22,6 +22,7 @@ for i in range(THREADS):
         if match:
            block_number = int(match.group(1))
            START_BLOCK = max(START_BLOCK,block_number)
+    print(f"block:{i} = {int(100*START_BLOCK/END_BLOCK)}%")
     
     # Start the command and append the process to the list
     cmd = f"sudo badblocks -s -v {PARTITION} {END_BLOCK} {START_BLOCK} > /home/ronnas/badsectors/badsectors_{i}.txt 2> {LOG}"
