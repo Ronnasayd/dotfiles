@@ -21,3 +21,9 @@ sudo apt install -y conky-all
 sudo add-apt-repository ppa:font-manager/staging
 sudo apt-get update
 sudo apt install font-manager
+
+# add icons
+sudo add-apt-repository ppa:papirus/papirus
+sudo apt-get update
+sudo apt-get install papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
+sudo apt-get install epapirus-icon-theme # ePapirus, and ePapirus-Dark for elementaryOS only
