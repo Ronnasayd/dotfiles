@@ -8,12 +8,12 @@
 
 # These variables define the opacity of various window types - values 1 to 100
 EXCLUDE_OPACITY=100           # Excluded windows
-FULLSCREEN_OPACITY=97        # Full screen windows
-TILED_OPACITY=97             # Tiled focused windows
-MAXIMISED_OPACITY=97         # Maximised focused windows
-DEMANDS_ATTENTION_OPACITY=97 # Any window demanding attention
-FOCUS_OPACITY=97              # Focused non-maximised application
-GROUP_OPACITY=97              # Unfocussed applications that share a PID with the focussed application
+FULLSCREEN_OPACITY=98        # Full screen windows
+TILED_OPACITY=98             # Tiled focused windows
+MAXIMISED_OPACITY=98         # Maximised focused windows
+DEMANDS_ATTENTION_OPACITY=98 # Any window demanding attention
+FOCUS_OPACITY=98              # Focused non-maximised application
+GROUP_OPACITY=98              # Unfocussed applications that share a PID with the focussed application
 DEFAULT_OPACITY=90            # Any others - e.g unfocused applications.
 
 # Any window types to exclude. See https://standards.freedesktop.org/wm-spec/latest/ar01s05.html
