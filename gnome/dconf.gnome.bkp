@@ -496,7 +496,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1729795305
-refresh-last-run=1730244792
+refresh-last-run=1730331254
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -587,7 +587,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/3de8789e5917ec2647d9eb894c749a19.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/737bdc78c044b26f526eb380665e6476.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -601,6 +601,7 @@ slideshow-enabled=true
 clock-show-date=false
 clock-show-seconds=false
 cursor-blink-time=1200
+cursor-size=24
 font-name='Ubuntu 10'
 gtk-theme='Mint-L-Dark-Teal'
 icon-theme='Papirus'
@@ -637,8 +638,29 @@ delay=uint32 500
 numlock-state=true
 repeat-interval=uint32 30
 
+[org/cinnamon/desktop/peripherals/mouse]
+double-click=400
+drag-threshold=8
+speed=0.0
+
+[org/cinnamon/desktop/peripherals/tablets/056a:030e]
+mapping='absolute'
+
+[org/cinnamon/desktop/peripherals/tablets/056a:030e/buttonA]
+action='none'
+
+[org/cinnamon/desktop/peripherals/tablets/056a:030e/buttonB]
+action='none'
+
+[org/cinnamon/desktop/peripherals/tablets/056a:030e/buttonC]
+action='none'
+
+[org/cinnamon/desktop/peripherals/tablets/056a:030e/buttonD]
+action='none'
+
 [org/cinnamon/desktop/peripherals/touchpad]
 send-events='enabled'
+speed=0.0
 
 [org/cinnamon/desktop/screensaver]
 lock-enabled=false
@@ -1125,7 +1147,7 @@ show-type-column=true
 sidebar-width=181
 sort-column='name'
 sort-directories-first=true
-sort-order='ascending'
+sort-order='descending'
 type-format='category'
 window-position=(121, 15)
 window-size=(1124, 694)
@@ -1229,7 +1251,7 @@ trash-icon-visible=false
 volumes-visible=true
 
 [org/nemo/preferences]
-show-hidden-files=false
+show-hidden-files=true
 show-location-entry=true
 
 [org/nemo/search]
@@ -1242,7 +1264,7 @@ geometry='559x430+374+104'
 maximized=true
 side-pane-view='places'
 sidebar-bookmark-breakpoint=4
-sidebar-width=249
+sidebar-width=153
 start-with-sidebar=true
 
 [org/x/editor/plugins]
@@ -1273,7 +1295,8 @@ browser-sidebar-width=294
 filterbar-visible=true
 fullscreen-sidebar='hidden'
 fullscreen-thumbnails-visible=false
-maximized=false
+go-to-last-location=true
+maximized=true
 properties-visible=true
 show-thumbnails=true
 shrink-wrap-viewer=true
@@ -1281,12 +1304,13 @@ sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthF
 sidebar-visible=true
 sort-inverse=false
 sort-type='file::name'
-startup-current-file='file:///home/ronnas/Downloads/Rectangle%2016.png'
-startup-location='file:///home/ronnas/Downloads'
+startup-current-file='file:///home/ronnas/Pictures/wallpapers/images/5d1dd998d47cf30b8490ecc52a886917.jpeg'
+startup-location='file:///home/ronnas/Pictures/wallpapers/images'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false
 toolbar-visible=true
+use-startup-location=false
 viewer-sidebar='hidden'
 viewer-sidebar-width=420
 
@@ -1311,13 +1335,47 @@ last-folder='file:///home/ronnas/Pictures/wallpapers/src/to_process'
 view-destination=true
 
 [org/x/pix/general]
-active-extensions=['23hq', 'bookmarks', 'burn_disc', 'catalogs', 'change_date', 'comments', 'contact_sheet', 'convert_format', 'desktop_background', 'edit_metadata', 'exiv2_tools', 'facebook', 'file_manager', 'file_tools', 'find_duplicates', 'flicker', 'gstreamer_tools', 'gstreamer_utils', 'image_print', 'image_rotation', 'image_viewer', 'importer', 'jpeg_utils', 'list_tools', 'oauth', 'photo_importer', 'photobucket', 'picasaweb', 'raw_files', 'red_eye_removal', 'rename_series', 'resize_images', 'search', 'selections', 'slideshow', 'webalbums']
+active-extensions=['resize_images', 'image_print', 'webalbums', 'burn_disc', 'search', 'list_tools', 'convert_format', 'exiv2_tools', 'edit_metadata', 'find_duplicates', 'rename_series', 'photo_importer', 'raw_files', 'gstreamer_tools', 'catalogs', 'desktop_background', 'change_date', 'contact_sheet', 'image_rotation', 'selections', 'bookmarks', 'file_manager', 'comments', 'red_eye_removal', 'slideshow']
+store-metadata-in-files=true
 
 [org/x/pix/gstreamer-tools]
 volume=100
 
+[org/x/pix/image-print]
+font-name='Sans 12'
+footer-font-name='sans 8'
+header-font-name='sans Bold 12'
+
+[org/x/pix/image-viewer]
+histogram-scale='linear'
+
+[org/x/pix/pixbuf-savers/avif]
+lossless=false
+quality=50
+
+[org/x/pix/pixbuf-savers/jpeg]
+default-ext='jpeg'
+optimize=true
+progressive=false
+quality=85
+smoothing=0
+
 [org/x/pix/pixbuf-savers/png]
 compression-level=0
+
+[org/x/pix/pixbuf-savers/tga]
+rle-compression=true
+
+[org/x/pix/pixbuf-savers/tiff]
+compression='deflate'
+default-ext='tiff'
+horizontal-resolution=72
+vertical-resolution=72
+
+[org/x/pix/pixbuf-savers/webp]
+lossless=false
+method=4
+quality=75
 
 [org/x/reader]
 document-directory=@ms 'file:///home/ronnas/Desktop'

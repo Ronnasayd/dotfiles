@@ -14,14 +14,14 @@ MAXIMISED_OPACITY=97         # Maximised focused windows
 DEMANDS_ATTENTION_OPACITY=97 # Any window demanding attention
 FOCUS_OPACITY=97              # Focused non-maximised application
 GROUP_OPACITY=97              # Unfocussed applications that share a PID with the focussed application
-DEFAULT_OPACITY=95            # Any others - e.g unfocused applications.
+DEFAULT_OPACITY=90            # Any others - e.g unfocused applications.
 
 # Any window types to exclude. See https://standards.freedesktop.org/wm-spec/latest/ar01s05.html
 EXCLUDE_TYPE='DESKTOP|DOCK|SPLASH'
 
 # Any Window classes to exclude. This is a way of excluding specific applications from the opacify function.
 # You can determine window classes for currently open applications using wmctrl -lxb
-EXCLUDE_CLASS='firefox|Google-chrome|Xplayer|vlc|Plank|conky|Terminator'
+EXCLUDE_CLASS='firefox|Google-chrome|Xplayer|vlc|Plank|conky|Terminator|krita|Pix'
 
 # This function is called on a change of Window state and updates the opacity of all windows on the current workspace.
 function opacify_windows {
