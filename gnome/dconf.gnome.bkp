@@ -496,7 +496,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1729795305
-refresh-last-run=1729892731
+refresh-last-run=1730244792
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -523,7 +523,7 @@ width=1020
 alignment='center'
 auto-pinning=true
 current-workspace-only=false
-dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'Copilot-GPT-4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'zsnes.dockitem', 'zsnes-1.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'rss.dockitem', 'Develop.dockitem', 'Wallpapers.dockitem', 'Downloads.dockitem', 'nemo.dockitem', 'plank.dockitem', 'trash.dockitem']
+dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'Copilot-GPT-4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'zsnes.dockitem', 'zsnes-1.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'rss.dockitem', 'nemo.dockitem', 'Develop.dockitem', 'Wallpapers.dockitem', 'Downloads.dockitem', 'plank.dockitem', 'trash.dockitem']
 hide-delay=0
 hide-mode='intelligent'
 icon-size=32
@@ -587,7 +587,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/5dbe765fa9cbc4a197abf6089bc9ebcb.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/3de8789e5917ec2647d9eb894c749a19.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -595,15 +595,15 @@ secondary-color='#000000000000'
 delay=1
 image-source='directory:///home/ronnas/Pictures/wallpapers/images'
 random-order=true
-slideshow-enabled=false
+slideshow-enabled=true
 
 [org/cinnamon/desktop/interface]
 clock-show-date=false
 clock-show-seconds=false
 cursor-blink-time=1200
 font-name='Ubuntu 10'
-gtk-theme='Mint-Y-Dark-Blue'
-icon-theme='Uos-fulldistro-icons'
+gtk-theme='Mint-L-Dark-Teal'
+icon-theme='Papirus'
 scaling-factor=uint32 0
 text-scaling-factor=1.0
 
@@ -671,6 +671,7 @@ check-frequency=300
 memory-limit=2048
 
 [org/cinnamon/muffin]
+draggable-border-width=10
 resize-threshold=24
 
 [org/cinnamon/settings-daemon/peripherals/keyboard]
@@ -785,10 +786,10 @@ gtk-im-module=''
 gtk-im-preedit-style='callback'
 gtk-im-status-style='callback'
 gtk-key-theme='Default'
-gtk-theme='Mint-Y-Dark-Blue'
+gtk-theme='Mint-L-Dark-Teal'
 gtk-timeout-initial=200
 gtk-timeout-repeat=20
-icon-theme='Uos-fulldistro-icons'
+icon-theme='Papirus'
 menubar-accel='F10'
 menubar-detachable=false
 menus-have-tearoff=false
@@ -1122,11 +1123,11 @@ show-hidden=false
 show-size-column=true
 show-type-column=true
 sidebar-width=181
-sort-column='modified'
+sort-column='name'
 sort-directories-first=true
-sort-order='descending'
+sort-order='ascending'
 type-format='category'
-window-position=(121, 41)
+window-position=(121, 15)
 window-size=(1124, 694)
 
 [org/mate/panel/general]
@@ -1228,7 +1229,7 @@ trash-icon-visible=false
 volumes-visible=true
 
 [org/nemo/preferences]
-show-hidden-files=true
+show-hidden-files=false
 show-location-entry=true
 
 [org/nemo/search]
@@ -1237,11 +1238,11 @@ search-file-case-sensitive=false
 search-files-recursively=true
 
 [org/nemo/window-state]
-geometry='559x430+403+173'
+geometry='559x430+374+104'
 maximized=true
 side-pane-view='places'
 sidebar-bookmark-breakpoint=4
-sidebar-width=153
+sidebar-width=249
 start-with-sidebar=true
 
 [org/x/editor/plugins]
@@ -1272,16 +1273,16 @@ browser-sidebar-width=294
 filterbar-visible=true
 fullscreen-sidebar='hidden'
 fullscreen-thumbnails-visible=false
-maximized=true
+maximized=false
 properties-visible=true
 show-thumbnails=true
 shrink-wrap-viewer=true
 sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthFileDetails:expanded', 'GthImageHistogram:expanded']
 sidebar-visible=true
 sort-inverse=false
-sort-type='file::mtime'
-startup-current-file='file:///home/ronnas/.p/raw/00111-1303779690.png'
-startup-location='file:///home/ronnas/.p/raw'
+sort-type='file::name'
+startup-current-file='file:///home/ronnas/Downloads/Rectangle%2016.png'
+startup-location='file:///home/ronnas/Downloads'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false
