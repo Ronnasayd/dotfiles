@@ -7,7 +7,7 @@ def main():
     lines  = response.text.split("\n")
     for line in lines[1:]:
       terms = line.split(",")
-      title = terms[1]
+      title = terms[1][:30]
       start = terms[2]
       end = terms[3]
       # description = terms[4]
