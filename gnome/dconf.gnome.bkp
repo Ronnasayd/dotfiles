@@ -496,7 +496,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1729795305
-refresh-last-run=1730449081
+refresh-last-run=1730470289
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -523,10 +523,10 @@ width=1020
 alignment='center'
 auto-pinning=true
 current-workspace-only=false
-dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'Copilot-GPT-4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'zsnes.dockitem', 'zsnes-1.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'rss.dockitem', 'nemo.dockitem', 'Develop.dockitem', 'Wallpapers.dockitem', 'Downloads.dockitem', 'plank.dockitem', 'trash.dockitem']
+dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'rss.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'zsnes.dockitem', 'zsnes-1.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'nemo.dockitem', 'Develop.dockitem', 'Wallpapers.dockitem', 'Downloads.dockitem', 'plank.dockitem', 'trash.dockitem']
 hide-delay=0
 hide-mode='intelligent'
-icon-size=32
+icon-size=30
 items-alignment='center'
 lock-items=true
 monitor='LVDS-1'
@@ -545,16 +545,21 @@ zoom-percent=151
 obex-enabled=true
 
 [org/blueman/general]
-window-properties=[529, 350, 50, 123]
+window-properties=[529, 350, 50, 151]
 
 [org/cinnamon]
 alttab-switcher-delay=100
+alttab-switcher-style='coverflow'
 desklet-snap-interval=25
+desktop-effects-close='fly'
+desktop-effects-map='fly'
+desktop-effects-minimize='fly'
 device-aliases=['/org/freedesktop/UPower/devices/battery_BAT0:=Samsung SDI DELL 5WFK618']
 enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:left:1:show-desktop@cinnamon.org:1', 'panel1:left:2:grouped-window-list@cinnamon.org:2', 'panel1:right:1:systray@cinnamon.org:3', 'panel1:right:2:xapp-status@cinnamon.org:4', 'panel1:right:3:notifications@cinnamon.org:5', 'panel1:right:5:removable-drives@cinnamon.org:7', 'panel1:right:6:keyboard@cinnamon.org:8', 'panel1:right:7:network@cinnamon.org:9', 'panel1:right:8:sound@cinnamon.org:10', 'panel1:right:9:power@cinnamon.org:11', 'panel1:right:10:calendar@cinnamon.org:12', 'panel1:right:0:temperature@fevimu:13']
 enabled-desklets=@as []
 enabled-extensions=@as []
 favorite-apps=@as []
+hotcorner-layout=['expo:false:0', 'scale:false:0', 'scale:false:0', 'desktop:false:0']
 next-applet-id=14
 next-desklet-id=4
 panel-edit-mode=false
@@ -562,6 +567,7 @@ panel-zone-icon-sizes='[{"panelId": 1, "left": 24, "center": 0, "right": 24}]'
 panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 28, "center": 28, "right": 16}]'
 panels-enabled=['1:0:top']
 panels-height=['1:41']
+window-effect-speed=1
 
 [org/cinnamon/cinnamon-session]
 quit-time-delay=60
@@ -587,7 +593,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/8d2d12b9374d7a0c1d842f119269a4bf.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/02434535f8c63c825d46089e68fe7a9a.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -633,6 +639,10 @@ screensaver=['<Primary><Alt>m', 'XF86ScreenSaver']
 [org/cinnamon/desktop/media-handling]
 autorun-never=false
 
+[org/cinnamon/desktop/notifications]
+notification-duration=5
+remove-old=false
+
 [org/cinnamon/desktop/peripherals/keyboard]
 delay=uint32 500
 numlock-state=true
@@ -670,8 +680,11 @@ event-sounds=false
 maximum-volume=150
 
 [org/cinnamon/desktop/wm/preferences]
+button-layout=':minimize,maximize,close'
 min-window-opacity=30
+num-workspaces=8
 theme='Mint-Y'
+titlebar-font='Ubuntu Bold 10'
 
 [org/cinnamon/gestures]
 swipe-down-2='PUSH_TILE_DOWN::end'
@@ -695,6 +708,7 @@ memory-limit=2048
 [org/cinnamon/muffin]
 draggable-border-width=10
 resize-threshold=24
+workspace-cycle=false
 
 [org/cinnamon/settings-daemon/peripherals/keyboard]
 numlock-state='on'
@@ -799,6 +813,7 @@ cursor-blink-time=1200
 cursor-blink-timeout=10
 cursor-size=24
 cursor-theme='Bibata-Modern-Classic'
+document-font-name='Ubuntu 10'
 enable-animations=true
 font-name='Ubuntu 10'
 gtk-color-palette='black:white:gray50:red:purple:blue:light blue:green:yellow:orange:lavender:brown:goldenrod4:dodger blue:pink:light green:gray10:gray30:gray75:gray90'
@@ -815,6 +830,7 @@ icon-theme='Papirus'
 menubar-accel='F10'
 menubar-detachable=false
 menus-have-tearoff=false
+monospace-font-name='DejaVu Sans Mono 10'
 scaling-factor=uint32 0
 text-scaling-factor=1.0
 toolbar-detachable=false
@@ -858,11 +874,11 @@ disable-workarounds=false
 focus-mode='click'
 focus-new-windows='smart'
 mouse-button-modifier='<Alt>'
-num-workspaces=4
+num-workspaces=8
 raise-on-click=true
 resize-with-right-button=true
 theme='Mint-Y'
-titlebar-font='Ubuntu Medium 10'
+titlebar-font='Ubuntu Bold 10'
 titlebar-uses-system-font=false
 visual-bell=false
 visual-bell-type='fullscreen-flash'
@@ -1245,13 +1261,14 @@ y-bottom=0
 
 [org/nemo/desktop]
 computer-icon-visible=false
+font='Ubuntu 10'
 home-icon-visible=false
 network-icon-visible=false
 trash-icon-visible=false
 volumes-visible=true
 
 [org/nemo/preferences]
-show-hidden-files=true
+show-hidden-files=false
 show-location-entry=true
 
 [org/nemo/search]
