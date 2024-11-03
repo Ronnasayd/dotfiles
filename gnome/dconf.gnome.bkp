@@ -496,7 +496,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1729795305
-refresh-last-run=1730470289
+refresh-last-run=1730630227
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -593,7 +593,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/02434535f8c63c825d46089e68fe7a9a.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/c8cd875b6e90b44d907598efd72da12d.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -1321,7 +1321,7 @@ sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthF
 sidebar-visible=true
 sort-inverse=false
 sort-type='file::name'
-startup-current-file='file:///home/ronnas/Desktop/bg-piece2.png'
+startup-current-file='file:///home/ronnas/Desktop/dfov4st-05d4dd59-299f-48e0-a657-f6e6f1b6049e.gif'
 startup-location='file:///home/ronnas/Desktop'
 statusbar-visible=true
 thumbnail-list-size=126
@@ -1393,6 +1393,16 @@ vertical-resolution=72
 lossless=false
 method=4
 quality=75
+
+[org/x/pix/resize]
+aspect-ratio='image'
+aspect-ratio-height=1242
+aspect-ratio-invert=true
+aspect-ratio-width=1312
+height=50.0
+high-quality=true
+unit='percentage'
+width=50.0
 
 [org/x/reader]
 document-directory=@ms 'file:///home/ronnas/Desktop'
