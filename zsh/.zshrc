@@ -130,6 +130,11 @@ fps(){
 	fraction=$(ffprobe -v error -select_streams v:0 -show_entries stream=avg_frame_rate -of default=nw=1:nk=1 $1)
 	python -c "print(round(${fraction}))"
 }
+m3u8_download(){
+	# $1 = url of .m3u8 file
+	# $2 = output filename
+	ffmpeg -i "$1" -c copy -bsf:a aac_adtstoasc $2
+}
 
 
 

@@ -495,8 +495,8 @@ autorefresh-hours=2
 default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
-install-last-run=1729795305
-refresh-last-run=1730754011
+install-last-run=1730755401
+refresh-last-run=1730756704
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -510,14 +510,14 @@ window-width=790
 settings-migrated=true
 
 [io/github/celluloid-player/celluloid/window-state]
-height=607
+height=609
 loop-playlist=false
 maximized=false
 playlist-width=250
 show-controls=true
 show-playlist=false
 volume=1.0
-width=1020
+width=1024
 
 [net/launchpad/plank/docks/dock1]
 alignment='center'
@@ -593,7 +593,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/e3388c25ce45564d97bed3f207e7ea14.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/fe84a963f903ac90db23289aaa6fd648.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -1321,7 +1321,7 @@ sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthF
 sidebar-visible=true
 sort-inverse=false
 sort-type='file::name'
-startup-current-file='file:///home/ronnas/.config/conky/MyMimosa/res/bg-piece.blpk.png'
+startup-current-file='file:///home/ronnas/.config/conky/MyMimosa/res/bg-main.png'
 startup-location='file:///home/ronnas/.config/conky/MyMimosa/res'
 statusbar-visible=true
 thumbnail-list-size=126

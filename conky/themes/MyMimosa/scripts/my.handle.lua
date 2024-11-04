@@ -7,21 +7,21 @@ bg_padding_x = 10
 bg_padding_y = 70
 bg_width = 310
 bg_aspect = 1396 / 686
-bg_path = "~/.config/conky/MyMimosa/res/dark2/bg-main.png"
+bg_path = "~/.config/conky/MyMimosa/res/dark3/bg-main.png"
 
-bg_vert_path = "~/.config/conky/MyMimosa/res/dark2/bg-piece-v.png"
+bg_vert_path = "~/.config/conky/MyMimosa/res/dark3/bg-piece-v.png"
 bg_vert_width = 120
 bg_vert_aspect = 840 / 270
 bg_vert_padding_x = 10
 bg_vert_padding_y = 50
 
-bg_calendar_path = "~/.config/conky/MyMimosa/res/dark2/bg-piece-h.png"
+bg_calendar_path = "~/.config/conky/MyMimosa/res/dark3/bg-piece-h.png"
 bg_calendar_width = 310
 bg_calendar_aspect = 270 / 720
 bg_calendar_padding_x = 10
 bg_calendar_padding_y = 590
 
-bg_player_path = "~/.config/conky/MyMimosa/res/dark2/bg-piece-h.png"
+bg_player_path = "~/.config/conky/MyMimosa/res/dark3/bg-piece-h.png"
 bg_player_width = 310
 bg_player_aspect = 270 / 720
 bg_player_padding_x = 20
