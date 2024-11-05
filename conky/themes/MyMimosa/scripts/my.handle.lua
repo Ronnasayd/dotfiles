@@ -368,7 +368,7 @@ function conky_top_cpu(number)
         name = string.sub(name, 1, 8)
     end
     name = lpad(name, 16, ' ')
-    return string.format("%05.2f %% %s", value, name)
+    return string.format("%05.2f %%          %s", value, name)
 end
 
 function conky_top_mem(number)
@@ -381,7 +381,7 @@ function conky_top_mem(number)
         name = string.sub(name, 1, 8)
     end
     name = lpad(name, 16, ' ')
-    return string.format("%05.2f %% %s", value, name)
+    return string.format("%05.2f %%          %s", value, name)
 end
 
 function conky_calendar()
