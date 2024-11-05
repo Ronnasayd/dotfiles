@@ -368,12 +368,12 @@ function conky_top_cpu(number)
         name = string.sub(name, 1, 8)
     end
     name = lpad(name, 16, ' ')
-    final = string.format("%05.2f %%          %s", value, name)
+    final = string.format("%05.2f %% %s", value, name)
     color= "${color}"
-    font="${font Roboto:size=7}"
+    font="${font Roboto:size=8}"
     if value > 20 then
-        color = "${color6}"
-        font="${font Roboto:bold:size=7}"
+        color = "${color2}"
+        font="${font Roboto:bold:size=8}"
     end
     return conky_parse(font..color..final)
 end
@@ -388,12 +388,12 @@ function conky_top_mem(number)
         name = string.sub(name, 1, 8)
     end
     name = lpad(name, 16, ' ')
-    final = string.format("%05.2f %%          %s", value, name)
+    final = string.format("%05.2f %% %s", value, name)
     color= "${color}"
-    font="${font Roboto:size=7}"
+    font="${font Roboto:size=8}"
     if value > 20 then
-        color = "${color6}"
-        font="${font Roboto:bold:size=7}"
+        color = "${color2}"
+        font="${font Roboto:bold:size=8}"
     end
     return conky_parse(font..color..final)
 end
