@@ -23,7 +23,6 @@ js = [
     "ms-vscode.js-debug-nightly",
     "xabikos.javascriptsnippets",
     "esbenp.prettier-vscode",
-    "steoates.autoimport",
     "dsznajder.es7-react-js-snippets",
     "christian-kohler.path-intellisense",
     "editorconfig.editorconfig",
