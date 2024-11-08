@@ -7,6 +7,20 @@ import sqlite3
 import subprocess
 
 base_path = "/home/ronnas/develop/personal/dotfiles/code_extensions"
+languages = [
+    "py",
+    "go",
+    "js",
+    "html",
+    "tailwindcss",
+    "cpp",
+    "cmake",
+    "lua",
+    "xml",
+    "yaml",
+    "vue2",
+    "vue3",
+]
 
 
 def disable(language: str):
@@ -46,7 +60,7 @@ def enable(language: str):
 
 
 def get_data(language):
-    with open(f"{base_path}/{language}.txt", encoding="utf-8") as file:
+    with open(f"{base_path}/languagens/{language}.txt", encoding="utf-8") as file:
         lines = file.read().split("\n")
         add = []
         for line in lines:
@@ -68,10 +82,10 @@ def get_data(language):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Enable extensions to a workspace in vscode"
+        description="Enable or disable language extensions to a workspace in vscode"
     )
-    parser.add_argument("--enable", choices=["py", "go", "js"])
-    parser.add_argument("--disable", choices=["py", "go", "js"])
+    parser.add_argument("--enable", choices=languages)
+    parser.add_argument("--disable", choices=languages)
     args = parser.parse_args()
     if args.enable:
         enable(args.enable)
