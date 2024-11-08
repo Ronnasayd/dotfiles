@@ -23,6 +23,30 @@ languages = [
 ]
 
 
+def close_code():
+    (
+        subprocess.run(
+            "killall code".split(),
+            check=False,
+            stdout=subprocess.PIPE,
+        )
+        .stdout.decode()
+        .strip()
+    )
+
+
+def reopen_code():
+    (
+        subprocess.run(
+            "code".split(),
+            check=False,
+            stdout=subprocess.PIPE,
+        )
+        .stdout.decode()
+        .strip()
+    )
+
+
 def disable(language: str):
     add, path = get_data(language)
     conn = sqlite3.connect("/tmp/state.vscdb")
@@ -88,9 +112,13 @@ def main():
     parser.add_argument("--disable", choices=languages)
     args = parser.parse_args()
     if args.enable:
+        close_code()
         enable(args.enable)
+        reopen_code()
     if args.disable:
+        close_code()
         disable(args.disable)
+        reopen_code()
 
 
 if __name__ == "__main__":

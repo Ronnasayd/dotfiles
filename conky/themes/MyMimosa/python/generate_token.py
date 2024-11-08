@@ -1,8 +1,3 @@
-import datetime
-import os.path
-from glob import glob
-from pprint import pprint
-
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -22,7 +17,7 @@ def main():
             flow = InstalledAppFlow.from_client_secrets_file("credentials.json", SCOPES)
             creds = flow.run_local_server(port=0)
         token_name = input("digite the token filename: ")
-        with open(f"./tokens/{token_name}.token.json", "w") as token:
+        with open(f"./tokens/{token_name}.token.json", "w", encoding="utf-8") as token:
             token.write(creds.to_json())
 
 
