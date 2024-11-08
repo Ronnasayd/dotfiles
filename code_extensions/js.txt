@@ -1,0 +1,6 @@
+dbaeumer.vscode-eslint 583b2b34-2c1e-4634-8c0b-0b82e283ea3a
+dsznajder.es7-react-js-snippets 19804510-b475-4dae-b0f7-6ca08fd1af0c
+esbenp.prettier-vscode 96fa4707-6983-4489-b7c5-d5ffdfdcce90
+ms-vscode.js-debug-nightly 7acbb4ce-c85a-49d4-8d95-a8054406ae97
+steoates.autoimport 70378119-1d85-4935-9733-0298c7a369a2
+xabikos.javascriptsnippets a2cec723-5349-460d-9de9-0fd1f8d3456f

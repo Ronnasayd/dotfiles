@@ -21,7 +21,7 @@ EXCLUDE_TYPE='DESKTOP|DOCK|SPLASH'
 
 # Any Window classes to exclude. This is a way of excluding specific applications from the opacify function.
 # You can determine window classes for currently open applications using wmctrl -lxb
-EXCLUDE_CLASS='firefox|Google-chrome|Xplayer|vlc|Plank|conky|Terminator|krita|Pix'
+EXCLUDE_CLASS='firefox|Google-chrome|Xplayer|vlc|Plank|conky|Terminator|krita|Pix|Stremio'
 
 # This function is called on a change of Window state and updates the opacity of all windows on the current workspace.
 function opacify_windows {
