@@ -23,7 +23,6 @@ def main():
       if now < end:
         counter += 1
         line = f"offset|{start_string} to {end_string} - {title}\n"
-        file.write(line)
         content += line
         print(line)
     if counter > 0:

@@ -496,7 +496,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1730983334
-refresh-last-run=1731045630
+refresh-last-run=1731207794
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -593,7 +593,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/aa2dff8b6be06fdea30d8eb0decf67c4.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/5f583d066cf15260120f89d8b3958997.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -1157,7 +1157,7 @@ recent-emoji=[(([uint32 128526], 'smiling face with sunglasses', ':sunglasses:')
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
-show-hidden=false
+show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=181
