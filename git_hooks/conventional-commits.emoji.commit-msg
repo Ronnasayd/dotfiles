@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Regex pattern for validating conventional commit messages
+pattern="^(feat|fix|docs|style|refactor|perf|test|chore)(\(.+\))?: .+"
+
+# Read the commit message from the temporary file passed as an argument
+commit_message=$(cat "$1")
+
+# Validate the commit message against the pattern
+if ! [[ $commit_message =~ $pattern ]]; then
+    echo "ERROR: Commit message does not follow conventional commit format."
+    echo "Please use one of the following formats:"
+    echo "  ✨ feat: A new feature"
+    echo "  🐛 fix: A bug fix"
+    echo "  📚 docs: Documentation only changes"
+    echo "  💎 style: Changes that do not affect the meaning of the code (white-space, formatting, etc)"
+    echo "  🔨 refactor: A code change that neither fixes a bug nor adds a feature"
+    echo "  🚀 perf: A code change that improves performance"
+    echo "  🚨 test: Adding missing tests or correcting existing tests"
+    echo "  🔧 chore: Changes to the build process or auxiliary tools and libraries such as documentation generation"
+    exit 1
+fi
+commit_type=$(echo "$commit_message" | awk -F: '{print $1}' | awk -F'(' '{print $1}')
+# Determine emoji based on commit type
+case $commit_type in
+    feat)
+        emoji="✨"
+        ;;
+    fix)
+        emoji="🐛"
+        ;;
+    docs)
+        emoji="📚"
+        ;;
+    style)
+        emoji="💎"
+        ;;
+    refactor)
+        emoji="🔨"
+        ;;
+    perf)
+        emoji="🚀"
+        ;;
+    test)
+        emoji="🚨"
+        ;;
+    chore)
+        emoji="🔧"
+        ;;
+    *)
+        emoji=""
+        ;;
+esac
+echo $commit_message | awk -F: -v emoji=$emoji '{print $1": "emoji$2}' > $1
