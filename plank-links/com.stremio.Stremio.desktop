@@ -3,7 +3,7 @@ Version=1.0
 Name=Stremio
 Comment=Video organizer for your Movies, TV Shows and TV Channels
 Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/opt/stremio/stremio --file-forwarding com.stremio.Stremio @@u %U @@
-Icon=com.stremio.Stremio
+Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/stremio.png
 Terminal=false
 Type=Application
 Categories=AudioVideo;Video;Player;TV;
