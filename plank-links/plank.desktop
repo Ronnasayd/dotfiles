@@ -62,6 +62,6 @@ Comment=Stupidly simple.
 Categories=Utility;
 Type=Application
 Exec=plank --preferences
-Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/config.png
+Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/menu.png
 Terminal=false
 NoDisplay=false
