@@ -12,6 +12,8 @@ def main():
       if counter > 4:
         break
       terms = line.split(",")
+      if len(terms) < 5:
+        continue
       title = terms[1][:30]
       start_raw = terms[2]
       end_raw = terms[3]
