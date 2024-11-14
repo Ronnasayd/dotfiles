@@ -398,7 +398,7 @@ alias zsh_alias='cat ~/.zshrc | grep alias'
 alias ximage="xclip -selection clipboard -t image/png -o > "
 alias number_frames="ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1"
 alias echo_cancel="pactl load-module module-echo-cancel"
-alias open_remote="git config --get remote.origin.url | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | xargs -I{} xdg-open {}"
+alias open_remote="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | xargs -I{} xdg-open {}"
 
 # pnpm
 export PNPM_HOME="/home/ronnas/.local/share/pnpm"

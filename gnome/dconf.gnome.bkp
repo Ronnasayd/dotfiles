@@ -593,7 +593,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/4068c5a32a58bc59b55cd5fc147578ab.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/30f7d409d43331eaeb8c57c7613f312c.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -641,7 +641,7 @@ autorun-never=false
 
 [org/cinnamon/desktop/notifications]
 notification-duration=5
-remove-old=false
+remove-old=true
 
 [org/cinnamon/desktop/peripherals/keyboard]
 delay=uint32 500
