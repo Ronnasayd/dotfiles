@@ -13,7 +13,10 @@ function icons(){
   if [[ -n "$(amixer get Headphone | grep '\[on\]')" ]]; then
     HEADSET_ICON="󰋎 "
   fi
-  echo "${DOCKER_ICON}${VPN_ICON}${HEADSET_ICON}"
+  if [[ "$(lsmod | grep uvcvideo | head -n 1 | awk '{print $3}')" -eq "1" ]]; then
+    CAM_ICON="󰄀 "
+  fi
+  echo "${DOCKER_ICON}${VPN_ICON}${HEADSET_ICON}${CAM_ICON}"
 }
 case $1 in
   CUR_IS_DAY)
