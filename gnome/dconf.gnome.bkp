@@ -496,7 +496,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1731348460
-refresh-last-run=1731505039
+refresh-last-run=1731605889
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -523,7 +523,7 @@ width=1024
 alignment='center'
 auto-pinning=true
 current-workspace-only=false
-dock-items=['blender-1.dockitem', 'Burp.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'microsoft-edge-beta.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'rss.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'insomnia.dockitem', 'azureStorage-1.dockitem', 'code.dockitem', 'zsnes.dockitem', 'zsnes-1.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'nemo.dockitem', 'Develop.dockitem', 'Wallpapers.dockitem', 'Downloads.dockitem', 'plank.dockitem', 'trash.dockitem']
+dock-items=['blender-1.dockitem', 'Burp.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'rss.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'code.dockitem', 'zsnes.dockitem', 'zsnes-1.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'nemo.dockitem', 'Develop.dockitem', 'Downloads.dockitem', 'Wallpapers.dockitem', 'trash.dockitem', 'plank.dockitem']
 hide-delay=0
 hide-mode='intelligent'
 icon-size=34
@@ -535,7 +535,7 @@ pinned-only=true
 position='bottom'
 pressure-reveal=false
 show-dock-item=false
-theme='Pantheon_black_total'
+theme='MyTheme'
 tooltips-enabled=true
 unhide-delay=0
 zoom-enabled=true
@@ -593,7 +593,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/68fbd5fa3e107800e85ecff9f414c8cd.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/17a190ef6b7d4a8de4f3822007776da1.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -1160,12 +1160,12 @@ location-mode='path-bar'
 show-hidden=false
 show-size-column=true
 show-type-column=true
-sidebar-width=181
-sort-column='name'
+sidebar-width=235
+sort-column='modified'
 sort-directories-first=true
 sort-order='descending'
 type-format='category'
-window-position=(121, 15)
+window-position=(121, 42)
 window-size=(1124, 694)
 
 [org/mate/panel/general]
@@ -1275,6 +1275,8 @@ show-location-entry=true
 search-content-use-regex=true
 search-file-case-sensitive=false
 search-files-recursively=true
+search-reverse-sort=false
+search-sort-column='name'
 
 [org/nemo/window-state]
 geometry='559x430+374+104'
@@ -1321,14 +1323,14 @@ sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthF
 sidebar-visible=true
 sort-inverse=false
 sort-type='file::name'
-startup-current-file='file:///home/ronnas/Desktop/3.gif'
-startup-location='file:///home/ronnas/Desktop'
+startup-current-file='file:///home/ronnas/Downloads/Desktop%20-%20Linha%20digit%C3%A1vel.png'
+startup-location='file:///home/ronnas/Downloads'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false
 toolbar-visible=true
 use-startup-location=false
-viewer-sidebar='tools'
+viewer-sidebar='hidden'
 viewer-sidebar-width=420
 
 [org/x/pix/crop]
