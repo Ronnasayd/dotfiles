@@ -402,6 +402,7 @@ alias open_remote="git config --get remote.origin.url | sed s\"/work.//\" | sed 
 alias mkdir='mkdir -p'    # Create directory, including parent directories if necessary   
 alias forcefsck='sudo touch /forcefsck'    # Force file system check on next boot   
 alias incognito="google-chrome --incognito"   # Open chrome in incognito mode
+alias ska=" showkey -a"   # Show pressed characters in terminal. Press Ctrl+D to stop
 
 # pnpm
 export PNPM_HOME="/home/ronnas/.local/share/pnpm"
