@@ -496,7 +496,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1731348460
-refresh-last-run=1731613097
+refresh-last-run=1731976086
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -545,7 +545,7 @@ zoom-percent=151
 obex-enabled=true
 
 [org/blueman/general]
-window-properties=[529, 350, 50, 151]
+window-properties=[529, 350, 50, 179]
 
 [org/cinnamon]
 alttab-switcher-delay=100
@@ -593,7 +593,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/5e2e833074ff044ebcc59fe14eb63e17.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/4454f243be5c812b0965af7d03fe3977.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -956,9 +956,10 @@ last-save-directory='file:///home/ronnas/Pictures'
 [org/gnome/gnome-system-monitor]
 current-tab='processes'
 maximized=true
+network-total-in-bits=false
 show-dependencies=false
 show-whose-processes='all'
-window-state=(1366, 696, 0, 41)
+window-state=(1366, 727, 0, 41)
 
 [org/gnome/gnome-system-monitor/disktreenew]
 col-6-visible=true
@@ -1165,7 +1166,7 @@ sort-column='modified'
 sort-directories-first=true
 sort-order='descending'
 type-format='category'
-window-position=(121, 15)
+window-position=(121, 42)
 window-size=(1124, 694)
 
 [org/mate/panel/general]
@@ -1323,8 +1324,8 @@ sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthF
 sidebar-visible=true
 sort-inverse=false
 sort-type='file::name'
-startup-current-file='file:///home/ronnas/Downloads/Desktop%20-%20Linha%20digit%C3%A1vel.png'
-startup-location='file:///home/ronnas/Downloads'
+startup-current-file='file:///home/ronnas/Desktop/unnamed.png'
+startup-location='file:///home/ronnas/Desktop'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false

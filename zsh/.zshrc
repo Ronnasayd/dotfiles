@@ -308,97 +308,99 @@ POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 unalias gcb
 
 # Custom aliases
-alias glom="git pull origin master"
-alias glod="git pull origin develop"
-alias gs="git status"
-alias gl="git pull"
-alias glo="git pull origin"
-alias gcl="git clone"
-alias gp="git push"
-alias gc="git commit"
-alias gcm="git commit -m"
-alias gb="git branch"
-alias gbcd="git branch --sort=-committerdate"
-alias gt="git checkout"
-alias gtb="git checkout -b"
-alias ga="git add"
-alias gm="git merge"
-alias pyserver="python3 -m http.server 8000 --directory"
-alias pyv="python3 -m venv venv && source venv/bin/activate"
-alias pyv3="virtualenv --python=python3.6 venv"
-alias pyv4="virtualenv --python=python2.7 venv"
-alias sv="source venv/bin/activate"
-alias rv="rm -rf ./venv"
-alias deac="deactivate"
-alias pir="pip install -r requirements.txt"
-alias py="python3"
-alias py2="python"
-alias dps="docker ps"
-alias dpi="docker images"
-alias dsa="docker ps -aq | xargs docker stop"
-alias dra="docker ps -aq | xargs docker rm -f"
-alias ys="yarn start"
-alias yad="yarn add --dev"
-alias ya="yarn add"
-alias yb="yarn build"
-alias yb_="yarn build:"
-alias yd="yarn dev"
-alias yd_="yarn dev:"
-alias yi="yarn init"
-alias yil="yarn install"
-alias yt="yarn test"
-alias yrm="yarn remove"
-alias yr="yarn run"
-alias co="code"
-alias cox="code . && exit"
-alias cco="code --disable-extensions --user-data-dir='/tmp/code-user-data-dir' --extensions-dir='/tmp/code-extensions-dir'"
-alias _co="sudo code --user-data-dir=~/.vscode-root --no-sandbox"
-alias cof="fzf --bind 'enter:become(code {})'"
-alias gob="go build"
-alias gor="go run"
-alias gog="go get"
-alias tma="tmux attach"
-alias tmat="tmux attach -t"
-alias tmls="tmux ls"
-alias tmd="tmux detach"
-alias tmks="tmux kill-server"
-alias cpwd="pwd | xclip -selection clipboard"
-alias xpwd="terminator --working-directory=$(pwd) -e /bin/zsh &>/dev/null &;disown %1"
-alias agdi="ag --path-to-ignore .dockerignore --files-with-matches"
-alias aggi="ag --path-to-ignore .gitignore --files-with-matches"
-alias kubectl="minikube kubectl --"
-alias dsize="du -d 1 -h"
-alias chmdn="stat --format '%a'"
-alias apt_search="apt-cache search"
-alias cpf="copyfile"
-alias cplc="fc -ln -1 | xsel --clipboard"
-alias json="pp_json"
-alias vjson="is_json"
-alias alg="alias | grep"
-alias q="exit 0"
-alias ka="killall"
-alias open="xdg-open 2>/dev/null"
-alias remove="sudo apt-get autoremove && sudo apt-get autoclean"
-alias remove_files="sudo dpkg --purge 'dpkg --get-selections | grep deinstall | cut -f1'"
-alias curbg="gsettings get org.cinnamon.desktop.background picture-uri"
-alias portainer="docker run --rm -d -p 9000:9000 --name portainer  -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer 2>/dev/null; xdg-open http://localhost:9000 2>/dev/null"
-alias gports="sudo netstat -tulpn | grep "
-alias lports="sudo netstat -tulpn"
-alias pkgc="dpkg --list | wc --lines"
-alias ffont="fc-list | grep " # find font location
-alias lfont="fc-list" # list all fonts
-alias sconky="~/.config/conky/MyMimosa/start.sh"
-alias cswap="sudo swapoff -a; sudo swapon -a"
-alias limit="ulimit -Sv"
-alias fdd="fd -t d"
-alias fdf="fd -t f"
-alias find_node_modules='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1'
-alias watch_cpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
-alias zsh_alias='cat ~/.zshrc | grep alias'
-alias ximage="xclip -selection clipboard -t image/png -o > "
-alias number_frames="ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1"
-alias echo_cancel="pactl load-module module-echo-cancel"
-alias open_remote="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | xargs -I{} xdg-open {}"
+alias glom="git pull origin master"  # Pull the latest changes from the master branch
+alias glod="git pull origin develop"  # Pull the latest changes from the develop branch
+alias gs="git status"  # Show the working tree status
+alias gl="git pull"  # Pull the latest changes from the current branch's remote
+alias glo="git pull origin"  # Pull changes from the specified remote (origin)
+alias gcl="git clone"  # Clone a repository into a new directory
+alias gp="git push"  # Push local changes to the remote repository
+alias gc="git commit"  # Record changes to the repository
+alias gcm="git commit -m"  # Commit with a message
+alias gb="git branch --sort=-committerdate"  # List branches sorted by last commit date
+alias gt="git checkout"  # Switch branches or restore working tree files
+alias gtb="git checkout -b"  # Create a new branch and switch to it
+alias ga="git add"  # Add file contents to the index (staging area)
+alias gm="git merge"  # Join two or more development histories together
+alias pyserver="python3 -m http.server 8000 --directory"  # Start a simple HTTP server in a specified directory
+alias pyv="python3 -m venv venv && source venv/bin/activate"  # Create and activate a Python virtual environment
+alias pyv3="virtualenv --python=python3.6 venv"  # Create a virtual environment with Python 3.6
+alias pyv4="virtualenv --python=python2.7 venv"  # Create a virtual environment with Python 2.7
+alias sv="source venv/bin/activate"  # Activate the virtual environment
+alias rv="rm -rf ./venv"  # Remove the virtual environment directory
+alias deac="deactivate"  # Deactivate the current virtual environment
+alias pir="pip install -r requirements.txt"  # Install packages from requirements.txt
+alias py="python3"  # Alias for Python 3 interpreter
+alias py2="python"  # Alias for Python interpreter (usually Python 2)
+alias dps="docker ps"  # List running Docker containers
+alias dpi="docker images"  # List Docker images on the system
+alias dsa="docker ps -aq | xargs docker stop"  # Stop all running containers
+alias dra="docker ps -aq | xargs docker rm -f"  # Force remove all containers
+alias ys="yarn start"  # Start the application using Yarn
+alias yad="yarn add --dev"  # Add a package as a development dependency using Yarn
+alias ya="yarn add"  # Add a package using Yarn
+alias yb="yarn build"  # Build the application using Yarn
+alias yb_="yarn build:"  # Build a specific target using Yarn build prefix
+alias yd="yarn dev"  # Run development server using Yarn
+alias yd_="yarn dev:"  # Run a specific development target with Yarn prefix
+alias yi="yarn init"  # Initialize a new Yarn project
+alias yil="yarn install"  # Install all dependencies defined in package.json using Yarn
+alias yt="yarn test"  # Run tests defined in package.json using Yarn
+alias yrm="yarn remove"  # Remove a package using Yarn
+alias yr="yarn run"  # Run an arbitrary command defined in package.json using Yarn
+alias co="code"  # Open Visual Studio Code editor 
+alias cox="code . && exit"  # Open current directory in VS Code and exit terminal 
+alias cco="code --disable-extensions --user-data-dir='/tmp/code-user-data-dir' --extensions-dir='/tmp/code-extensions-dir'"  # Open VS Code without extensions 
+alias _co="sudo code --user-data-dir=~/.vscode-root --no-sandbox"  # Open VS Code with root privileges 
+alias cof="fzf --bind 'enter:become(code {})'"  # Use fzf to select and open files in VS Code
+alias gob="go build"   # Build Go project 
+alias gor="go run"     # Run Go project 
+alias gog="go get"     # Download and install packages 
+alias tma="tmux attach"       # Attach to the last tmux session 
+alias tmat="tmux attach -t"   # Attach to a specific tmux session 
+alias tmls="tmux ls"          # List all tmux sessions 
+alias tmd="tmux detach"       # Detach from current tmux session 
+alias tmks="tmux kill-server" # Kill all tmux sessions 
+alias cpwd="pwd | xclip -selection clipboard"   # Copy current working directory to clipboard 
+alias xpwd="terminator --working-directory=$(pwd) -e /bin/zsh &>/dev/null &;disown %1"   # Open Terminator terminal in current directory 
+alias agdi="ag --path-to-ignore .dockerignore --files-with-matches"   # Search for matches ignoring .dockerignore 
+alias aggi="ag --path-to-ignore .gitignore --files-with-matches"   # Search for matches ignoring .gitignore 
+alias kubectl="minikube kubectl --"   # Use minikube's kubectl command 
+alias dsize="du -d 1 -h"   # Display disk usage of current directory in human-readable format 
+alias chmdn="stat --format '%a'"   # Show file permissions in numeric format 
+alias apt_search="apt-cache search"   # Search for packages in APT 
+alias cpf="copyfile"   # Copy file command alias 
+alias cplc="fc -ln -1 | xsel --clipboard"   # Copy last command to clipboard 
+alias json="pp_json"    # Pretty print JSON data 
+alias vjson="is_json"    # Validate if input is valid JSON 
+alias alg="alias | grep "   # Search for specific aliases  
+alias q="exit 0"    # Exit terminal session gracefully  
+alias ka="killall "    # Kill all processes by name  
+alias open='xdg-open 2>/dev/null'    # Open files or URLs with default application  
+alias remove='sudo apt-get autoremove && sudo apt-get autoclean'    # Clean up unused packages  
+alias purge='sudo dpkg --purge "dpkg --get-selections | grep deinstall | cut -f1"'    # Purge uninstalled packages  
+alias curbg='gsettings get org.cinnamon.desktop.background picture-uri'    # Get current desktop background URI  
+alias portainer='docker run --rm -d -p 9000:9000 --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer; xdg-open http://localhost:9000'   # Run Portainer Docker container and open it in browser  
+alias gports='sudo netstat -tulpn | grep '   # Check which processes are listening on which ports  
+alias lports='sudo netstat -tulpn'   # List all listening ports   
+alias pkgc='dpkg --list | wc --lines'   # Count installed packages  
+alias ffont='fc-list | grep '   # Find font location by name  
+alias lfont='fc-list'   # List all installed fonts  
+alias sconky='~/.config/conky/MyMimosa/start.sh'   # Start Conky configuration script  
+alias cswap='sudo swapoff -a; sudo swapon -a'   # Turn off and then turn on swap space  
+alias limit='ulimit -Sv'   # Set memory limit for processes  
+alias fdd='fd -t d'   # Find directories using fd command  
+alias fdf='fd -t f'   # Find files using fd command  
+alias find_node_modules='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1'   # Find node_modules directories and display their last modification time  
+alias watch_cpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'   # Monitor CPU frequency changes every second  
+alias zsh_alias='cat ~/.zshrc | grep alias'   # List all aliases defined in zshrc file  
+alias gzsh='cat ~/.zshrc | grep alias | grep '   # Search for specific aliases in zshrc file  
+alias ximage='xclip -selection clipboard -t image/png -o > '   # Copy image from clipboard to specified file  
+alias number_frames='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1'   # Count number of frames in video file  
+alias echo_cancel='pactl load-module module-echo-cancel'   # Load PulseAudio module for echo cancellation  
+alias open_remote="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | xargs -I{} xdg-open {}"   # Open remote repository URL in default browser   
+alias mkdir='mkdir -p'    # Create directory, including parent directories if necessary   
+alias forcefsck='sudo touch /forcefsck'    # Force file system check on next boot   
 
 # pnpm
 export PNPM_HOME="/home/ronnas/.local/share/pnpm"
