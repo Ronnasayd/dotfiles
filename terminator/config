@@ -6,12 +6,11 @@
   always_split_with_profile = True
 [keybindings]
   new_tab = <Primary>t
-  go_next = <Primary><Alt>Right
   resize_left = <Primary><Shift>Right
   move_tab_right = <Primary><Shift>Right
   move_tab_left = <Primary><Shift>Left
-  next_tab = <Primary>Right
-  prev_tab = <Primary>Left
+  next_tab = <Primary>Page_Up
+  prev_tab = <Primary>Page_Down
   new_window = <Primary><Shift>n
   broadcast_off = <Primary><Alt>Right
 [profiles]

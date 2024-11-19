@@ -401,6 +401,7 @@ alias echo_cancel='pactl load-module module-echo-cancel'   # Load PulseAudio mod
 alias open_remote="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | xargs -I{} xdg-open {}"   # Open remote repository URL in default browser   
 alias mkdir='mkdir -p'    # Create directory, including parent directories if necessary   
 alias forcefsck='sudo touch /forcefsck'    # Force file system check on next boot   
+alias incognito="google-chrome --incognito"   # Open chrome in incognito mode
 
 # pnpm
 export PNPM_HOME="/home/ronnas/.local/share/pnpm"
