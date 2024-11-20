@@ -341,6 +341,7 @@ alias dps="docker ps"  # List running Docker containers
 alias dpi="docker images"  # List Docker images on the system
 alias dsa="docker ps -aq | xargs docker stop"  # Stop all running containers
 alias dra="docker ps -aq | xargs docker rm -f"  # Force remove all containers
+alias dco="docker compose" # Alias for docker compose
 alias ys="yarn start"  # Start the application using Yarn
 alias yad="yarn add --dev"  # Add a package as a development dependency using Yarn
 alias ya="yarn add"  # Add a package using Yarn
@@ -408,6 +409,8 @@ alias mkdir='mkdir -p'    # Create directory, including parent directories if ne
 alias forcefsck='sudo touch /forcefsck'    # Force file system check on next boot   
 alias incognito="google-chrome --incognito"   # Open chrome in incognito mode
 alias ska=" showkey -a"   # Show pressed characters in terminal. Press Ctrl+D to stop
+alias rmrf="rm -rf"  # Remove files and directories recursively
+alias las="la -S"  # List files by size
 
 # pnpm
 export PNPM_HOME="/home/ronnas/.local/share/pnpm"
