@@ -59,18 +59,18 @@ function chpwd {
 	on_enter_directory
 }
 
-rename_all() {
+renameall() {
 NAME="$1"
 NEW_NAME="$2"
 fd -t d "$NAME" -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
 fd -t f "$NAME" -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
 }
 
-git_search_in_branches(){
+git-search-in-branches(){
 	git branch | cut -c3- | xargs git grep "$1"
 }
 
-code_list_workspaces_date(){
+code-list-workspaces-date(){
 fd -t f  workspace.json ~/.config/Code/User/workspaceStorage | while read line; do
   date=$(stat -c %y $line)
   file=$(jq .folder $line)
@@ -78,11 +78,11 @@ fd -t f  workspace.json ~/.config/Code/User/workspaceStorage | while read line; 
 done | sort -k1 | tee /tmp/workspaces.log.txt
 }
 
-list_dir_by_date(){
+list-dir-by-date(){
 fd -t d  $1 $2 | while read line; do
   date=$(stat -c %y $line)
   echo "$date $line" 
-done | sort -k1
+done | sort -k1 | awk '{print "\033[32m"$1"\033[33m "$2"\033[34m "$3"\033[37m "$4"\033[0m" }'
 }
 
 mkfile() { mkdir -p "$(dirname "$1")" && touch "$1" ;  }
@@ -130,10 +130,15 @@ fps(){
 	fraction=$(ffprobe -v error -select_streams v:0 -show_entries stream=avg_frame_rate -of default=nw=1:nk=1 $1)
 	python -c "print(round(${fraction}))"
 }
-m3u8_download(){
+m3u8-download(){
 	# $1 = url of .m3u8 file
 	# $2 = output filename
 	ffmpeg -i "$1" -c copy -bsf:a aac_adtstoasc $2
+}
+print-colors(){
+	for i in {0..7}; do  
+		echo -e "\e[3${i}m ${i} Color: '\\\033[3${i}m' \e[0m"
+	done
 }
 
 
@@ -366,7 +371,7 @@ alias xpwd="terminator --working-directory=$(pwd) -e /bin/zsh &>/dev/null &;diso
 alias agdi="ag --path-to-ignore .dockerignore --files-with-matches"   # Search for matches ignoring .dockerignore 
 alias aggi="ag --path-to-ignore .gitignore --files-with-matches"   # Search for matches ignoring .gitignore 
 alias kubectl="minikube kubectl --"   # Use minikube's kubectl command 
-alias dsize="du -d 1 -h"   # Display disk usage of current directory in human-readable format 
+alias dsize="sudo du -d 1 -h"   # Display disk usage of current directory in human-readable format 
 alias chmdn="stat --format '%a'"   # Show file permissions in numeric format 
 alias apt_search="apt-cache search"   # Search for packages in APT 
 alias cpf="copyfile"   # Copy file command alias 
@@ -377,8 +382,8 @@ alias alg="alias | grep "   # Search for specific aliases
 alias q="exit 0"    # Exit terminal session gracefully  
 alias ka="killall "    # Kill all processes by name  
 alias open='xdg-open 2>/dev/null'    # Open files or URLs with default application  
-alias remove='sudo apt-get autoremove && sudo apt-get autoclean'    # Clean up unused packages  
-alias purge='sudo dpkg --purge "dpkg --get-selections | grep deinstall | cut -f1"'    # Purge uninstalled packages  
+alias rmv='sudo apt-get autoremove && sudo apt-get autoclean'    # Clean up unused packages  
+alias prg='sudo dpkg --purge "dpkg --get-selections | grep deinstall | cut -f1"'    # Purge uninstalled packages  
 alias curbg='gsettings get org.cinnamon.desktop.background picture-uri'    # Get current desktop background URI  
 alias portainer='docker run --rm -d -p 9000:9000 --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer; xdg-open http://localhost:9000'   # Run Portainer Docker container and open it in browser  
 alias gports='sudo netstat -tulpn | grep '   # Check which processes are listening on which ports  
@@ -391,14 +396,14 @@ alias cswap='sudo swapoff -a; sudo swapon -a'   # Turn off and then turn on swap
 alias limit='ulimit -Sv'   # Set memory limit for processes  
 alias fdd='fd -t d'   # Find directories using fd command  
 alias fdf='fd -t f'   # Find files using fd command  
-alias find_node_modules='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1'   # Find node_modules directories and display their last modification time  
-alias watch_cpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'   # Monitor CPU frequency changes every second  
-alias zsh_alias='cat ~/.zshrc | grep alias'   # List all aliases defined in zshrc file  
+alias fnm='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1'   # Find node_modules directories and display their last modification time  
+alias wcpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'   # Monitor CPU frequency changes every second  
+alias zshal='cat ~/.zshrc | grep alias'   # List all aliases defined in zshrc file  
 alias gzsh='cat ~/.zshrc | grep alias | grep '   # Search for specific aliases in zshrc file  
-alias ximage='xclip -selection clipboard -t image/png -o > '   # Copy image from clipboard to specified file  
-alias number_frames='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1'   # Count number of frames in video file  
-alias echo_cancel='pactl load-module module-echo-cancel'   # Load PulseAudio module for echo cancellation  
-alias open_remote="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | xargs -I{} xdg-open {}"   # Open remote repository URL in default browser   
+alias ximg='xclip -selection clipboard -t image/png -o > '   # Copy image from clipboard to specified file  
+alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1'   # Count number of frames in video file  
+alias echc='pactl load-module module-echo-cancel'   # Load PulseAudio module for echo cancellation  
+alias openr="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | xargs -I{} xdg-open {}"   # Open remote repository URL in default browser   
 alias mkdir='mkdir -p'    # Create directory, including parent directories if necessary   
 alias forcefsck='sudo touch /forcefsck'    # Force file system check on next boot   
 alias incognito="google-chrome --incognito"   # Open chrome in incognito mode
