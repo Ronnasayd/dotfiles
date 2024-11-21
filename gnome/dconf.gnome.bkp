@@ -523,7 +523,7 @@ width=1024
 alignment='center'
 auto-pinning=true
 current-workspace-only=false
-dock-items=['blender-1.dockitem', 'Burp.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'rss.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'code.dockitem', 'zsnes.dockitem', 'zsnes-1.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'nemo.dockitem', 'Develop.dockitem', 'Downloads.dockitem', 'Wallpapers.dockitem', 'trash.dockitem', 'plank.dockitem']
+dock-items=['blender-1.dockitem', 'Burp.dockitem', 'firefox.dockitem', 'google-chrome.dockitem', 'rss.dockitem', 'plex.dockitem', 'com.stremio.Stremio.dockitem', 'krita.dockitem', 'code.dockitem', 'zsnes.dockitem', 'zsnes-1.dockitem', 'mongodb-compass.dockitem', 'terminator-1.dockitem', 'nemo.dockitem', 'Develop.dockitem', 'Downloads.dockitem', 'Wallpapers.dockitem', 'trash.dockitem', 'plank.dockitem', 'azureStorage-1.dockitem', 'insomnia.dockitem', 'microsoft-edge-beta.dockitem', 'chrome-pjibgclleladliembfgfagdaldikeohf-Profile_4.dockitem', 'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Profile_4.dockitem', 'Copilot-GPT-4.dockitem']
 hide-delay=0
 hide-mode='intelligent'
 icon-size=34
@@ -593,7 +593,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/fdf487adc73805cc18a2bc5408b67fd6.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/1200c3d043d215d5da9bfd1d742a9b6a.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
