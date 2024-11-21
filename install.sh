@@ -14,6 +14,9 @@ mv ~/.coc.vim /tmp/.backup
 mv ~/.gitconfig /tmp/.backup
 mv ~/.config/conky/MyMimosa /tmp/.backup
 mv ~/.config/plank /tmp/.backup
+mv ~/.config/ulauncher/extensions.json /tmp/.backup
+mv ~/.config/ulauncher/shortcuts.json /tmp/.backup
+mv  ~/.config/ulauncher/settings.json /tmp/.backup
 
 ln -s  $(pwd)/plank ~/.config/plank
 ln -s  $(pwd)/conky/themes/MyMimosa ~/.config/conky/MyMimosa
@@ -26,5 +29,8 @@ ln -s  $(pwd)/terminator/config ~/.config/terminator/config
 ln -s  $(pwd)/vim/coc-settings.json ~/.vim/coc-settings.json
 ln -s  $(pwd)/vim/.coc.vim ~/.coc.vim
 ln -s  $(pwd)/git/.gitconfig ~/.gitconfig
+ln -s  $(pwd)/ulauncher/extensions.json ~/.config/ulauncher/extensions.json
+ln -s  $(pwd)/ulauncher/shortcuts.json ~/.config/ulauncher/shortcuts.json
+ln -s  $(pwd)/ulauncher/settings.json ~/.config/ulauncher/settings.json
 
 bash ~/.config/conky/MyMimosa/start.sh
