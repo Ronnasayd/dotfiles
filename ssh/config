@@ -1,0 +1,17 @@
+
+Host github.com
+HostName github.com 
+AddKeysToAgent yes
+IdentityFile "~/.ssh/id_rsa"
+
+
+Host work.github.com
+HostName github.com
+AddKeysToAgent yes
+IdentityFile "~/.ssh/id_rsa_QQ"
+
+Host *.trycloudflare.com
+HostName %h
+User root
+Port 22
+ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
