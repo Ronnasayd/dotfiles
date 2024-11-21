@@ -140,6 +140,14 @@ print-colors(){
 		echo -e "\e[3${i}m ${i} Color: '\\\033[3${i}m' \e[0m"
 	done
 }
+dcob(){
+	# docker compose file
+	docker compose -f $1 build
+}
+dcou(){
+	# docker compose file
+	docker compose -f $1 up
+}
 
 
 
