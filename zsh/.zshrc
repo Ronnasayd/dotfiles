@@ -141,12 +141,16 @@ print-colors(){
 	done
 }
 dcob(){
-	# docker compose file
+	# $1 docker compose file
 	docker compose -f $1 build
 }
 dcou(){
-	# docker compose file
+	# $1 docker compose file
 	docker compose -f $1 up
+}
+pifi(){
+	# $1 packages to install
+	pip3 install $1 --break-system-packages
 }
 
 
