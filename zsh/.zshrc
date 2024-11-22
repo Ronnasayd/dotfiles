@@ -337,11 +337,9 @@ alias ga="git add"  # Add file contents to the index (staging area)
 alias gm="git merge"  # Join two or more development histories together
 alias pyserver="python3 -m http.server 8000 --directory"  # Start a simple HTTP server in a specified directory
 alias pyv="python3 -m venv venv && source venv/bin/activate"  # Create and activate a Python virtual environment
-alias pyvg="python3 -m venv ~/venv && source ~/venv/bin/activate"  # Create and activate a Python global virtual environment
 alias pyv3="virtualenv --python=python3.6 venv"  # Create a virtual environment with Python 3.6
 alias pyv4="virtualenv --python=python2.7 venv"  # Create a virtual environment with Python 2.7
 alias sv="source venv/bin/activate"  # Activate the virtual environment
-alias svg="source ~/venv/bin/activate"  # Activate the global virtual environment
 alias rv="rm -rf ./venv"  # Remove the virtual environment directory
 alias deac="deactivate"  # Deactivate the current virtual environment
 alias pir="pip install -r requirements.txt"  # Install packages from requirements.txt
