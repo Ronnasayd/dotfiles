@@ -19,6 +19,7 @@ mv ~/.config/ulauncher/shortcuts.json /tmp/.backup
 mv  ~/.config/ulauncher/settings.json /tmp/.backup
 mv ~/.local/share/nemo/actions/code_nemo.sh /tmp/backup
 mv ~/.local/share/nemo/actions/code.nemo_action /tmp/backup
+mv ~/.config/ulauncher/scripts.json /tmp/.backup
 
 ln -s  $(pwd)/plank ~/.config/plank
 ln -s  $(pwd)/conky/themes/MyMimosa ~/.config/conky/MyMimosa
@@ -34,8 +35,10 @@ ln -s  $(pwd)/git/.gitconfig ~/.gitconfig
 ln -s  $(pwd)/ulauncher/extensions.json ~/.config/ulauncher/extensions.json
 ln -s  $(pwd)/ulauncher/shortcuts.json ~/.config/ulauncher/shortcuts.json
 ln -s  $(pwd)/ulauncher/settings.json ~/.config/ulauncher/settings.json
+ln -s  $(pwd)/ulauncher/scripts.json ~/.config/ulauncher/scripts.json
 ln -s  $(pwd)/nemo_actions/code_nemo.sh ~/.local/share/nemo/actions/code_nemo.sh
 ln -s  $(pwd)/nemo_actions/code.nemo_action ~/.local/share/nemo/actions/code.nemo_action
+
 
 
 bash ~/.config/conky/MyMimosa/start.sh

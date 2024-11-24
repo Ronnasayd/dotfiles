@@ -1,0 +1,25 @@
+[
+  {
+    "name": "No_scripts",
+    "description": "Select to edit scripts",
+    "icon": null,
+    "script": "xdg-open ~/.config/ulauncher/scripts.json",
+    "default_arguments": [
+      "~/.config/ulauncher/scripts.json"
+    ]
+  },
+  {
+    "name": "stop-docker",
+    "description": "Stop all docker running containers",
+    "icon": null,
+    "script": "docker ps -aq | xargs docker stop && docker ps -aq | xargs docker rm -f",
+    "default_arguments": []
+  },
+  {
+    "name": "incognito",
+    "description": "Opens chrome in incognito mode",
+    "icon": null,
+    "script": "google-chrome --profile='person 1' --incognito",
+    "default_arguments": []
+  }
+]
