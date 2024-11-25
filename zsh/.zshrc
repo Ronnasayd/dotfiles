@@ -414,7 +414,8 @@ alias fnm='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat 
 alias wcpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'   # Monitor CPU frequency changes every second  
 alias zshal='cat ~/.zshrc | grep alias'   # List all aliases defined in zshrc file  
 alias gzsh='cat ~/.zshrc | grep alias | grep '   # Search for specific aliases in zshrc file  
-alias ximg='xclip -selection clipboard -t image/png -o > '   # Copy image from clipboard to specified file  
+alias ximg='xclip -selection clipboard -t image/png -o >'   # Copy image from clipboard to specified file  
+alias ctf='xclip -selection clipboard  -o >'   # Copy content from clipboard to file
 alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1'   # Count number of frames in video file  
 alias echc='pactl load-module module-echo-cancel'   # Load PulseAudio module for echo cancellation  
 alias openr="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | xargs -I{} xdg-open {}"   # Open remote repository URL in default browser   
