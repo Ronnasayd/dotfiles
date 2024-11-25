@@ -21,5 +21,12 @@
     "icon": null,
     "script": "google-chrome --profile-directory='Default' --incognito",
     "default_arguments": []
+  },
+  {
+    "name": "clear-notification",
+    "description": "Clear all notifications in the system",
+    "icon": null,
+    "script": "xdotool key --clearmodifiers Shift+Super+c",
+    "default_arguments": []
   }
 ]
