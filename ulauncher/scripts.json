@@ -19,7 +19,7 @@
     "name": "incognito",
     "description": "Opens chrome in incognito mode",
     "icon": null,
-    "script": "google-chrome --profile='person 1' --incognito",
+    "script": "google-chrome --profile-directory='Default' --incognito",
     "default_arguments": []
   }
 ]
