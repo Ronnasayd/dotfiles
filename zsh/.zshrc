@@ -440,6 +440,7 @@ alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stre
 alias echc='pactl load-module module-echo-cancel'   # Load PulseAudio module for echo cancellation  
 alias openr="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | xargs -I{} xdg-open {}"   # Open remote repository URL in default browser   
 alias mkdir='mkdir -p'    # Create directory, including parent directories if necessary   
+alias cat='ccat'    # Syntax-highlighted cat command
 alias forcefsck='sudo touch /forcefsck'    # Force file system check on next boot   
 alias incognito="google-chrome --incognito"   # Open chrome in incognito mode
 alias ska=" showkey -a"   # Show pressed characters in terminal. Press Ctrl+D to stop
