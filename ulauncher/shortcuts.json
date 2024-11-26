@@ -28,5 +28,15 @@
         "is_default_search": true,
         "run_without_argument": false,
         "added": 1732218344.4935331
+    },
+    "f02d642d-6913-420e-9b5a-a17b8a304f32": {
+        "id": "f02d642d-6913-420e-9b5a-a17b8a304f32",
+        "name": "Youtube",
+        "keyword": "yt",
+        "cmd": "https://www.youtube.com/results?search_query=%s",
+        "icon": "~/develop/personal/dotfiles/plank-links/icons/youtube.png",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1732560106.3450112
     }
 }
