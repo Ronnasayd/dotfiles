@@ -339,7 +339,7 @@ setopt hist_find_no_dups
 eval "$(fzf --zsh)"
 
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-
+# zstyle ':fzf-tab:complete:*:*' fzf-preview 'ls --color $realpath'
 
 # Remove aliases
 unalias gcb
@@ -449,6 +449,8 @@ alias incognito="google-chrome --incognito"   # Open chrome in incognito mode
 alias ska=" showkey -a"   # Show pressed characters in terminal. Press Ctrl+D to stop
 alias rmrf="rm -rf"  # Remove files and directories recursively
 alias las="la -S"  # List files by size
+alias hsf="history | fzf"   # Search history with fzf
+alias psf="printenv | fzf"   # Search printenv with fzf
 
 # pnpm
 export PNPM_HOME="/home/ronnas/.local/share/pnpm"
