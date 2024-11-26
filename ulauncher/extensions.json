@@ -138,5 +138,12 @@
         "updated_at": "2024-11-25T10:57:52.778840",
         "last_commit": "525dd2c0fa4c10dd99db76288dd7a5f0e58205ff",
         "last_commit_time": "2022-07-13T19:33:21"
+    },
+    "com.github.abhishekmj303.ulauncher-playerctl": {
+        "id": "com.github.abhishekmj303.ulauncher-playerctl",
+        "url": "https://github.com/abhishekmj303/ulauncher-playerctl",
+        "updated_at": "2024-11-26T18:15:00.623949",
+        "last_commit": "5f52e6c949ee9793ba60b5385df4744b134c3369",
+        "last_commit_time": "2023-06-23T15:13:13"
     }
 }
