@@ -10,6 +10,8 @@ export TERM="xterm-256color"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export PATH=$ASDF_DIR/shims:$PATH
 
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -253,6 +255,8 @@ plugins=(
 	asdf 
 	zsh-autosuggestions 
 	zsh-syntax-highlighting
+	zsh-completions
+	fzf-tab
 	alias-tips
 )
 
@@ -321,9 +325,24 @@ unset __conda_setup
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
+
+HISTSIZE=5000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+eval "$(fzf --zsh)"
+
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+
+
 # Remove aliases
 unalias gcb
-
 # Custom aliases
 alias glom="git pull origin master"  # Pull the latest changes from the master branch
 alias glod="git pull origin develop"  # Pull the latest changes from the develop branch
@@ -367,6 +386,7 @@ alias yil="yarn install"  # Install all dependencies defined in package.json usi
 alias yt="yarn test"  # Run tests defined in package.json using Yarn
 alias yrm="yarn remove"  # Remove a package using Yarn
 alias yr="yarn run"  # Run an arbitrary command defined in package.json using Yarn
+alias pnpi="pnpm install"  # Install all dependencies defined in package.json using pnpm
 alias co="code"  # Open Visual Studio Code editor 
 alias cox="code . && exit"  # Open current directory in VS Code and exit terminal 
 alias cco="code --disable-extensions --user-data-dir='/tmp/code-user-data-dir' --extensions-dir='/tmp/code-extensions-dir'"  # Open VS Code without extensions 
