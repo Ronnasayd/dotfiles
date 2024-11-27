@@ -39,6 +39,10 @@ ln -s  $(pwd)/ulauncher/scripts.json ~/.config/ulauncher/scripts.json
 ln -s  $(pwd)/nemo_actions/code_nemo.sh ~/.local/share/nemo/actions/code_nemo.sh
 ln -s  $(pwd)/nemo_actions/code.nemo_action ~/.local/share/nemo/actions/code.nemo_action
 
+sudo ln -s $(pwd)/plank-links/godot.desktop /usr/share/applications/godot.desktop
+sudo ln -s $(pwd)/plank-links/krita.desktop /usr/share/applications/krita.desktop
+sudo ln -s $(pwd)/plank-links/plex.desktop /usr/share/applications/plex.desktop
+sudo ln -s $(pwd)/plank-links/rss.desktop /usr/share/applications/rss.desktop
 
 
 bash ~/.config/conky/MyMimosa/start.sh
