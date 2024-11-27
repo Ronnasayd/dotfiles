@@ -125,3 +125,4 @@ alias m3ud="m3u-download" # Download a video stream from an .m3u8 playlist file 
 alias pifi="pip-install-break" # Install Python packages using pip3 with system package break handling: pifi <package_names>
 alias pc="print-colors" # Display a list of ANSI colors with their corresponding codes.
 alias rc="remove-colors" # Remove color codes from text.
+alias clogs="colorize-logs" # Colorize log messages based on a specified delimiter: clogs <delimiter>
