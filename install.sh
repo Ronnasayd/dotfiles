@@ -4,6 +4,8 @@ dconf dump / < $(pwd)/gnome/dconf.gnome.bkp
 
 mkdir -p /tmp/.backup
 mv ~/.zshrc /tmp/.backup
+mv ~/.alias.zshrc /tmp/.alias.backup
+mv ~/.functions.zshrc /tmp/.functions.backup
 mv ~/.vimrc /tmp/.backup
 mv ~/.p10k.zsh /tmp/.backup
 mv ~/.tmux.conf /tmp/.backup
@@ -24,6 +26,8 @@ mv ~/.config/ulauncher/scripts.json /tmp/.backup
 ln -s  $(pwd)/plank ~/.config/plank
 ln -s  $(pwd)/conky/themes/MyMimosa ~/.config/conky/MyMimosa
 ln -s  $(pwd)/zsh/.zshrc ~/.zshrc
+ln -s  $(pwd)/zsh/.alias.zshrc ~/.alias.zshrc
+ln -s  $(pwd)/zsh/.functions.zshrc ~/.functions.zshrc
 ln -s  $(pwd)/p10k/.p10k.zsh ~/.p10k.zsh
 ln -s  $(pwd)/tmux/.tmux.conf ~/.tmux.conf
 ln -s  $(pwd)/conky/.conkyrc ~/.conkyrc
