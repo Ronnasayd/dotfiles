@@ -37,9 +37,9 @@ function chpwd {
 }
 
 
-# renameall - Rename all files and directories matching a given name.
+# rename-all - Rename all files and directories matching a given name.
 #
-# Usage: renameall <old_name> <new_name>
+# Usage: rename-all <old_name> <new_name>
 #
 # Parameters:
 #   old_name  - The current name (or part of the name) of files and directories to be renamed.
@@ -49,7 +49,7 @@ function chpwd {
 #   This function searches for all files and directories that match the specified
 #   old name using the `fd` command. It then renames them to the new name using
 #   the `rename` command. Both files and directories are processed.
-renameall() {
+rename-all() {
     NAME="$1"
     NEW_NAME="$2"
     
@@ -60,9 +60,9 @@ renameall() {
     fd -t f "$NAME" -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
 }
 
-# gsib - Search for a pattern in all branches of a Git repository.
+# git-search-pattern-in-branches - Search for a pattern in all branches of a Git repository.
 #
-# Usage: gsib <pattern>
+# Usage: git-search-pattern-in-branches <pattern>
 #
 # Parameters:
 #   pattern - The search term or regular expression to look for in the branches.
@@ -71,14 +71,14 @@ renameall() {
 #   This function retrieves all local Git branches and searches for the specified
 #   pattern within each branch using `git grep`. The results will show occurrences
 #   of the pattern along with the corresponding file names and line numbers.
-gsib() {
+git-search-pattern-in-branches() {
     git branch | cut -c3- | xargs git grep "$1"
 }
 
 
-# clwd - List workspaces with their last modified dates.
+# list-code-workspaces-by-date - List workspaces with their last modified dates.
 #
-# Usage: clwd
+# Usage: list-code-workspaces-by-date
 #
 # Description:
 #   This function searches for all `workspace.json` files in the 
@@ -87,7 +87,7 @@ gsib() {
 #   The results are formatted to show the date, folder name, and file path,
 #   sorted by date. The output is also saved to a log file at `/tmp/workspaces.log.txt`.
 #
-clwd() {
+list-code-workspaces-by-date() {
     fd -t f workspace.json ~/.config/Code/User/workspaceStorage | while read line; do
         date=$(stat -c %y "$line")
         file=$(jq .folder "$line")
@@ -96,9 +96,9 @@ clwd() {
 }
 
 
-# ldbd - List directories sorted by their last modified date.
+# list-directories-by-date - List directories sorted by their last modified date.
 #
-# Usage: ldbd <pattern> <path>
+# Usage: list-directories-by-date <pattern> <path>
 #
 # Parameters:
 #   pattern - The pattern to match directory names (can include wildcards).
@@ -109,16 +109,16 @@ clwd() {
 #   within the given path. For each matching directory, it retrieves the last
 #   modified date using `stat` and outputs the date along with the directory name.
 #   The results are then sorted by date.
-ldbd(){
+list-directories-by-date(){
 fd -t d  $1 $2 | while read line; do
   date=$(stat -c %y $line)
   echo "$date $line" 
 done | sort -k1 
 }
 
-# mkfile - Create a file and its parent directories if they do not exist.
+# make-file - Create a file and its parent directories if they do not exist.
 #
-# Usage: mkfile <file_path>
+# Usage: make-file <file_path>
 #
 # Parameters:
 #   file_path - The path of the file to create, including any necessary parent directories.
@@ -128,13 +128,13 @@ done | sort -k1
 #   directories do not already exist, they will be created using `mkdir -p`.
 #   After ensuring that the directory structure is in place, it uses `touch`
 #   to create the file or update its timestamp if it already exists.
-mkfile() { 
+make-file() { 
     mkdir -p "$(dirname "$1")" && touch "$1" 
 }
 
-# ftext - Search for text in files and display matching lines with context.
+# find-text - Search for text in files and display matching lines with context.
 #
-# Usage: ftext <search_text> <directory>
+# Usage: find-text <search_text> <directory>
 #
 # Parameters:
 #   search_text - The text or pattern to search for within the specified files.
@@ -145,15 +145,15 @@ mkfile() {
 #   the files located in the given directory. It highlights matches and shows
 #   the line number of each match. The output is limited to the first 250 characters
 #   of each matching line for easier readability.
-ftext(){
+find-text(){
     grep --color=always -HnRE "$1" "$2" | awk '{ print substr($0, 1, length($0) < 250 ? length($0) : 250) }'
 }
 
 
 
-# fdirr - Find directories by name and display their last modified dates.
+# find-directory - Find directories by name and display their last modified dates.
 #
-# Usage: fdirr <directory_name>
+# Usage: find-directory <directory_name>
 #
 # Parameters:
 #   directory_name - The name of the directory to search for within the current directory tree.
@@ -165,14 +165,14 @@ ftext(){
 #   output to show the modification date followed by the directory path. The results
 #   are sorted by date.
 
-fdirr(){
+find-directory(){
     find . -name "$1" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1
 }
 
 
-# v2f - Convert a video file into a series of PNG images.
+# video2frames - Convert a video file into a series of PNG images.
 #
-# Usage: v2f <video_path>
+# Usage: video2frames <video_path>
 #
 # Parameters:
 #   video_path - The path to the input video file to be converted into images.
@@ -181,14 +181,14 @@ fdirr(){
 #   This function uses `ffmpeg` to extract frames from the specified video file
 #   and save them as PNG images. The images will be named using a zero-padded
 #   numbering format (e.g., `0000000001.png`, `0000000002.png`, etc.).
-v2f(){
+video2frames(){
     # $1 = video path
     ffmpeg -i "$1" %010d.png
 }
 
-# f2v - Create a video file from a series of PNG images.
+# frames2video - Create a video file from a series of PNG images.
 #
-# Usage: f2v <output_video_filename> <frames_per_second>
+# Usage: frames2video <output_video_filename> <frames_per_second>
 #
 # Parameters:
 #   output_video_filename - The name of the output video file to be created (with extension).
@@ -198,13 +198,13 @@ v2f(){
 #   This function uses `ffmpeg` to compile a series of PNG images into a video file.
 #   The images should be named in a way that allows them to be matched by the glob pattern.
 #   The output video is encoded using the H.264 codec with a specified frame rate.
-f2v(){
+frames2video(){
     ffmpeg -r "$2" -f image2 -pattern_type glob -i "*.png" -vcodec libx264 -crf 20 -pix_fmt yuv420p "$1"
 }
 
-# cutvideo - Cut a segment from a video file using ffmpeg.
+# cut-video - Cut a segment from a video file using ffmpeg.
 #
-# Usage: cutvideo <input_filename> <start_time> <duration> <output_filename>
+# Usage: cut-video <input_filename> <start_time> <duration> <output_filename>
 #
 # Parameters:
 #   input_filename  - The path to the input video file to be cut.
@@ -219,18 +219,18 @@ f2v(){
 #   without an extension, as the function appends ".mp4" automatically.
 #
 # Example:
-#   cutvideo "input.mp4" "00:01:30" "00:00:10" "output"
+#   cut-video "input.mp4" "00:01:30" "00:00:10" "output"
 #   # This will extract a 10-second segment starting from 1 minute and 30 seconds
 #   # into "input.mp4" and save it as "output.mp4".
-cutvideo(){
+cut-video(){
     echo "ffmpeg -hide_banner -i $1 -ss $2 -t $3 -c copy $4.mp4"
     ffmpeg -hide_banner -i "$1" -ss "$2" -t "$3" -c copy "$4.mp4"
 }
 
 
-# fps - Calculate and round the average frame rate of a video file.
+# get-fps - Calculate and round the average frame rate of a video file.
 #
-# Usage: fps <video_file>
+# Usage: get-fps <video_file>
 #
 # Parameters:
 #   video_file - The path to the video file for which to calculate the average frame rate.
@@ -242,14 +242,14 @@ cutvideo(){
 #   standard output.
 
 
-fps(){
+get-fps(){
     fraction=$(ffprobe -v error -select_streams v:0 -show_entries stream=avg_frame_rate -of default=nw=1:nk=1 "$1")
     python -c "print(round(${fraction}))"
 }
 
-# m3ud - Download a video stream from an .m3u8 playlist file using ffmpeg.
+# m3u-download - Download a video stream from an .m3u8 playlist file using ffmpeg.
 #
-# Usage: m3ud <m3u8_url> <output_filename>
+# Usage: m3u-download <m3u8_url> <output_filename>
 #
 # Parameters:
 #   m3u8_url       - The URL of the .m3u8 file containing the video stream playlist.
@@ -262,32 +262,32 @@ fps(){
 #   ensure compatibility with standard formats.
 #
 # Example:
-#   m3ud "http://example.com/playlist.m3u8" "output.mp4"
+#   m3u-download "http://example.com/playlist.m3u8" "output.mp4"
 #   # This will download the video stream from the specified .m3u8 URL and save
 #   # it as "output.mp4".
 
-m3ud(){
+m3u-download(){
     ffmpeg -i "$1" -c copy -bsf:a aac_adtstoasc "$2"
 }
 
-# pc - Display a list of ANSI colors with their corresponding codes.
+# print-colors - Display a list of ANSI colors with their corresponding codes.
 #
-# Usage: pc
+# Usage: print-colors
 #
 # Description:
 #   This function prints out a series of ANSI colors (from 0 to 7) along with
 #   their corresponding escape codes. Each color is displayed in its respective
 #   color format, allowing users to see how the colors appear in the terminal.
 
-pc(){
+print-colors(){
     for i in {0..7}; do  
         echo -e "\e[3${i}m ${i} Color: '\\\033[3${i}m' \e[0m"
     done
 }
 
-# dcob - Build Docker containers using a specified Docker Compose file.
+# docker-compose-build - Build Docker containers using a specified Docker Compose file.
 #
-# Usage: dcob <docker_compose_file>
+# Usage: docker-compose-build <docker_compose_file>
 #
 # Parameters:
 #   docker_compose_file - The path to the Docker Compose file used for building containers.
@@ -298,16 +298,16 @@ pc(){
 #   needing to type the full command each time.
 #
 # Example:
-#   dcob "docker-compose.yml"
+#   docker-compose-build "docker-compose.yml"
 #   # This will build the containers defined in "docker-compose.yml".
 
-dcob(){
+docker-compose-build(){
     docker compose -f "$1" build
 }
 
-# dcou - Start Docker containers using a specified Docker Compose file.
+# docker-compose-up - Start Docker containers using a specified Docker Compose file.
 #
-# Usage: dcou <docker_compose_file>
+# Usage: docker-compose-up <docker_compose_file>
 #
 # Parameters:
 #   docker_compose_file - The path to the Docker Compose file used for starting containers.
@@ -318,16 +318,16 @@ dcob(){
 #   a shorthand command.
 #
 # Example:
-#   dcou "docker-compose.yml"
+#   docker-compose-up "docker-compose.yml"
 #   # This will start the containers defined in "docker-compose.yml".
 
-dcou(){
+docker-compose-up(){
     docker compose -f "$1" up
 }
 
-# pifi - Install Python packages using pip3 with system package break handling.
+# pip-install-break - Install Python packages using pip3 with system package break handling.
 #
-# Usage: pifi <packages>
+# Usage: pip-install-break <packages>
 #
 # Parameters:
 #   packages - A space-separated list of Python packages to install.
@@ -338,9 +338,28 @@ dcou(){
 #   in certain environments where package versions need to be overridden.
 #
 # Example:
-#   pifi "numpy pandas"
+#   pip-install-break "numpy pandas"
 #   # This will install the packages "numpy" and "pandas" using pip3.
 
-pifi(){
+pip-install-break(){
     pip3 install "$1" --break-system-packages
+}
+
+# remove-colors() - Remove ANSI color codes from input
+#
+# This function processes input text to remove ANSI escape sequences 
+# that are used for coloring in terminal output. It utilizes the `sed` 
+# command with a regular expression to match and strip out these codes, 
+# allowing for cleaner output without any formatting artifacts.
+#
+# Usage:
+#   remove-colors < input_file > output_file
+#
+# Example:
+#   cat colored_output.txt | remove-colors > plain_output.txt
+#
+# Note:
+#   This function is designed to be used in a pipeline or with input redirection.
+remove-colors() {
+    sed -r "s/\x1B\[[0-9;]*m//g"
 }
