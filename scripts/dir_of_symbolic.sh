@@ -1,0 +1,1 @@
+dir=$(dirname $(readlink -f $(echo "$0")))
