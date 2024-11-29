@@ -156,6 +156,7 @@ plugins=(
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+ZSH_COLORIZE_STYLE="github-dark"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 ZSH_DOTENV_FILE=.env
 ZSH_DOTENV_PROMPT=false
