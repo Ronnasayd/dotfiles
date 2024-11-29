@@ -1,8 +1,6 @@
 [Desktop Entry]
 Name=ChromeBurp
 Exec=/home/ronnas/krita.appimage
-
 Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/krita.png
 Type=Application
-
 Name[en_US]=krita

@@ -1,11 +1,7 @@
 [Desktop Entry]
-Name=ZSNES
-Comment=Super Nintendo Entertainment System (TM) emulator
+Name=Charles
+Name[en_US]=Charles
 Exec=charles %f
 Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/charles.png
 Terminal=false
 Type=Application
-Categories=Game;Emulator;
-MimeType=application/x-snes-rom;
-Keywords=emulator;snes;nintendo;super nintendo;super famicom;
-Name[en_US]=charles

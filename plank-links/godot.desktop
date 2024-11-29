@@ -1,11 +1,7 @@
 [Desktop Entry]
-Name=ZSNES
+Name=Godot
 Comment=Super Nintendo Entertainment System (TM) emulator
 Exec=godot4 %f
 Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/godot.png
 Terminal=false
 Type=Application
-Categories=Game;Emulator;
-MimeType=application/x-snes-rom;
-Keywords=emulator;snes;nintendo;super nintendo;super famicom;
-Name[en_US]=godot
