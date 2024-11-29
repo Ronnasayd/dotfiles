@@ -1,31 +1,22 @@
 [
   {
-    "name": "No_scripts",
-    "description": "Select to edit scripts",
-    "icon": null,
-    "script": "xdg-open ~/.config/ulauncher/scripts.json",
-    "default_arguments": [
-      "~/.config/ulauncher/scripts.json"
-    ]
-  },
-  {
     "name": "stop-docker",
     "description": "Stop all docker running containers",
-    "icon": null,
+    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/docker.png",
     "script": "docker ps -aq | xargs docker stop && docker ps -aq | xargs docker rm -f",
     "default_arguments": []
   },
   {
     "name": "incognito",
     "description": "Opens chrome in incognito mode",
-    "icon": null,
+    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/incognito.png",
     "script": "google-chrome --profile-directory='Default' --incognito",
     "default_arguments": []
   },
   {
     "name": "clear-notification",
     "description": "Clear all notifications in the system",
-    "icon": null,
+    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/trash_full.png",
     "script": "xdotool key --clearmodifiers Shift+Super+c",
     "default_arguments": []
   }
