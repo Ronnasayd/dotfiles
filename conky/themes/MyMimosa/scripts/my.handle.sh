@@ -30,7 +30,7 @@ case $1 in
     cat ~/.cache/my-weather.json | jq -r '.current.temperature_2m' | xargs printf "%04.1f"
   ;;
   IP_ADDRESS)
-    cat ~/.cache/my-ip.json | jq -r '.ipAddress' | cut -c -16
+    cat ~/.cache/my-ip.json | jq -r '.ip' | cut -c -16
   ;;
   PLAYER_STATUS)
     playerctl status
