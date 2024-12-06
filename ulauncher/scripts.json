@@ -16,7 +16,7 @@
   {
     "name": "clear-notification",
     "description": "Clear all notifications in the system",
-    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/trash_full.png",
+    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/clear-notification.png",
     "script": "xdotool key --clearmodifiers Shift+Super+c",
     "default_arguments": []
   },
