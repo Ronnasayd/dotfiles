@@ -139,18 +139,18 @@
         "last_commit": "525dd2c0fa4c10dd99db76288dd7a5f0e58205ff",
         "last_commit_time": "2022-07-13T19:33:21"
     },
-    "com.github.abhishekmj303.ulauncher-playerctl": {
-        "id": "com.github.abhishekmj303.ulauncher-playerctl",
-        "url": "https://github.com/abhishekmj303/ulauncher-playerctl",
-        "updated_at": "2024-11-26T18:15:00.623949",
-        "last_commit": "5f52e6c949ee9793ba60b5385df4744b134c3369",
-        "last_commit_time": "2023-06-23T15:13:13"
-    },
     "com.github.ulauncher.ulauncher-timer": {
         "id": "com.github.ulauncher.ulauncher-timer",
         "url": "https://github.com/Ulauncher/ulauncher-timer",
         "updated_at": "2024-12-05T14:49:44.710550",
         "last_commit": "2d3fe82fe1e38670e6eb8887cd2a4b4d1c2baa79",
         "last_commit_time": "2023-03-25T08:07:41"
+    },
+    "com.github.dankni95.ulauncher-playerctl": {
+        "id": "com.github.dankni95.ulauncher-playerctl",
+        "url": "https://github.com/Dankni95/ulauncher-playerctl",
+        "updated_at": "2024-12-07T15:33:52.089855",
+        "last_commit": "c2efafd66c3d60445a545f9f202b82202f93cd70",
+        "last_commit_time": "2022-03-23T21:18:25"
     }
 }
