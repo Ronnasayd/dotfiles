@@ -25,11 +25,11 @@ bg_player_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-h.png"
 bg_player_width = 310
 bg_player_aspect = 270 / 720
 bg_player_padding_x = 20
-bg_player_padding_y = 585
+bg_player_padding_y = 578
 
-player_img_width = 80
-player_img_height = 65
-player_img_padding_x = 20
+player_img_width = 100
+player_img_height = 100
+player_img_padding_x = 10
 
 radius = 25
 thickness = 7
@@ -187,13 +187,13 @@ function draw_ring(cr, cr2, t, pt)
     cairo_set_font_size(cr2, 12)
     if pt['name'] ~= 'swapperc' then
         if pt['name'] == 'memperc' then
-            cairo_move_to(cr2, xc -28, yc + 45)
+            cairo_move_to(cr2, xc - 28, yc + 45)
         else
             cairo_move_to(cr2, xc - 14, yc + 45)
         end
         cairo_show_text(cr2, string.format("%03.0f%s", t * 100, pt['suffix']))
     else
-        cairo_move_to(cr2, xc+2, yc + 45)
+        cairo_move_to(cr2, xc + 2, yc + 45)
         cairo_show_text(cr2, string.format("/%03.0f%s", t * 100, pt['suffix']))
     end
 end
@@ -287,16 +287,21 @@ function conky_render_player_bg()
         bg_pos_y)
 end
 
-function conky_render_player_image(image_path)
+function conky_render_player_image(flag)
+    if flag == "1" then
+        banner = get_command_output("playerctl metadata mpris:artUrl| awk -F'file://' '{print $2}'")
+    else
+        banner = "~/.config/conky/MyMimosa/res/not-found.png"
+    end
     bg_player_height = bg_player_aspect * bg_player_width
     bg_pos_x = 0
-    bg_pos_y = 0 + bg_player_padding_y + bg_player_height / 4.5
+    bg_pos_y = 0 + bg_player_padding_y + (bg_player_height - player_img_height) / 2
     if align_right then
         bg_pos_x = bg_pos_x + window_width - bg_width - bg_player_width - bg_player_padding_x + player_img_padding_x
     else
         bg_pos_x = bg_player_width + bg_player_padding_x + player_img_padding_x
     end
-    return string.format("${image %s -s %sx%s -p %s,%s}", image_path, player_img_width, player_img_height, bg_pos_x,
+    return string.format("${image %s -s %sx%s -p %s,%s}", banner, player_img_width, player_img_height, bg_pos_x,
         bg_pos_y)
 end
 
@@ -346,8 +351,14 @@ function conky_rotate_text(text, limit)
     counter = counter + 1
     value = conky_parse(text)
     value_size = string.len(value)
+    if value_size <= tonumber(limit) then
+        return string.format("%s", value)
+    end
     current = counter % value_size + 1
-    return string.sub(value, current, math.min(current + limit, value_size))
+    p1 = string.sub(value, current, value_size)
+    p2 = string.sub(value, 1, current)
+    result = string.sub(string.format("%s - %s", p1, p2), 1, limit)
+    return result
 end
 
 function conky_cpu_freq_mean(number_cpus)
@@ -369,13 +380,13 @@ function conky_top_cpu(number)
     end
     name = lpad(name, 16, ' ')
     final = string.format("%05.2f %% %s", value, name)
-    color= "${color}"
-    font="${font Roboto:size=8}"
+    color = "${color}"
+    font = "${font Roboto:size=8}"
     if value > 20 then
         color = "${color2}"
-        font="${font Roboto:bold:size=8}"
+        font = "${font Roboto:bold:size=8}"
     end
-    return conky_parse(font..color..final)
+    return conky_parse(font .. color .. final)
 end
 
 function conky_top_mem(number)
@@ -389,13 +400,13 @@ function conky_top_mem(number)
     end
     name = lpad(name, 16, ' ')
     final = string.format("%05.2f %% %s", value, name)
-    color= "${color}"
-    font="${font Roboto:size=8}"
+    color = "${color}"
+    font = "${font Roboto:size=8}"
     if value > 20 then
         color = "${color2}"
-        font="${font Roboto:bold:size=8}"
+        font = "${font Roboto:bold:size=8}"
     end
-    return conky_parse(font..color..final)
+    return conky_parse(font .. color .. final)
 end
 
 function conky_calendar()
@@ -425,4 +436,11 @@ function split_lines(str, regex)
         table.insert(lines, line)
     end
     return lines
+end
+
+function get_command_output(command)
+    local handle = io.popen(command)
+    local result = handle:read("*a") -- Read all output
+    handle:close()
+    return result
 end
