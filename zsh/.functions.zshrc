@@ -363,3 +363,38 @@ pip-install-break(){
 remove-colors() {
     sed -r "s/\x1B\[[0-9;]*m//g"
 }
+# Function: copy-with-exclusion
+# --------------------------
+# Copies files from a source directory to a destination directory while excluding
+# specified directories from the copy process. This function utilizes `rsync` for 
+# efficient file transfer and exclusion handling.
+#
+# Parameters:
+#   source_dir (string): The path to the source directory from which files will be copied.
+#   dest_dir (string): The path to the destination directory where files will be copied to.
+#   exclude_dirs (array): A list of directory patterns to exclude from the copy process.
+#
+# Usage:
+#   copy-with-exclusion <source_dir> <dest_dir> <exclude_dirs>
+#
+# Example:
+#   copy-with-exclusion /home/user/source /home/user/destination temp cache
+#
+# Note:
+#   - The function uses `rsync` with the `-a` (archive) and `-v` (verbose) options.
+#   - The exclude patterns are passed to `rsync` using the --exclude option.
+copy-with-exclusion() {
+    local source_dir="$1"
+    local dest_dir="$2"
+    shift 2
+    local exclude_dirs=("$@")
+
+    # Build the exclude options for rsync
+    local exclude_options=""
+    for dir in "${exclude_dirs[@]}"; do
+        exclude_options+="--exclude='$dir' "
+    done
+
+    # Use rsync to copy while excluding specified directories
+    eval "rsync -av $exclude_options '$source_dir/' '$dest_dir/'"
+}

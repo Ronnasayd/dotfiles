@@ -123,6 +123,7 @@ alias cutvideo="cut-video" # Cut a segment from a video file using ffmpeg: cutvi
 alias gfps="get-fps" # Calculate and round the average frame rate of a video file: gfps <video_file>
 alias m3ud="m3u-download" # Download a video stream from an .m3u8 playlist file using ffmpeg: m3ud <m3u8_url> <output_filename>
 alias pifi="pip-install-break" # Install Python packages using pip3 with system package break handling: pifi <package_names>
+alias cwe="copy-with-exclusion" #Copies files from a source directory to a destination directory while excluding specified directories from the copy process: cwe <source_dir> <dest_dir> <exclude_dirs>
 alias pc="print-colors" # Display a list of ANSI colors with their corresponding codes.
 alias rc="remove-colors" # Remove color codes from text.
 alias clogs="colorize-logs" # Colorize log messages based on a specified delimiter: clogs <delimiter>
