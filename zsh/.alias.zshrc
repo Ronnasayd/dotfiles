@@ -129,3 +129,4 @@ alias rc="remove-colors" # Remove color codes from text.
 alias clogs="colorize-logs" # Colorize log messages based on a specified delimiter: clogs <delimiter>
 alias proxy-chrome="google-chrome -proxy-server=http://127.0.0.1:8888 --ignore-certificate-errors --user-data-dir=~/proxy-chrome-data-dir" # Start Google Chrome with a proxy server
 alias zipe='git archive --format=zip -o output.zip HEAD ":(exclude).gitignore"' # Zip archive with git a exclude files at .gitignore
+alias xwhats='echo "https://api.whatsapp.com/send?text=$(xclip -o -selection clipboard)" | xclip -selection clipboard' # Transform clipboard content link to WhatsApp message link
