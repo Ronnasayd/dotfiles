@@ -26,5 +26,12 @@
     "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/color-picker.png",
     "script": "terminator -H --geometry 0x0 -x color-picker",
     "default_arguments": []
+  },
+  {
+    "name": "qrcode",
+    "description": "Generate a qrcode",
+    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/qrcode.png",
+    "script": "/home/ronnas/develop/personal/dotfiles/scripts/generate-qrcode.sh",
+    "default_arguments": []
   }
 ]

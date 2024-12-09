@@ -128,3 +128,4 @@ alias pc="print-colors" # Display a list of ANSI colors with their corresponding
 alias rc="remove-colors" # Remove color codes from text.
 alias clogs="colorize-logs" # Colorize log messages based on a specified delimiter: clogs <delimiter>
 alias proxy-chrome="google-chrome -proxy-server=http://127.0.0.1:8888 --ignore-certificate-errors --user-data-dir=~/proxy-chrome-data-dir" # Start Google Chrome with a proxy server
+alias zipe='git archive --format=zip -o output.zip HEAD ":(exclude).gitignore"' # Zip archive with git a exclude files at .gitignore
