@@ -33,5 +33,12 @@
     "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/qrcode.png",
     "script": "/home/ronnas/develop/personal/dotfiles/scripts/generate-qrcode.sh",
     "default_arguments": []
+  },
+  {
+    "name": "clear-trash",
+    "description": "Clear trash",
+    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/trash_full.png",
+    "script": "gio trash --empty",
+    "default_arguments": []
   }
 ]
