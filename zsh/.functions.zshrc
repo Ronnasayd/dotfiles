@@ -134,11 +134,11 @@ make-file() {
 
 # find-text - Search for text in files and display matching lines with context.
 #
-# Usage: find-text <search_text> <directory>
+# Usage: find-text <search_text> <?directory>
 #
 # Parameters:
 #   search_text - The text or pattern to search for within the specified files.
-#   directory    - The directory or path where the search should be performed.
+#   directory    - The directory or path where the search should be performed. If not provided, the current directory is used.
 #
 # Description:
 #   This function uses `grep` to recursively search for the specified text in
@@ -146,7 +146,12 @@ make-file() {
 #   the line number of each match. The output is limited to the first 250 characters
 #   of each matching line for easier readability.
 find-text(){
-    grep --color=always -HnRE "$1" "$2" | awk '{ print substr($0, 1, length($0) < 250 ? length($0) : 250) }'
+    if [ $# -lt 2 ]; then
+        DIR=$(pwd)
+    else
+        DIR=$2
+    fi
+    grep --color=always  -HnRE --exclude-dir="vendor" --exclude-dir="env" --exclude-dir="venv" --exclude-dir="node_modules" --exclude-dir=".git" "$1" "$DIR" | awk '{ print substr($0, 1, length($0) < 250 ? length($0) : 250) }'
 }
 
 
