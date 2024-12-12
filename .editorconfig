@@ -49,6 +49,13 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 
+[*.vue]
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
 [*makefile]
 end_of_line = lf
 charset = utf-8
