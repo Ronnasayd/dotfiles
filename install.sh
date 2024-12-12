@@ -23,6 +23,7 @@ mv ~/.local/share/nemo/actions/code_nemo.sh /tmp/backup
 mv ~/.local/share/nemo/actions/code.nemo_action /tmp/backup
 mv ~/.config/ulauncher/scripts.json /tmp/.backup
 mv ~/.local/share/plank/themes/MyTheme /tmp/.backup
+mv ~/.editorconfig /tmp/backup
 
 ln -s  $(pwd)/plank ~/.config/plank
 ln -s  $(pwd)/conky/themes/MyMimosa ~/.config/conky/MyMimosa
@@ -46,6 +47,7 @@ ln -s  $(pwd)/nemo_actions/code.nemo_action ~/.local/share/nemo/actions/code.nem
 ln -s  $(pwd)/scripts/colorize-logs.sh ~/.local/bin/colorize-logs
 ln -s  $(pwd)/plank-links/themes/MyTheme  ~/.local/share/plank/themes/MyTheme
 ln -s  $(pwd)/scripts/qr-server.sh ~/.local/bin/qr-server
+ln -s  $(pwd)/.editorconfig ~/.editorconfig
 
 
 sudo ln -s $(pwd)/plank-links/godot.desktop /usr/share/applications/godot.desktop
