@@ -44,64 +44,64 @@ alias yt="yarn test" # Run tests defined in package.json using Yarn
 alias yrm="yarn remove" # Remove a package using Yarn
 alias yr="yarn run" # Run an arbitrary command defined in package.json using Yarn
 alias pnpi="pnpm install" # Install all dependencies defined in package.json using pnpm
-alias co="code" # Open Visual Studio Code editor 
-alias cox="code . && exit" # Open current directory in VS Code and exit terminal 
-alias cco="code --disable-extensions --user-data-dir='/tmp/code-user-data-dir' --extensions-dir='/tmp/code-extensions-dir'" # Open VS Code without extensions 
-alias _co="sudo code --user-data-dir=~/.vscode-root --no-sandbox" # Open VS Code with root privileges 
+alias co="code" # Open Visual Studio Code editor
+alias cox="code . && exit" # Open current directory in VS Code and exit terminal
+alias cco="code --disable-extensions --user-data-dir='/tmp/code-user-data-dir' --extensions-dir='/tmp/code-extensions-dir'" # Open VS Code without extensions
+alias _co="sudo code --user-data-dir=~/.vscode-root --no-sandbox" # Open VS Code with root privileges
 alias cof="fzf --bind 'enter:become(code {})'" # Use fzf to select and open files in VS Code
-alias gob="go build" # Build Go project 
-alias gor="go run"  # Run Go project 
-alias gog="go get"  # Download and install packages 
-alias tm="tmux"    # Start a new tmux session 
-alias tms="tmux new-session -s" # Start a new tmux session with a specific name 
+alias gob="go build" # Build Go project
+alias gor="go run"  # Run Go project
+alias gog="go get"  # Download and install packages
+alias tm="tmux"    # Start a new tmux session
+alias tms="tmux new-session -s" # Start a new tmux session with a specific name
 alias tks="tmux kill-session -t" # Kill a specific tmux session
-alias tma="tmux attach"    # Attach to the last tmux session 
-alias tmat="tmux attach -t" # Attach to a specific tmux session 
-alias tmls="tmux ls"       # List all tmux sessions 
-alias tmd="tmux detach"    # Detach from current tmux session 
-alias tmks="tmux kill-server" # Kill all tmux sessions 
-alias cpwd="pwd | xclip -selection clipboard" # Copy current working directory to clipboard 
-alias xpwd="terminator --working-directory=$(pwd) -e /bin/zsh &>/dev/null &;disown %1" # Open Terminator terminal in current directory 
-alias agdi="ag --path-to-ignore .dockerignore --files-with-matches" # Search for matches ignoring .dockerignore 
-alias aggi="ag --path-to-ignore .gitignore --files-with-matches" # Search for matches ignoring .gitignore 
-alias kubectl="minikube kubectl --" # Use minikube's kubectl command 
-alias dsize="sudo du -d 1 -h" # Display disk usage of current directory in human-readable format 
-alias chmdn="stat --format '%a'" # Show file permissions in numeric format 
-alias apt_search="apt-cache search" # Search for packages in APT 
-alias cpf="copyfile" # Copy file command alias 
-alias cplc="fc -ln -1 | xsel --clipboard" # Copy last command to clipboard 
-alias json="pp_json" # Pretty print JSON data 
-alias vjson="is_json" # Validate if input is valid JSON 
-alias alg="alias | grep " # Search for specific aliases  
-alias q="exit 0" # Exit terminal session gracefully  
-alias ka="killall " # Kill all processes by name  
-alias open='xdg-open 2>/dev/null' # Open files or URLs with default application  
-alias rmv='sudo apt-get autoremove && sudo apt-get autoclean' # Clean up unused packages  
-alias prg='sudo dpkg --purge "dpkg --get-selections | grep deinstall | cut -f1"' # Purge uninstalled packages  
-alias curbg='gsettings get org.cinnamon.desktop.background picture-uri' # Get current desktop background URI  
-alias portainer='docker run --rm -d -p 9000:9000 --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer; xdg-open http://localhost:9000' # Run Portainer Docker container and open it in browser  
-alias gports='sudo netstat -tulpn | grep -i' # Check which processes are listening on which ports  
-alias lports='sudo netstat -tulpn' # List all listening ports   
-alias pkgc='dpkg --list | wc --lines' # Count installed packages  
-alias ffont='fc-list | grep -i' # Find font location by name  
-alias lfont='fc-list' # List all installed fonts  
-alias sconky='~/.config/conky/MyMimosa/start.sh' # Start Conky configuration script  
-alias cswap='sudo swapoff -a; sudo swapon -a' # Turn off and then turn on swap space  
-alias limit='ulimit -Sv' # Set memory limit for processes  
-alias fdd='fd -t d' # Find directories using fd command  
-alias fdf='fd -t f' # Find files using fd command  
-alias fnm='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1' # Find node_modules directories and display their last modification time  
-alias wcpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"' # Monitor CPU frequency changes every second  
-alias lzsh='cat ~/.alias.zshrc | grep alias' # List all aliases defined in zshrc file  
-alias gzsh='cat ~/.alias.zshrc | grep alias | grep -i' # Search for specific aliases in zshrc file  
-alias ximg='xclip -selection clipboard -t image/png -o >' # Copy image from clipboard to specified file  
+alias tma="tmux attach"    # Attach to the last tmux session
+alias tmat="tmux attach -t" # Attach to a specific tmux session
+alias tmls="tmux ls"       # List all tmux sessions
+alias tmd="tmux detach"    # Detach from current tmux session
+alias tmks="tmux kill-server" # Kill all tmux sessions
+alias cpwd="pwd | xclip -selection clipboard" # Copy current working directory to clipboard
+alias xpwd="terminator --working-directory=$(pwd) -e /bin/zsh &>/dev/null &;disown %1" # Open Terminator terminal in current directory
+alias agdi="ag --path-to-ignore .dockerignore --files-with-matches" # Search for matches ignoring .dockerignore
+alias aggi="ag --path-to-ignore .gitignore --files-with-matches" # Search for matches ignoring .gitignore
+alias kubectl="minikube kubectl --" # Use minikube's kubectl command
+alias dsize="sudo du -d 1 -h" # Display disk usage of current directory in human-readable format
+alias chmdn="stat --format '%a'" # Show file permissions in numeric format
+alias apt_search="apt-cache search" # Search for packages in APT
+alias cpf="copyfile" # Copy file command alias
+alias cplc="fc -ln -1 | xsel --clipboard" # Copy last command to clipboard
+alias json="pp_json" # Pretty print JSON data
+alias vjson="is_json" # Validate if input is valid JSON
+alias alg="alias | grep " # Search for specific aliases
+alias q="exit 0" # Exit terminal session gracefully
+alias ka="killall " # Kill all processes by name
+alias open='xdg-open 2>/dev/null' # Open files or URLs with default application
+alias rmv='sudo apt-get autoremove && sudo apt-get autoclean' # Clean up unused packages
+alias prg='sudo dpkg --purge "dpkg --get-selections | grep deinstall | cut -f1"' # Purge uninstalled packages
+alias curbg='gsettings get org.cinnamon.desktop.background picture-uri' # Get current desktop background URI
+alias portainer='docker run --rm -d -p 9000:9000 --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer; xdg-open http://localhost:9000' # Run Portainer Docker container and open it in browser
+alias gports='sudo netstat -tulpn | grep -i' # Check which processes are listening on which ports
+alias lports='sudo netstat -tulpn' # List all listening ports
+alias pkgc='dpkg --list | wc --lines' # Count installed packages
+alias ffont='fc-list | grep -i' # Find font location by name
+alias lfont='fc-list' # List all installed fonts
+alias sconky='~/.config/conky/MyMimosa/start.sh' # Start Conky configuration script
+alias cswap='sudo swapoff -a; sudo swapon -a' # Turn off and then turn on swap space
+alias limit='ulimit -Sv' # Set memory limit for processes
+alias fdd='fd -t d' # Find directories using fd command
+alias fdf='fd -t f' # Find files using fd command
+alias fnm='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1' # Find node_modules directories and display their last modification time
+alias wcpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"' # Monitor CPU frequency changes every second
+alias lzsh='cat ~/.alias.zshrc | grep alias' # List all aliases defined in zshrc file
+alias gzsh='cat ~/.alias.zshrc | grep alias | grep -i' # Search for specific aliases in zshrc file
+alias ximg='xclip -selection clipboard -t image/png -o >' # Copy image from clipboard to specified file
 alias ctf='xclip -selection clipboard  -o >' # Copy content from clipboard to file
-alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1' # Count number of frames in video file  
-alias echc='pactl load-module module-echo-cancel' # Load PulseAudio module for echo cancellation  
-alias openr="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | xargs -I{} xdg-open {}" # Open remote repository URL in default browser   
-alias mkdir='mkdir -p' # Create directory, including parent directories if necessary   
+alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1' # Count number of frames in video file
+alias echc='pactl load-module module-echo-cancel' # Load PulseAudio module for echo cancellation
+alias openr="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | xargs -I{} xdg-open {}" # Open remote repository URL in default browser
+alias mkdir='mkdir -p' # Create directory, including parent directories if necessary
 alias cat='ccat' # Syntax-highlighted cat command
-alias forcefsck='sudo touch /forcefsck' # Force file system check on next boot   
+alias forcefsck='sudo touch /forcefsck' # Force file system check on next boot
 alias incognito="google-chrome --incognito" # Open chrome in incognito mode
 alias ska=" showkey -a" # Show pressed characters in terminal. Press Ctrl+D to stop
 alias rmrf="rm -rf" # Remove files and directories recursively
@@ -131,3 +131,4 @@ alias proxy-chrome="google-chrome -proxy-server=http://127.0.0.1:8888 --ignore-c
 alias insecure-chrome="google-chrome --ignore-certificate-errors --disable-web-security --user-data-dir=~/proxy-chrome-data-dir" # Start Google Chrome with some insecure options
 alias zipe='git archive --format=zip -o output.zip HEAD ":(exclude).gitignore"' # Zip archive with git a exclude files at .gitignore
 alias xwhats='echo "https://api.whatsapp.com/send?text=$(xclip -o -selection clipboard)" | xclip -selection clipboard' # Transform clipboard content link to WhatsApp message link
+alias m="make" # Alias to make command

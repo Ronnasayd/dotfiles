@@ -45,8 +45,8 @@ ln -s  $(pwd)/ulauncher/scripts.json ~/.config/ulauncher/scripts.json
 ln -s  $(pwd)/nemo_actions/code_nemo.sh ~/.local/share/nemo/actions/code_nemo.sh
 ln -s  $(pwd)/nemo_actions/code.nemo_action ~/.local/share/nemo/actions/code.nemo_action
 ln -s  $(pwd)/scripts/colorize-logs.sh ~/.local/bin/colorize-logs
-ln -s  $(pwd)/plank-links/themes/MyTheme  ~/.local/share/plank/themes/MyTheme
 ln -s  $(pwd)/scripts/qr-server.sh ~/.local/bin/qr-server
+ln -s  $(pwd)/plank-links/themes/MyTheme  ~/.local/share/plank/themes/MyTheme
 ln -s  $(pwd)/.editorconfig ~/.editorconfig
 
 
