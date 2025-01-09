@@ -52,10 +52,10 @@ function chpwd {
 rename-all() {
     NAME="$1"
     NEW_NAME="$2"
-    
+
     # Rename directories matching the old name
     fd -t d "$NAME" -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
-    
+
     # Rename files matching the old name
     fd -t f "$NAME" -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
 }
@@ -81,9 +81,9 @@ git-search-pattern-in-branches() {
 # Usage: list-code-workspaces-by-date
 #
 # Description:
-#   This function searches for all `workspace.json` files in the 
-#   `~/.config/Code/User/workspaceStorage` directory, retrieves their 
-#   last modified date, and extracts the folder information using `jq`. 
+#   This function searches for all `workspace.json` files in the
+#   `~/.config/Code/User/workspaceStorage` directory, retrieves their
+#   last modified date, and extracts the folder information using `jq`.
 #   The results are formatted to show the date, folder name, and file path,
 #   sorted by date. The output is also saved to a log file at `/tmp/workspaces.log.txt`.
 #
@@ -112,8 +112,8 @@ list-code-workspaces-by-date() {
 list-directories-by-date(){
 fd -t d  $1 $2 | while read line; do
   date=$(stat -c %y $line)
-  echo "$date $line" 
-done | sort -k1 
+  echo "$date $line"
+done | sort -k1
 }
 
 # make-file - Create a file and its parent directories if they do not exist.
@@ -128,8 +128,8 @@ done | sort -k1
 #   directories do not already exist, they will be created using `mkdir -p`.
 #   After ensuring that the directory structure is in place, it uses `touch`
 #   to create the file or update its timestamp if it already exists.
-make-file() { 
-    mkdir -p "$(dirname "$1")" && touch "$1" 
+make-file() {
+    mkdir -p "$(dirname "$1")" && touch "$1"
 }
 
 # find-text - Search for text in files and display matching lines with context.
@@ -285,7 +285,7 @@ m3u-download(){
 #   color format, allowing users to see how the colors appear in the terminal.
 
 print-colors(){
-    for i in {0..7}; do  
+    for i in {0..7}; do
         echo -e "\e[3${i}m ${i} Color: '\\\033[3${i}m' \e[0m"
     done
 }
@@ -352,9 +352,9 @@ pip-install-break(){
 
 # remove-colors() - Remove ANSI color codes from input
 #
-# This function processes input text to remove ANSI escape sequences 
-# that are used for coloring in terminal output. It utilizes the `sed` 
-# command with a regular expression to match and strip out these codes, 
+# This function processes input text to remove ANSI escape sequences
+# that are used for coloring in terminal output. It utilizes the `sed`
+# command with a regular expression to match and strip out these codes,
 # allowing for cleaner output without any formatting artifacts.
 #
 # Usage:
@@ -371,7 +371,7 @@ remove-colors() {
 # Function: copy-with-exclusion
 # --------------------------
 # Copies files from a source directory to a destination directory while excluding
-# specified directories from the copy process. This function utilizes `rsync` for 
+# specified directories from the copy process. This function utilizes `rsync` for
 # efficient file transfer and exclusion handling.
 #
 # Parameters:

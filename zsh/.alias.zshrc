@@ -99,6 +99,7 @@ alias ctf='xclip -selection clipboard  -o >' # Copy content from clipboard to fi
 alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1' # Count number of frames in video file
 alias echc='pactl load-module module-echo-cancel' # Load PulseAudio module for echo cancellation
 alias openr="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | xargs -I{} xdg-open {}" # Open remote repository URL in default browser
+alias openrb="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | sed s\"/\.git//\" | xargs -I{} xdg-open {}/tree/$(git rev-parse --abbrev-ref HEAD)" # Open remote repository URL in current branch at browser
 alias mkdir='mkdir -p' # Create directory, including parent directories if necessary
 alias cat='ccat' # Syntax-highlighted cat command
 alias forcefsck='sudo touch /forcefsck' # Force file system check on next boot
@@ -132,3 +133,9 @@ alias insecure-chrome="google-chrome --ignore-certificate-errors --disable-web-s
 alias zipe='git archive --format=zip -o output.zip HEAD ":(exclude).gitignore"' # Zip archive with git a exclude files at .gitignore
 alias xwhats='echo "https://api.whatsapp.com/send?text=$(xclip -o -selection clipboard)" | xclip -selection clipboard' # Transform clipboard content link to WhatsApp message link
 alias m="make" # Alias to make command
+alias asdfls="asdf list" # List installed plugins. Optionally show git urls and git-ref
+alias asdfla="asdf lista all" # List plugins registered on asdf-plugins repository with URLs
+alias asdfi="asdf install" # Install a specific version of a package
+alias asdflc="asdf local" # Set the package local version
+alias asdfg="asdf global" # Set the package global version
+alias asdfre="asdf reshim" # Recreate shims for version of a package

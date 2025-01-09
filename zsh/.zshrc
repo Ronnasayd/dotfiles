@@ -93,13 +93,13 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git 
+	git
 	virtualenv
-	gitignore 
-	gulp 
-	extract 
-	golang 
-	fd 
+	gitignore
+	gulp
+	extract
+	golang
+	fd
 	urltools
 	docker
 	docker-compose
@@ -120,8 +120,8 @@ plugins=(
 	web-search
 	python
 
-	asdf 
-	zsh-autosuggestions 
+	asdf
+	zsh-autosuggestions
 	zsh-syntax-highlighting
 	zsh-completions
 	fzf-tab
