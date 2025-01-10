@@ -403,3 +403,7 @@ copy-with-exclusion() {
     # Use rsync to copy while excluding specified directories
     eval "rsync -av $exclude_options '$source_dir/' '$dest_dir/'"
 }
+
+openrb(){
+  git config --get remote.origin.url | sed s"/work.//" | sed  s"/:/\//" | sed s"/git@/https:\/\//" | sed s"/\.git//" | xargs -I{} xdg-open {}/tree/$(git rev-parse --abbrev-ref HEAD)
+}
