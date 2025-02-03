@@ -4,5 +4,5 @@
 killall conky
 sleep 10s
 conky -c $HOME/.config/conky/MyMimosa/Mimosa.conf &> /dev/null &
-# conky -c $HOME/.config/conky/MyMimosa/Mimosa.conf 
+# conky -c $HOME/.config/conky/MyMimosa/Mimosa.conf
 exit

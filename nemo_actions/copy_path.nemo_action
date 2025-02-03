@@ -1,0 +1,9 @@
+[Nemo Action]
+Active=true
+Name=Copy Path
+Comment=Copies the names of files and folders, including their extensions, to the clipboard.
+Exec=<copy_path_nemo.sh "%F">
+Icon-Name=edit-copy
+Selection=any
+Extensions=any;
+EscapeSpaces=true
