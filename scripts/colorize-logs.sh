@@ -8,8 +8,9 @@ colors=(
     "\e[34m"  # Blue
     "\e[35m"  # Magenta
     "\e[36m"  # Cyan
-    "\e[37m"  # White
 )
+DCOLOR="\e[37m"  # White
+COUNTER=0
 
 # Reset color
 reset="\e[0m"
@@ -18,18 +19,23 @@ reset="\e[0m"
 colorize-line() {
     local line="$1"
     local delimiter="$2"
-    
+
     # Set IFS to the specified delimiter for splitting
     IFS="$delimiter"
     read -ra words <<< "$line"  # Read words into an array
 
     local color_count=${#colors[@]}
-    
+
     for i in "${!words[@]}"; do
-        # Get the corresponding color for the word
-        color=${colors[$((i % color_count))]}
-        # Print the word with the selected color
-        echo -ne "${color}${words[i]}${reset} "
+        if (( i % 2 == 0 )); then
+            # Print the word in white for even indices
+            echo -ne "${DCOLOR}${words[i]}${reset} "  # White color
+        else
+            # Get the corresponding color for odd indices
+            color=${colors[$(( COUNTER  % color_count ))]}
+            echo -ne "${color}${words[i]}${reset} "  # Sequential color
+            ((COUNTER++))
+        fi
     done
     echo  # New line after printing all words
 }
