@@ -38,6 +38,7 @@ colorize-line() {
         fi
     done
     echo  # New line after printing all words
+    COUNTER=0
 }
 
 
