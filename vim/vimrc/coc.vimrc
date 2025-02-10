@@ -6,6 +6,7 @@
             \ 'coc-tailwindcss',
             \ 'coc-tsserver',
             \ 'coc-json',
+            \ 'coc-clangd',
             \ ]
    let g:tailwindcss_enable = 1
    let g:tailwindcss_trace_server = 'off'
