@@ -35,6 +35,8 @@ ln -s  $(pwd)/tmux/.tmux.conf ~/.tmux.conf
 ln -s  $(pwd)/conky/.conkyrc ~/.conkyrc
 ln -s  $(pwd)/terminator/config ~/.config/terminator/config
 ln -s  $(pwd)/vim/.vimrc ~/.vimrc
+ln -s  $(pwd)/vim/.vimrc ~/.config/nvim/init.vim
+ln -s  $(pwd)/vim/vimrc ~/vimrc
 ln -s  $(pwd)/vim/coc-settings.json ~/.vim/coc-settings.json
 ln -s  $(pwd)/vim/.coc.vim ~/.coc.vim
 ln -s  $(pwd)/git/.gitconfig ~/.gitconfig

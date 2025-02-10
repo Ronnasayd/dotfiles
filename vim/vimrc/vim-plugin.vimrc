@@ -1,0 +1,36 @@
+" @@ install plug-vim
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+"  @@ list of plugins
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive', { 'on': ['EnableVimFugitive'] }
+Plug 'dracula/vim', { 'as': 'dracula','on': [] } " disabled at moment
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'neoclide/coc.nvim', {'branch':'release'}
+Plug 'nathanaelkane/vim-indent-guides', { 'on': ['EnableVimIndentGuides'] }
+Plug 'preservim/nerdtree'
+Plug 'jiangmiao/auto-pairs'
+Plug 'airblade/vim-gitgutter', { 'on': ['EnableVimGitgutter'] }
+Plug 'preservim/nerdcommenter'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production','on': ['EnablePrettier'] }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'dense-analysis/ale', { 'on': ['EnableAle'] }
+Plug 'mattn/emmet-vim', { 'on': ['EnableEmmetVim'], 'for': ['html'] }
+Plug 'wakatime/vim-wakatime', { 'on': ['EnableWakatime'] }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'chrisbra/Colorizer', { 'on': ['EnableColorizer'], 'for': ['html','css'] }
+Plug 'alvan/vim-closetag', { 'on': ['EnableVimClosetag'], 'for': ['html'] }
+Plug 'ycm-core/YouCompleteMe', { 'on': ['EnableYouCompleteMe'] }
+Plug 'leafgarland/typescript-vim', { 'on': ['EnableVimTypescript'], 'for':['typescript'] }
+Plug 'styled-components/vim-styled-components', { 'branch': 'main', 'on': ['EnableStyledComponents'] }
+Plug 'maxmellon/vim-jsx-pretty', { 'on': ['EnableVimJSXPretty'], 'for':['jsx'] }
+Plug 'pangloss/vim-javascript', { 'on': ['EnableVimJavascript'], 'for':['javascript'] }
+Plug 'sheerun/vim-polyglot', { 'on': ['EnableVimPolyglot'] }
+Plug 'ryanoasis/vim-devicons'
+Plug 'Brettm12345/moonlight.vim'
+Plug 'dstein64/vim-startuptime'
+call plug#end()
