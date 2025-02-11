@@ -6,6 +6,7 @@
             \ 'coc-tailwindcss',
             \ 'coc-tsserver',
             \ 'coc-json',
+            \ 'coc-go',
             \ 'coc-clangd',
             \ ]
    let g:tailwindcss_enable = 1

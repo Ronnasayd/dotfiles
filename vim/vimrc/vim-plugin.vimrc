@@ -25,10 +25,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'chrisbra/Colorizer', { 'on': ['EnableColorizer'], 'for': ['html','css'] }
 Plug 'alvan/vim-closetag', { 'on': ['EnableVimClosetag'], 'for': ['html'] }
 Plug 'ycm-core/YouCompleteMe', { 'on': ['EnableYouCompleteMe'] }
-Plug 'leafgarland/typescript-vim', { 'on': ['EnableVimTypescript'], 'for':['typescript'] }
+Plug 'leafgarland/typescript-vim', { 'on': [], 'for':['typescript'] }
 Plug 'styled-components/vim-styled-components', { 'branch': 'main', 'on': ['EnableStyledComponents'] }
-Plug 'maxmellon/vim-jsx-pretty', { 'on': ['EnableVimJSXPretty'], 'for':['jsx'] }
-Plug 'pangloss/vim-javascript', { 'on': ['EnableVimJavascript'], 'for':['javascript'] }
+Plug 'maxmellon/vim-jsx-pretty', { 'on': [], 'for':['jsx'] }
+Plug 'pangloss/vim-javascript', { 'on': [], 'for':['javascript'] }
 Plug 'sheerun/vim-polyglot', { 'on': ['EnableVimPolyglot'] }
 Plug 'ryanoasis/vim-devicons'
 Plug 'Brettm12345/moonlight.vim'

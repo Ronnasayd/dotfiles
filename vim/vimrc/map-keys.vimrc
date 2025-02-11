@@ -32,7 +32,7 @@ map <S-Left> <C-w><Left>
 map <S-h> <C-w><Left>
 
 nmap <C-s> :w<CR>
-nmap <C-q> :q<CR>
+nmap <C-w> :q<CR>
 
 " Move line
 map <Esc>j <A-j>

@@ -6,4 +6,8 @@ if !empty(glob('~/.vim/plugged/ctrlp.vim'))
   let g:ctrlp_use_caching = 0
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
 endif

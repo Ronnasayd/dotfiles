@@ -18,7 +18,7 @@ source ~/vimrc/vim-javascript.vimrc
 source ~/vimrc/coc.vimrc
 source ~/vimrc/map-keys.vimrc
 
-"  @ definitions
+"@ definitions
 set re=1
 set foldmethod=marker
 "set nocursorline
