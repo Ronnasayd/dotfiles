@@ -407,3 +407,7 @@ copy-with-exclusion() {
 openrb(){
   git config --get remote.origin.url | sed s"/work.//" | sed  s"/:/\//" | sed s"/git@/https:\/\//" | sed s"/\.git//" | xargs -I{} xdg-open {}/tree/$(git rev-parse --abbrev-ref HEAD)
 }
+
+openj(){
+  xdg-open https://queroquitar.atlassian.net/browse/$(git rev-parse --abbrev-ref HEAD | cut -f2 --delimiter="/")
+}
