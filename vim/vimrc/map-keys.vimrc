@@ -49,3 +49,13 @@ noremap <S-a> Vat
 
 nnoremap <S-n> :new<CR>
 nnoremap <S-Tab> :tabnext<CR>
+
+vnoremap <S-Left> 0
+vnoremap <S-Right> $
+
+map <F12> gd
+map <F10> gr
+map <F9> gi
+map <F8> gy
+
+

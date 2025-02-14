@@ -1,12 +1,14 @@
  if !empty(glob('~/.coc.vim'))
    source ~/.coc.vim
    let g:coc_global_extensions = [
+            \ 'coc-marketplace',
             \ 'coc-vetur',
             \ 'coc-pyright',
             \ 'coc-tailwindcss',
             \ 'coc-tsserver',
             \ 'coc-json',
             \ 'coc-go',
+            \ 'coc-protobuf',
             \ 'coc-clangd',
             \ ]
    let g:tailwindcss_enable = 1

@@ -1,5 +1,6 @@
 {
   "pyright.enable": true,
   "inlayHint.enable": false,
+  "coc.preferences.jumpCommand": "tab drop",
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/19.1.2/clangd_19.1.2/bin/clangd"
 }
