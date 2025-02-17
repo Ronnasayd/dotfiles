@@ -33,4 +33,5 @@ Plug 'sheerun/vim-polyglot', { 'on': ['EnableVimPolyglot'] }
 Plug 'ryanoasis/vim-devicons'
 Plug 'Brettm12345/moonlight.vim'
 Plug 'dstein64/vim-startuptime'
+Plug 'rhysd/vim-clang-format', { 'on': ['cpp','c','h','hpp'] }
 call plug#end()

@@ -41,10 +41,12 @@ syntax sync minlines=64
 filetype plugin on
 let g:vue_disable_pre_processors=1
 hi Normal guibg=NONE ctermbg=NONE " make vim terminal transparent
+
 command! Q :q
 command! W :w
 command! Wq :wq
 command! WQ :wq
 
+cabbrev marketplace CocList marketplace
 
 
