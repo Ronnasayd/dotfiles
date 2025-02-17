@@ -6,8 +6,11 @@ autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 "  @@ list of plugins
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-fugitive', { 'on': ['EnableVimFugitive'] }
 Plug 'dracula/vim', { 'as': 'dracula','on': [] } " disabled at moment
+Plug 'Brettm12345/moonlight.vim', { 'on': [] } " disabled at moment
+Plug 'rebelot/kanagawa.nvim', { 'on': [] } " disabled at moment
+Plug 'folke/tokyonight.nvim'
+Plug 'tpope/vim-fugitive', { 'on': ['EnableVimFugitive'] }
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch':'release'}
@@ -31,7 +34,6 @@ Plug 'maxmellon/vim-jsx-pretty', { 'on': [], 'for':['jsx'] }
 Plug 'pangloss/vim-javascript', { 'on': [], 'for':['javascript'] }
 Plug 'sheerun/vim-polyglot', { 'on': ['EnableVimPolyglot'] }
 Plug 'ryanoasis/vim-devicons'
-Plug 'Brettm12345/moonlight.vim'
 Plug 'dstein64/vim-startuptime'
-Plug 'rhysd/vim-clang-format', { 'on': ['cpp','c','h','hpp'] }
+Plug 'rhysd/vim-clang-format', { 'for': ['cpp','c','h','hpp'] }
 call plug#end()

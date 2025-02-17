@@ -1,6 +1,6 @@
 
 source ~/vimrc/vim-plugin.vimrc
-source ~/vimrc/moonlight.vimrc
+source ~/vimrc/colorschema.vimrc
 source ~/vimrc/nerdtree.vimrc
 source ~/vimrc/nerdcommenter.vimrc
 source ~/vimrc/vim-airline.vimrc
