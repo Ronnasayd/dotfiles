@@ -17,6 +17,7 @@ source ~/vimrc/youcompleteme.vimrc
 source ~/vimrc/vim-javascript.vimrc
 source ~/vimrc/coc.vimrc
 source ~/vimrc/map-keys.vimrc
+source ~/vimrc/expand-region.vimrc
 
 "@ definitions
 set re=1

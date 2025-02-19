@@ -36,4 +36,7 @@ Plug 'sheerun/vim-polyglot', { 'on': ['EnableVimPolyglot'] }
 Plug 'ryanoasis/vim-devicons'
 Plug 'dstein64/vim-startuptime'
 Plug 'rhysd/vim-clang-format', { 'for': ['cpp','c','h','hpp'] }
+Plug 'terryma/vim-expand-region'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
 call plug#end()
