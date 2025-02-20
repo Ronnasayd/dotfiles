@@ -18,8 +18,8 @@ if !empty(glob('~/.vim/plugged/vim-expand-region'))
       \ 'a]' :1,
       \ 'ab' :1,
       \ 'aB' :1,
-      \ 'ii' :0,
-      \ 'ai' :0,
+      \ 'ii' :1,
+      \ 'ai' :1,
       \ 'il' :1,
       \ })
 endif
