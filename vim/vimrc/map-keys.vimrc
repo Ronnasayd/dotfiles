@@ -63,7 +63,6 @@ map <F9> gi
 map <F8> gy
 
 
-map <C-Up> <Plug>(expand_region_expand)
-map <C-Down> <Plug>(expand_region_shrink)
+
 
 

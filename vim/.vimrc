@@ -18,6 +18,7 @@ source ~/vimrc/vim-javascript.vimrc
 source ~/vimrc/coc.vimrc
 source ~/vimrc/map-keys.vimrc
 source ~/vimrc/vim-expand-region.vimrc
+source ~/vimrc/vim-bookmarks.vimrc
 
 "@ definitions
 set re=1
