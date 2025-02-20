@@ -31,8 +31,8 @@ map <S-Left> <C-w><Left>
 " <SHIFT + h> move to left split
 map <S-h> <C-w><Left>
 
-noremap <C-s> :w<CR>
-noremap <C-w> :q<CR>
+noremap <C-s> :Format<CR>:w<CR>
+noremap <C-w> :Format<CR>:q<CR>
 
 " Move line
 map <Esc>j <A-j>
@@ -65,4 +65,5 @@ map <F8> gy
 
 map <C-Up> <Plug>(expand_region_expand)
 map <C-Down> <Plug>(expand_region_shrink)
+
 
