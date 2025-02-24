@@ -23,4 +23,4 @@ endif
 
 
 syntax enable
-colorscheme tokyonight
+colorscheme moonlight

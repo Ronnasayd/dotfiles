@@ -7,9 +7,9 @@ endif
 "  @@ list of plugins
 call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula','on': [] } " disabled at moment
-Plug 'Brettm12345/moonlight.vim', { 'on': [] } " disabled at moment
+Plug 'Brettm12345/moonlight.vim'
 Plug 'rebelot/kanagawa.nvim', { 'on': [] } " disabled at moment
-Plug 'folke/tokyonight.nvim'
+Plug 'folke/tokyonight.nvim', { 'on': [] } " disabled at moment
 Plug 'tpope/vim-fugitive', { 'on': ['EnableVimFugitive'] }
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
@@ -32,7 +32,7 @@ Plug 'leafgarland/typescript-vim', { 'on': [], 'for':['typescript'] }
 Plug 'styled-components/vim-styled-components', { 'branch': 'main', 'on': ['EnableStyledComponents'] }
 Plug 'maxmellon/vim-jsx-pretty', { 'on': [], 'for':['jsx'] }
 Plug 'pangloss/vim-javascript', { 'on': [], 'for':['javascript'] }
-Plug 'sheerun/vim-polyglot', { 'on': ['EnableVimPolyglot'] }
+Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 Plug 'dstein64/vim-startuptime'
 Plug 'rhysd/vim-clang-format', { 'for': ['cpp','c','h','hpp'] }
