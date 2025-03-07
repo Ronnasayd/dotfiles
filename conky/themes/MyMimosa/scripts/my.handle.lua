@@ -13,7 +13,7 @@ bg_vert_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-s.png"
 bg_vert_width = 220
 bg_vert_aspect = 250 / 250
 bg_vert_padding_x = 20
-bg_vert_padding_y = 80
+bg_vert_padding_y = 360
 
 bg_calendar_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-h.png"
 bg_calendar_width = 310
