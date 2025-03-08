@@ -32,10 +32,10 @@ player_img_height = 100
 player_img_padding_x = 10
 
 radius = 25
-thickness = 7
+thickness = 8
 padding_y = 10
 initial_space = bg_vert_padding_y + 2 * radius
-empty = 25
+empty = 35
 
 
 

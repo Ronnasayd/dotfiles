@@ -411,3 +411,17 @@ openrb(){
 openj(){
   xdg-open https://queroquitar.atlassian.net/browse/$(git rev-parse --abbrev-ref HEAD | cut -f2 --delimiter="/")
 }
+
+random_bg(){
+# Specify the directory containing your images
+IMAGE_DIR="/home/ronnas/Pictures/wallpapers/images"
+
+# Select a random image from the directory
+RANDOM_IMAGE=$(find "$IMAGE_DIR" -type f | shuf -n 1)
+
+# Set the selected image as the desktop background
+gsettings set org.gnome.desktop.background picture-uri "file://$RANDOM_IMAGE"
+sleep 3
+gsettings set org.cinnamon.desktop.background.slideshow slideshow-enabled true
+
+}
