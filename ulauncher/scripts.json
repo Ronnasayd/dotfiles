@@ -40,5 +40,12 @@
     "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/trash_full.png",
     "script": "gio trash --empty",
     "default_arguments": []
+  },
+  {
+    "name": "clear-recent-files",
+    "description": "Clear recent files",
+    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/trash_full.png",
+    "script": "echo -n '' > ~/.local/share/recently-used.xbel",
+    "default_arguments": []
   }
 ]
