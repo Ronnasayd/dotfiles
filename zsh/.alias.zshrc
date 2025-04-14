@@ -15,6 +15,7 @@ alias gt="git checkout" # Switch branches or restore working tree files
 alias gtb="git checkout -b" # Create a new branch and switch to it
 alias ga="git add" # Add file contents to the index (staging area)
 alias gm="git merge" # Join two or more development histories together
+alias gfur="git fetch --all --prune --tags --prune-tags --progress" # Update list of remote branches
 alias pyserver="python3 -m http.server 8000 --directory" # Start a simple HTTP server in a specified directory
 alias pyv="python3 -m venv venv && source venv/bin/activate" # Create and activate a Python virtual environment
 alias pyv3="virtualenv --python=python3.6 venv" # Create a virtual environment with Python 3.6
@@ -141,3 +142,5 @@ alias asdflc="asdf local" # Set the package local version
 alias asdfg="asdf global" # Set the package global version
 alias asdfre="asdf reshim" # Recreate shims for version of a package
 alias psmem="sudo ps_mem" # Display processes sorted by memory usage
+alias _vi="sudo -E vim" # Open vi with root privileges
+alias _vim="sudo -E vim" # Open vi with root privileges
