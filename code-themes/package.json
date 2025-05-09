@@ -1,0 +1,34 @@
+{
+  "name": "code-themes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "publisher": "ronnasayd",
+  "categories": [
+    "Themes"
+  ],
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "scripts": {
+    "build": "ts-node scripts/build.ts"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "My Custom Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/my-theme.json"
+      },
+      {
+        "label": "My Custom Theme Italic",
+        "uiTheme": "vs-dark",
+        "path": "./themes/my-theme-italic.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "ts-node": "^10.9.2"
+  }
+}

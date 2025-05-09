@@ -425,3 +425,7 @@ sleep 3
 gsettings set org.cinnamon.desktop.background.slideshow slideshow-enabled true
 
 }
+# Split video by time
+split_by_time(){
+  ffmpeg -i $1 -c copy -map 0 -segment_time $2 -f segment -reset_timestamps 1 output_%03d.mp4
+}

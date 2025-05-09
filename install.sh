@@ -53,6 +53,7 @@ ln -s  $(pwd)/scripts/colorize-logs.sh ~/.local/bin/colorize-logs
 ln -s  $(pwd)/scripts/qr-server.sh ~/.local/bin/qr-server
 ln -s  $(pwd)/plank-links/themes/MyTheme  ~/.local/share/plank/themes/MyTheme
 ln -s  $(pwd)/.editorconfig ~/.editorconfig
+ln -s  $(pwd)/code-themes ~/.vscode/extensions/code-themes
 
 
 sudo ln -s $(pwd)/plank-links/godot.desktop /usr/share/applications/godot.desktop
