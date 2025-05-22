@@ -54,10 +54,10 @@ rename-all() {
     NEW_NAME="$2"
 
     # Rename directories matching the old name
-    fd -t d "$NAME" -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
+    fd -t d "$NAME" | xargs -I{} -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
 
     # Rename files matching the old name
-    fd -t f "$NAME" -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
+    fd -t f "$NAME" | xargs -I{} -exec rename "s/$NAME/$NEW_NAME/" '{}' \;
 }
 
 # git-search-pattern-in-branches - Search for a pattern in all branches of a Git repository.
@@ -272,7 +272,12 @@ get-fps(){
 #   # it as "output.mp4".
 
 m3u-download(){
+    if [ -f headers.txt ]; then
+    headers=$(awk '{print}' ORS='\r\n' headers.txt)
+    ffmpeg -headers "$headers" -i "$1" -c copy -bsf:a aac_adtstoasc "$2"
+    else
     ffmpeg -i "$1" -c copy -bsf:a aac_adtstoasc "$2"
+    fi
 }
 
 # print-colors - Display a list of ANSI colors with their corresponding codes.
@@ -428,4 +433,9 @@ gsettings set org.cinnamon.desktop.background.slideshow slideshow-enabled true
 # Split video by time
 split_by_time(){
   ffmpeg -i $1 -c copy -map 0 -segment_time $2 -f segment -reset_timestamps 1 output_%03d.mp4
+}
+
+join_split_videos(){
+  for f in *.mp4; do echo "file '$f'" >> videos.txt; done
+  ffmpeg -f concat -i videos.txt -c copy output.mp4
 }

@@ -94,7 +94,7 @@ alias fdf='fd -t f' # Find files using fd command
 alias fnm='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1' # Find node_modules directories and display their last modification time
 alias wcpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"' # Monitor CPU frequency changes every second
 alias lzsh='cat ~/.alias.zshrc | grep alias' # List all aliases defined in zshrc file
-alias gzsh='cat ~/.alias.zshrc | grep alias | grep -i' # Search for specific aliases in zshrc file
+alias helpalias='cat ~/.alias.zshrc | grep alias | grep -i' # Search for specific aliases in zshrc file
 alias ximg='xclip -selection clipboard -t image/png -o >' # Copy image from clipboard to specified file
 alias ctf='xclip -selection clipboard  -o >' # Copy content from clipboard to file
 alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1' # Count number of frames in video file

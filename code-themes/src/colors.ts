@@ -31,5 +31,8 @@ export const colors = {
   color30: '#1a1b26',
   color31: '#1e2030',
   color32: '#191a2a',
-  color33: '#131421'
+  color33: '#131421',
+  color34: '#ccff81',
+  color35: '#7af8ca',
+  color36: '#7af8ca'
 } as const

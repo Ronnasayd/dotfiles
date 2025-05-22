@@ -4,8 +4,8 @@
   "type": "dark",
   "semanticHighlighting": false,
   "semanticTokenColors": {
-    "function": "{color14}",
-    "method.declaration": "{color14}",
+    "function": "{color36}",
+    "method.declaration": "{color36}",
     "function.defaultLibrary": "{color13}",
     "method": "{color13}",
     "variable.defaultLibrary": "{color7}",
@@ -98,7 +98,7 @@
         "invalid.deprecated"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -110,7 +110,7 @@
         "keyword.other.important"
       ],
       "settings": {
-        "foreground": "{color18}",
+        "foreground": "{color35}",
         "fontStyle": "{fontStyle}"
       }
     },
@@ -215,7 +215,7 @@
         "meta.function-call.generic"
       ],
       "settings": {
-        "foreground": "{color14}"
+        "foreground": "{color36}"
       }
     },
     {
@@ -284,7 +284,7 @@
         "meta.function.parameter variable"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -301,7 +301,7 @@
         "markup.inline.raw.code"
       ],
       "settings": {
-        "foreground": "{color8}"
+        "foreground": "{color34}"
       }
     },
     {
@@ -383,7 +383,7 @@
         "storage.type.function"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -424,7 +424,7 @@
         "support.type.vendored.property-name"
       ],
       "settings": {
-        "foreground": "{color14}"
+        "foreground": "{color36}"
       }
     },
     {
@@ -454,7 +454,7 @@
         "entity.name.method.js"
       ],
       "settings": {
-        "foreground": "{color14}",
+        "foreground": "{color36}",
         "fontStyle": "{fontStyle}"
       }
     },
@@ -465,7 +465,7 @@
         "variable.function.constructor"
       ],
       "settings": {
-        "foreground": "{color14}"
+        "foreground": "{color36}"
       }
     },
     {
@@ -474,7 +474,7 @@
         "entity.other.attribute-name"
       ],
       "settings": {
-        "foreground": "{color18}",
+        "foreground": "{color35}",
         "fontStyle": "{fontStyle}"
       }
     },
@@ -495,7 +495,7 @@
         "meta.tag.metadata.doctype entity.other.attribute-name"
       ],
       "settings": {
-        "foreground": "{color18}",
+        "foreground": "{color35}",
         "fontStyle": "{fontStyle}"
       }
     },
@@ -514,7 +514,7 @@
         "source.sass keyword.control"
       ],
       "settings": {
-        "foreground": "{color14}"
+        "foreground": "{color36}"
       }
     },
     {
@@ -533,7 +533,7 @@
         "support.constant.property-value"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -542,7 +542,7 @@
         "markup.inserted"
       ],
       "settings": {
-        "foreground": "{color8}"
+        "foreground": "{color34}"
       }
     },
     {
@@ -560,7 +560,7 @@
         "markup.changed"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -588,7 +588,7 @@
         "keyword.control.anchor.regexp"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -606,7 +606,7 @@
         "keyword.operator.quantifier.regexp"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -637,7 +637,7 @@
         "tag.decorator.js punctuation.definition.tag.js"
       ],
       "settings": {
-        "foreground": "{color14}",
+        "foreground": "{color36}",
         "fontStyle": "{fontStyle}"
       }
     },
@@ -665,7 +665,7 @@
         "source.json meta.structure.dictionary.json support.type.property-name.json"
       ],
       "settings": {
-        "foreground": "{color14}"
+        "foreground": "{color36}"
       }
     },
     {
@@ -674,7 +674,7 @@
         "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -683,7 +683,7 @@
         "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -719,7 +719,7 @@
         "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
       ],
       "settings": {
-        "foreground": "{color14}"
+        "foreground": "{color36}"
       }
     },
     {
@@ -760,7 +760,7 @@
         "text.html.markdown markup.inline.raw.markdown"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -853,7 +853,7 @@
         "string.other.link.title.markdown"
       ],
       "settings": {
-        "foreground": "{color14}"
+        "foreground": "{color36}"
       }
     },
     {
@@ -862,7 +862,7 @@
         "string.other.link.description.title.markdown"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -880,7 +880,7 @@
         "markup.raw.block"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -942,7 +942,7 @@
     {
       "scope": "token.debug-token",
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
@@ -956,7 +956,7 @@
       "name": "Go package imports",
       "scope": "source.go entity.name.import",
       "settings": {
-        "foreground": "{color8}"
+        "foreground": "{color34}"
       }
     },
     {
@@ -974,7 +974,7 @@
         "source.go constant.language"
       ],
       "settings": {
-        "foreground": "{color18}"
+        "foreground": "{color35}"
       }
     },
     {
