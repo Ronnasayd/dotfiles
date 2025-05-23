@@ -107,6 +107,7 @@ alias cat='ccat' # Syntax-highlighted cat command
 alias forcefsck='sudo touch /forcefsck' # Force file system check on next boot
 alias incognito="google-chrome --incognito" # Open chrome in incognito mode
 alias ska=" showkey -a" # Show pressed characters in terminal. Press Ctrl+D to stop
+alias rm="trash" # Use trash to prevent permanent exclusion
 alias rmrf="rm -rf" # Remove files and directories recursively
 alias las="la -S" # List files by size
 alias hsf="history | fzf" # Search history with fzf

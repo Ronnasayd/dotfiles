@@ -1,6 +1,6 @@
 # install base packages
 sudo apt-get update
-sudo apt-get install -y terminator playerctl jq python3-pip fd-find pavucontrol git-lfs ffmpeg vlc qbittorrent silversearcher-ag neovim
+sudo apt-get install -y terminator playerctl jq python3-pip fd-find pavucontrol git-lfs ffmpeg vlc qbittorrent silversearcher-ag neovim trash
 
 # install vscode
 wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/384ff7382de624fb94dbaf6da11977bba1ecd427/code_1.94.2-1728494015_amd64.deb -O /tmp/vscode.deb
@@ -33,6 +33,6 @@ sudo apt-get install papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Li
 sudo apt-get install epapirus-icon-theme # ePapirus, and ePapirus-Dark for elementaryOS only
 
 # install ulauncher
-sudo add-apt-repository universe -y 
-sudo add-apt-repository ppa:agornostal/ulauncher -y 
+sudo add-apt-repository universe -y
+sudo add-apt-repository ppa:agornostal/ulauncher -y
 sudo apt update && sudo apt install ulauncher
