@@ -274,6 +274,7 @@ get-fps(){
 m3u-download(){
     if [ -f headers.txt ]; then
     headers=$(awk '{print}' ORS='\r\n' headers.txt)
+    # echo \"ffmpeg -headers "$headers" -i "$1" -c copy -bsf:a aac_adtstoasc "$2"\"
     ffmpeg -headers "$headers" -i "$1" -c copy -bsf:a aac_adtstoasc "$2"
     else
     ffmpeg -i "$1" -c copy -bsf:a aac_adtstoasc "$2"

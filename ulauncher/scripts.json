@@ -24,7 +24,7 @@
     "name": "color-picker",
     "description": "Get a color as rgb",
     "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/color-picker.png",
-    "script": "terminator -H --geometry 0x0 -x color-picker",
+    "script": "color-picker",
     "default_arguments": []
   },
   {
@@ -32,6 +32,13 @@
     "description": "Generate a qrcode",
     "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/qrcode.png",
     "script": "/home/ronnas/develop/personal/dotfiles/scripts/generate-qrcode.sh",
+    "default_arguments": []
+  },
+  {
+    "name": "qrcopy",
+    "description": "Generate a qrcode from clipboard path",
+    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/qrcode.png",
+    "script": "qr-copy",
     "default_arguments": []
   },
   {
