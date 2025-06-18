@@ -1,0 +1,136 @@
+{
+  "setting": {
+    "isShowAppNameInGirdView": true,
+    "isShowDotOfFixedExtension": true,
+    "layout": "list",
+    "isShowHiddenExtension": false,
+    "isDisplayByGroup": false,
+    "isShowFixedExtension": true,
+    "defaultSortField": "name",
+    "isGaryStyleOfDisableInGridView": true,
+    "isSortByFrequency": true
+  },
+  "groups": [
+    {
+      "id": "fixed",
+      "name": "Fixed Group",
+      "extensions": []
+    },
+    {
+      "id": "hidden",
+      "name": "Hidden Group",
+      "extensions": []
+    },
+    {
+      "name": "Developer",
+      "desc": "Extensions for developer",
+      "id": "ACuF3f3kl87FwzasI0qlJ",
+      "extensions": [
+        "iaajmlceplecbljialhhkmedjlpdblhp",
+        "nhdogjmejiglipccpnnnanhbledajbpd",
+        "kejbdjndbnbjgmefkgdddjlbokphdefk",
+        "lhobafahddgcelffkeicbaginigeejlf",
+        "bfbameneiokkgbdmiekhjnmfkcnldhhm",
+        "kofahhnmgobkidipanhejacffiigppcd",
+        "gbmdgpbipfallnflgajpaliibnhdgobh",
+        "fklakbbaaknbgcedidhblbnhclijnhbi",
+        "gppongmhjkpfnbhagpmjfkannfbllamg",
+        "mbnbehikldjhnfehhnaidhjhoofhpehk",
+        "fmkadmapgofadopljbjfkapdkoienihi",
+        "lmhkpmbekcpmknklioeibfkpmmfibljd"
+      ]
+    },
+    {
+      "name": "All-extensions",
+      "desc": "list all extensions",
+      "id": "RYSCtUGUb94z_4vBtQLqY",
+      "extensions": [
+        "cfhdojbkjhnklbpkdaibdccddilifddb",
+        "efajbgpnlnobnkgdcgcnclngeolnmggp",
+        "laameccjpleogmfhilmffpdbiibgbekf",
+        "dhdgffkkebhmkfjojejmpbldmpobfkfo",
+        "lhobafahddgcelffkeicbaginigeejlf",
+        "hkhggnncdpfibdhinjiegagmopldibha",
+        "mbnbehikldjhnfehhnaidhjhoofhpehk",
+        "fngmhnnpilhplaeedifhccceomclgfbg",
+        "phkenomnahhgjnmpignadbeandfanbil",
+        "ghbmnnjooekpmoecnnnilnnbdlolhkhi",
+        "aapbdbdomjkkjkaonfhkkikfgjllcleb",
+        "fklakbbaaknbgcedidhblbnhclijnhbi",
+        "gbmdgpbipfallnflgajpaliibnhdgobh",
+        "kofahhnmgobkidipanhejacffiigppcd",
+        "fmkadmapgofadopljbjfkapdkoienihi",
+        "lmhkpmbekcpmknklioeibfkpmmfibljd",
+        "hniebljpgcogalllopnjokppmgbhaden",
+        "mmioliijnhnoblpgimnlajmefafdfilb",
+        "mghhlojofjipigjobacbjdngmjafdeim",
+        "kejbdjndbnbjgmefkgdddjlbokphdefk",
+        "iaajmlceplecbljialhhkmedjlpdblhp",
+        "nhdogjmejiglipccpnnnanhbledajbpd",
+        "gppongmhjkpfnbhagpmjfkannfbllamg",
+        "bfbameneiokkgbdmiekhjnmfkcnldhhm"
+      ]
+    }
+  ],
+  "scenes": [],
+  "ruleConfig": [
+    {
+      "match": {
+        "relationship": "and",
+        "triggers": [
+          {
+            "trigger": "urlTrigger",
+            "config": {
+              "matchMethod": "wildcard",
+              "matchUrl": [
+                "https://open.spotify.com"
+              ],
+              "useFullUrl": false
+            }
+          }
+        ]
+      },
+      "target": {
+        "groups": [],
+        "extensions": [
+          "mghhlojofjipigjobacbjdngmjafdeim"
+        ]
+      },
+      "action": {
+        "actionType": "openWhenMatched",
+        "showOnTheTop": true
+      },
+      "id": "5QFDTSwfdbV9_P1H-NwBh",
+      "version": 2,
+      "enable": true
+    }
+  ],
+  "management": {
+    "extensions": [
+      {
+        "extId": "iaajmlceplecbljialhhkmedjlpdblhp",
+        "alias": "Vue2",
+        "remark": "",
+        "update_time": 1750263605794
+      },
+      {
+        "extId": "nhdogjmejiglipccpnnnanhbledajbpd",
+        "alias": "vue3",
+        "remark": "",
+        "update_time": 1750263611491
+      },
+      {
+        "extId": "mmioliijnhnoblpgimnlajmefafdfilb",
+        "alias": "Shazam",
+        "remark": "",
+        "update_time": 1750263629194
+      },
+      {
+        "extId": "mghhlojofjipigjobacbjdngmjafdeim",
+        "alias": "SpotiAds",
+        "remark": "",
+        "update_time": 1750263642350
+      }
+    ]
+  }
+}
