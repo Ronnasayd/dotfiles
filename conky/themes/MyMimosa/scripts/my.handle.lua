@@ -237,6 +237,13 @@ function conky_graph_example()
   return math.random(0, 100)
 end
 
+function conky_render_bar()
+  bg = conky_parse(
+    '${exec jq .bar <  ~/.cache/background-blur/ref.json }')
+  bg = bg:gsub('"', '')
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, 1366, 42, 0, 0)
+end
+
 function conky_render_main_bg()
   bg_height = bg_aspect * bg_width
   bg_pos_x = 0

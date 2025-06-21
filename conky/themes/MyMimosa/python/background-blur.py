@@ -11,17 +11,18 @@ HOME = os.path.expanduser("~")
 
 def generate_image(img, newpath, reference, dimensions):
     [x, y, width, height] = dimensions
-    refImg = cv2.imread(
-        reference,
-        cv2.IMREAD_UNCHANGED,
-    )
-    refImg = cv2.resize(refImg, (width, height))
     img = img[y : y + height, x : x + width]
-    blended = cv2.addWeighted(src1=img, alpha=0.2, src2=refImg, beta=0.8, gamma=0)
-    alpha = refImg[:, :, 3]
-    _, mask = cv2.threshold(alpha, 0, 255, cv2.THRESH_BINARY)
-    blended = cv2.bitwise_and(blended, blended, mask=mask)
-    cv2.imwrite(newpath, blended)
+    if reference:
+        refImg = cv2.imread(
+            reference,
+            cv2.IMREAD_UNCHANGED,
+        )
+        refImg = cv2.resize(refImg, (width, height))
+        img = cv2.addWeighted(src1=img, alpha=0.2, src2=refImg, beta=0.8, gamma=0)
+        alpha = refImg[:, :, 3]
+        _, mask = cv2.threshold(alpha, 0, 255, cv2.THRESH_BINARY)
+        img = cv2.bitwise_and(img, img, mask=mask)
+    cv2.imwrite(newpath, img)
 
 
 path = (
@@ -58,6 +59,9 @@ if data["reference"] != name:
 
     newpath_player = f"{HOME}/.cache/background-blur/player_{name}.png"
     reference_player = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
+
+    newpath_bar = f"{HOME}/.cache/background-blur/bar_{name}.png"
+
     isProcessed = (
         subprocess.run(
             f"ls {HOME}/.cache/background-blur/*png | grep {newpath_vert}",
@@ -76,6 +80,7 @@ if data["reference"] != name:
         generate_image(img, newpath_main, reference_main, [1046, 70, 310, 630])
         generate_image(img, newpath_calendar, reference_calendar, [20, 590, 310, 116])
         generate_image(img, newpath_player, reference_player, [726, 578, 310, 116])
+        generate_image(img, newpath_bar, "", [0, 0, 1366, 42])
 
     with open(f"{HOME}/.cache/background-blur/ref.json", "w") as file:
         file.write(
@@ -85,6 +90,7 @@ if data["reference"] != name:
                     "main": newpath_main,
                     "calendar": newpath_calendar,
                     "player": newpath_player,
+                    "bar": newpath_bar,
                     "reference": name,
                 }
             )
