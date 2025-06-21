@@ -145,3 +145,4 @@ alias asdfre="asdf reshim" # Recreate shims for version of a package
 alias psmem="sudo ps_mem" # Display processes sorted by memory usage
 alias _vi="sudo -E vim" # Open vi with root privileges
 alias _vim="sudo -E vim" # Open vi with root privileges
+alias random-bg="change_background &" # Change background every 60 seconds
