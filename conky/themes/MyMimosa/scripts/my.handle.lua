@@ -246,7 +246,10 @@ function conky_render_main_bg()
   else
     bg_pos_x = bg_pos_x + bg_padding_x
   end
-  return string.format("${image %s -s %sx%s -p %s,%s}", bg_path, bg_width, bg_height, bg_pos_x, bg_pos_y)
+  bg = conky_parse(
+    '${exec jq .main <  /tmp/background-blur/ref.json }')
+  bg = bg:gsub('"', '')
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_width, bg_height, bg_pos_x, bg_pos_y)
 end
 
 function conky_render_vert_bg()
@@ -258,7 +261,10 @@ function conky_render_vert_bg()
   else
     bg_pos_x = window_width - bg_vert_width - bg_vert_padding_x
   end
-  return string.format("${image %s -s %sx%s -p %s,%s}", bg_vert_path, bg_vert_width, bg_vert_height, bg_pos_x,
+  bg = conky_parse(
+    '${exec jq .vert <  /tmp/background-blur/ref.json }')
+  bg = bg:gsub('"', '')
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_vert_width, bg_vert_height, bg_pos_x,
     bg_pos_y)
 end
 
@@ -271,7 +277,10 @@ function conky_render_calendar_bg()
   else
     bg_pos_x = window_width - bg_calendar_width - bg_calendar_padding_x
   end
-  return string.format("${image %s -s %sx%s -p %s,%s}", bg_calendar_path, bg_calendar_width, bg_calendar_height,
+  bg = conky_parse(
+    '${exec jq .calendar <  /tmp/background-blur/ref.json }')
+  bg = bg:gsub('"', '')
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_calendar_width, bg_calendar_height,
     bg_pos_x, bg_pos_y)
 end
 
@@ -284,7 +293,10 @@ function conky_render_player_bg()
   else
     bg_pos_x = bg_player_width + bg_player_padding_x
   end
-  return string.format("${image %s -s %sx%s -p %s,%s}", bg_player_path, bg_player_width, bg_player_height, bg_pos_x,
+  bg = conky_parse(
+    '${exec jq .player <  /tmp/background-blur/ref.json }')
+  bg = bg:gsub('"', '')
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_player_width, bg_player_height, bg_pos_x,
     bg_pos_y)
 end
 
