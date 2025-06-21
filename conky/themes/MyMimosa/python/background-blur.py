@@ -1,7 +1,6 @@
 import json
 import os
 import subprocess
-from turtle import heading
 
 import cv2
 
@@ -40,7 +39,7 @@ if not os.path.exists("/tmp/background-blur"):
     os.system("mkdir /tmp/background-blur")
 if not os.path.exists("/tmp/background-blur/ref.json"):
     with open("/tmp/background-blur/ref.json", "w") as file:
-        file.write(json.dumps(dict(vert="")))
+        file.write(json.dumps(dict(reference="")))
 
 with open("/tmp/background-blur/ref.json") as file:
     data = json.loads(file.read())
@@ -48,20 +47,19 @@ with open("/tmp/background-blur/ref.json") as file:
 filepath = path.replace("file://", "").replace("'", "")
 name = os.path.basename(filepath).split(".")[0]
 
-newpath_vert = f"/tmp/background-blur/vert_{name}.png"
-reference_vert = "/home/ronnas/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
 
-newpath_main = f"/tmp/background-blur/main_{name}.png"
-reference_main = "/home/ronnas/.config/conky/MyMimosa/res/dark5/bg-main.png"
+if data["reference"] != name:
+    newpath_vert = f"/tmp/background-blur/vert_{name}.png"
+    reference_vert = "/home/ronnas/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
 
-newpath_calendar = f"/tmp/background-blur/calendar_{name}.png"
-reference_calendar = "/home/ronnas/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
+    newpath_main = f"/tmp/background-blur/main_{name}.png"
+    reference_main = "/home/ronnas/.config/conky/MyMimosa/res/dark5/bg-main.png"
 
-newpath_player = f"/tmp/background-blur/player_{name}.png"
-reference_player = "/home/ronnas/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
+    newpath_calendar = f"/tmp/background-blur/calendar_{name}.png"
+    reference_calendar = "/home/ronnas/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
 
-
-if data["vert"] != newpath_vert:
+    newpath_player = f"/tmp/background-blur/player_{name}.png"
+    reference_player = "/home/ronnas/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
     isProcessed = (
         subprocess.run(
             f"ls /tmp/background-blur/*png | grep {newpath_vert}",
@@ -86,6 +84,7 @@ if data["vert"] != newpath_vert:
                     "main": newpath_main,
                     "calendar": newpath_calendar,
                     "player": newpath_player,
+                    "reference": name,
                 }
             )
         )
