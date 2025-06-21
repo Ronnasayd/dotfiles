@@ -6,21 +6,19 @@ import cv2
 
 WIDTH = 1366
 HEIGHT = 768
+HOME = os.path.expanduser("~")
 
 
 def generate_image(img, newpath, reference, dimensions):
     [x, y, width, height] = dimensions
-    vert = cv2.imread(
+    refImg = cv2.imread(
         reference,
         cv2.IMREAD_UNCHANGED,
     )
-    vert = cv2.resize(vert, (width, height))
-    img = cv2.blur(img, (21, 21))
-    img = cv2.resize(img, (WIDTH, HEIGHT))
+    refImg = cv2.resize(refImg, (width, height))
     img = img[y : y + height, x : x + width]
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
-    blended = cv2.addWeighted(src1=img, alpha=0.2, src2=vert, beta=0.8, gamma=0)
-    alpha = vert[:, :, 3]
+    blended = cv2.addWeighted(src1=img, alpha=0.2, src2=refImg, beta=0.8, gamma=0)
+    alpha = refImg[:, :, 3]
     _, mask = cv2.threshold(alpha, 0, 255, cv2.THRESH_BINARY)
     blended = cv2.bitwise_and(blended, blended, mask=mask)
     cv2.imwrite(newpath, blended)
@@ -35,13 +33,13 @@ path = (
     .stdout.decode()
     .strip()
 )
-if not os.path.exists("/tmp/background-blur"):
-    os.system("mkdir /tmp/background-blur")
-if not os.path.exists("/tmp/background-blur/ref.json"):
-    with open("/tmp/background-blur/ref.json", "w") as file:
+if not os.path.exists(f"{HOME}/.cache/background-blur"):
+    os.system("mkdir {HOME}/.cache/background-blur")
+if not os.path.exists(f"{HOME}/.cache/background-blur/ref.json"):
+    with open(f"{HOME}/.cache/background-blur/ref.json", "w") as file:
         file.write(json.dumps(dict(reference="")))
 
-with open("/tmp/background-blur/ref.json") as file:
+with open(f"{HOME}/.cache/background-blur/ref.json") as file:
     data = json.loads(file.read())
 
 filepath = path.replace("file://", "").replace("'", "")
@@ -49,20 +47,20 @@ name = os.path.basename(filepath).split(".")[0]
 
 
 if data["reference"] != name:
-    newpath_vert = f"/tmp/background-blur/vert_{name}.png"
-    reference_vert = "/home/ronnas/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
+    newpath_vert = f"{HOME}/.cache/background-blur/vert_{name}.png"
+    reference_vert = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
 
-    newpath_main = f"/tmp/background-blur/main_{name}.png"
-    reference_main = "/home/ronnas/.config/conky/MyMimosa/res/dark5/bg-main.png"
+    newpath_main = f"{HOME}/.cache/background-blur/main_{name}.png"
+    reference_main = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-main.png"
 
-    newpath_calendar = f"/tmp/background-blur/calendar_{name}.png"
-    reference_calendar = "/home/ronnas/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
+    newpath_calendar = f"{HOME}/.cache/background-blur/calendar_{name}.png"
+    reference_calendar = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
 
-    newpath_player = f"/tmp/background-blur/player_{name}.png"
-    reference_player = "/home/ronnas/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
+    newpath_player = f"{HOME}/.cache/background-blur/player_{name}.png"
+    reference_player = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
     isProcessed = (
         subprocess.run(
-            f"ls /tmp/background-blur/*png | grep {newpath_vert}",
+            f"ls {HOME}/.cache/background-blur/*png | grep {newpath_vert}",
             stdout=subprocess.PIPE,
             shell=True,
         )
@@ -70,13 +68,16 @@ if data["reference"] != name:
         .strip()
     )
     img = cv2.imread(filepath)
+    img = cv2.resize(img, (WIDTH, HEIGHT))
+    img = cv2.blur(img, (21, 21))
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
     if not isProcessed:
         generate_image(img, newpath_vert, reference_vert, [20, 360, 220, 200])
         generate_image(img, newpath_main, reference_main, [1046, 70, 310, 630])
         generate_image(img, newpath_calendar, reference_calendar, [20, 590, 310, 116])
         generate_image(img, newpath_player, reference_player, [726, 578, 310, 116])
 
-    with open("/tmp/background-blur/ref.json", "w") as file:
+    with open(f"{HOME}/.cache/background-blur/ref.json", "w") as file:
         file.write(
             json.dumps(
                 {
