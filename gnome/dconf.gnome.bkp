@@ -496,7 +496,7 @@ default-repo-is-ok=true
 hide-systray=true
 hide-window-after-update=true
 install-last-run=1747159410
-refresh-last-run=1750184111
+refresh-last-run=1750473025
 refresh-minutes=10
 show-welcome-page=false
 tracker-grace-period=30
@@ -596,7 +596,7 @@ exec='terminator'
 [org/cinnamon/desktop/background]
 color-shading-type='vertical'
 picture-options='zoom'
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/c293f75619e2c756edcdff84e8ce7a22.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/af396b18d2a8b71f051327df0122ea32.jpeg'
 primary-color='#23d619af19af'
 secondary-color='#000000000000'
 
@@ -604,7 +604,7 @@ secondary-color='#000000000000'
 delay=1
 image-source='directory:///home/ronnas/Pictures/wallpapers/images'
 random-order=true
-slideshow-enabled=true
+slideshow-enabled=false
 
 [org/cinnamon/desktop/interface]
 clock-show-date=false
@@ -618,7 +618,7 @@ scaling-factor=uint32 0
 text-scaling-factor=1.0
 
 [org/cinnamon/desktop/keybindings]
-custom-list=['custom0', '__dummy__', 'custom1', 'custom2']
+custom-list=['custom0', 'custom1', 'custom2', 'custom3', '__dummy__']
 
 [org/cinnamon/desktop/keybindings/custom-keybindings/custom0]
 binding=['<Primary><Alt>Delete', '<Primary><Alt>Delete', '<Primary><Alt>Delete']
@@ -634,6 +634,11 @@ name='Lauch Browser'
 binding=['<Primary><Alt>c', '<Primary><Alt>c', '<Primary><Alt>c']
 command='/usr/share/code/code '
 name='Launch Code'
+
+[org/cinnamon/desktop/keybindings/custom-keybindings/custom3]
+binding=['<Primary><Alt>b', '<Primary><Alt>b', '<Primary><Alt>b']
+command="/bin/bash -c '~/.local/bin/change_background'"
+name='Change Background'
 
 [org/cinnamon/desktop/keybindings/media-keys]
 logout=@as []
@@ -798,7 +803,7 @@ secondary-click-enabled=false
 secondary-click-time=1.2
 
 [org/gnome/desktop/background]
-picture-uri='file:///home/ronnas/Pictures/wallpapers/images/edeca5adcf11bf3a0d33ac2c1e5a3ea0.jpeg'
+picture-uri='file:///home/ronnas/Pictures/wallpapers/images/af396b18d2a8b71f051327df0122ea32.jpeg'
 
 [org/gnome/desktop/calendar]
 show-weekdate=false
@@ -1186,7 +1191,7 @@ sort-column='modified'
 sort-directories-first=true
 sort-order='descending'
 type-format='category'
-window-position=(121, 42)
+window-position=(121, 46)
 window-size=(1124, 694)
 
 [org/mate/panel/general]
@@ -1301,7 +1306,7 @@ search-sort-column='name'
 
 [org/nemo/window-state]
 geometry='559x430+123+130'
-maximized=true
+maximized=false
 side-pane-view='places'
 sidebar-bookmark-breakpoint=4
 sidebar-width=153
@@ -1344,8 +1349,8 @@ sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthF
 sidebar-visible=true
 sort-inverse=false
 sort-type='file::name'
-startup-current-file='file:///home/ronnas/Pictures/wallpapers/src/to_process/b11f88558c832e47cd71dec9d834f0c0.jpeg'
-startup-location='file:///home/ronnas/Pictures/wallpapers/src/to_process'
+startup-current-file='file:///tmp/background-blur/main_611e23da0da350afce856b6a9b905f4d.png'
+startup-location='file:///tmp/background-blur'
 statusbar-visible=true
 thumbnail-list-size=126
 thumbnail-list-visible=false
@@ -1425,10 +1430,10 @@ aspect-ratio='square'
 aspect-ratio-height=1
 aspect-ratio-invert=false
 aspect-ratio-width=1
-height=24.0
+height=200.0
 high-quality=true
 unit='pixels'
-width=24.0
+width=200.0
 
 [org/x/reader]
 document-directory=@ms 'file:///home/ronnas/Desktop'
