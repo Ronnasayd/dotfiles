@@ -21,14 +21,14 @@ bg_calendar_aspect = 270 / 720
 bg_calendar_padding_x = 20
 bg_calendar_padding_y = 590
 
-bg_player_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-h.png"
-bg_player_width = 310
-bg_player_aspect = 270 / 720
-bg_player_padding_x = 20
-bg_player_padding_y = 578
+bg_player_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-s.png"
+bg_player_width = 220
+bg_player_aspect = 1120 / 720
+bg_player_padding_x = 10
+bg_player_padding_y = 354
 
-player_img_width = 100
-player_img_height = 100
+player_img_width = 180
+player_img_height = player_img_width
 player_img_padding_x = 10
 
 radius = 25
@@ -314,8 +314,9 @@ function conky_render_player_image(flag)
     banner = "~/.config/conky/MyMimosa/res/not-found.png"
   end
   bg_player_height = bg_player_aspect * bg_player_width
-  bg_pos_x = 0
-  bg_pos_y = 0 + bg_player_padding_y + (bg_player_height - player_img_height) / 2
+  bg_pos_x = 0 + bg_player_padding_x
+  bg_pos_y = 0 + bg_player_padding_y + 20
+
   if align_right then
     bg_pos_x = bg_pos_x + window_width - bg_width - bg_player_width - bg_player_padding_x + player_img_padding_x
   else
@@ -338,7 +339,7 @@ end
 function conky_player_base_offset()
   offset = 0
   if align_right then
-    offset = window_width - bg_width - bg_player_padding_x - bg_player_width + player_img_width
+    offset = window_width - bg_width - bg_player_width
   else
     offset = bg_width + bg_player_padding_x + player_img_width
   end

@@ -58,7 +58,7 @@ if data["reference"] != name:
     reference_calendar = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
 
     newpath_player = f"{HOME}/.cache/background-blur/player_{name}.png"
-    reference_player = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
+    reference_player = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
 
     newpath_bar = f"{HOME}/.cache/background-blur/bar_{name}.png"
 
@@ -79,7 +79,7 @@ if data["reference"] != name:
         generate_image(img, newpath_vert, reference_vert, [20, 360, 220, 200])
         generate_image(img, newpath_main, reference_main, [1046, 70, 310, 630])
         generate_image(img, newpath_calendar, reference_calendar, [20, 590, 310, 116])
-        generate_image(img, newpath_player, reference_player, [726, 578, 310, 116])
+        generate_image(img, newpath_player, reference_player, [826, 350, 220, 342])
         generate_image(img, newpath_bar, "", [0, 0, 1366, 42])
 
     with open(f"{HOME}/.cache/background-blur/ref.json", "w") as file:
