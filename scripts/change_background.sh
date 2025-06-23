@@ -9,13 +9,9 @@ for pid in $pids; do
         kill "$pid"
     fi
 done
-# Specify the directory containing your images
-IMAGE_DIR="/home/ronnas/Pictures/wallpapers/images"
 
-# Select a random image from the directory
-RANDOM_IMAGE=$(find "$IMAGE_DIR" -type f | shuf -n 1)
-
-# Set the selected image as the desktop background
-gsettings set org.gnome.desktop.background picture-uri "file://$RANDOM_IMAGE"
+# RANDOM_IMAGE=$(find "$IMAGE_DIR" -type f | shuf -n 1)
+# gsettings set org.gnome.desktop.background picture-uri "file://$RANDOM_IMAGE"
+gsettings set org.gnome.desktop.background picture-uri "file://$(jq -r .next ~/.cache/background-blur/stats.json)"
 sleep 60
 gsettings set org.cinnamon.desktop.background.slideshow slideshow-enabled true

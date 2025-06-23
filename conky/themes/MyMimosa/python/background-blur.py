@@ -1,6 +1,7 @@
 import json
 import os
 import subprocess
+from glob import glob
 
 import cv2
 
@@ -36,6 +37,14 @@ path = (
 )
 if not os.path.exists(f"{HOME}/.cache/background-blur"):
     os.system("mkdir {HOME}/.cache/background-blur")
+if not os.path.exists(f"{HOME}/.cache/background-blur/stats.json"):
+    images = glob(f"{HOME}/Pictures/wallpapers/images/*.*")
+    stats = {"next": "", "list": {}}
+    with open(f"{HOME}/.cache/background-blur/stats.json", "w") as file:
+        for image in images:
+            img_name = os.path.basename(image).split(".")[0]
+            stats["list"][img_name] = 0
+        file.write(json.dumps(stats))
 if not os.path.exists(f"{HOME}/.cache/background-blur/ref.json"):
     with open(f"{HOME}/.cache/background-blur/ref.json", "w") as file:
         file.write(json.dumps(dict(reference="")))
@@ -43,11 +52,21 @@ if not os.path.exists(f"{HOME}/.cache/background-blur/ref.json"):
 with open(f"{HOME}/.cache/background-blur/ref.json") as file:
     data = json.loads(file.read())
 
+
 filepath = path.replace("file://", "").replace("'", "")
 name = os.path.basename(filepath).split(".")[0]
 
 
 if data["reference"] != name:
+    with open(f"{HOME}/.cache/background-blur/stats.json", "r+") as file:
+        stats = json.loads(file.read())
+        stats["list"][name] = stats.get(name, 0) + 1
+        s = sum(stats["list"].values())
+        prob = [[k, 1 - v / s if s > 0 else 1] for k, v in stats["list"].items()]
+        prob.sort(key=lambda x: x[1], reverse=True)
+        stats["next"] = f"{HOME}/Pictures/wallpapers/images/{prob[0][0]}.jpeg"
+        file.seek(0)
+        file.write(json.dumps(stats))
     newpath_vert = f"{HOME}/.cache/background-blur/vert_{name}.png"
     reference_vert = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
 
