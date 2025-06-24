@@ -2,6 +2,7 @@ import json
 import os
 import subprocess
 from glob import glob
+from random import choices
 
 import cv2
 
@@ -35,21 +36,21 @@ path = (
     .stdout.decode()
     .strip()
 )
-if not os.path.exists(f"{HOME}/.cache/background-blur"):
-    os.system("mkdir {HOME}/.cache/background-blur")
-if not os.path.exists(f"{HOME}/.cache/background-blur/stats.json"):
+if not os.path.exists(f"{HOME}/.config/conky/MyMimosa/.cache"):
+    os.system("mkdir {HOME}/.config/conky/MyMimosa/.cache")
+if not os.path.exists(f"{HOME}/.config/conky/MyMimosa/.cache/stats.json"):
     images = glob(f"{HOME}/Pictures/wallpapers/images/*.*")
     stats = {"next": "", "list": {}}
-    with open(f"{HOME}/.cache/background-blur/stats.json", "w") as file:
+    with open(f"{HOME}/.config/conky/MyMimosa/.cache/stats.json", "w") as file:
         for image in images:
             img_name = os.path.basename(image).split(".")[0]
             stats["list"][img_name] = 0
         file.write(json.dumps(stats))
-if not os.path.exists(f"{HOME}/.cache/background-blur/ref.json"):
-    with open(f"{HOME}/.cache/background-blur/ref.json", "w") as file:
+if not os.path.exists(f"{HOME}/.config/conky/MyMimosa/.cache/ref.json"):
+    with open(f"{HOME}/.config/conky/MyMimosa/.cache/ref.json", "w") as file:
         file.write(json.dumps(dict(reference="")))
 
-with open(f"{HOME}/.cache/background-blur/ref.json") as file:
+with open(f"{HOME}/.config/conky/MyMimosa/.cache/ref.json") as file:
     data = json.loads(file.read())
 
 
@@ -58,32 +59,32 @@ name = os.path.basename(filepath).split(".")[0]
 
 
 if data["reference"] != name:
-    with open(f"{HOME}/.cache/background-blur/stats.json", "r+") as file:
+    with open(f"{HOME}/.config/conky/MyMimosa/.cache/stats.json", "r+") as file:
         stats = json.loads(file.read())
         stats["list"][name] = stats["list"].get(name, 0) + 1
         s = sum(stats["list"].values())
-        prob = [[k, 1 - v / s if s > 0 else 1] for k, v in stats["list"].items()]
-        prob.sort(key=lambda x: x[1], reverse=True)
-        stats["next"] = f"{HOME}/Pictures/wallpapers/images/{prob[0][0]}.jpeg"
+        prob = [1 - v / s if s > 0 else 1 for k, v in stats["list"].items()]
+        value = choices(list(stats["list"].keys()), weights=[x for x in prob], k=1)
+        stats["next"] = f"{HOME}/Pictures/wallpapers/images/{value[0]}.jpeg"
         file.seek(0)
         file.write(json.dumps(stats))
-    newpath_vert = f"{HOME}/.cache/background-blur/vert_{name}.png"
+    newpath_vert = f"{HOME}/.config/conky/MyMimosa/.cache/vert_{name}.png"
     reference_vert = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
 
-    newpath_main = f"{HOME}/.cache/background-blur/main_{name}.png"
+    newpath_main = f"{HOME}/.config/conky/MyMimosa/.cache/main_{name}.png"
     reference_main = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-main.png"
 
-    newpath_calendar = f"{HOME}/.cache/background-blur/calendar_{name}.png"
+    newpath_calendar = f"{HOME}/.config/conky/MyMimosa/.cache/calendar_{name}.png"
     reference_calendar = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
 
-    newpath_player = f"{HOME}/.cache/background-blur/player_{name}.png"
+    newpath_player = f"{HOME}/.config/conky/MyMimosa/.cache/player_{name}.png"
     reference_player = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
 
-    newpath_bar = f"{HOME}/.cache/background-blur/bar_{name}.png"
+    newpath_bar = f"{HOME}/.config/conky/MyMimosa/.cache/bar_{name}.png"
 
     isProcessed = (
         subprocess.run(
-            f"ls {HOME}/.cache/background-blur/*png | grep {newpath_vert}",
+            f"ls {HOME}/.config/conky/MyMimosa/.cache/*png | grep {newpath_vert}",
             stdout=subprocess.PIPE,
             shell=True,
         )
@@ -101,7 +102,7 @@ if data["reference"] != name:
         generate_image(img, newpath_player, reference_player, [826, 350, 220, 342])
         generate_image(img, newpath_bar, "", [0, 0, 1366, 42])
 
-    with open(f"{HOME}/.cache/background-blur/ref.json", "w") as file:
+    with open(f"{HOME}/.config/conky/MyMimosa/.cache/ref.json", "w") as file:
         file.write(
             json.dumps(
                 {
