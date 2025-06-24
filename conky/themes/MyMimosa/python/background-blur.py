@@ -60,7 +60,7 @@ name = os.path.basename(filepath).split(".")[0]
 if data["reference"] != name:
     with open(f"{HOME}/.cache/background-blur/stats.json", "r+") as file:
         stats = json.loads(file.read())
-        stats["list"][name] = stats.get(name, 0) + 1
+        stats["list"][name] = stats["list"].get(name, 0) + 1
         s = sum(stats["list"].values())
         prob = [[k, 1 - v / s if s > 0 else 1] for k, v in stats["list"].items()]
         prob.sort(key=lambda x: x[1], reverse=True)
