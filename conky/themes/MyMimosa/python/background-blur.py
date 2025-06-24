@@ -63,8 +63,8 @@ if data["reference"] != name:
         stats = json.loads(file.read())
         stats["list"][name] = stats["list"].get(name, 0) + 1
         s = sum(stats["list"].values())
-        prob = [1 - v / s if s > 0 else 1 for k, v in stats["list"].items()]
-        value = choices(list(stats["list"].keys()), weights=[x for x in prob], k=1)
+        prob = {k:1 - v / (s if s > 0 else 1) for k, v in stats["list"].items()}
+        value = choices(list(prob.keys()), weights=list(prob.values()), k=1)
         stats["next"] = f"{HOME}/Pictures/wallpapers/images/{value[0]}.jpeg"
         file.seek(0)
         file.write(json.dumps(stats))
@@ -93,7 +93,7 @@ if data["reference"] != name:
     )
     img = cv2.imread(filepath)
     img = cv2.resize(img, (WIDTH, HEIGHT))
-    img = cv2.blur(img, (21, 21))
+    img = cv2.blur(img, (15, 15))
     img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
     if not isProcessed:
         generate_image(img, newpath_vert, reference_vert, [20, 360, 220, 200])
