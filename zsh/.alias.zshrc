@@ -138,7 +138,7 @@ alias zipe='git archive --format=zip -o output.zip HEAD ":(exclude).gitignore"' 
 alias xwhats='echo "https://api.whatsapp.com/send?text=$(xclip -o -selection clipboard)" | xclip -selection clipboard' # Transform clipboard content link to WhatsApp message link
 alias m="make" # Alias to make command
 alias asdfls="asdf list" # List installed plugins. Optionally show git urls and git-ref
-alias asdfla="asdf lista all" # List plugins registered on asdf-plugins repository with URLs
+alias asdfla="asdf list all" # List plugins registered on asdf-plugins repository with URLs
 alias asdfi="asdf install" # Install a specific version of a package
 alias asdflc="asdf local" # Set the package local version
 alias asdfg="asdf global" # Set the package global version
