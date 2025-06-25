@@ -38,8 +38,9 @@ path = (
 )
 if not os.path.exists(f"{HOME}/.config/conky/MyMimosa/.cache"):
     os.system("mkdir {HOME}/.config/conky/MyMimosa/.cache")
+
+images = glob(f"{HOME}/Pictures/wallpapers/images/*.*")
 if not os.path.exists(f"{HOME}/.config/conky/MyMimosa/.cache/stats.json"):
-    images = glob(f"{HOME}/Pictures/wallpapers/images/*.*")
     stats = {"next": "", "list": {}}
     with open(f"{HOME}/.config/conky/MyMimosa/.cache/stats.json", "w") as file:
         for image in images:
@@ -63,11 +64,15 @@ if data["reference"] != name:
         stats = json.loads(file.read())
         stats["list"][name] = stats["list"].get(name, 0) + 1
         s = sum(stats["list"].values())
-        prob = {k:1 - v / (s if s > 0 else 1) for k, v in stats["list"].items()}
+        prob = {k: 0.99999 - v / (s if s > 0 else 1) for k, v in stats["list"].items()}
         value = choices(list(prob.keys()), weights=list(prob.values()), k=1)
-        stats["next"] = f"{HOME}/Pictures/wallpapers/images/{value[0]}.jpeg"
-        file.seek(0)
-        file.write(json.dumps(stats))
+        valuePath = f"{HOME}/Pictures/wallpapers/images/{value[0]}.jpeg"
+        if not valuePath in images:
+            del stats["list"][value[0]]
+        else:
+            stats["next"] = valuePath
+            file.seek(0)
+            file.write(json.dumps(stats))
     newpath_vert = f"{HOME}/.config/conky/MyMimosa/.cache/vert_{name}.png"
     reference_vert = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
 

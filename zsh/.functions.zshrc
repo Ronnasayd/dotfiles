@@ -427,3 +427,11 @@ join_split_videos(){
   for f in *.mp4; do echo "file '$f'" >> videos.txt; done
   ffmpeg -f concat -i videos.txt -c copy output.mp4
 }
+
+replace() {
+    NAME="$1"
+    OLD_NAME="$2"
+    NEW_NAME="$3"
+
+    echo "$NAME" | sed "s/$OLD_NAME/$NEW_NAME/"
+}

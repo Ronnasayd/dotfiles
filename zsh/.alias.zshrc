@@ -80,6 +80,7 @@ alias open='xdg-open 2>/dev/null' # Open files or URLs with default application
 alias rmv='sudo apt-get autoremove && sudo apt-get autoclean' # Clean up unused packages
 alias prg='sudo dpkg --purge "dpkg --get-selections | grep deinstall | cut -f1"' # Purge uninstalled packages
 alias curbg='gsettings get org.cinnamon.desktop.background picture-uri' # Get current desktop background URI
+alias rmcurbg='replace $(curbg) "file\:\/\/" "" | xargs -I{} rmrf {}' # delete current background image
 alias portainer='docker run --rm -d -p 9000:9000 --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer; xdg-open http://localhost:9000' # Run Portainer Docker container and open it in browser
 alias gports='sudo netstat -tulpn | grep -i' # Check which processes are listening on which ports
 alias lports='sudo netstat -tulpn' # List all listening ports
@@ -146,3 +147,5 @@ alias psmem="sudo ps_mem" # Display processes sorted by memory usage
 alias _vi="sudo -E vim" # Open vi with root privileges
 alias _vim="sudo -E vim" # Open vi with root privileges
 alias random-bg="change_background &" # Change background every 60 seconds
+alias replace="replace" # replace a part of a string with a new string: cutvideo <string> <substring> <new_substring>
+
