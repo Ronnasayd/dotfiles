@@ -66,6 +66,8 @@ if data["reference"] != name:
         s = sum(stats["list"].values())
         prob = {k: 0.99999 - v / (s if s > 0 else 1) for k, v in stats["list"].items()}
         value = choices(list(prob.keys()), weights=list(prob.values()), k=1)
+        while value[0] == name:
+            value = choices(list(prob.keys()), weights=list(prob.values()), k=1)
         valuePath = f"{HOME}/Pictures/wallpapers/images/{value[0]}.jpeg"
         if not valuePath in images:
             del stats["list"][value[0]]
