@@ -10,8 +10,14 @@ for pid in $pids; do
     fi
 done
 
-# RANDOM_IMAGE=$(find "$IMAGE_DIR" -type f | shuf -n 1)
 # gsettings set org.gnome.desktop.background picture-uri "file://$RANDOM_IMAGE"
-gsettings set org.gnome.desktop.background picture-uri "file://$(jq -r .next ~/.config/conky/MyMimosa/.cache/stats.json)"
+# RANDOM_IMAGE=$(find "$IMAGE_DIR" -type f | shuf -n 1)
+CURBG=$(gsettings get org.cinnamon.desktop.background picture-uri)
+NEXTBG="'file://$(jq -r .next ~/.config/conky/MyMimosa/.cache/stats.json)'"
+if [[ $CURBG == $NEXTBG ]]; then
+  RANDOM_IMAGE=$(find "$IMAGE_DIR" -type f | shuf -n 1)
+  NEXTBG="file://$RANDOM_IMAGE"
+fi
+gsettings set org.gnome.desktop.background picture-uri $NEXTBG
 sleep 60
 gsettings set org.cinnamon.desktop.background.slideshow slideshow-enabled true
