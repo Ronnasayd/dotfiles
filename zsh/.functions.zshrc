@@ -1,17 +1,17 @@
 on_enter_directory(){
-	if [ -f ".tool-versions" ] && grep -q "go" ".tool-versions"; then
+	if [[ -f "$1/.tool-versions" && $(<$1/.tool-versions) == *go* ]]; then
 			export GOPATH=$(~/.asdf/shims/go env GOPATH)
 	fi
-	if [ -f "go.mod" ]; then
+	if [ -f "$1/go.mod" ]; then
 			export GO111MODULE=on
 			export GOPATH=$(~/.asdf/shims/go env GOPATH)
 	fi
-	if [ -f "Gopkg.toml" ]; then
+	if [ -f "$1/Gopkg.toml" ]; then
 			export GO111MODULE=off
 			export GOPATH=$(~/.asdf/shims/go env GOPATH)
 	fi
-	if [ -d "venv" ]; then
-			source venv/bin/activate
+	if [ -d "$1/venv" ]; then
+			source "$1/venv/bin/activate"
 	fi
 	SPECIFIC_DIR="/home/ronnas/develop/QQ/"
 	QQ_DIR="$(~/.asdf/shims/go env GOPATH)/src/github.com/queroquitar/"
@@ -21,10 +21,25 @@ on_enter_directory(){
 	fi
 }
 
-on_enter_directory
+function recursively_on_enter_directory(){
+local RPATH
+RPATH=$(pwd)
+while [[ "$RPATH" != "/" && "$RPATH" != "" ]]; do
+  if [[ -f "$RPATH/.tool-versions" || -f "$RPATH/go.mod" || -f "$RPATH/Gopkg.toml" || -d "$RPATH/venv" ]]; then
+    # echo "$RPATH"
+    on_enter_directory $RPATH
+    break
+  fi
+  RPATH="${RPATH%/*}"
+done
+
+}
+
+recursively_on_enter_directory
 # this function is called every time a change a directory
 function chpwd {
-	on_enter_directory
+  local RPATH=$(pwd)
+	on_enter_directory $RPATH
 }
 
 
