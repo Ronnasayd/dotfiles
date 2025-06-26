@@ -21,16 +21,7 @@ on_enter_directory(){
 	fi
 }
 
-function recursive_on_enter_directory(){
-	d=$(pwd)
-	while [ "$(pwd)" != "/" ]; do
-		on_enter_directory
-		cd ..
-	done
-	cd "$d"
-}
-
-recursive_on_enter_directory
+on_enter_directory
 # this function is called every time a change a directory
 function chpwd {
 	on_enter_directory

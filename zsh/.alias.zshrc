@@ -46,6 +46,7 @@ alias yrm="yarn remove" # Remove a package using Yarn
 alias yr="yarn run" # Run an arbitrary command defined in package.json using Yarn
 alias pnpi="pnpm install" # Install all dependencies defined in package.json using pnpm
 alias co="code" # Open Visual Studio Code editor
+alias cog="code -g" # Open Visual studio code with goto argument
 alias cox="code . && exit" # Open current directory in VS Code and exit terminal
 alias cco="code --disable-extensions --user-data-dir='/tmp/code-user-data-dir' --extensions-dir='/tmp/code-extensions-dir'" # Open VS Code without extensions
 alias _co="sudo code --user-data-dir=~/.vscode-root --no-sandbox" # Open VS Code with root privileges
