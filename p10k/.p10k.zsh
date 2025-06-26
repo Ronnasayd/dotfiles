@@ -29,14 +29,14 @@
   # Zsh >= 5.1 is required.
   autoload -Uz is-at-least && is-at-least 5.1 || return
 
- 
+
 
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     os_icon                 # os identifier
     my_is_in_docker
-    user                 
+    user
     dir                     # current directory
     vcs                     # git status
     virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
@@ -53,16 +53,16 @@
     # =========================[ Line #1 ]=========================
     status                  # exit code of the last command
     command_execution_time  # duration of the last command
-    background_jobs         # presence of background 
+    background_jobs         # presence of background
     asdf                    # asdf version manager (https://github.com/asdf-vm/asdf)
     wifi
     my_cpu_status
-    ram 
+    ram
     # battery
     time                    # current time
 
     # direnv                  # direnv status (https://direnv.net/)
-    
+
     # anaconda                # conda environment (https://conda.io/)
     # pyenv                   # python environment (https://github.com/pyenv/pyenv)
     # goenv                   # go environment (https://github.com/syndbg/goenv)
@@ -96,7 +96,7 @@
     # gcloud                  # google cloud cli account and project (https://cloud.google.com/)
     # google_app_cred         # google application credentials (https://cloud.google.com/docs/authentication/production)
     # toolbox                 # toolbox name (https://github.com/containers/toolbox)
-    
+
     # nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
     # ranger                  # ranger shell (https://github.com/ranger/ranger)
     # nnn                     # nnn shell (https://github.com/jarun/nnn)
@@ -113,7 +113,7 @@
     # todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
     # timewarrior             # timewarrior tracking status (https://timewarrior.net/)
     # taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
-    
+
     # =========================[ Line #2 ]=========================
     newline
     # ip                    # ip address and bandwidth usage for a specified network interface
@@ -1760,21 +1760,19 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 'builtin' 'unset' 'p10k_config_opts'
 
 
- function prompt_my_cpu_status() {
-    integer cpu_avg
-    integer cpu_temp="($(</sys/class/thermal/thermal_zone0/temp) + $(</sys/class/thermal/thermal_zone1/temp)) / 2000"
-    integer cpu_avg_inv="$(vmstat 1 2|tail -1|awk '{print $15}')"
+function prompt_my_cpu_status() {
+  # Read CPU temp once (assuming single thermal zone for simplicity)
+  local cpu_temp=$(( $(< /sys/class/thermal/thermal_zone0/temp) / 1000 ))
 
-    if ((cpu_avg >= 0));then
-      cpu_avg="(100 - cpu_avg_inv)"
-    fi
-
-    if (( cpu_temp >= 80 ));then
-      p10k segment -s INFO -f "0" -b "5" -i "🔥 " -t "${cpu_avg}%% ${cpu_temp}°C"
-    else
-      p10k segment -s INFO -f "0" -b "5" -i $'\uf4bc ' -t "${cpu_avg}%% ${cpu_temp}°C"
-    fi
+  # Use a cached CPU idle value or a fast method here instead of vmstat 1 2
+  # For demo, just show temp
+  if (( cpu_temp >= 80 )); then
+    p10k segment -s INFO -f "0" -b "5" -i "🔥 " -t "${cpu_temp}°C"
+  else
+    p10k segment -s INFO -f "0" -b "5" -i $'\uf4bc ' -t "${cpu_temp}°C"
+  fi
 }
+
 function prompt_my_is_in_docker() {
   if [ -f /.dockerenv ]; then
     p10k segment -s INFO -f "#fff" -b "#0fbfcf" -i $'\ue650 '
