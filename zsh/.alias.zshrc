@@ -144,6 +144,7 @@ alias asdfi="asdf install" # Install a specific version of a package
 alias asdflc="asdf local" # Set the package local version
 alias asdfg="asdf global" # Set the package global version
 alias asdfre="asdf reshim" # Recreate shims for version of a package
+alias asdfpys="asdf global python system" # Set the Python system version in asdf to avoid conflicts
 alias psmem="sudo ps_mem" # Display processes sorted by memory usage
 alias _vi="sudo -E vim" # Open vi with root privileges
 alias _vim="sudo -E vim" # Open vi with root privileges
