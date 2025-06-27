@@ -85,7 +85,7 @@ if data["reference"] != name:
     reference_calendar = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
 
     newpath_player = f"{HOME}/.config/conky/MyMimosa/.cache/player_{name}.png"
-    reference_player = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
+    reference_player = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-player.png"
 
     newpath_bar = f"{HOME}/.config/conky/MyMimosa/.cache/bar_{name}.png"
 

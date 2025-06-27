@@ -303,6 +303,8 @@ function conky_render_player_bg()
   bg = conky_parse(
     '${exec jq .player <  ~/.config/conky/MyMimosa/.cache/ref.json }')
   bg = bg:gsub('"', '')
+  print(string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_player_width, bg_player_height, bg_pos_x,
+    bg_pos_y))
   return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_player_width, bg_player_height, bg_pos_x,
     bg_pos_y)
 end
