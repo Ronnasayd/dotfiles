@@ -99,7 +99,6 @@ plugins=(
 	gulp
 	extract
 	golang
-	fd
 	urltools
 	docker
 	docker-compose
@@ -204,11 +203,18 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+# setopt GLOB_DOTS
 
+source ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh
 eval "$(fzf --zsh)"
+# Enable preview for `cd` completion
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always $realpath'
+# Enable preview for ALL path completions (not just cd)
+zstyle ':fzf-tab:complete:*:*' fzf-preview \
+  'if [[ -d $realpath ]]; then ls --color=always $realpath; else file --mime $realpath; fi'
+# Optional: continuous trigger (refresh preview as you type '/')
+zstyle ':fzf-tab:*' continuous-trigger '/'
 
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-# zstyle ':fzf-tab:complete:*:*' fzf-preview 'ls --color $realpath'
 
 [[ ! -f ~/.alias.zshrc ]] || source ~/.alias.zshrc
 
