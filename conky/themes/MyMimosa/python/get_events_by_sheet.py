@@ -37,8 +37,18 @@ def main():
             with open("/tmp/conky-calendar", "w", encoding="utf-8") as file:
                 file.write(content)
                 file.write("\n" * max(4 - counter, 0))
+        else:
+            # system("rm /tmp/conky-calendar")
+            with open("/tmp/conky-calendar", "w", encoding="utf-8") as file:
+                file.write("\n")
+                file.write("offset|No events at the moment ...")
+                file.write("\n" * 3)
     else:
-        system("rm /tmp/conky-calendar")
+        # system("rm /tmp/conky-calendar")
+        with open("/tmp/conky-calendar", "w", encoding="utf-8") as file:
+            file.write("\n")
+            file.write("offset|No events at the moment ...")
+            file.write("\n" * 3)
 
 
 if __name__ == "__main__":
