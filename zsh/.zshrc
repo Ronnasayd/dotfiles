@@ -8,7 +8,7 @@ fi
 export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export PATH=$ASDF_DIR/shims:$PATH
+export PATH=$ASDF_DIR/shims:$PATH
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
@@ -118,7 +118,6 @@ plugins=(
 	wd
 	web-search
 	python
-
 	asdf
 	zsh-autosuggestions
 	zsh-syntax-highlighting
