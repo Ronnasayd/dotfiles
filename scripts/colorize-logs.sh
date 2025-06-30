@@ -9,126 +9,39 @@ colors=(
   "\e[35m" # Magenta
   "\e[36m" # Cyan
 )
-DCOLOR="\e[37m"    # White for normal text
-JSONCOLOR="\e[36m" # Cyan for JSON regions
-reset="\e[0m"
+DCOLOR="\e[37m" # White
 COUNTER=0
 
+# Reset color
+reset="\e[0m"
+
 # Function to colorize words in a line based on a given delimiter
-colorize_line() {
+colorize-line() {
   local line="$1"
   local delimiter="$2"
 
+  # Set IFS to the specified delimiter for splitting
   IFS="$delimiter"
-  read -ra words <<<"$line"
+  read -ra words <<<"$line" # Read words into an array
 
   local color_count=${#colors[@]}
+
   for i in "${!words[@]}"; do
     if ((i % 2 == 0)); then
-      echo -ne "${DCOLOR}${words[i]}${reset}${delimiter}"
+      # Print the word in white for even indices
+      echo -ne "${DCOLOR}${words[i]}${reset} " # White color
     else
+      # Get the corresponding color for odd indices
       color=${colors[$((COUNTER % color_count))]}
-      echo -ne "${color}${words[i]}${reset}${delimiter}"
+      echo -ne "${color}${words[i]}${reset} " # Sequential color
       ((COUNTER++))
     fi
   done
-  echo
+  echo # New line after printing all words
   COUNTER=0
 }
 
-# Function to colorize JSON substrings inside a line
-colorize_json_substrings() {
-  local line="$1"
-  local delimiter="$2"
-
-  # Regex to match JSON-like substrings: {...} or [...]
-  # This simple regex does NOT handle nested braces/brackets or multiline JSON.
-  local regex='(\{[^{}]*\}|\[[^\[\]]*\])'
-
-  # Use perl to split and colorize JSON and non-JSON parts
-  perl -e '
-    use strict;
-    use warnings;
-
-    my $line = shift;
-    my $delimiter = shift;
-    my @colors = ("\e[31m","\e[32m","\e[33m","\e[34m","\e[35m","\e[36m");
-    my $dcolor = "\e[37m";
-    my $reset = "\e[0m";
-    my $counter = 0;
-    my $color_count = scalar @colors;
-    my $key_color = "\e[32m";    # Yellow
-    my $value_color = "\e[34m";  # Magenta
-    my $brace_color = "\e[36m";  # Cyan for braces/brackets
-
-    my $regex = qr/(\{[^{}]*\}|\[[^\[\]]*\])/;
-
-    my $pos = 0;
-    while ($line =~ /$regex/g) {
-      my $start = $-[0];
-      my $end = $+[0];
-
-      # Print non-JSON part before match, colorized by delimiter
-      my $before = substr($line, $pos, $start - $pos);
-      if ($before ne "") {
-        my @parts = split(/\Q$delimiter\E/, $before, -1);
-        for my $i (0..$#parts) {
-          if ($i % 2 == 0) {
-            print $dcolor . $parts[$i] . $reset;
-          } else {
-            print $colors[$counter % $color_count] . $parts[$i] . $reset;
-            $counter++;
-          }
-          print $delimiter if $i != $#parts;
-        }
-      }
-
-      # Print JSON substring with colorized keys and values
-      my $json_substr = substr($line, $start, $end - $start);
-
-      while ($json_substr =~ /(("?([\w\s]+))"?(:)("?([\w\s]+))"?)/g) {
-        my $key = $3;
-        my $colon = $4;
-        my $value = $6;
-
-        my $before_match = substr($json_substr, 0, $-[0]);
-        print $brace_color . $before_match . $reset if $before_match ne "";
-
-        print $key_color . $key . $reset;
-        print $brace_color . $colon . $reset;
-        print $value_color . $value . $reset;
-
-        $json_substr = substr($json_substr, $+[0]);
-        pos($json_substr) = 0;
-      }
-
-      # Print any remaining part of the JSON substring (like closing braces)
-      if ($json_substr ne "") {
-        print $brace_color . $json_substr . $reset;
-      }
-
-      $pos = $end;
-    }
-
-    # Print the rest of the line after last JSON match
-    my $rest = substr($line, $pos);
-    if ($rest ne "") {
-      my @parts = split(/\Q$delimiter\E/, $rest, -1);
-      for my $i (0..$#parts) {
-        if ($i % 2 == 0) {
-          print $dcolor . $parts[$i] . $reset;
-        } else {
-          print $colors[$counter % $color_count] . $parts[$i] . $reset;
-          $counter++;
-        }
-        print $delimiter if $i != $#parts;
-      }
-    }
-    print "\n";
-  ' "$line" "$delimiter"
-}
-
-# Main loop
+# # Check if a delimiter is provided as an argument
 if [ $# -ne 1 ]; then
   delimiter=" "
 else
@@ -136,10 +49,9 @@ else
 fi
 
 while IFS= read -r line; do
-  # If line contains JSON-like substring, colorize JSON substrings only
-  if [[ "$line" =~ \{.*\} ]] || [[ "$line" =~ \[.*\] ]]; then
-    colorize_json_substrings "$line" "$delimiter"
-  else
-    colorize_line "$line" "$delimiter"
-  fi
+  # Call colorize-line with the specified delimiter
+  colorize-line "$line" "$delimiter"
 done
+
+# # Call colorize_all with the provided delimiter argument
+# colorize_all "$1"
