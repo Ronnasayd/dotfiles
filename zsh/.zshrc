@@ -214,6 +214,7 @@ zstyle ':fzf-tab:complete:*:*' fzf-preview \
 # Optional: continuous trigger (refresh preview as you type '/')
 zstyle ':fzf-tab:*' continuous-trigger '/'
 
+eval "$(zoxide init zsh)"
 
 [[ ! -f ~/.alias.zshrc ]] || source ~/.alias.zshrc
 
