@@ -1,6 +1,6 @@
 # install base packages
 sudo apt-get update
-sudo apt-get install -y terminator playerctl jq python3-pip fd-find pavucontrol git-lfs ffmpeg vlc qbittorrent silversearcher-ag neovim trash
+sudo apt-get install -y terminator playerctl jq python3-pip fd-find pavucontrol git-lfs ffmpeg vlc qbittorrent silversearcher-ag neovim trash bat
 
 # install yq
 wget https://github.com/mikefarah/yq/releases/download/v4.45.4/yq_linux_amd64 -O /usr/local/bin/yq && chmod +x /usr/local/bin/yq
@@ -39,3 +39,5 @@ sudo apt-get install epapirus-icon-theme # ePapirus, and ePapirus-Dark for eleme
 sudo add-apt-repository universe -y
 sudo add-apt-repository ppa:agornostal/ulauncher -y
 sudo apt update && sudo apt install ulauncher
+
+mv /usr/bin/batcat /usr/bin/bat

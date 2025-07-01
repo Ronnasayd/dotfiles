@@ -210,9 +210,11 @@ eval "$(fzf --zsh)"
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always $realpath'
 # Enable preview for ALL path completions (not just cd)
 zstyle ':fzf-tab:complete:*:*' fzf-preview \
-  'if [[ -d $realpath ]]; then ls --color=always $realpath; else file --mime $realpath; fi'
+  'if [[ -d $realpath ]]; then ls --color=always $realpath; else  bat --color=always --line-range=:500 $realpath; fi'
 # Optional: continuous trigger (refresh preview as you type '/')
 zstyle ':fzf-tab:*' continuous-trigger '/'
+
+
 
 eval "$(zoxide init zsh)"
 
