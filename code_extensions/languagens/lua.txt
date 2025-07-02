@@ -1,2 +1,0 @@
-sumneko.lua 3a15b5a7-be12-47e3-8445-88ee3eabc8b2
-trixnz.vscode-lua 54459c79-71f5-4bb5-ab31-e8513ea47e31

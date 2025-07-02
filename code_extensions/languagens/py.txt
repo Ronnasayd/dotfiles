@@ -1,7 +1,0 @@
-kevinrose.vsc-python-indent f3cbfb84-b1e1-40ff-b70f-877253461260
-ms-python.black-formatter 859e640c-c157-47da-8699-9080b81c8371
-ms-python.isort 4ad0ce32-ff3f-49f0-83b5-93e5dc00cfff
-ms-python.pylint 8dc47276-5882-4c5f-903d-7eef7b9d1584
-ms-python.python f1f59ae4-9318-4f3c-a9b5-81b2eaa5f8a5
-ms-python.vscode-pylance 364d2426-116a-433a-a5d8-a5098dc3afbd
-njqdev.vscode-python-typehint a7b7591e-f2b8-48f7-b8ea-6d62a0dd38c8

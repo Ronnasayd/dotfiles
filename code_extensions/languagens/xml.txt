@@ -1,2 +1,0 @@
-dotjoshjohnson.xml 0cb81da2-1880-4755-9995-0ae9cc728e20
-redhat.vscode-xml 6703768d-d42f-474e-9f6e-5f288d53f6e8

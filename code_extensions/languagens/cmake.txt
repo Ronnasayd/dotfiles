@@ -1,4 +1,0 @@
-josetr.cmake-language-support-vscode dce141da-393b-4514-9f89-18dc85ccc626
-ms-vscode.cmake-tools 7c889349-8749-43d4-8b5e-08939936d7f4
-ms-vscode.makefile-tools e09cf600-90a1-414e-92a0-031f1a5391c6
-twxs.cmake 2be7cf14-2603-402e-9771-fd79df83cdf8

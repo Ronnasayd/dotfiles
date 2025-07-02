@@ -153,4 +153,4 @@ alias random-bg="change_background &" # Change background every 60 seconds
 alias replace="replace" # replace a part of a string with a new string: cutvideo <string> <substring> <new_substring>
 alias cd="z" # Use z of zoxide to navigate to directories more easily
 alias bat="bat" # Use bat instead of cat
-
+alias wse="ws_extensions" # Utility to enable or disable extensions

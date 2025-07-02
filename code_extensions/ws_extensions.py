@@ -6,6 +6,9 @@ import shutil
 import sqlite3
 import subprocess
 
+from attr import dataclass
+from click import pass_obj
+
 base_path = "/home/ronnas/develop/personal/dotfiles/code_extensions"
 languages = [
     "py",
@@ -25,6 +28,7 @@ languages = [
 
 def disable(language: str):
     add, path = get_data(language)
+    print(add, path)
     conn = sqlite3.connect("/tmp/state.vscdb")
     cursor = conn.cursor()
     key, value = cursor.execute(
@@ -60,16 +64,13 @@ def enable(language: str):
 
 
 def get_data(language):
-    with open(f"{base_path}/languagens/{language}.txt", encoding="utf-8") as file:
-        lines = file.read().split("\n")
-        add = []
-        for line in lines:
-            _id, _uuid = line.split()
-            add.append({"id": _id, "uuid": _uuid})
+    with open(f"{base_path}/languagens/languages.json", encoding="utf-8") as file:
+        data = json.loads(file.read())
+        add = data[language]
     curr = os.getcwd()
     path = (
         subprocess.run(
-            f"{base_path}/ws_extensions.sh {curr}".split(),
+            f"{base_path}/copy-vscdb.sh {curr}".split(),
             check=False,
             stdout=subprocess.PIPE,
         )
@@ -80,17 +81,41 @@ def get_data(language):
     return add, path
 
 
+def list_extensions():
+    curr = os.getcwd()
+    path = (
+        subprocess.run(
+            f"{base_path}/copy-vscdb.sh {curr}".split(),
+            check=False,
+            stdout=subprocess.PIPE,
+        )
+        .stdout.decode()
+        .strip()
+    )
+    conn = sqlite3.connect("/tmp/state.vscdb")
+    cursor = conn.cursor()
+    _, value = cursor.execute(
+        "select * from ItemTable WHERE KEY IS 'extensionsIdentifiers/enabled'"
+    ).fetchone()
+    extensions = json.loads(value)
+    for extension in extensions:
+        print(extension["id"])
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Enable or disable language extensions to a workspace in vscode"
     )
     parser.add_argument("--enable", choices=languages)
     parser.add_argument("--disable", choices=languages)
+    parser.add_argument("-list", action="store_true")
     args = parser.parse_args()
     if args.enable:
         enable(args.enable)
     if args.disable:
         disable(args.disable)
+    if args.list:
+        list_extensions()
 
 
 if __name__ == "__main__":

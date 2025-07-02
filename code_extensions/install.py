@@ -1,108 +1,77 @@
 #!/usr/bin/python3
+import json
 import os
 
-py = [
-    "kevinrose.vsc-python-indent",
-    "ms-python.black-formatter",
-    "ms-python.isort",
-    "ms-python.pylint",
-    "ms-python.python",
-    "ms-python.vscode-pylance",
-    "njqdev.vscode-python-typehint",
-]
+with open("./map-extensions.json", encoding="utf-8") as file:
+    data = json.loads(file.read())
+    py = data["py"]
+    go = data["go"]
+    js = data["js"]
+    html = data["html"]
+    tailwindcss = data["tailwindcss"]
+    cpp = data["cpp"]
+    cmake = data["cmake"]
+    lua = data["lua"]
+    xml = data["xml"]
+    yaml = data["yaml"]
+    vue2 = data["vue2"]
+    vue3 = data["vue3"]
 
-go = [
-    "golang.go",
-    "jinliming2.vscode-go-template",
-    "maxnatchanon.go-struct-tag-autogen",
-    "peterj.proto",
-]
-
-js = [
-    "dbaeumer.vscode-eslint",
-    "ms-vscode.js-debug-nightly",
-    "xabikos.javascriptsnippets",
-    "esbenp.prettier-vscode",
-    "dsznajder.es7-react-js-snippets",
-    "christian-kohler.path-intellisense",
-    "editorconfig.editorconfig",
-]
-html = [
-    "formulahendry.auto-rename-tag",
-    "naumovs.color-highlight",
-    "pranaygp.vscode-css-peek",
-    "vincaslt.highlight-matching-tag",
-    "ecmel.vscode-html-css",
-    "htmlhint.vscode-htmlhint",
-    "celianriboulet.webvalidator",
-]
-tailwindcss = [
-    "bradlc.vscode-tailwindcss",
-    "cpylua.language-postcss",
-    "moalamri.inline-fold",
-]
-cpp = [
-    "ms-vscode.cpptools",
-    "ms-vscode.cpptools-extension-pack",
-    "ms-vscode.cpptools-themes",
-    "jeff-hykin.better-cpp-syntax",
-]
-
-cmake = [
-    "twxs.cmake",
-    "josetr.cmake-language-support-vscode",
-    "ms-vscode.cmake-tools",
-    "ms-vscode.makefile-tools",
-]
-
-lua = ["trixnz.vscode-lua", "sumneko.lua"]
-
-xml = ["redhat.vscode-xml", "dotjoshjohnson.xml"]
-
-yaml = ["redhat.vscode-yaml"]
-
-vue2 = ["octref.vetur", "dariofuzinato.vue-peek"]
-vue3 = ["Vue.volar", "hollowtree.vue-snippets"]
-
-with open("/tmp/extensions_uuid.txt", encoding="utf-8") as file:
+with open("/home/ronnas/.vscode/extensions/extensions.json", encoding="utf-8") as file:
     curdir = os.getcwd()
-    data = file.read().split("\n")
-    data_py = "\n".join([line for line in data if line.split(" ")[0] in py])
-    data_go = "\n".join([line for line in data if line.split(" ")[0] in go])
-    data_js = "\n".join([line for line in data if line.split(" ")[0] in js])
-    data_html = "\n".join([line for line in data if line.split(" ")[0] in html])
-    data_tailwindcss = "\n".join(
-        [line for line in data if line.split(" ")[0] in tailwindcss]
-    )
-    data_cpp = "\n".join([line for line in data if line.split(" ")[0] in cpp])
-    data_cmake = "\n".join([line for line in data if line.split(" ")[0] in cmake])
-    data_lua = "\n".join([line for line in data if line.split(" ")[0] in lua])
-    data_xml = "\n".join([line for line in data if line.split(" ")[0] in xml])
-    data_yaml = "\n".join([line for line in data if line.split(" ")[0] in yaml])
-    data_vue2 = "\n".join([line for line in data if line.split(" ")[0] in vue2])
-    data_vue3 = "\n".join([line for line in data if line.split(" ")[0] in vue3])
+    extensions = json.loads(file.read())
+    data_py, data_go, data_js, data_html, data_tailwindcss = [], [], [], [], []
+    data_cpp = []
+    data_cmake = []
+    data_lua = []
+    data_xml = []
+    data_yaml = []
+    data_vue2 = []
+    data_vue3 = []
+    for extension in extensions:
+        _id = extension["identifier"]["id"]
+        _uuid = extension["identifier"]["uuid"]
+        if _id in py:
+            data_py.append(dict(id=_id, uuid=_uuid))
+        if _id in go:
+            data_go.append(dict(id=_id, uuid=_uuid))
+        if _id in js:
+            data_js.append(dict(id=_id, uuid=_uuid))
+        if _id in html:
+            data_html.append(dict(id=_id, uuid=_uuid))
+        if _id in tailwindcss:
+            data_tailwindcss.append(dict(id=_id, uuid=_uuid))
+        if _id in cpp:
+            data_cpp.append(dict(id=_id, uuid=_uuid))
+        if _id in cmake:
+            data_cmake.append(dict(id=_id, uuid=_uuid))
+        if _id in lua:
+            data_lua.append(dict(id=_id, uuid=_uuid))
+        if _id in xml:
+            data_xml.append(dict(id=_id, uuid=_uuid))
+        if _id in yaml:
+            data_yaml.append(dict(id=_id, uuid=_uuid))
+        if _id in vue2:
+            data_vue2.append(dict(id=_id, uuid=_uuid))
+        if _id in vue3:
+            data_vue3.append(dict(id=_id, uuid=_uuid))
 
-    with open(f"{curdir}/languagens/py.txt", "w", encoding="utf-8") as file:
-        file.write(data_py)
-    with open(f"{curdir}/languagens/go.txt", "w", encoding="utf-8") as file:
-        file.write(data_go)
-    with open(f"{curdir}/languagens/js.txt", "w", encoding="utf-8") as file:
-        file.write(data_js)
-    with open(f"{curdir}/languagens/html.txt", "w", encoding="utf-8") as file:
-        file.write(data_html)
-    with open(f"{curdir}/languagens/tailwindcss.txt", "w", encoding="utf-8") as file:
-        file.write(data_tailwindcss)
-    with open(f"{curdir}/languagens/cpp.txt", "w", encoding="utf-8") as file:
-        file.write(data_cpp)
-    with open(f"{curdir}/languagens/cmake.txt", "w", encoding="utf-8") as file:
-        file.write(data_cmake)
-    with open(f"{curdir}/languagens/lua.txt", "w", encoding="utf-8") as file:
-        file.write(data_lua)
-    with open(f"{curdir}/languagens/xml.txt", "w", encoding="utf-8") as file:
-        file.write(data_xml)
-    with open(f"{curdir}/languagens/yaml.txt", "w", encoding="utf-8") as file:
-        file.write(data_yaml)
-    with open(f"{curdir}/languagens/vue2.txt", "w", encoding="utf-8") as file:
-        file.write(data_vue2)
-    with open(f"{curdir}/languagens/vue3.txt", "w", encoding="utf-8") as file:
-        file.write(data_vue3)
+    with open(f"{curdir}/languagens/languages.json", "w", encoding="utf-8") as file:
+        file.write(
+            json.dumps(
+                dict(
+                    py=data_py,
+                    go=data_go,
+                    js=data_js,
+                    html=data_html,
+                    tailwindcss=data_tailwindcss,
+                    cpp=data_cpp,
+                    cmake=data_cmake,
+                    lua=data_lua,
+                    xml=data_xml,
+                    yaml=data_yaml,
+                    vue2=data_vue2,
+                    vue3=data_vue3,
+                )
+            )
+        )

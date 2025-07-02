@@ -1,0 +1,71 @@
+{
+  "py": [
+    "kevinrose.vsc-python-indent",
+    "ms-python.black-formatter",
+    "ms-python.isort",
+    "ms-python.pylint",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "njqdev.vscode-python-typehint"
+  ],
+  "go": [
+    "golang.go",
+    "jinliming2.vscode-go-template",
+    "maxnatchanon.go-struct-tag-autogen",
+    "peterj.proto"
+  ],
+  "js": [
+    "dbaeumer.vscode-eslint",
+    "ms-vscode.js-debug-nightly",
+    "xabikos.javascriptsnippets",
+    "esbenp.prettier-vscode",
+    "dsznajder.es7-react-js-snippets",
+    "christian-kohler.path-intellisense",
+    "editorconfig.editorconfig"
+  ],
+  "html": [
+    "formulahendry.auto-rename-tag",
+    "naumovs.color-highlight",
+    "pranaygp.vscode-css-peek",
+    "vincaslt.highlight-matching-tag",
+    "ecmel.vscode-html-css",
+    "htmlhint.vscode-htmlhint",
+    "celianriboulet.webvalidator"
+  ],
+  "tailwindcss": [
+    "bradlc.vscode-tailwindcss",
+    "cpylua.language-postcss",
+    "moalamri.inline-fold"
+  ],
+  "cpp": [
+    "ms-vscode.cpptools",
+    "ms-vscode.cpptools-extension-pack",
+    "ms-vscode.cpptools-themes",
+    "jeff-hykin.better-cpp-syntax"
+  ],
+  "cmake": [
+    "twxs.cmake",
+    "josetr.cmake-language-support-vscode",
+    "ms-vscode.cmake-tools",
+    "ms-vscode.makefile-tools"
+  ],
+  "lua": [
+    "trixnz.vscode-lua",
+    "sumneko.lua"
+  ],
+  "xml": [
+    "redhat.vscode-xml",
+    "dotjoshjohnson.xml"
+  ],
+  "yaml": [
+    "redhat.vscode-yaml"
+  ],
+  "vue2": [
+    "octref.vetur",
+    "dariofuzinato.vue-peek"
+  ],
+  "vue3": [
+    "Vue.volar",
+    "hollowtree.vue-snippets"
+  ]
+}

@@ -1,3 +1,0 @@
-bradlc.vscode-tailwindcss 4db62a7c-7d70-419c-96d2-6c3a4dc77ea5
-cpylua.language-postcss 6618b055-469c-4f8e-860b-1d25f70d8852
-moalamri.inline-fold 4dc4b505-dda3-4ac6-b839-397f8cf0adcc

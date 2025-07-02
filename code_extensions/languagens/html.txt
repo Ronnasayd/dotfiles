@@ -1,7 +1,0 @@
-celianriboulet.webvalidator cf722d8c-43ff-4251-a706-51b12aa80fc5
-ecmel.vscode-html-css aaee577c-f062-495a-9816-0cbd442f1d25
-formulahendry.auto-rename-tag 6e440e71-8ed9-4f25-bb78-4b13096b8a03
-htmlhint.vscode-htmlhint d0a9daff-de6d-4669-a30b-14a49a1a17e0
-naumovs.color-highlight 121396ad-85a1-45ec-9fd1-d95028a847f5
-pranaygp.vscode-css-peek 0b8f8d63-11a2-4194-969c-ca7488b3413a
-vincaslt.highlight-matching-tag aae00486-7e92-42b3-91b0-2b419e4f3875

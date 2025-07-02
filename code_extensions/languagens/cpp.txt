@@ -1,4 +1,0 @@
-jeff-hykin.better-cpp-syntax 73767f91-7dcb-43cb-90b3-596d073eea1f
-ms-vscode.cpptools 690b692e-e8a9-493f-b802-8089d50ac1b2
-ms-vscode.cpptools-extension-pack 3957b2f6-f086-49b5-a7b4-5da772123130
-ms-vscode.cpptools-themes 99b17261-8f6e-45f0-9ad5-a69c6f509a4f
