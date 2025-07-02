@@ -19,7 +19,6 @@ export function activate(context: vscode.ExtensionContext) {
      }
   });
 
-  outputChannel.show();
 }
 
 // This method is called when your extension is deactivated
