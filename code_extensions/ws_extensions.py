@@ -10,21 +10,8 @@ from attr import dataclass
 from click import pass_obj
 
 base_path = "/home/ronnas/develop/personal/dotfiles/code_extensions"
-languages = [
-    "py",
-    "go",
-    "js",
-    "html",
-    "tailwindcss",
-    "cpp",
-    "cmake",
-    "lua",
-    "xml",
-    "yaml",
-    "vue2",
-    "vue3",
-]
-
+with open(f"{base_path}/map-extensions.json", encoding="utf-8") as file:
+    languages = list(json.loads(file.read()).keys())
 
 def disable(language: str):
     add, path = get_data(language)
@@ -111,7 +98,9 @@ def verify_code_is_open():
         .stdout.decode()
         .strip()
     )
-    return status != ""
+    if status != "":
+        print("Code is running. Please close all")
+        exit(1)
 
 def main():
     parser = argparse.ArgumentParser(
@@ -121,15 +110,15 @@ def main():
     parser.add_argument("--disable", choices=languages)
     parser.add_argument("-list", action="store_true")
     args = parser.parse_args()
-    if verify_code_is_open():
-        print("Code is running. Please close all")
-        exit(1)
-    if args.enable:
-        enable(args.enable)
-    if args.disable:
-        disable(args.disable)
     if args.list:
         list_extensions()
+    if args.enable:
+        verify_code_is_open()
+        enable(args.enable)
+    if args.disable:
+        verify_code_is_open()
+        disable(args.disable)
+    
 
 
 if __name__ == "__main__":

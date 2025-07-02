@@ -8,9 +8,11 @@
     "ms-python.vscode-pylance",
     "njqdev.vscode-python-typehint"
   ],
+  "gohtml": [
+    "jinliming2.vscode-go-template"
+  ],
   "go": [
     "golang.go",
-    "jinliming2.vscode-go-template",
     "maxnatchanon.go-struct-tag-autogen",
     "peterj.proto"
   ],
@@ -67,5 +69,9 @@
   "vue3": [
     "Vue.volar",
     "hollowtree.vue-snippets"
+  ],
+  "shell": [
+    "foxundermoon.shell-format",
+    "voidei.vscode-vimrc"
   ]
 }
