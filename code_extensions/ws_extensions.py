@@ -101,6 +101,17 @@ def list_extensions():
     for extension in extensions:
         print(extension["id"])
 
+def verify_code_is_open():
+    status = (
+        subprocess.run(
+            f"pgrep -x code".split(),
+            check=False,
+            stdout=subprocess.PIPE,
+        )
+        .stdout.decode()
+        .strip()
+    )
+    return status != ""
 
 def main():
     parser = argparse.ArgumentParser(
@@ -110,6 +121,9 @@ def main():
     parser.add_argument("--disable", choices=languages)
     parser.add_argument("-list", action="store_true")
     args = parser.parse_args()
+    if verify_code_is_open():
+        print("Code is running. Please close all")
+        exit(1)
     if args.enable:
         enable(args.enable)
     if args.disable:
