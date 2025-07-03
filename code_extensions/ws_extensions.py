@@ -11,9 +11,41 @@ from click import pass_obj
 
 base_path = "/home/ronnas/develop/personal/dotfiles/code_extensions"
 with open(f"{base_path}/map-extensions.json", encoding="utf-8") as file:
-    languages = list(json.loads(file.read()).keys())
+    data = file.read()
+    languages = list(json.loads(data).keys())
+    map_extensions = json.loads(data)
+    
+def enable_extensions_json(language):
+    data = map_extensions[language]
+    curr = os.getcwd()
+    if not os.path.exists(f"{curr}/.vscode"):
+        os.makedirs(f"{curr}/.vscode",exist_ok=True)
+        if not os.path.exists(f"{curr}/.vscode/extensions.json"):
+            with open(f"{curr}/.vscode/extensions.json", "w", encoding="utf-8") as file:
+                file.write(json.dumps({"recommendations": []}))
+    with open(f"{curr}/.vscode/extensions.json", "r", encoding="utf-8") as file:
+        extensions = json.loads(file.read())
+    with open(f"{curr}/.vscode/extensions.json", "w", encoding="utf-8") as file:
+        extensions["recommendations"] = [*extensions["recommendations"],*data]
+        file.write(json.dumps(extensions))
+
+def disable_extensions_json(language):
+    data = map_extensions[language]
+    curr = os.getcwd()
+    if not os.path.exists(f"{curr}/.vscode"):
+        os.makedirs(f"{curr}/.vscode",exist_ok=True)
+        if not os.path.exists(f"{curr}/.vscode/extensions.json"):
+            with open(f"{curr}/.vscode/extensions.json", "w", encoding="utf-8") as file:
+                file.write(json.dumps({"recommendations": []}))
+    with open(f"{curr}/.vscode/extensions.json", "r", encoding="utf-8") as file:
+        extensions = json.loads(file.read())
+    with open(f"{curr}/.vscode/extensions.json", "w", encoding="utf-8") as file:
+        extensions["recommendations"]  = list(filter(lambda x: x not in data, extensions["recommendations"]))
+        file.write(json.dumps(extensions))
 
 def disable(language: str):
+    # disable_extensions_json(language)
+    verify_code_is_open()
     add, path = get_data(language)
     print(add, path)
     conn = sqlite3.connect("/tmp/state.vscdb")
@@ -33,6 +65,8 @@ def disable(language: str):
 
 
 def enable(language: str):
+    # enable_extensions_json(language)
+    verify_code_is_open()
     add, path = get_data(language)
     conn = sqlite3.connect("/tmp/state.vscdb")
     cursor = conn.cursor()
@@ -79,6 +113,7 @@ def list_extensions():
         .stdout.decode()
         .strip()
     )
+    print(f"using file: {path}")
     conn = sqlite3.connect("/tmp/state.vscdb")
     cursor = conn.cursor()
     _, value = cursor.execute(
@@ -113,10 +148,8 @@ def main():
     if args.list:
         list_extensions()
     if args.enable:
-        verify_code_is_open()
         enable(args.enable)
     if args.disable:
-        verify_code_is_open()
         disable(args.disable)
     
 
