@@ -47,7 +47,6 @@ def disable(language: str):
     # disable_extensions_json(language)
     verify_code_is_open()
     add, path = get_data(language)
-    print(add, path)
     conn = sqlite3.connect("/tmp/state.vscdb")
     cursor = conn.cursor()
     key, value = cursor.execute(
