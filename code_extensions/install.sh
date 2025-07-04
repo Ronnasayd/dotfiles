@@ -1,4 +1,4 @@
 ./install.py
-if [[ ! -f "/usr/local/bin/ws_extensions" ]]; then
-  ln -s $(pwd)/ws_extensions.py /usr/local/bin/ws_extensions
+if [[ ! -f "/usr/local/bin/wse" ]]; then
+  ln -s $(pwd)/wse.py /usr/local/bin/wse
 fi

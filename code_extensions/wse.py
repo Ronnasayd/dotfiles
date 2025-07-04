@@ -64,24 +64,54 @@ def disable(language: str):
     shutil.copyfile("/tmp/state.vscdb", path)
 
 
+
+
 def enable(language: str):
     # enable_extensions_json(language)
     verify_code_is_open()
     add, path = get_data(language)
+    
     conn = sqlite3.connect("/tmp/state.vscdb")
     cursor = conn.cursor()
-    key, value = cursor.execute(
-        "select * from ItemTable WHERE KEY IS 'extensionsIdentifiers/enabled'"
-    ).fetchone()
-    extensions = json.loads(value)
-    extensions = [*extensions, *add]
-    extensions = [dict(t) for n, t in enumerate(extensions) if t not in extensions[:n]]
+    
     cursor.execute(
-        "UPDATE ItemTable SET VALUE = ? WHERE KEY IS ?", (json.dumps(extensions), key)
+        "SELECT VALUE FROM ItemTable WHERE KEY = ?", ('extensionsIdentifiers/enabled',)
     )
+    fetchone = cursor.fetchone()
+    
+    if fetchone is not None:
+        (value,) = fetchone
+        extensions = json.loads(value)
+        extensions.extend(add)
+    else:
+        extensions = add
+    
+    # Remove duplicates while preserving order
+    seen = set()
+    unique_extensions = []
+    for ext in extensions:
+        # Convert dict to tuple of items to make it hashable for the set
+        ext_tuple = tuple(sorted(ext.items())) if isinstance(ext, dict) else ext
+        if ext_tuple not in seen:
+            seen.add(ext_tuple)
+            unique_extensions.append(ext)
+    
+    extensions_json = json.dumps(unique_extensions)
+    
+    if fetchone is not None:
+        cursor.execute(
+            "UPDATE ItemTable SET VALUE = ? WHERE KEY = ?", (extensions_json, 'extensionsIdentifiers/enabled')
+        )
+    else:
+        cursor.execute(
+            "INSERT INTO ItemTable (KEY, VALUE) VALUES (?, ?)", ('extensionsIdentifiers/enabled', extensions_json)
+        )
+    
     conn.commit()
     conn.close()
+    
     shutil.copyfile("/tmp/state.vscdb", path)
+
 
 
 def get_data(language):
@@ -116,12 +146,14 @@ def list_extensions():
     print(f"using file: {path}")
     conn = sqlite3.connect("/tmp/state.vscdb")
     cursor = conn.cursor()
-    _, value = cursor.execute(
+    fetchone = cursor.execute(
         "select * from ItemTable WHERE KEY IS 'extensionsIdentifiers/enabled'"
     ).fetchone()
-    extensions = json.loads(value)
-    for extension in extensions:
-        print(extension["id"])
+    if fetchone is not None:
+        _,value = fetchone
+        extensions = json.loads(value)
+        for extension in extensions:
+            print(extension["id"])
 
 def verify_code_is_open():
     status = (
