@@ -49,18 +49,20 @@ def disable(language: str):
     add, path = get_data(language)
     conn = sqlite3.connect("/tmp/state.vscdb")
     cursor = conn.cursor()
-    key, value = cursor.execute(
+    fetchone = cursor.execute(
         "select * from ItemTable WHERE KEY IS 'extensionsIdentifiers/enabled'"
     ).fetchone()
-    extensions = json.loads(value)
-    ids = [a["id"] for a in add]
-    extensions = [ext for ext in extensions if ext["id"] not in ids]
-    cursor.execute(
-        "UPDATE ItemTable SET VALUE = ? WHERE KEY IS ?", (json.dumps(extensions), key)
-    )
-    conn.commit()
-    conn.close()
-    shutil.copyfile("/tmp/state.vscdb", path)
+    if fetchone is not None:
+        _,value = fetchone
+        extensions = json.loads(value)
+        ids = [a["id"] for a in add]
+        extensions = [ext for ext in extensions if ext["id"] not in ids]
+        cursor.execute(
+            "UPDATE ItemTable SET VALUE = ? WHERE KEY IS ?", (json.dumps(extensions), 'extensionsIdentifiers/enabled')
+        )
+        conn.commit()
+        conn.close()
+        shutil.copyfile("/tmp/state.vscdb", path)
 
 
 
