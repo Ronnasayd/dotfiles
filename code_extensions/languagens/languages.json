@@ -29,14 +29,16 @@
       "uuid": "364d2426-116a-433a-a5d8-a5098dc3afbd"
     }
   ],
+  "gohtml": [
+    {
+      "id": "jinliming2.vscode-go-template",
+      "uuid": "d6d472cd-0d7f-410c-ac60-b473e25ae34c"
+    }
+  ],
   "go": [
     {
       "id": "peterj.proto",
       "uuid": "30bcbe00-bac0-497a-838a-eda8e45d1864"
-    },
-    {
-      "id": "jinliming2.vscode-go-template",
-      "uuid": "d6d472cd-0d7f-410c-ac60-b473e25ae34c"
     },
     {
       "id": "maxnatchanon.go-struct-tag-autogen",
@@ -197,6 +199,16 @@
     {
       "id": "hollowtree.vue-snippets",
       "uuid": "3620b114-6fe8-459b-8c68-99943147069b"
+    }
+  ],
+  "shell": [
+    {
+      "id": "voidei.vscode-vimrc",
+      "uuid": "c5a26d57-f427-4099-8024-be52885e2abb"
+    },
+    {
+      "id": "foxundermoon.shell-format",
+      "uuid": "5fb19573-2183-4cf2-b53d-0fb869dae7ae"
     }
   ]
 }

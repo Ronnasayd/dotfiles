@@ -13,8 +13,8 @@ with open("/home/ronnas/.vscode/extensions/extensions.json", encoding="utf-8") a
     for key in keys:
         new_data[key] = []
         for extension in extensions:
-            _id = extension["identifier"]["id"]
-            _uuid = extension["identifier"]["uuid"]
+            _id = extension["identifier"].get("id",None)
+            _uuid = extension["identifier"].get("uuid",None)
             if _id in data[key]:
                 new_data[key].append(dict(id=_id, uuid=_uuid))
 
