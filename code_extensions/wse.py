@@ -5,9 +5,8 @@ import os
 import shutil
 import sqlite3
 import subprocess
+import sys
 
-from attr import dataclass
-from click import pass_obj
 
 base_path = "/home/ronnas/develop/personal/dotfiles/code_extensions"
 with open(f"{base_path}/map-extensions.json", encoding="utf-8") as file:
@@ -177,6 +176,9 @@ def main():
     parser.add_argument("--enable", choices=languages)
     parser.add_argument("--disable", choices=languages)
     parser.add_argument("-list", action="store_true")
+    if len(sys.argv) == 1:
+        parser.print_help()
+        sys.exit(1)
     args = parser.parse_args()
     if args.list:
         list_extensions()
