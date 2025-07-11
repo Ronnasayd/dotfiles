@@ -43,6 +43,8 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "sql.js": "^1.13.0",
+    "sqlite3": "^5.1.7",
     "vsce": "^2.15.0"
   }
 }

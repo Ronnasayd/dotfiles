@@ -471,3 +471,8 @@ replace() {
 
   echo "$NAME" | sed "s/$OLD_NAME/$NEW_NAME/"
 }
+
+
+cdl(){
+  z $(readlink -f $1)
+}

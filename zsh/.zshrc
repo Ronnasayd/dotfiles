@@ -22,6 +22,7 @@ export ANDROID_HOME=$HOME/android
 export PATH=$ANDROID_HOME/platform-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
+export _ZO_RESOLVE_SYMLINKS=1
 
 [[ ! -f ~/.functions.zshrc ]] || source ~/.functions.zshrc
 
@@ -217,6 +218,7 @@ zstyle ':fzf-tab:*' continuous-trigger '/'
 
 
 eval "$(zoxide init zsh)"
+
 
 [[ ! -f ~/.alias.zshrc ]] || source ~/.alias.zshrc
 

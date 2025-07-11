@@ -73,5 +73,15 @@
   "shell": [
     "foxundermoon.shell-format",
     "voidei.vscode-vimrc"
+  ],
+  "remote": [
+    "ms-vscode-remote.remote-ssh",
+    "ms-vscode-remote.remote-ssh-edit",
+    "ms-vscode.remote-explorer",
+    "ms-vscode.remote-server"
+  ],
+  "docker":[
+    "ms-azuretools.vscode-docker",
+    "ms-azuretools.vscode-containers"
   ]
 }
