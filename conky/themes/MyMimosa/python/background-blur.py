@@ -1,3 +1,4 @@
+#!/home/ronnas/develop/personal/dotfiles/conky/themes/MyMimosa/python/venv/bin/python3
 import json
 import os
 import subprocess
@@ -75,8 +76,12 @@ if data["reference"] != name:
             stats["next"] = valuePath
             file.seek(0)
             file.write(json.dumps(stats))
+
     newpath_vert = f"{HOME}/.config/conky/MyMimosa/.cache/vert_{name}.png"
     reference_vert = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
+
+    newpath_rss = f"{HOME}/.config/conky/MyMimosa/.cache/rss_{name}.png"
+    reference_rss = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
 
     newpath_main = f"{HOME}/.config/conky/MyMimosa/.cache/main_{name}.png"
     reference_main = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-main.png"
@@ -104,6 +109,7 @@ if data["reference"] != name:
     img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
     if not isProcessed:
         generate_image(img, newpath_vert, reference_vert, [20, 360, 220, 200])
+        generate_image(img, newpath_rss, reference_rss, [20, 100, 200, 250])
         generate_image(img, newpath_main, reference_main, [1046, 70, 310, 630])
         generate_image(img, newpath_calendar, reference_calendar, [20, 590, 310, 116])
         generate_image(img, newpath_player, reference_player, [826, 350, 220, 342])
@@ -114,6 +120,7 @@ if data["reference"] != name:
             json.dumps(
                 {
                     "vert": newpath_vert,
+                    "rss": newpath_rss,
                     "main": newpath_main,
                     "calendar": newpath_calendar,
                     "player": newpath_player,

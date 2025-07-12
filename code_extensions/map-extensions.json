@@ -80,8 +80,12 @@
     "ms-vscode.remote-explorer",
     "ms-vscode.remote-server"
   ],
-  "docker":[
+  "docker": [
     "ms-azuretools.vscode-docker",
     "ms-azuretools.vscode-containers"
+  ],
+  "java": [
+    "oracle.oracle-java",
+    "redhat.java"
   ]
 }

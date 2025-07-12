@@ -244,6 +244,13 @@ function conky_render_bar()
   return string.format("${image %s -s %sx%s -p %s,%s}", bg, 1366, 42, 0, 0)
 end
 
+function conky_render_rss()
+  bg = conky_parse(
+    '${exec jq .rss <  ~/.config/conky/MyMimosa/.cache/ref.json }')
+  bg = bg:gsub('"', '')
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, 220, 250, 20, 100)
+end
+
 function conky_render_main_bg()
   bg_height = bg_aspect * bg_width
   bg_pos_x = 0
