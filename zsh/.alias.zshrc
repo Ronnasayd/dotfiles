@@ -155,3 +155,4 @@ alias cd="z" # Use z of zoxide to navigate to directories more easily
 alias cdl="cdl" # Jump to original directory of a symbolic link
 alias bat="bat" # Use bat instead of cat
 alias wse="wse" # Utility to enable or disable extensions
+alias rss="open $(cat /tmp/rss.txt)" # Open current rss link showing at conky
