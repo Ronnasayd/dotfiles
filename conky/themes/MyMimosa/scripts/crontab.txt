@@ -1,0 +1,2 @@
+*/15 * * * *  bash /home/ronnas/.config/conky/MyMimosa/calendar.sh
+*/15 * * * *  bash /home/ronnas/.config/conky/MyMimosa/calendar.sh

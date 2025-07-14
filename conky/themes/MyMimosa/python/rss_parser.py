@@ -27,12 +27,12 @@ rss = [
         "source": "IEEESpectrum",
         "url": "https://feeds.feedburner.com/IeeeSpectrumFullText",
     },
-    {"source": "Hacker-news", "url": "https://news.ycombinator.com/rss"},
     {"source": "Medium-programming", "url": "https://medium.com/feed/tag/programming"},
     {"source": "Medium-Ai", "url": "https://medium.com/feed/tag/ai"},
     {"source": "Deepmind", "url": "https://deepmind.google/blog/rss.xml"},
     {"source": "towardsdatascience", "url": "https://towardsdatascience.com/feed"},
     {"source": "Uxplanet", "url": "https://uxplanet.org/feed"},
+    # {"source": "Hacker-news", "url": "https://news.ycombinator.com/rss"},
     # {"source":"feedburner","url":"http://feeds.feedburner.com/blogspot/gJZg"},
 ]
 
