@@ -6,3 +6,4 @@ echo "*/30 * * * *  python3 /home/ronnas/.config/conky/MyMimosa/python/rss_parse
 sort -u input.txt > output.txt
 rm input.txt
 cat output.txt | crontab -
+rm output.txt

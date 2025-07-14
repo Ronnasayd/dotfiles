@@ -1,3 +1,0 @@
-*/15 * * * *  bash /home/ronnas/.config/conky/MyMimosa/calendar.sh
-*/15 * * * *  bash /home/ronnas/.config/conky/MyMimosa/scripts/my.download.sh
-*/30 * * * *  python3 /home/ronnas/.config/conky/MyMimosa/python/rss_parser.py
