@@ -87,5 +87,10 @@
   "java": [
     "oracle.oracle-java",
     "redhat.java"
+  ],
+  "swagger": [
+    "redhat.vscode-yaml",
+    "emsav.swagger-validator",
+    "42crunch.vscode-openapi"
   ]
 }
