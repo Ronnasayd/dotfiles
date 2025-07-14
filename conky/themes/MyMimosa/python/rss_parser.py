@@ -1,7 +1,7 @@
 #!/home/ronnas/develop/personal/dotfiles/conky/themes/MyMimosa/python/venv/bin/python3
 import json
 import textwrap
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 import feedparser
 from bs4 import BeautifulSoup
@@ -95,15 +95,20 @@ for row in rss:
             wrapped_summary += "\n" * dd_height
         else:
             wrapped_summary = "\n".join(wrapped_summary.split("\n")[0:diff_height])
-        data.append(
-            dict(
-                title=wrapped_title,
-                summary=wrapped_summary,
-                url=entry.link,
-                source=source,
-                published=parse_date(translate_weekday(entry.published)),
+        published = parse_date(translate_weekday(entry.published))
+        published_dt = datetime.fromisoformat(published)
+        if published_dt.tzinfo is None:
+            published_dt = published_dt.replace(tzinfo=timezone.utc)
+        if datetime.now(timezone.utc) - published_dt < timedelta(days=60):
+            data.append(
+                dict(
+                    title=wrapped_title,
+                    summary=wrapped_summary,
+                    url=entry.link,
+                    source=source,
+                    published=published,
+                )
             )
-        )
 
 
 data = sorted(data, key=lambda x: x["published"], reverse=True)
