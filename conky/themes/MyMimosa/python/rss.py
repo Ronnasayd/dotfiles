@@ -1,6 +1,7 @@
 #!/home/ronnas/develop/personal/dotfiles/conky/themes/MyMimosa/python/venv/bin/python3
 import json
 import sys
+from datetime import datetime
 
 with open("/tmp/rss.json") as file:
     data = json.loads(file.read())
@@ -14,8 +15,12 @@ if __name__ == "__main__":
         title = data[index]["title"].replace("\n", f"\n${{offset {offset}}}")
         summary = data[index]["summary"].replace("\n", f"\n${{offset {offset}}}")
         source = data[index]["source"].replace("\n", f"\n${{offset {offset}}}")
+        published = datetime.fromisoformat(data[index]["published"]).strftime(
+            "%d/%m/%Y"
+        )
+        publushed = published.replace("\n", f"\n${{offset {offset}}}")
         print(
-            f"${{offset {offset}}}${{font FiraCode Nerd Font:size=12}} ${{font Roboto:bold:size=8}}{source}"
+            f"${{offset {offset}}}${{font FiraCode Nerd Font:size=12}} ${{font Roboto:bold:size=8}}{source} - {published}"
         )
         print(f"${{voffset 6}}${{offset {offset}}}${{font Roboto:bold:size=10}}{title}")
         print(f"${{voffset 8}}${{font Roboto:size=9}}${{offset {offset}}}{summary}...")
