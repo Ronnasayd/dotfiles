@@ -442,9 +442,9 @@ function conky_calendar()
   contents = file:read("*a")
   file:close()
   if align_right then
-    offset = bg_calendar_padding_x + 30
+    offset = bg_calendar_padding_x + 20
   else
-    offset = window_width - bg_calendar_width - bg_calendar_padding_x + 30
+    offset = window_width - bg_calendar_width - bg_calendar_padding_x + 20
   end
   offset_str = string.format('${offset %d}', offset)
   contents = string.gsub(contents, "offset|", offset_str)
