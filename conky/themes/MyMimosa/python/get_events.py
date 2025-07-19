@@ -1,6 +1,6 @@
-from datetime import datetime, timedelta
-import os 
-from datetime import timedelta,datetime,timezone
+import os
+from datetime import datetime, timedelta, timezone
+
 from decouple import config
 from gcsa.google_calendar import GoogleCalendar
 
@@ -23,9 +23,8 @@ for email, token_path in zip(emails, tokens):
     ):
         data.append(event)
 
-data = sorted(data, key=lambda x: x.start)
-
 if len(data) > 1:
+    data = sorted(data, key=lambda x: x.start)
     counter = 0
     content = ""
     os.system("for i in `atq | awk '{print $1}'`;do atrm $i;done")
@@ -34,8 +33,20 @@ if len(data) > 1:
         content += line
         counter += 1
         if datetime.now(timezone.utc) - event.start < timedelta(days=1):
-            print(f"echo \"notify-send\" '{event.summary}' | at {event.start.strftime('%H:%M')}")
-            os.system(f"echo \"notify-send\" '{event.summary}' | at {event.start.strftime('%H:%M')}") 
+            start_less_five = event.start - timedelta(minutes=5)
+            start_less_ten = event.start - timedelta(minutes=10)
+            print(
+                f"echo \"notify-send\" '{event.summary}' | at {event.start.strftime('%H:%M')}"
+            )
+            os.system(
+                f"echo \"notify-send\" '{event.summary}' | at {event.start.strftime('%H:%M %m/%d/%Y')}"
+            )
+            os.system(
+                f"echo \"notify-send\" '{event.summary}' | at {start_less_five.strftime('%H:%M %m/%d/%Y')}"
+            )
+            os.system(
+                f"echo \"notify-send\" '{event.summary}' | at {start_less_ten.strftime('%H:%M %m/%d/%Y')}"
+            )
     if counter > 0:
         with open("/tmp/conky-calendar", "w", encoding="utf-8") as file:
             file.write(content)

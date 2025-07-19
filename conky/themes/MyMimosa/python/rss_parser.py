@@ -14,10 +14,6 @@ rss = [
     },
     {"source": "Uol-tecnologia", "url": "https://rss.uol.com.br/feed/tecnologia.xml"},
     {
-        "source": "Olhar-digital",
-        "url": "https://olhar-digital-online.webnode.page/rss/all.xml",
-    },
-    {
         "source": "G1-tecnologia",
         "url": "https://g1.globo.com/dynamo/tecnologia/rss2.xml",
     },
@@ -27,11 +23,21 @@ rss = [
         "source": "IEEESpectrum",
         "url": "https://feeds.feedburner.com/IeeeSpectrumFullText",
     },
-    {"source": "Medium-programming", "url": "https://medium.com/feed/tag/programming"},
-    {"source": "Medium-Ai", "url": "https://medium.com/feed/tag/ai"},
+    {"source": "Medium-Dev", "url": "https://medium.com/feed/tag/programming"},
+    {
+        "source": "Medium-Ai",
+        "url": "https://medium.com/feed/tag/artificial-intelligence",
+    },
+    {"source": "Medium-SE", "url": "https://medium.com/feed/tag/software-engineering"},
+    {"source": "Medium-DL", "url": "https://medium.com/feed/tag/deep-learning"},
+    {"source": "Medium-ML", "url": "https://medium.com/feed/tag/machine-learning"},
+    {"source": "Medium-DS", "url": "https://medium.com/feed/tag/data-science"},
+    {"source": "Medium-Games", "url": "https://medium.com/feed/tag/gaming"},
     {"source": "Deepmind", "url": "https://deepmind.google/blog/rss.xml"},
     {"source": "towardsdatascience", "url": "https://towardsdatascience.com/feed"},
     {"source": "Uxplanet", "url": "https://uxplanet.org/feed"},
+    {"source": "akitaonrails", "url": "https://akitaonrails.com/index.xml"},
+    {"source": "technologyreview", "url": "https://www.technologyreview.com/feed/"},
     # {"source": "Hacker-news", "url": "https://news.ycombinator.com/rss"},
     # {"source":"feedburner","url":"http://feeds.feedburner.com/blogspot/gJZg"},
 ]
@@ -54,8 +60,8 @@ def translate_weekday(date_str):
     return date_str
 
 
-def get_clear_text(summary):
-    soup = BeautifulSoup(summary, "html.parser")
+def get_clear_text(summary_html):
+    soup = BeautifulSoup(summary_html, "html.parser")
     clean_text = soup.get_text().strip()
     return clean_text
 
