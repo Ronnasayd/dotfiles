@@ -2,7 +2,8 @@
 import json
 import textwrap
 from datetime import datetime, timedelta, timezone
-
+from langdetect import detect
+from langdetect.lang_detect_exception import LangDetectException
 import feedparser
 from bs4 import BeautifulSoup
 
@@ -105,7 +106,11 @@ for row in rss:
         published_dt = datetime.fromisoformat(published)
         if published_dt.tzinfo is None:
             published_dt = published_dt.replace(tzinfo=timezone.utc)
-        if datetime.now(timezone.utc) - published_dt < timedelta(days=60):
+        try:
+            is_correct_language = detect(wrapped_title) in ['pt','en']
+        except LangDetectException as e:
+            is_correct_language = False
+        if datetime.now(timezone.utc) - published_dt < timedelta(days=60) and is_correct_language:
             data.append(
                 dict(
                     title=wrapped_title,
