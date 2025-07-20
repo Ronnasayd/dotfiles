@@ -57,6 +57,7 @@ ln -s  $(pwd)/scripts/pscpu.py ~/.local/bin/pscpu
 ln -s  $(pwd)/plank-links/themes/MyTheme  ~/.local/share/plank/themes/MyTheme
 ln -s  $(pwd)/.editorconfig ~/.editorconfig
 ln -s  $(pwd)/code-themes ~/.vscode/extensions/code-themes
+ln -s  $(pwd)/ssh/config ~/.ssh/config
 
 
 sudo ln -s $(pwd)/plank-links/godot.desktop /usr/share/applications/godot.desktop

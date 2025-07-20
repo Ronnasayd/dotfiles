@@ -5,10 +5,16 @@ AddKeysToAgent yes
 IdentityFile "~/.ssh/id_rsa"
 
 
-Host work.github.com
+Host qq.github.com
 HostName github.com
 AddKeysToAgent yes
 IdentityFile "~/.ssh/id_rsa_QQ"
+
+
+Host lingopass.github.com
+HostName github.com
+AddKeysToAgent yes
+IdentityFile "~/.ssh/id_rsa_lingopass"
 
 Host *.trycloudflare.com
 HostName %h
