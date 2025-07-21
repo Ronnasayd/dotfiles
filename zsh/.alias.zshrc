@@ -101,7 +101,7 @@ alias ximg='xclip -selection clipboard -t image/png -o >' # Copy image from clip
 alias ctf='xclip -selection clipboard  -o >' # Copy content from clipboard to file
 alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1' # Count number of frames in video file
 alias echc='pactl load-module module-echo-cancel' # Load PulseAudio module for echo cancellation
-alias openr="git config --get remote.origin.url | sed s\"/work.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | sed s\"/\.git//\" | xargs -I{} xdg-open {}" # Open remote repository URL in default browser
+alias openr="git config --get remote.origin.url | sed s\"/queroquitar.//\" | sed s\"/lingopass.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | sed s\"/\.git//\" | xargs -I{} xdg-open {}" # Open remote repository URL in default browser
 alias openrb="openrb" # Open remote repository URL in current branch at browser
 alias openj="openj" # Open remote Jira task by branch
 alias mkdir='mkdir -p' # Create directory, including parent directories if necessary

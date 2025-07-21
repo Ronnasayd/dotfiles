@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Salva mudanças não preparadas para evitar interferências
+git stash -q --keep-index
+
+# Executa os testes
+pytest --disable-warnings --verbose # Substitua pelo comando adequado ao seu projeto
+
+TEST_RESULT=$?
+
+# Restaura as mudanças stashed
+git stash pop -q
+
+# Se testes falharem, o commit é bloqueado (código de saída diferente de zero)
+exit $TEST_RESULT
