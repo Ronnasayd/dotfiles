@@ -1,7 +1,7 @@
 #!/bin/bash
 /bin/bash -c $HOME/.config/conky/MyMimosa/scripts/my.download.sh
 /bin/bash -c $HOME/.config/conky/MyMimosa/calendar.sh
-python3 $HOME/.config/conky/MyMimosa/python/rss_parser.py
+/bin/bash -c $HOME/.config/conky/MyMimosa/python/rss_parser.py
 
 killall conky
 
