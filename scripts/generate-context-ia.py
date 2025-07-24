@@ -1,25 +1,44 @@
+#!/usr/bin/env python3
 import os
 import sys
 
 
-def is_binary_file(filepath, blocksize=1024):
-    with open(filepath, "rb") as f:
-        block = f.read(blocksize)
-        # Se o arquivo estiver vazio, consideramos texto (não binário)
+def is_binary_file(file_path, blocksize=512):
+    """
+    Verifica se o arquivo é binário ou texto.
+
+    Args:
+        file_path (str): Caminho do arquivo.
+        blocksize (int): Quantidade de bytes para ler e inspecionar (padrão 512).
+
+    Returns:
+        bool: True se arquivo for binário, False se for texto.
+    """
+    text_characters = bytearray(
+        {7, 8, 9, 10, 12, 13, 27} | set(range(0x20, 0x100)) - {0x7F}
+    )
+    with open(file_path, "rb") as file:
+        block = file.read(blocksize)
         if not block:
+            # Arquivo vazio pode ser considerado texto
             return False
-        # Checar se há bytes fora do intervalo ASCII imprimível comum
-        # Aqui, apenas um exemplo, ajustável conforme necessidades
-        text_chars = bytearray({7, 8, 9, 10, 12, 13, 27} | set(range(0x20, 0x7F)))
-        if bool(block.translate(None, text_chars)):
-            return True  # Contém bytes incomuns, provável binário
-        else:
-            return False  # Possivelmente arquivo texto
+        nontext = block.translate(None, text_characters)
+        # Se mais que 30% dos caracteres não são texto, é binário
+        return float(len(nontext)) / len(block) > 0.3
 
 
 def main():
     args = sys.argv
-    to_exclude = ["node_modules/", ".env", ".git/", "venv/", ".png", ".jpeg", ".token"]
+    to_exclude = [
+        "node_modules/",
+        ".env",
+        ".git/",
+        "venv/",
+        ".png",
+        ".jpeg",
+        ".token",
+        "__init__.py",
+    ]
     all_files = []
     context = ""
     for item in args[1:]:

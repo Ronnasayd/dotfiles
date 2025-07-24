@@ -157,3 +157,4 @@ alias bat="bat" # Use bat instead of cat
 alias wse="wse" # Utility to enable or disable extensions
 alias rss="open $(cat /tmp/rss.txt)" # Open current rss link showing at conky
 alias gssh="ssh-keygen -t rsa -b 4096 -C " # Generate private and public keys in ssh. usage-> gssh "nome@email.com"
+alias gcia="gcia" # Script que gera um context de arquivos para usar em prompts de IA
