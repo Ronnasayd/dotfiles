@@ -1,8 +1,33 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 import argparse
 import fnmatch
 import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+from dotenv import load_dotenv
+
+home_directory = os.path.expanduser("~")
+
+load_dotenv(dotenv_path=home_directory + "/.secrets/gcia.env")
+
+DEFAULT_EXCLUDE = [
+    "node_modules/",
+    "vendor/" ".env",
+    ".git/",
+    "venv/",
+    ".png",
+    ".jpeg",
+    ".token",
+    ".svg",
+    ".pytest_cache",
+    ".vscode-test",
+    ".nuxt/",
+    "dist/",
+    "build/",
+    "__init__.py",
+]
+
+DEFAULT_CONTENT_EXCLUDE = os.getenv("DEFAULT_CONTENT_EXCLUDE").split(",")
 
 
 def is_binary_file(file_path, blocksize=512):
@@ -27,18 +52,29 @@ def should_exclude(file_path, exclude_patterns):
     return False
 
 
-def read_file(file, must_list):
+def read_file(file, must_list, content_exclude):
     try:
         if not is_binary_file(file):
+            filepath = file.replace(home_directory, "~")
+            if must_list:
+                return f"// filepath: {filepath}\n"
             with open(file, "r", encoding="utf-8") as f:
                 content = f.read()
-            if not must_list:
-                return f"// filepath: {file}\n{content}\n"
-            return f"// filepath: {file}\n"
+                # Mascarar conteúdo com base nos padrões
+                for pattern in content_exclude:
+                    content = re.sub(
+                        re.escape(pattern),
+                        "[PRIVATE-INFO]",
+                        content,
+                        flags=re.IGNORECASE,
+                    )
+            return f"// filepath: {filepath}\n{content}\n"
+
         else:
             return None
     except Exception as e:
-        return f"// ERRO ao ler arquivo {file}: {e}\n"
+        filepath = file.replace(home_directory, "~")
+        return f"// ERRO ao ler arquivo {filepath}: {e}\n"
 
 
 def main():
@@ -47,19 +83,14 @@ def main():
     parser.add_argument(
         "--exclude",
         nargs="*",
-        default=[
-            "node_modules/",
-            ".env",
-            ".git/",
-            "venv/",
-            ".png",
-            ".jpeg",
-            ".token",
-            ".pytest_cache",
-            ".vscode-test",
-            "__init__.py",
-        ],
+        default=[*DEFAULT_EXCLUDE],
         help="Padrões para arquivos/pastas a excluir",
+    )
+    parser.add_argument(
+        "--content_exclude",
+        nargs="*",
+        default=[*DEFAULT_CONTENT_EXCLUDE],
+        help="Padrões para conteúdos a mascarar com [PRIVATE-INFO]",
     )
     parser.add_argument(
         "--workers",
@@ -71,9 +102,15 @@ def main():
         "--list",
         type=bool,
         default=False,
-        help="Apenas listart arquivos",
+        help="Apenas listar arquivos",
     )
     args = parser.parse_args()
+    args.exclude = sorted(set(DEFAULT_EXCLUDE + (args.exclude or [])))
+    args.content_exclude = sorted(
+        set(DEFAULT_CONTENT_EXCLUDE + (args.content_exclude or [])),
+        key=lambda x: len(x),
+        reverse=True,
+    )
 
     all_files = []
     for item in args.paths:
@@ -90,7 +127,8 @@ def main():
     results = []
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
         future_to_file = {
-            executor.submit(read_file, file, args.list): file for file in all_files
+            executor.submit(read_file, file, args.list, args.content_exclude): file
+            for file in all_files
         }
         for future in as_completed(future_to_file):
             result = future.result()
