@@ -50,6 +50,11 @@ def should_exclude(file_path, exclude_dirs, exclude_files, include_dirs):
     # Extrai diretórios do caminho para ver se deve incluir/excluir
     dir_path = file_path if os.path.isdir(file_path) else os.path.dirname(file_path)
 
+    # Excluir se for arquivo e bater com padrão de arquivo a excluir
+    for pattern in exclude_files:
+        if fnmatch.fnmatch(file_path, f"*{pattern}"):
+            return True
+
     # Se o caminho bate com include dirs, força a inclusão
     for pattern in include_dirs:
         if fnmatch.fnmatch(dir_path, f"*{pattern}*"):
@@ -59,11 +64,6 @@ def should_exclude(file_path, exclude_dirs, exclude_files, include_dirs):
     for pattern in exclude_dirs:
         if fnmatch.fnmatch(dir_path, f"*{pattern}*"):
             return True  # exclui
-
-    # Excluir se for arquivo e bater com padrão de arquivo a excluir
-    for pattern in exclude_files:
-        if fnmatch.fnmatch(file_path, f"*{pattern}*"):
-            return True
 
     return False
 
