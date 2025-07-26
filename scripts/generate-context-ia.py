@@ -46,10 +46,25 @@ def is_binary_file(file_path, blocksize=512):
         return True
 
 
-def should_exclude(file_path, exclude_patterns):
-    for pattern in exclude_patterns:
+def should_exclude(file_path, exclude_dirs, exclude_files, include_dirs):
+    # Extrai diretórios do caminho para ver se deve incluir/excluir
+    dir_path = file_path if os.path.isdir(file_path) else os.path.dirname(file_path)
+
+    # Se o caminho bate com include dirs, força a inclusão
+    for pattern in include_dirs:
+        if fnmatch.fnmatch(dir_path, f"*{pattern}*"):
+            return False  # inclui
+
+    # Excluir se o caminho bater com algum diretório a excluir
+    for pattern in exclude_dirs:
+        if fnmatch.fnmatch(dir_path, f"*{pattern}*"):
+            return True  # exclui
+
+    # Excluir se for arquivo e bater com padrão de arquivo a excluir
+    for pattern in exclude_files:
         if fnmatch.fnmatch(file_path, f"*{pattern}*"):
             return True
+
     return False
 
 
@@ -59,8 +74,9 @@ def read_file(file, must_list, content_exclude):
         if is_binary_file(file):
             return None
 
+        filepath = private_values(content_exclude, filepath, value="[PRIVATE-DIR-INFO]")
         if must_list:
-            return f"// filepath: {filepath}\n"
+            return f"// filepath: {filepath}"
 
         try:
             with open(file, "r", encoding="utf-8") as f:
@@ -69,12 +85,8 @@ def read_file(file, must_list, content_exclude):
             with open(file, "r", encoding="latin-1") as f:
                 content = f.read()
 
-        for pattern in content_exclude:
-            pattern = pattern.strip()
-            if pattern:
-                content = re.sub(
-                    re.escape(pattern), "[PRIVATE-INFO]", content, flags=re.IGNORECASE
-                )
+        content = re.sub(r"^\s*\n", "", content, flags=re.MULTILINE)
+        content = private_values(content_exclude, content, value="[PRIVATE-INFO]")
 
         return f"// filepath: {filepath}\n{content}\n"
 
@@ -82,8 +94,29 @@ def read_file(file, must_list, content_exclude):
         return f"// ERRO ao ler arquivo {filepath}: {e}\n"
 
 
+def private_values(content_exclude, content, value):
+    for pattern in content_exclude:
+        pattern = pattern.strip()
+        if pattern:
+            content = re.sub(re.escape(pattern), value, content, flags=re.IGNORECASE)
+
+    return content
+
+
 def parse_exclude_list(value):
     return [item.strip() for item in value.split(",") if item.strip()]
+
+
+def split_exclude_patterns(patterns):
+    exclude_dirs = []
+    exclude_files = []
+    for p in patterns:
+        p = p.strip()
+        if p.endswith("/") or os.path.isdir(p):
+            exclude_dirs.append(p)
+        else:
+            exclude_files.append(p)
+    return exclude_dirs, exclude_files
 
 
 def main():
@@ -96,10 +129,9 @@ def main():
         help="Lista de padrões a excluir, separados por vírgula (ex: node_modules/,venv/,dist/)",
     )
     parser.add_argument(
-        "--content_exclude",
-        nargs="*",
+        "--exclude-content",
         type=parse_exclude_list,
-        default=DEFAULT_CONTENT_EXCLUDE,
+        default=[],
         help="Padrões para conteúdos a mascarar com [PRIVATE-INFO] (ex: node_modules/,venv/,dist/)",
     )
     parser.add_argument(
@@ -113,12 +145,21 @@ def main():
         action="store_true",
         help="Apenas listar arquivos",
     )
+    parser.add_argument(
+        "--include",
+        type=parse_exclude_list,
+        default=[],
+        help="Lista de padrões a incluir, separados por vírgula (ex: src/,tests/)",
+    )
 
     args = parser.parse_args()
+    combined_exclude = sorted(set(DEFAULT_EXCLUDE + (args.exclude or [])))
 
-    args.exclude = sorted(set(DEFAULT_EXCLUDE + (args.exclude or [])))
-    args.content_exclude = sorted(
-        set(DEFAULT_CONTENT_EXCLUDE + (args.content_exclude or [])),
+    exclude_dirs, exclude_files = split_exclude_patterns(combined_exclude)
+    include_dirs = sorted(set(args.include or []))
+
+    args.exclude_content = sorted(
+        set(DEFAULT_CONTENT_EXCLUDE + (args.exclude_content or [])),
         key=len,
         reverse=True,
     )
@@ -126,19 +167,21 @@ def main():
     all_files = []
     for item in args.paths:
         if os.path.isfile(item):
-            if not should_exclude(item, args.exclude):
+            if not should_exclude(item, exclude_dirs, exclude_files, include_dirs):
                 all_files.append(item)
         else:
             for root, _, files in os.walk(item):
                 for file in files:
                     filepath = os.path.join(root, file)
-                    if not should_exclude(filepath, args.exclude):
+                    if not should_exclude(
+                        filepath, exclude_dirs, exclude_files, include_dirs
+                    ):
                         all_files.append(filepath)
 
     results = []
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
         futures = {
-            executor.submit(read_file, file, args.list, args.content_exclude): file
+            executor.submit(read_file, file, args.list, args.exclude_content): file
             for file in all_files
         }
         for future in as_completed(futures):
