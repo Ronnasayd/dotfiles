@@ -2,17 +2,18 @@
 import argparse
 import fnmatch
 import os
+import re  # Usar re padrão do Python
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from dotenv import load_dotenv
 
 home_directory = os.path.expanduser("~")
-
-load_dotenv(dotenv_path=home_directory + "/.secrets/gcia.env")
+load_dotenv(dotenv_path=os.path.join(home_directory, ".secrets", "gcia.env"))
 
 DEFAULT_EXCLUDE = [
     "node_modules/",
-    "vendor/" ".env",
+    "vendor/",
+    ".env",
     ".git/",
     "venv/",
     ".png",
@@ -27,7 +28,7 @@ DEFAULT_EXCLUDE = [
     "__init__.py",
 ]
 
-DEFAULT_CONTENT_EXCLUDE = os.getenv("DEFAULT_CONTENT_EXCLUDE").split(",")
+DEFAULT_CONTENT_EXCLUDE = os.getenv("DEFAULT_CONTENT_EXCLUDE", "").split(",")
 
 
 def is_binary_file(file_path, blocksize=512):
@@ -53,28 +54,36 @@ def should_exclude(file_path, exclude_patterns):
 
 
 def read_file(file, must_list, content_exclude):
+    filepath = file.replace(home_directory, "~")
     try:
-        if not is_binary_file(file):
-            filepath = file.replace(home_directory, "~")
-            if must_list:
-                return f"// filepath: {filepath}\n"
+        if is_binary_file(file):
+            return None
+
+        if must_list:
+            return f"// filepath: {filepath}\n"
+
+        try:
             with open(file, "r", encoding="utf-8") as f:
                 content = f.read()
-                # Mascarar conteúdo com base nos padrões
-                for pattern in content_exclude:
-                    content = re.sub(
-                        re.escape(pattern),
-                        "[PRIVATE-INFO]",
-                        content,
-                        flags=re.IGNORECASE,
-                    )
-            return f"// filepath: {filepath}\n{content}\n"
+        except UnicodeDecodeError:
+            with open(file, "r", encoding="latin-1") as f:
+                content = f.read()
 
-        else:
-            return None
+        for pattern in content_exclude:
+            pattern = pattern.strip()
+            if pattern:
+                content = re.sub(
+                    re.escape(pattern), "[PRIVATE-INFO]", content, flags=re.IGNORECASE
+                )
+
+        return f"// filepath: {filepath}\n{content}\n"
+
     except Exception as e:
-        filepath = file.replace(home_directory, "~")
         return f"// ERRO ao ler arquivo {filepath}: {e}\n"
+
+
+def parse_exclude_list(value):
+    return [item.strip() for item in value.split(",") if item.strip()]
 
 
 def main():
@@ -82,15 +91,16 @@ def main():
     parser.add_argument("paths", nargs="+", help="Diretórios ou arquivos para indexar")
     parser.add_argument(
         "--exclude",
-        nargs="*",
-        default=[*DEFAULT_EXCLUDE],
-        help="Padrões para arquivos/pastas a excluir",
+        type=parse_exclude_list,
+        default=[],
+        help="Lista de padrões a excluir, separados por vírgula (ex: node_modules/,venv/,dist/)",
     )
     parser.add_argument(
         "--content_exclude",
         nargs="*",
-        default=[*DEFAULT_CONTENT_EXCLUDE],
-        help="Padrões para conteúdos a mascarar com [PRIVATE-INFO]",
+        type=parse_exclude_list,
+        default=DEFAULT_CONTENT_EXCLUDE,
+        help="Padrões para conteúdos a mascarar com [PRIVATE-INFO] (ex: node_modules/,venv/,dist/)",
     )
     parser.add_argument(
         "--workers",
@@ -100,22 +110,24 @@ def main():
     )
     parser.add_argument(
         "--list",
-        type=bool,
-        default=False,
+        action="store_true",
         help="Apenas listar arquivos",
     )
+
     args = parser.parse_args()
+
     args.exclude = sorted(set(DEFAULT_EXCLUDE + (args.exclude or [])))
     args.content_exclude = sorted(
         set(DEFAULT_CONTENT_EXCLUDE + (args.content_exclude or [])),
-        key=lambda x: len(x),
+        key=len,
         reverse=True,
     )
 
     all_files = []
     for item in args.paths:
         if os.path.isfile(item):
-            all_files.append(item)
+            if not should_exclude(item, args.exclude):
+                all_files.append(item)
         else:
             for root, _, files in os.walk(item):
                 for file in files:
@@ -123,14 +135,13 @@ def main():
                     if not should_exclude(filepath, args.exclude):
                         all_files.append(filepath)
 
-    # Multithreading na leitura dos arquivos
     results = []
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
-        future_to_file = {
+        futures = {
             executor.submit(read_file, file, args.list, args.content_exclude): file
             for file in all_files
         }
-        for future in as_completed(future_to_file):
+        for future in as_completed(futures):
             result = future.result()
             if result:
                 results.append(result)
