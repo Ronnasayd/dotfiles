@@ -11,10 +11,10 @@ home_directory = os.path.expanduser("~")
 load_dotenv(dotenv_path=os.path.join(home_directory, ".secrets", "gcia.env"))
 
 DEFAULT_EXCLUDE = [
-    "node_modules/",
-    "vendor/",
+    "/node_modules/",
+    "/vendor/",
     ".env",
-    ".git/",
+    "/.git/",
     "venv/",
     ".png",
     ".jpeg",
@@ -22,9 +22,9 @@ DEFAULT_EXCLUDE = [
     ".svg",
     ".pytest_cache",
     ".vscode-test",
-    ".nuxt/",
-    "dist/",
-    "build/",
+    "/.nuxt/",
+    "/dist/",
+    "/build/",
     "__init__.py",
 ]
 
@@ -48,7 +48,6 @@ def is_binary_file(file_path, blocksize=512):
 
 def should_exclude(file_path, exclude_dirs, exclude_files, include_dirs):
     # Extrai diretórios do caminho para ver se deve incluir/excluir
-    dir_path = file_path if os.path.isdir(file_path) else os.path.dirname(file_path)
 
     # Excluir se for arquivo e bater com padrão de arquivo a excluir
     for pattern in exclude_files:
@@ -57,12 +56,12 @@ def should_exclude(file_path, exclude_dirs, exclude_files, include_dirs):
 
     # Se o caminho bate com include dirs, força a inclusão
     for pattern in include_dirs:
-        if fnmatch.fnmatch(dir_path, f"*{pattern}*"):
+        if fnmatch.fnmatch(file_path, f"*{pattern}*"):
             return False  # inclui
 
     # Excluir se o caminho bater com algum diretório a excluir
     for pattern in exclude_dirs:
-        if fnmatch.fnmatch(dir_path, f"*{pattern}*"):
+        if fnmatch.fnmatch(file_path, f"*{pattern}*"):
             return True  # exclui
 
     return False
