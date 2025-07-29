@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import argparse
 import fnmatch
+import hashlib
 import os
 import re  # Usar re padrão do Python
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -18,7 +19,7 @@ DEFAULT_EXCLUDE = [
     "venv/",
     ".png",
     ".jpeg",
-    ".token",
+    ".token.json",
     ".svg",
     ".pytest_cache",
     ".vscode-test",
@@ -26,9 +27,15 @@ DEFAULT_EXCLUDE = [
     "/dist/",
     "/build/",
     "__init__.py",
+    "/.pytest_cache/",
 ]
 
 DEFAULT_CONTENT_EXCLUDE = os.getenv("DEFAULT_CONTENT_EXCLUDE", "").split(",")
+
+
+def short_hash(texto, tamanho=8):
+    hash_completo = hashlib.sha256(texto.encode()).hexdigest()
+    return hash_completo[:tamanho]
 
 
 def is_binary_file(file_path, blocksize=512):
@@ -73,7 +80,7 @@ def read_file(file, must_list, content_exclude):
         if is_binary_file(file):
             return None
 
-        filepath = private_values(content_exclude, filepath, value="[PRIVATE-DIR-INFO]")
+        filepath = private_values_dir(content_exclude, filepath)
         if must_list:
             return f"// filepath: {filepath}"
 
@@ -98,6 +105,17 @@ def private_values(content_exclude, content, value):
         pattern = pattern.strip()
         if pattern:
             content = re.sub(re.escape(pattern), value, content, flags=re.IGNORECASE)
+
+    return content
+
+
+def private_values_dir(content_exclude, content):
+    for pattern in content_exclude:
+        pattern = pattern.strip()
+        if pattern:
+            content = re.sub(
+                re.escape(pattern), short_hash(pattern), content, flags=re.IGNORECASE
+            )
 
     return content
 
