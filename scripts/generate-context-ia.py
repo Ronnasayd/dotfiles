@@ -28,9 +28,77 @@ DEFAULT_EXCLUDE = [
     "/build/",
     "__init__.py",
     "/.pytest_cache/",
+    ".eslintcache",
+    "yarn.lock",
+    "package-lock.json",
 ]
 
 DEFAULT_CONTENT_EXCLUDE = os.getenv("DEFAULT_CONTENT_EXCLUDE", "").split(",")
+
+import base64
+import math
+import os
+import re
+
+
+def is_high_entropy_string(s, threshold=4.3):
+    """Calcula a entropia de uma string para verificar se é Base64 suspeito"""
+    if not s:
+        return False
+    prob = [float(s.count(c)) / len(s) for c in dict.fromkeys(list(s))]
+    entropy = -sum([p * math.log2(p) for p in prob])
+    return entropy >= threshold
+
+
+def is_base64_string(s):
+    """Verifica se a string é Base64 válida"""
+    try:
+        if len(s) % 4 != 0 or len(s) < 20:
+            return False
+        decoded = base64.b64decode(s, validate=True)
+        return is_high_entropy_string(s)
+    except Exception:
+        return False
+
+
+def detect_sensitive_content(text):
+    """Detecta padrões comuns de chaves e base64"""
+    patterns = [
+        r"AKIA[0-9A-Z]{16}",  # AWS Access Key ID
+        r"ASIA[0-9A-Z]{16}",  # AWS Temporary Access Key
+        r"sk_live_[0-9a-zA-Z]{24,}",  # Stripe live secret key
+        r"AIza[0-9A-Za-z-_]{35}",  # Google API Key
+        r"(?i)-----BEGIN RSA PRIVATE KEY-----.*?-----END RSA PRIVATE KEY-----",  # RSA key
+        r"(?i)-----BEGIN PRIVATE KEY-----.*?-----END PRIVATE KEY-----",
+        r'(access_token|api_key|secret)[\'"]?\s*[:=]\s*[\'"][a-zA-Z0-9_\-]{20,}[\'"]',
+        r"\b[a-fA-F0-9]{32}\b",  # "MD5"
+        r"\b[a-fA-F0-9]{40}\b",  # "SHA1"
+        r"\b[a-fA-F0-9]{64}\b",  # "SHA256"
+        r"\b[a-fA-F0-9]{128}\b",  # "SHA512"
+        r"\$2[aby]?\$[0-9]{2}\$[./A-Za-z0-9]{53}",  # "bcrypt"
+        r"\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b",  # "UUID"
+    ]
+
+    # detect_possible_hashes(text)
+
+    found = []
+
+    # Checar por padrões fixos
+    for pattern in patterns:
+        matches = re.findall(pattern, text, re.DOTALL)
+        if matches:
+            found.extend(matches)
+
+    # Checar por strings Base64 de alta entropia
+    base64_candidates = re.findall(
+        r"[A-Za-z0-9+/=]{20,}",
+        text,
+    )
+    for candidate in base64_candidates:
+        if is_base64_string(candidate):
+            found.append(f"{candidate}")
+
+    return found
 
 
 def short_hash(texto, tamanho=8):
@@ -80,13 +148,18 @@ def read_file(file, must_list, content_exclude):
         if is_binary_file(file):
             return None
 
-        filepath = private_values_dir(content_exclude, filepath)
         if must_list:
             return f"// filepath: {filepath}"
 
         try:
             with open(file, "r", encoding="utf-8") as f:
                 content = f.read()
+                findings = detect_sensitive_content(content)
+                if findings:
+                    # print(f"\n[!] Conteúdo suspeito encontrado em: {filepath}")
+                    for f in findings:
+                        content = content.replace(f, "[PRIVATE-HASH-INFO]")
+                        # print(f"  → {f}")
         except UnicodeDecodeError:
             with open(file, "r", encoding="latin-1") as f:
                 content = f.read()
@@ -105,17 +178,6 @@ def private_values(content_exclude, content, value):
         pattern = pattern.strip()
         if pattern:
             content = re.sub(re.escape(pattern), value, content, flags=re.IGNORECASE)
-
-    return content
-
-
-def private_values_dir(content_exclude, content):
-    for pattern in content_exclude:
-        pattern = pattern.strip()
-        if pattern:
-            content = re.sub(
-                re.escape(pattern), short_hash(pattern), content, flags=re.IGNORECASE
-            )
 
     return content
 
