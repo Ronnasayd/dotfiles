@@ -16,6 +16,8 @@ alias gtb="git checkout -b" # Create a new branch and switch to it
 alias ga="git add" # Add file contents to the index (staging area)
 alias gm="git merge" # Join two or more development histories together
 alias gfur="git fetch --all --prune --tags --prune-tags --progress" # Update list of remote branches
+alias ggurl="git config --get remote.origin.url" # Get remote origin url of current git repo
+alias gsurl="git remote set-url origin" # Set remote origin url of current git repo
 alias pyserver="python3 -m http.server 8000 --directory" # Start a simple HTTP server in a specified directory
 alias pyv="python3 -m venv venv && source venv/bin/activate" # Create and activate a Python virtual environment
 alias pyv3="virtualenv --python=python3.6 venv" # Create a virtual environment with Python 3.6
