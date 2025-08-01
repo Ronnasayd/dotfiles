@@ -102,8 +102,11 @@ for row in rss:
             wrapped_summary += "\n" * dd_height
         else:
             wrapped_summary = "\n".join(wrapped_summary.split("\n")[0:diff_height])
-        published = parse_date(translate_weekday(entry.published))
-        published_dt = datetime.fromisoformat(published)
+        try:
+            published = parse_date(translate_weekday(entry.published))
+            published_dt = datetime.fromisoformat(published)
+        except Exception as e:
+            continue
         if published_dt.tzinfo is None:
             published_dt = published_dt.replace(tzinfo=timezone.utc)
         try:
