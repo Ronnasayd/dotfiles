@@ -31,6 +31,7 @@ DEFAULT_EXCLUDE = [
     ".eslintcache",
     "yarn.lock",
     "package-lock.json",
+    ".gitignore",
 ]
 
 DEFAULT_CONTENT_EXCLUDE = os.getenv("DEFAULT_CONTENT_EXCLUDE", "").split(",")
@@ -167,10 +168,17 @@ def read_file(file, must_list, content_exclude):
         content = re.sub(r"^\s*\n", "", content, flags=re.MULTILINE)
         content = private_values(content_exclude, content, value="[PRIVATE-INFO]")
 
-        return f"// filepath: {filepath}\n{content}\n"
+        ext = "sh"
+        if "." in filepath:
+            _, ext = os.path.splitext(filepath)
+            ext = ext[1:]
+        # if ext == "md":
+        #     content = content.replace("`", "\`")
+        result = f"### File: {filepath}\n````{ext}\n{content}\n````\n"
+        return result
 
     except Exception as e:
-        return f"// ERRO ao ler arquivo {filepath}: {e}\n"
+        return f"# ERRO ao ler arquivo {filepath}: {e}\n"
 
 
 def private_values(content_exclude, content, value):
@@ -268,6 +276,7 @@ def main():
             if result:
                 results.append(result)
 
+    print(f"# Contexto\n")
     print("\n".join(results))
 
 
