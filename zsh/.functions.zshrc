@@ -476,3 +476,7 @@ replace() {
 cdl(){
   z $(readlink -f $1)
 }
+
+cows(){
+  code $(ws | fzf)
+}
