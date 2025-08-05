@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 import argparse
+import base64
 import fnmatch
 import hashlib
+import math
 import os
 import re  # Usar re padrão do Python
+import subprocess
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from dotenv import load_dotenv
@@ -36,10 +39,17 @@ DEFAULT_EXCLUDE = [
 
 DEFAULT_CONTENT_EXCLUDE = os.getenv("DEFAULT_CONTENT_EXCLUDE", "").split(",")
 
-import base64
-import math
-import os
-import re
+
+def run_tree_command(path="."):
+    result = subprocess.run(
+        ["tree", path, "-I", "venv", "-I", "node_modules"],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode == 0:
+        return result.stdout
+    else:
+        return "Erro ao executar o comando tree: " + result.stderr
 
 
 def is_high_entropy_string(s, threshold=4.3):
@@ -174,7 +184,7 @@ def read_file(file, must_list, content_exclude):
             ext = ext[1:]
         # if ext == "md":
         #     content = content.replace("`", "\`")
-        result = f"### File: {filepath}\n````{ext}\n{content}\n````\n"
+        result = f"### Arquivo: {filepath}\n````{ext}\n{content}\n````\n"
         return result
 
     except Exception as e:
@@ -233,6 +243,11 @@ def main():
         help="Apenas listar arquivos",
     )
     parser.add_argument(
+        "--tree",
+        action="store_true",
+        help="Adiciona a arvore de arquivos",
+    )
+    parser.add_argument(
         "--include",
         type=parse_exclude_list,
         default=[],
@@ -252,11 +267,13 @@ def main():
     )
 
     all_files = []
+    directories = []
     for item in args.paths:
         if os.path.isfile(item):
             if not should_exclude(item, exclude_dirs, exclude_files, include_dirs):
                 all_files.append(item)
         else:
+            directories.append(item)
             for root, _, files in os.walk(item):
                 for file in files:
                     filepath = os.path.join(root, file)
@@ -278,6 +295,10 @@ def main():
 
     print(f"# Contexto\n")
     print("\n".join(results))
+    if args.tree:
+        print("## Arvores de arquivos")
+        for directory in directories:
+            print(f"````sh\n{run_tree_command(directory)}````")
 
 
 if __name__ == "__main__":
