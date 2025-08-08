@@ -52,9 +52,8 @@ ln -s  $(pwd)/nemo_actions/copy_path.nemo_action ~/.local/share/nemo/actions/cop
 ln -s  $(pwd)/scripts/colorize-logs.sh ~/.local/bin/colorize-logs
 ln -s  $(pwd)/scripts/qr-server.sh ~/.local/bin/qr-server
 ln -s  $(pwd)/scripts/qr-copy.sh ~/.local/bin/qr-copy
-ln -s  $(pwd)/scripts/generate-context-ia.py ~/.local/bin/gcia
-ln -s  $(pwd)/scripts/generate-coverage-ia.py ~/.local/bin/gcvia
 ln -s  $(pwd)/scripts/ws.py ~/.local/bin/ws
+ln -s  $(pwd)/scripts/commit_ai.py ~/.local/bin/commitai
 ln -s  $(pwd)/scripts/change_background.sh ~/.local/bin/change_background
 ln -s  $(pwd)/scripts/pscpu.py ~/.local/bin/pscpu
 ln -s  $(pwd)/plank-links/themes/MyTheme  ~/.local/share/plank/themes/MyTheme
