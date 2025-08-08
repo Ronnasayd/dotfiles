@@ -6,7 +6,6 @@ import sys
 import requests
 from dotenv import load_dotenv
 
-
 home_directory = os.path.expanduser("~")
 load_dotenv(dotenv_path=os.path.join(home_directory, ".secrets", "openrouter.env"))
 
@@ -32,11 +31,11 @@ payload = {
     "messages": [
         {
             "role": "system",
-            "content": "Você é um assistente que escreve mensagens de commit curtas, no formato conventional commits.",
+            "content": "You are an assistant that writes short commit messages in the Conventional Commits format. Do not start the commit message with any word other than: feat, fix, docs, style, refactor, perf, test, or chore.",
         },
         {
             "role": "user",
-            "content": f"Analise as alterações abaixo e crie uma mensagem de commit clara e concisa:\n\n{diff}",
+            "content": f"Analyze the changes below and create a clear and concise commit message:\n\n{diff} in the conventional commits format. Do not start the commit message with any word other than: feat, fix, docs, style, refactor, perf, test, or chore.",
         },
     ],
     "temperature": 0.3,
