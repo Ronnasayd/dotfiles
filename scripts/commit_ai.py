@@ -2,16 +2,26 @@
 import os
 import subprocess
 import sys
-
 import requests
 from dotenv import load_dotenv
 
+# 🔹 Descobre a raiz do repositório Git (mesmo se script for chamado de outro lugar)
+try:
+    repo_root = subprocess.run(
+        ["git", "rev-parse", "--show-toplevel"],
+        capture_output=True, text=True, check=True
+    ).stdout.strip()
+except subprocess.CalledProcessError:
+    print("❌ Este script precisa ser executado dentro de um repositório Git.")
+    sys.exit(1)
+
+# 🔹 Carrega variáveis de ambiente do .secrets do usuário
 home_directory = os.path.expanduser("~")
 load_dotenv(dotenv_path=os.path.join(home_directory, ".secrets", "openrouter.env"))
 
 # 1. Obter diff dos arquivos staged
 diff = subprocess.run(
-    ["git", "diff", "--cached"], capture_output=True, text=True
+    ["git", "diff", "--cached"], capture_output=True, text=True, cwd=repo_root
 ).stdout
 
 if not diff.strip():
@@ -24,10 +34,10 @@ if not api_key:
     print("❌ Variável de ambiente OPENROUTER_API_KEY não encontrada.")
     sys.exit(1)
 
-# 3. Chamar API do OpenRouter
+# 3. Chamar API do OpenRouter para gerar mensagem
 url = "https://openrouter.ai/api/v1/chat/completions"
 payload = {
-    "model": "openai/gpt-oss-20b:free",  # Pode trocar para outro modelo disponível
+    "model": "openai/gpt-oss-20b:free",
     "messages": [
         {
             "role": "system",
@@ -48,8 +58,8 @@ try:
     response.raise_for_status()
     commit_message = response.json()["choices"][0]["message"]["content"].strip()
 
-    # 4. Executar commit
-    subprocess.run(["git", "commit", "-m", commit_message])
+    # 4. Executar commit na raiz do repositório certo (garante que o hook commit-msg seja chamado)
+    subprocess.run(["git", "commit", "-m", commit_message], cwd=repo_root)
     print(f"✅ Commit criado: {commit_message}")
 
 except requests.RequestException as e:
