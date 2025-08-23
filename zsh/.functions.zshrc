@@ -1,20 +1,20 @@
 on_enter_directory() {
-  if [[ -f "$1/.tool-versions" && $(<$1/.tool-versions) == *go* ]]; then
-    export GOPATH=$(~/.asdf/shims/go env GOPATH)
-  fi
+  # if [[ -f "$1/.tool-versions" && $(<$1/.tool-versions) == *go* ]]; then
+  #   # export GOPATH=$(~/.asdf/shims/go env GOPATH)
+  # fi
   if [ -f "$1/go.mod" ]; then
     export GO111MODULE=on
-    export GOPATH=$(~/.asdf/shims/go env GOPATH)
+    # export GOPATH=$(~/.asdf/shims/go env GOPATH)
   fi
   if [ -f "$1/Gopkg.toml" ]; then
     export GO111MODULE=off
-    export GOPATH=$(~/.asdf/shims/go env GOPATH)
+    # export GOPATH=$(~/.asdf/shims/go env GOPATH)
   fi
   if [ -d "$1/venv" ]; then
     source "$1/venv/bin/activate"
   fi
   SPECIFIC_DIR="/home/ronnas/develop/QQ/"
-  QQ_DIR="$(~/.asdf/shims/go env GOPATH)/src/github.com/queroquitar/"
+  QQ_DIR="$GOPATH/src/github.com/queroquitar/"
   CURRENT_DIR="$(pwd)"
   if [[ "$CURRENT_DIR" == "$SPECIFIC_DIR"* ]] || [[ "$CURRENT_DIR" == "$QQ_DIR"* ]]; then
     export GOPRIVATE=github.com/queroquitar/*
@@ -154,9 +154,16 @@ find-text() {
   else
     DIR=$2
   fi
-  grep --color=always -HnRE --exclude-dir="vendor" --exclude-dir="env" --exclude-dir="venv" --exclude-dir="node_modules" --exclude-dir=".git" "$1" "$DIR" | awk '{ print substr($0, 1, length($0) < 250 ? length($0) : 250) }'
-}
 
+  ag --color --numbers \
+     --ignore "vendor" \
+     --ignore "env" \
+     --ignore "venv" \
+     --ignore "node_modules" \
+     --ignore ".git" \
+     "$1" "$DIR" \
+  | awk '{ print substr($0, 1, length($0) < 250 ? length($0) : 250) }'
+}
 # find-directory - Find directories by name and display their last modified dates.
 #
 # Usage: find-directory <directory_name>
@@ -479,4 +486,69 @@ cdl(){
 
 cows(){
   code $(ws | fzf)
+}
+
+# Função helper para criar symlink de um projeto no GOPATH
+gopath_link() {
+  if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Uso: gopath_link <org> <caminho_projeto>"
+    return 1
+  fi
+  local org="$1"
+  local proj_path="$2"
+  local proj_name=$(basename "$proj_path")
+  mkdir -p "$GOPATH/src/github.com/$org"
+  ln -sfn "$proj_path" "$GOPATH/src/github.com/$org/$proj_name"
+  echo "✅ Link criado: $GOPATH/src/github.com/$org/$proj_name -> $proj_path"
+}
+
+
+# Sobrescrevendo o comando `dep`
+dep() {
+  if [[ "$1" == "ensure" ]]; then
+    local proj_path=$(pwd)
+    if [ -f "$proj_path/Gopkg.toml" ]; then
+      # ajuste aqui o nome da org (ex: queroquitar)
+      local org="queroquitar"
+      local link_path=$GOPATH/src/github.com/$org/$(basename $(pwd))
+
+      echo "📦 Mudando para GOPATH: $link_path"
+      cd "$link_path" || return 1
+    fi
+  fi
+
+  # chama o binário real do dep (do PATH/asdf)
+  command dep "$@"
+}
+
+
+copy() {
+    local src="$1"
+
+    if [[ ! -f "$src" ]]; then
+        echo "Erro: arquivo '$src' não existe."
+        return 1
+    fi
+
+    if file --mime "$src" | grep -q "text"; then
+        # Arquivo de texto → copia conteúdo
+        if command -v xclip >/dev/null 2>&1; then
+            cat "$src" | xclip -selection clipboard
+        elif command -v wl-copy >/dev/null 2>&1; then
+            cat "$src" | wl-copy
+        else
+            echo "Nenhum comando de clipboard encontrado (instale xclip ou wl-clipboard)."
+            return 1
+        fi
+    else
+        # Arquivo binário → copia apenas o path
+        if command -v xclip >/dev/null 2>&1; then
+            echo "$(pwd)/$src" | xclip -selection clipboard
+        elif command -v wl-copy >/dev/null 2>&1; then
+            echo "$(pwd)/$src" | wl-copy
+        else
+            echo "Nenhum comando de clipboard encontrado (instale xclip ou wl-clipboard)."
+            return 1
+        fi
+    fi
 }

@@ -163,3 +163,4 @@ alias gssh="ssh-keygen -t rsa -b 4096 -C " # Generate private and public keys in
 alias gcia="gcia" # Script que gera um context de arquivos para usar em prompts de IA
 alias gcvia="gcvia" # Script que gera um context de cobertura de testes para usar em prompts de IA
 alias ws="ws" # List recent VS Code workspaces and folders
+alias gemini="ASDF_NODEJS_VERSION=20.13.0 gemini" # using correct node version for gemini

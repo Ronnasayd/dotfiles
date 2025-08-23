@@ -10,6 +10,11 @@ HostName github.com
 AddKeysToAgent yes
 IdentityFile "~/.ssh/id_rsa_QQ"
 
+Host work.github.com
+HostName github.com
+AddKeysToAgent yes
+IdentityFile "~/.ssh/id_rsa_QQ"
+
 
 Host lingopass.github.com
 HostName github.com
