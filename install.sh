@@ -51,6 +51,7 @@ ln -s  $(pwd)/nemo_actions/copy_path_nemo.sh ~/.local/share/nemo/actions/copy_pa
 ln -s  $(pwd)/nemo_actions/copy_path.nemo_action ~/.local/share/nemo/actions/copy_path.nemo_action
 ln -s  $(pwd)/scripts/colorize-logs.sh ~/.local/bin/colorize-logs
 ln -s  $(pwd)/scripts/qr-server.sh ~/.local/bin/qr-server
+ln -s  $(pwd)/scripts/save.sh ~/.local/bin/save
 ln -s  $(pwd)/scripts/qr-copy.sh ~/.local/bin/qr-copy
 ln -s  $(pwd)/scripts/ws.py ~/.local/bin/ws
 ln -s  $(pwd)/scripts/commit_ai.py ~/.local/bin/commitai
