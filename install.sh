@@ -57,6 +57,8 @@ ln -s  $(pwd)/scripts/ws.py ~/.local/bin/ws
 ln -s  $(pwd)/scripts/commit_ai.py ~/.local/bin/commitai
 ln -s  $(pwd)/scripts/change_background.sh ~/.local/bin/change_background
 ln -s  $(pwd)/scripts/pscpu.py ~/.local/bin/pscpu
+ln -s  $(pwd)/scripts/create_python_wrapper.sh ~/.local/bin/create_python_wrapper
+ln -s  $(pwd)/scripts/curl_headers.py ~/.local/bin/curl_headers
 ln -s  $(pwd)/plank-links/themes/MyTheme  ~/.local/share/plank/themes/MyTheme
 ln -s  $(pwd)/.editorconfig ~/.editorconfig
 ln -s  $(pwd)/code-themes ~/.vscode/extensions/code-themes
