@@ -164,3 +164,4 @@ alias gcia="generate-context-ia" # Script que gera um context de arquivos para u
 alias gcvia="generate-coverage-ia" # Script que gera um context de cobertura de testes para usar em prompts de IA
 alias ws="ws" # List recent VS Code workspaces and folders
 alias gemini="ASDF_NODEJS_VERSION=20.13.0 gemini" # using correct node version for gemini
+alias curlheaders="curl_headers" # Fetch and display HTTP headers from a URL
