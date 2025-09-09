@@ -41,11 +41,11 @@ payload = {
     "messages": [
         {
             "role": "system",
-            "content": "You are an assistant that writes short commit messages in the Conventional Commits format. Do not start the commit message with any word other than: feat, fix, docs, style, refactor, perf, test, or chore.",
+            "content": "You are an assistant that writes short commit messages in the Conventional Commits format. Thoroughly analyze the changes and create a clear and concise commit message in conventional commit format. Don't start the commit message with any words other than: feat, fix, docs, style, refactor, perf, test, or chore. Don't include any emojis. Ensure the message accurately reflects the changes made.",
         },
         {
             "role": "user",
-            "content": f"Analyze the changes below and create a clear and concise commit message:\n\n{diff} in the conventional commits format. Do not start the commit message with any word other than: feat, fix, docs, style, refactor, perf, test, or chore.",
+            "content": f"Analyze the changes below and create a clear and concise commit message:\n\n{diff} in the conventional commits format. Thoroughly analyze the changes and create a clear and concise commit message in conventional commit format. Don't start the commit message with any words other than: feat, fix, docs, style, refactor, perf, test, or chore. Don't include any emojis. Ensure the message accurately reflects the changes made.",
         },
     ],
     "temperature": 0.3,
