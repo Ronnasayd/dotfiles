@@ -168,3 +168,4 @@ alias curlheaders="curl_headers" # Fetch and display HTTP headers from a URL
 alias cpw="create_python_wrapper" # Create a Python script wrapper with shebang and executable permissions
 alias pscpu="pscpu" # Display processes sorted by CPU usage
 alias commitai="commitai" # Generate a git commit message using AI based on the changes
+alias copilot_commit="copilot_commit" # Generate a git commit message using GitHub Copilot based on the staged changes

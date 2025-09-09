@@ -552,3 +552,13 @@ copy() {
         fi
     fi
 }
+copilot_commit(){
+  if [[ -n $(git diff --staged) ]]; then
+    yes | gh copilot suggest -t gh "Thoroughly analyze the changes and create a clear and concise commit message in conventional commit format. Don't start the commit message with any words other than: feat, fix, docs, style, refactor, perf, test, or chore. Don't include any emojis. Ensure the message accurately reflects the changes made.: $(git diff --staged)"
+    COMMIT=$(xclip -selection clipboard -o)
+    echo "$COMMIT"
+    eval $COMMIT
+  else
+    echo "No staged changes to commit."
+  fi
+}
