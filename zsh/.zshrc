@@ -233,3 +233,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Task Master aliases added on 9/19/2025
+alias tm='task-master'
+alias taskmaster='task-master'
