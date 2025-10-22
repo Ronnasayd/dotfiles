@@ -420,11 +420,11 @@ copy-with-exclusion() {
 # This function utilizes `git config` to retrieve the remote origin URL,
 # performs string substitution to convert the URL to a browsable format,
 # and then uses `xdg-open` to launch the default browser with the URL.
-openrb() {
+open-remote-git-repository() {
   git config --get remote.origin.url | sed s"/work.//" | sed s"/:/\//" | sed s"/git@/https:\/\//" | sed s"/\.git//" | xargs -I{} xdg-open {}/tree/$(git rev-parse --abbrev-ref HEAD)
 }
 
-openj() {
+open-remote-Jira() {
   xdg-open https://queroquitar.atlassian.net/browse/$(git rev-parse --abbrev-ref HEAD | cut -f2 --delimiter="/")
 }
 
@@ -471,7 +471,7 @@ join_split_videos() {
 #
 # Returns:
 #   The modified string.
-replace() {
+fn-replace() {
   NAME="$1"
   OLD_NAME="$2"
   NEW_NAME="$3"
@@ -480,11 +480,11 @@ replace() {
 }
 
 
-cdl(){
+jump-to-original-dir(){
   z $(readlink -f $1)
 }
 
-cows(){
+fuzzy-code-workspaces(){
   code $(ws | fzf)
 }
 
@@ -552,7 +552,7 @@ copy() {
         fi
     fi
 }
-copilot_commit(){
+copilot-generate-commit(){
   if [[ -n $(git diff --staged) ]]; then
     local commit_file=".git/COMMIT_EDITMSG"
     yes | gh copilot suggest -t gh "Thoroughly analyze the changes and create a clear and concise commit message in conventional commit format. Don't start the commit message with any words other than: feat, fix, docs, style, refactor, perf, test, or chore. Don't include any emojis. Don't include any Git commands, just the commit text. Ensure the message accurately reflects the changes made.: $(git diff --staged)"
@@ -561,4 +561,8 @@ copilot_commit(){
   else
     echo "No staged changes to commit."
   fi
+}
+
+strip_colors() {
+  sed -r "s/\x1B\[[0-9;]*[a-zA-Z]//g"
 }

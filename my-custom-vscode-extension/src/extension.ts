@@ -15,4 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.window.showInformationMessage(`Arquivos de texto abertos copiados para o clipboard: ${openFiles.join(', ')}`);
   });
   context.subscriptions.push(disposable);
+
+
+
 }
