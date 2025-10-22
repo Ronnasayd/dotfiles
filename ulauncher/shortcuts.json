@@ -58,5 +58,25 @@
         "is_default_search": true,
         "run_without_argument": false,
         "added": 1733946923.937923
+    },
+    "fece5c44-068b-4b7c-bd1f-c32d4f3421aa": {
+        "id": "fece5c44-068b-4b7c-bd1f-c32d4f3421aa",
+        "name": "gpt",
+        "keyword": "gpt",
+        "cmd": "https://chatgpt.com/",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1761141738.3559918
+    },
+    "4fea544b-c6dd-405d-b3e0-03ab59bf5341": {
+        "id": "4fea544b-c6dd-405d-b3e0-03ab59bf5341",
+        "name": "whats",
+        "keyword": "whats",
+        "cmd": "https://web.whatsapp.com/",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1761141781.0521257
     }
 }

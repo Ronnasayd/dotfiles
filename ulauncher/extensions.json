@@ -1,11 +1,4 @@
 {
-    "com.github.nortmas.chrome-bookmarks": {
-        "id": "com.github.nortmas.chrome-bookmarks",
-        "url": "https://github.com/nortmas/Chrome-bookmarks",
-        "updated_at": "2024-11-21T17:18:21.271319",
-        "last_commit": "b4598ea1e208cd6feb49574e998721dcc771157f",
-        "last_commit_time": "2021-01-09T15:04:28"
-    },
     "com.github.sergius02.ulauncher-colorconverter": {
         "id": "com.github.sergius02.ulauncher-colorconverter",
         "url": "https://github.com/sergius02/ulauncher-colorconverter",
@@ -27,47 +20,12 @@
         "last_commit": "8697c5e277961ebac6eab47c955f432a62c41e23",
         "last_commit_time": "2024-11-15T17:26:38"
     },
-    "com.github.manahter.ulauncher-translate": {
-        "id": "com.github.manahter.ulauncher-translate",
-        "url": "https://github.com/manahter/ulauncher-translate",
-        "updated_at": "2024-11-21T21:08:00.588479",
-        "last_commit": "f81d32c583c7e3542bdba655e991a56e6d9a2c28",
-        "last_commit_time": "2021-04-09T18:12:40"
-    },
-    "com.github.frdrk.ulauncher-dead-simple-convert": {
-        "id": "com.github.frdrk.ulauncher-dead-simple-convert",
-        "url": "https://github.com/frdrk/ulauncher-dead-simple-convert",
-        "updated_at": "2024-11-21T21:17:24.562623",
-        "last_commit": "c0821e83b6c1d5a4984ef72c82e54eb21d0149ac",
-        "last_commit_time": "2023-10-03T11:40:03"
-    },
-    "com.github.iboyperson.ulauncher-system": {
-        "id": "com.github.iboyperson.ulauncher-system",
-        "url": "https://github.com/iboyperson/ulauncher-system",
-        "updated_at": "2024-11-21T23:07:48.178027",
-        "last_commit": "7dedd992709fa2297735cddf852404144d4da47c",
-        "last_commit_time": "2023-11-14T16:53:20"
-    },
     "com.github.nastuzzisamy.ulauncher-custom-scripts": {
         "id": "com.github.nastuzzisamy.ulauncher-custom-scripts",
         "url": "https://github.com/NastuzziSamy/ulauncher-custom-scripts",
         "updated_at": "2024-11-21T23:19:50.044038",
         "last_commit": "7a68cbafb4acc01fed340d0d2ae99a6701724b31",
         "last_commit_time": "2022-11-21T21:19:31"
-    },
-    "com.github.ralcaidev.ulauncher-extension-list": {
-        "id": "com.github.ralcaidev.ulauncher-extension-list",
-        "url": "https://github.com/ralcaidev/ulauncher-extension-list",
-        "updated_at": "2024-11-21T23:33:26.686783",
-        "last_commit": "27d65fae4abc036e37a09792c8244287017dbc73",
-        "last_commit_time": "2022-11-10T16:06:26"
-    },
-    "com.github.fsevenm.ulauncher-uuid": {
-        "id": "com.github.fsevenm.ulauncher-uuid",
-        "url": "https://github.com/fsevenm/ulauncher-uuid",
-        "updated_at": "2024-11-21T23:44:24.013031",
-        "last_commit": "2fbb70fd2af246277b2baff03465bc8bd971c85f",
-        "last_commit_time": "2021-01-14T04:26:08"
     },
     "com.github.ulauncher-extensions.ulauncher-encoder": {
         "id": "com.github.ulauncher-extensions.ulauncher-encoder",
@@ -76,32 +34,11 @@
         "last_commit": "275700fa9308e25a30c588ee9b8d0aabe8196b7b",
         "last_commit_time": "2022-04-22T02:26:42"
     },
-    "com.github.pymustafa.ulauncher-shortn": {
-        "id": "com.github.pymustafa.ulauncher-shortn",
-        "url": "https://github.com/PyMustafa/ulauncher-shortn",
-        "updated_at": "2024-11-22T15:41:10.458848",
-        "last_commit": "29caf53983cad40a4f28a6d0b743f6ec7fbc4d6b",
-        "last_commit_time": "2024-08-20T13:13:07"
-    },
     "com.github.ronnasayd.ulauncher-css-unit-converter": {
         "id": "com.github.ronnasayd.ulauncher-css-unit-converter",
         "url": "https://github.com/Ronnasayd/ulauncher-css-unit-converter",
         "updated_at": "2024-11-22T20:20:01.917812",
         "last_commit": "550cf5a4bc7b0625c21839dcf979b37212822346",
         "last_commit_time": "2024-11-22T23:18:18"
-    },
-    "com.github.d-enk.ulauncher-case-converter": {
-        "id": "com.github.d-enk.ulauncher-case-converter",
-        "url": "https://github.com/d-enk/ulauncher-case-converter",
-        "updated_at": "2024-11-25T10:57:52.778840",
-        "last_commit": "525dd2c0fa4c10dd99db76288dd7a5f0e58205ff",
-        "last_commit_time": "2022-07-13T19:33:21"
-    },
-    "com.github.dankni95.ulauncher-playerctl": {
-        "id": "com.github.dankni95.ulauncher-playerctl",
-        "url": "https://github.com/Dankni95/ulauncher-playerctl",
-        "updated_at": "2024-12-07T15:33:52.089855",
-        "last_commit": "c2efafd66c3d60445a545f9f202b82202f93cd70",
-        "last_commit_time": "2022-03-23T21:18:25"
     }
 }

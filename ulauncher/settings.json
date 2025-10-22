@@ -6,7 +6,7 @@
     "hotkey-show-app": "<Primary><Shift>space",
     "render-on-screen": "default-monitor",
     "show-indicator-icon": true,
-    "show-recent-apps": "4",
+    "show-recent-apps": "5",
     "terminal-command": "",
     "theme-name": "adwaita"
 }
