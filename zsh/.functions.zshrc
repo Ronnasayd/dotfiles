@@ -566,3 +566,21 @@ copilot-generate-commit(){
 strip_colors() {
   sed -r "s/\x1B\[[0-9;]*[a-zA-Z]//g"
 }
+
+extract_columns() {
+  awk -v cols="$*" '
+    BEGIN {
+      n = split(cols, c, " ")
+    }
+    NF {
+      out = ""
+      for (i = 1; i <= n; i++) {
+        if (c[i] <= NF) {
+          out = out (out ? OFS : "") $c[i]
+        }
+      }
+      print out
+    }
+  '
+}
+

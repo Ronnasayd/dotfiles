@@ -18,7 +18,7 @@ rss = [
         "source": "G1-tecnologia",
         "url": "https://g1.globo.com/dynamo/tecnologia/rss2.xml",
     },
-    {"source": "Tabnews", "url": "https://www.tabnews.com.br/recentes/rss"},
+    # {"source": "Tabnews", "url": "https://www.tabnews.com.br/recentes/rss"},
     {"source": "techcrunch", "url": "https://techcrunch.com/feed/"},
     {
         "source": "IEEESpectrum",
@@ -84,6 +84,7 @@ data = []
 total_height = 12
 for row in rss:
     url = row["url"]
+    print(f"Parsing RSS feed: {url}")
     source = row["source"]
     feed = feedparser.parse(url)
     for entry in feed.entries:

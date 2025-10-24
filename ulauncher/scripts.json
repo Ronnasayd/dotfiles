@@ -54,5 +54,12 @@
     "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/trash_full.png",
     "script": "echo -n '' > ~/.local/share/recently-used.xbel",
     "default_arguments": []
+  },
+  {
+    "name": "rss",
+    "description": "Open current rss",
+    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/rss.png",
+    "script": "/bin/zsh -i -c 'rss'",
+    "default_arguments": []
   }
 ]

@@ -59,6 +59,7 @@ settings_table = {
     icon = "",
     icon_size = 24,
     suffix = '%'
+    real_max = 2.50
   },
   {
     name = 'memperc',
@@ -78,6 +79,7 @@ settings_table = {
     icon = "",
     icon_size = 20,
     suffix = '%'
+    real_max = 6.00
   },
   {
     name = 'swapperc',
@@ -185,17 +187,25 @@ function draw_ring(cr, cr2, t, pt)
 
   cairo_select_font_face(cr2, "Roboto", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
   cairo_set_font_size(cr2, 12)
-  if pt['name'] ~= 'swapperc' then
-    if pt['name'] == 'memperc' then
-      cairo_move_to(cr2, xc - 28, yc + 45)
-    else
-      cairo_move_to(cr2, xc - 14, yc + 45)
-    end
+  if pt['name'] == 'cpu' then
+    cairo_move_to(cr2, xc - 14, yc + 45)
     cairo_show_text(cr2, string.format("%03.0f%s", t * 100, pt['suffix']))
-  else
-    cairo_move_to(cr2, xc + 2, yc + 45)
-    cairo_show_text(cr2, string.format("/%03.0f%s", t * 100, pt['suffix']))
-  end
+    cairo_move_to(cr2, xc - 14-12, yc + 45 + 12)
+    cairo_show_text(cr2, string.format("%03.2f GHZ",t*pt['real_max']))
+ elseif pt['name'] == 'memperc' then
+    cairo_move_to(cr2, xc - 14, yc + 45)
+    cairo_show_text(cr2, string.format("%03.0f%s", t * 100, pt['suffix']))
+    cairo_move_to(cr2, xc - 14-10, yc + 45 + 12)
+    cairo_show_text(cr2, string.format("%03.2f GB",t*pt['real_max']))
+elseif pt['name'] == 'swapperc' then
+    -- cairo_move_to(cr2, xc + 18, yc + 45)
+    -- cairo_show_text(cr2, string.format(" / %03.0f%s", t * 100, pt['suffix']))
+    -- cairo_move_to(cr2, xc + 18, yc + 45 + 12)
+    -- cairo_show_text(cr2, string.format(" / %03.2f GB",t*8))
+else
+  cairo_move_to(cr2, xc - 14, yc + 45 + 6)
+    cairo_show_text(cr2, string.format("%03.0f%s", t * 100, pt['suffix']))
+end
 end
 
 function conky_ring_stats()

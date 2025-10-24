@@ -171,4 +171,8 @@ alias copilot_commit="copilot-generate-commit" # (Fn) Generate a git commit mess
 alias cpw="~/bin/create_python_wrapper" # Create a Python script wrapper with shebang and executable permissions
 alias copilot_ollama="~/bin/copilot_ollama" # Up a ollama server based on GitHub Copilot model
 alias task-master="ASDF_NODEJS_VERSION=23.11.1 TASKMASTER_SKIP_AUTO_UPDATE=1 task-master" # using correct node version for task-master
-alias sc="strip_colors" # Remove color codes from text
+alias sc="strip_colors" # (Fn) Remove color codes from text
+alias faptl="apt list --installed | fzf" # Search installed APT packages with fzf
+alias fdpkgl="dpkg --list | extract_columns 2 3 | fzf" # Search installed dpkg packages with fzf
+alias extc="extract_columns" # (Fn) Extract columns from piped input: extc <column_numbers>
+alias ici="cp ~/develop/personal/AI-pair-programming/instructions/copilot.instructions.md ./.github/copilot.instructions.md" # Copy copilot instructions to current repo
