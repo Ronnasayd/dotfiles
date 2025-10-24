@@ -79,7 +79,7 @@ settings_table = {
     icon = "",
     icon_size = 20,
     suffix = '%',
-    real_max = 6.00
+    real_max = 5.69
   },
   {
     name = 'swapperc',
