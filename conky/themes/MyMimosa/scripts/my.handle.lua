@@ -190,8 +190,8 @@ function draw_ring(cr, cr2, t, pt)
   if pt['name'] == 'cpu' then
     cairo_move_to(cr2, xc - 14, yc + 45)
     cairo_show_text(cr2, string.format("%03.0f%s", t * 100, pt['suffix']))
-    cairo_move_to(cr2, xc - 14 - 12, yc + 45 + 12)
-    cairo_show_text(cr2, string.format("%03.2f GHZ", t * pt['real_max']))
+    cairo_move_to(cr2, xc - 14 - 14, yc + 45 + 12)
+    cairo_show_text(cr2, string.format("%s", cpu_freq_mean(4)))
   elseif pt['name'] == 'memperc' then
     cairo_move_to(cr2, xc - 14, yc + 45)
     cairo_show_text(cr2, string.format("%03.0f%s", t * 100, pt['suffix']))
@@ -399,12 +399,16 @@ function conky_rotate_text(text, limit)
   return result
 end
 
-function conky_cpu_freq_mean(number_cpus)
+function cpu_freq_mean(number_cpus)
   value = 0.0
   for i = 1, number_cpus, 1 do
     value = value + tonumber(conky_parse(string.format('${freq %d}', i)))
   end
   return string.format("%.0f Mhz", value / number_cpus)
+end
+
+function conky_cpu_freq_mean(number_cpus)
+  return cpu_freq_mean(number_cpus)
 end
 
 function conky_top_cpu(number)
