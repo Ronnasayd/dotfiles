@@ -280,8 +280,10 @@ m3u-download() {
   if [ -f headers.txt ]; then
     headers=$(awk '{print}' ORS='\r\n' headers.txt)
     # echo \"ffmpeg -headers "$headers" -i "$1" -c copy -bsf:a aac_adtstoasc "$2"\"
+    echo "ffmpeg -headers \"$headers\" -i \"$1\" -c copy -bsf:a aac_adtstoasc \"$2\""
     ffmpeg -headers "$headers" -i "$1" -c copy -bsf:a aac_adtstoasc "$2"
   else
+    echo "ffmpeg -i \"$1\" -c copy -bsf:a aac_adtstoasc \"$2\""
     ffmpeg -i "$1" -c copy -bsf:a aac_adtstoasc "$2"
   fi
 }
@@ -584,3 +586,15 @@ extract_columns() {
   '
 }
 
+
+aria-download() {
+  if [ -f headers.txt ]; then
+    headers=()
+    while IFS= read -r line; do
+      headers+=("--header=$line")
+    done < headers.txt
+    aria2c -x10 -j10 "${headers[@]}" "$1" -o "$2"
+  else
+    aria2c -x10 -j10 "$1" -o "$2"
+  fi
+}
