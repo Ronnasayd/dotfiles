@@ -460,8 +460,9 @@ function conky_calendar()
   else
     offset = window_width - bg_calendar_width - bg_calendar_padding_x + 20
   end
-  offset_str = string.format('${offset %d}', offset)
+  offset_str = string.format('${offset %d}${font Roboto:size=8}', offset)
   contents = string.gsub(contents, "offset|", offset_str)
+  contents = string.gsub(contents, "bold|", "${font Roboto:bold:size=8} ")
   contents = offset_str ..
       "${font FiraCode Nerd Font:size=12}󰃭${font Roboto:bold:size=9}  Events\n${font Roboto:size=8}" .. contents
   return conky_parse(contents)

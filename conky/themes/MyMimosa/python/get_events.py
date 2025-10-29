@@ -1,5 +1,4 @@
-import os
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 
 from decouple import config
 from gcsa.google_calendar import GoogleCalendar
@@ -28,10 +27,10 @@ if len(data) > 1:
     counter = 0
     content = ""
     for event in data[:NUMBER_EVENTS]:
-        line = f"offset|{event.start.strftime('%d/%m %H:%M')} to {event.end.strftime('%H:%M')} {event.summary[:32]}\n"
+        line = f"offset|{event.start.strftime('%d/%m %H:%M')} to {event.end.strftime('%H:%M')} bold|{event.summary[:32].strip()}\n"
         content += line
         counter += 1
-        
+
     if counter > 0:
         with open("/tmp/conky-calendar", "w", encoding="utf-8") as file:
             file.write(content)
