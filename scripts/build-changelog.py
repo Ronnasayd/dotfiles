@@ -46,10 +46,12 @@ def get_commits(since_tag=None):
     else:
         commit_range = "HEAD"  # All commits
 
+    # Inclui a data (YYYY-MM-DD) ao final de cada linha
     command = [
         "git",
         "log",
-        "--pretty=format:%h - %s",  # Only hash and subject for parsing
+        "--pretty=format:%h - %s | %ad",
+        "--date=short",
         "--no-merges",
         commit_range,
     ]
@@ -61,23 +63,34 @@ def get_commits(since_tag=None):
 
 def categorize_commits(commits, repo_url):
     """Categorizes commits based on conventional commit prefixes."""
+    # Agora, cada categoria será um dict de datas para lista de commits
     categories = {
-        "Features": [],
-        "Bug Fixes": [],
-        "Documentation": [],
-        "Chores": [],
-        "Refactoring": [],
-        "Other Changes": [],
+        "Features": {},
+        "Bug Fixes": {},
+        "Documentation": {},
+        "Chores": {},
+        "Refactoring": {},
+        "Other Changes": {},
     }
 
     for commit_line in commits:
-        match = re.match(r"(\w+) - (\w+)(?:\(([^)]+)\))?: (.*)", commit_line)
+        # commit_line esperado: hash - type(scope): description | YYYY-MM-DD
+        # ou: hash - type: description | YYYY-MM-DD
+        # ou: hash - mensagem livre | YYYY-MM-DD
+        if "|" in commit_line:
+            commit_main, commit_date = commit_line.rsplit("|", 1)
+            commit_date = commit_date.strip()
+        else:
+            commit_main = commit_line
+            commit_date = "Unknown Date"
+
+        match = re.match(r"(\w+) - (\w+)(?:\(([^)]+)\))?: (.*)", commit_main.strip())
         if not match:
-            categories["Other Changes"].append(commit_line)
+            # Agrupa outros por data
+            categories["Other Changes"].setdefault(commit_date, []).append(commit_line)
             continue
 
         commit_hash, commit_type, scope, description = match.groups()
-        # Clean up description: remove type and scope
         if repo_url:
             commit_link = f"[{commit_hash}]({repo_url}/commit/{commit_hash})"
         else:
@@ -85,17 +98,19 @@ def categorize_commits(commits, repo_url):
         clean_description = f"* {description.strip()} ({commit_link})"
 
         if commit_type == "feat":
-            categories["Features"].append(clean_description)
+            cat = "Features"
         elif commit_type == "fix":
-            categories["Bug Fixes"].append(clean_description)
+            cat = "Bug Fixes"
         elif commit_type == "docs":
-            categories["Documentation"].append(clean_description)
+            cat = "Documentation"
         elif commit_type == "chore":
-            categories["Chores"].append(clean_description)
+            cat = "Chores"
         elif commit_type == "refactor":
-            categories["Refactoring"].append(clean_description)
+            cat = "Refactoring"
         else:
-            categories["Other Changes"].append(commit_line)
+            cat = "Other Changes"
+
+        categories[cat].setdefault(commit_date, []).append(clean_description)
 
     return categories
 
@@ -136,12 +151,16 @@ def generate_changelog():
     ]
 
     for category_name, title in category_order:
-        if categorized_commits[category_name]:
+        category_dict = categorized_commits[category_name]
+        if category_dict:
             changelog_content.append(f"### {title}")
             changelog_content.append("")
-            for item in categorized_commits[category_name]:
-                changelog_content.append(item)
-            changelog_content.append("")
+            # Ordena datas decrescente (mais recente primeiro)
+            for date in sorted(category_dict.keys(), reverse=True):
+                changelog_content.append(f"**{date}**")
+                for item in category_dict[date]:
+                    changelog_content.append(item)
+                changelog_content.append("")
 
     changelog_content.append("---")
     changelog_content.append(
