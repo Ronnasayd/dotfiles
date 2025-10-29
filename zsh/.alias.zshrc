@@ -104,8 +104,8 @@ alias ximg='xclip -selection clipboard -t image/png -o >' # Copy image from clip
 alias ctf='xclip -selection clipboard  -o >' # Copy content from clipboard to file
 alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1' # Count number of frames in video file
 alias echc='pactl load-module module-echo-cancel' # Load PulseAudio module for echo cancellation
-alias openr="git config --get remote.origin.url | sed s\"/qq.//\" | sed s\"/lingopass.//\" | sed  s\"/:/\//\" | sed s\"/git@/https:\/\//\" | sed s\"/\.git//\" | xargs -I{} xdg-open {}" # Open remote repository URL in default browser
-alias openrb="open-remote-git-repository" # (Fn) Open remote repository URL in current branch at browser
+alias openr="open-remote-git-repository" # (Fn) Open remote repository URL in default browser
+alias openrb="open-remote-git-repository-with-branch" # (Fn) Open remote repository URL in current branch at browser
 alias openj="open-remote-Jira" # (Fn) Open remote Jira task by branch
 alias mkdir='mkdir -p' # Create directory, including parent directories if necessary
 alias ccat='ccat' # Syntax-highlighted cat command
@@ -172,7 +172,6 @@ alias cpw="~/.local/bin/create_python_wrapper" # Create a Python script wrapper 
 alias copilot_ollama="~/bin/copilot_ollama" # Up a ollama server based on GitHub Copilot model
 alias task-master="ASDF_NODEJS_VERSION=23.11.1 TASKMASTER_SKIP_AUTO_UPDATE=1 task-master" # using correct node version for task-master
 alias sc="strip_colors" # (Fn) Remove color codes from text
-alias faptl="apt list --installed | fzf" # Search installed APT packages with fzf
 alias fdpkgl="dpkg --list | extract_columns 2 3 | fzf" # Search installed dpkg packages with fzf
 alias extc="extract_columns" # (Fn) Extract columns from piped input: extc <column_numbers>
 alias ici="cp ~/develop/personal/AI-pair-programming/instructions/copilot.instructions.md ./.github/copilot.instructions.md" # Copy copilot instructions to current repo

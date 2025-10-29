@@ -417,14 +417,43 @@ copy-with-exclusion() {
   eval "rsync -av $exclude_options '$source_dir/' '$dest_dir/'"
 }
 
+
+
+get-remote-git-repository() {
+    url="$(git config --get remote.origin.url)"
+
+    if [[ -z "$url" ]]; then
+        echo "Nenhuma remote.origin.url configurada"
+        return 1
+    fi
+
+    owner=$(echo "$url" | grep -Po '(?<=:)[^/]+')
+    repo=$(echo "$url" | grep -Po '(?<=/)[^/.]+(?=\.git)')
+
+    https_url="https://github.com/${owner}/${repo}"
+
+    echo "$https_url"
+}
+
 # Open the remote repository URL in the current branch at the browser.
 #
 # This function utilizes `git config` to retrieve the remote origin URL,
 # performs string substitution to convert the URL to a browsable format,
 # and then uses `xdg-open` to launch the default browser with the URL.
-open-remote-git-repository() {
-  git config --get remote.origin.url | sed s"/work.//" | sed s"/:/\//" | sed s"/git@/https:\/\//" | sed s"/\.git//" | xargs -I{} xdg-open {}/tree/$(git rev-parse --abbrev-ref HEAD)
+open-remote-git-repository-with-branch() {
+  https_url=$(get-remote-git-repository)
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  browsable_url="${https_url}/tree/${branch}"
+  echo "Abrindo: $browsable_url"
+  xdg-open "$browsable_url"
 }
+
+open-remote-git-repository() {
+    https_url=$(get-remote-git-repository)
+    echo "Abrindo: $https_url"
+    xdg-open "$https_url"
+}
+
 
 open-remote-Jira() {
   xdg-open https://queroquitar.atlassian.net/browse/$(git rev-parse --abbrev-ref HEAD | cut -f2 --delimiter="/")

@@ -53,7 +53,7 @@ EOF
 else
     cat > "$WRAPPER_PATH" <<EOF
 #!/bin/zsh
-python "$SCRIPT_PATH" "\$@"
+python3 "$SCRIPT_PATH" "\$@"
 EOF
 fi
 chmod +x "$WRAPPER_PATH"
