@@ -13,7 +13,10 @@ def get_repo_url():
     if url.endswith(".git"):
         url = url[:-4]
     if url.startswith("git@"):  # Ex: git@github.com:owner/repo.git
-        url = url.replace(":", "/").replace("git@", "https://")
+        regex = r"git@(?P<host>[^:]+):(?P<owner>[^/]+)/(?P<repo>[^.]+)(?:\.git)?$"
+        match = re.search(regex, url)
+        if match:
+            url = f"https://github.com/{match.group('owner')}/{match.group('repo')}"
 
     return url
 
