@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import datetime
 import re
 import subprocess
@@ -95,7 +93,7 @@ def categorize_commits(commits, repo_url):
             commit_link = f"[{commit_hash}]({repo_url}/commit/{commit_hash})"
         else:
             commit_link = commit_hash
-        clean_description = f"* {description.strip()} ({commit_link})"
+        clean_description = f"* {description.strip().capitalize()} ({commit_link})"
 
         if commit_type == "feat":
             cat = "Features"
