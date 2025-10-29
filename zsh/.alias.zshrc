@@ -168,7 +168,7 @@ alias curlheaders="~/.local/bin/curl_headers" # Fetch and display HTTP headers f
 alias pscpu="~/.local/bin/pscpu" # Display processes sorted by CPU usage
 alias commitai="~/.local/bin/commitai" # Generate a git commit message using AI based on the changes
 alias copilot_commit="copilot-generate-commit" # (Fn) Generate a git commit message using GitHub Copilot based on the staged changes
-alias cpw="~/bin/create_python_wrapper" # Create a Python script wrapper with shebang and executable permissions
+alias cpw="~/.local/bin/create_python_wrapper" # Create a Python script wrapper with shebang and executable permissions
 alias copilot_ollama="~/bin/copilot_ollama" # Up a ollama server based on GitHub Copilot model
 alias task-master="ASDF_NODEJS_VERSION=23.11.1 TASKMASTER_SKIP_AUTO_UPDATE=1 task-master" # using correct node version for task-master
 alias sc="strip_colors" # (Fn) Remove color codes from text

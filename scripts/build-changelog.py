@@ -4,8 +4,20 @@ import datetime
 import re
 import subprocess
 
-# ----> EDIT THIS TO MATCH YOUR REPO LOCATION (no trailing slash)
-REPO_URL = "https://github.com/LINGOPASS/lingo_intranet_backend"
+
+def get_repo_url():
+    """Obtém a URL do repositório remoto e converte para formato web se necessário."""
+    url = run_git_command(["git", "config", "--get", "remote.origin.url"])
+    if not url:
+        print("Erro: não foi possível obter a URL do repositório remoto.")
+        return None
+    # Converte SSH para HTTPS se necessário
+    if url.endswith(".git"):
+        url = url[:-4]
+    if url.startswith("git@"):  # Ex: git@github.com:owner/repo.git
+        url = url.replace(":", "/").replace("git@", "https://")
+
+    return url
 
 
 def run_git_command(command):
@@ -47,7 +59,7 @@ def get_commits(since_tag=None):
     return []
 
 
-def categorize_commits(commits):
+def categorize_commits(commits, repo_url):
     """Categorizes commits based on conventional commit prefixes."""
     categories = {
         "Features": [],
@@ -66,7 +78,10 @@ def categorize_commits(commits):
 
         commit_hash, commit_type, scope, description = match.groups()
         # Clean up description: remove type and scope
-        commit_link = f"[{commit_hash}]({REPO_URL}/commit/{commit_hash})"
+        if repo_url:
+            commit_link = f"[{commit_hash}]({repo_url}/commit/{commit_hash})"
+        else:
+            commit_link = commit_hash
         clean_description = f"* {description.strip()} ({commit_link})"
 
         if commit_type == "feat":
@@ -89,6 +104,10 @@ def generate_changelog():
     """Generates the changelog in Markdown format."""
     changelog_content = ["# Changelog", ""]
 
+    repo_url = get_repo_url()
+    if not repo_url:
+        repo_url = None  # fallback, links ficarão sem URL
+
     last_tag = get_last_tag()
     if last_tag:
         changelog_content.append(
@@ -104,7 +123,7 @@ def generate_changelog():
         changelog_content.append("")
         commits = get_commits()
 
-    categorized_commits = categorize_commits(commits)
+    categorized_commits = categorize_commits(commits, repo_url)
 
     # Define order of categories and their titles
     category_order = [
