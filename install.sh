@@ -1,5 +1,5 @@
 #!/bin/bash
-
+bash /scripts/build-system.sh
 dconf dump / < $(pwd)/gnome/dconf.gnome.bkp
 
 mkdir -p /tmp/.backup
