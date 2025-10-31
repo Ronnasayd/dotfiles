@@ -2,7 +2,7 @@
 Name=Plex
 Comment=Super Nintendo Entertainment System (TM) emulator
 Exec=plex %f
-Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/plex.png
+Icon=/home/ronnas/develop/personal/dotfiles/icons/plex.png
 Terminal=false
 Type=Application
 Categories=Game;Emulator;

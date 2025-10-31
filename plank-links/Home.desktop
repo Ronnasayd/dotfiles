@@ -2,7 +2,7 @@
 Name=Files
 Comment=Access and organize files
 Exec=nemo %U
-Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/Home.png
+Icon=/home/ronnas/develop/personal/dotfiles/icons/Home.png
 # Translators: these are keywords of the file manager
 Keywords=folders;filesystem;explorer;
 Terminal=false

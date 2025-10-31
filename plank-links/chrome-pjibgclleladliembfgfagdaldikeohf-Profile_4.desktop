@@ -5,5 +5,5 @@ Terminal=false
 Type=Application
 Name=Spotify
 Exec=/opt/google/chrome/google-chrome https://open.spotify.com/intl-pt
-Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/spotify.png
+Icon=/home/ronnas/develop/personal/dotfiles/icons/spotify.png
 StartupWMClass=crx_pjibgclleladliembfgfagdaldikeohf

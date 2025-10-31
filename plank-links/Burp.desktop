@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Burp
 Exec=burp %f
-Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/burp.png
+Icon=/home/ronnas/develop/personal/dotfiles/icons/burp.png
 Terminal=false
 Type=Application
 GenericName[en_US]=Burp professional

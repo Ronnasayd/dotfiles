@@ -34,7 +34,7 @@
         "name": "Youtube",
         "keyword": "yt",
         "cmd": "https://www.youtube.com/results?search_query=%s",
-        "icon": "~/develop/personal/dotfiles/plank-links/icons/youtube.png",
+        "icon": "~/develop/personal/dotfiles/icons/youtube.png",
         "is_default_search": true,
         "run_without_argument": false,
         "added": 1732560106.3450112

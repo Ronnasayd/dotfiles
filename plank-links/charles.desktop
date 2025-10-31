@@ -2,6 +2,6 @@
 Name=Charles
 Name[en_US]=Charles
 Exec=charles %f
-Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/charles.png
+Icon=/home/ronnas/develop/personal/dotfiles/icons/charles.png
 Terminal=false
 Type=Application

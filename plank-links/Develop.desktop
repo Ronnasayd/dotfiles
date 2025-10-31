@@ -6,6 +6,6 @@ Type=Application
 Terminal=false
 Exec=nemo develop
 Name=Open Develop
-Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/Code.png
+Icon=/home/ronnas/develop/personal/dotfiles/icons/Code.png
 
 Name[en_US]=Develop

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Encoding=UTF-8
-Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/robo3t.png
+Icon=/home/ronnas/develop/personal/dotfiles/icons/robo3t.png
 Name=Robo3T
 Comment=Robo3T
 Exec=/home/ronnas/develop/QQ/robo/robo3t-1.4.4-linux-x86_64-e6ac9ec/bin/robo3t

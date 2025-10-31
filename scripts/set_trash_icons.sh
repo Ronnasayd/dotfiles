@@ -13,8 +13,8 @@ for item in "${list[@]}"; do
     echo "$folder/$item/$trash_full"
     cp "$folder/$item/$subfolder/$trash_full" "/tmp/trash_icons_backup/$item/$subfolder"
     cp "$folder/$item/$subfolder/$trash_empty" "/tmp/trash_icons_backup/$item/$subfolder"
-    convert ~/develop/personal/dotfiles/plank-links/icons/trash_empty.png -resize $item "/tmp/trash_icons/$item/$subfolder/$trash_empty.png"
-    convert ~/develop/personal/dotfiles/plank-links/icons/trash_full.png -resize $item "/tmp/trash_icons/$item/$subfolder/$trash_full.png"
+    convert ~/develop/personal/dotfiles/icons/trash_empty.png -resize $item "/tmp/trash_icons/$item/$subfolder/$trash_empty.png"
+    convert ~/develop/personal/dotfiles/icons/trash_full.png -resize $item "/tmp/trash_icons/$item/$subfolder/$trash_full.png"
 
     mv "/tmp/trash_icons/$item/$subfolder/$trash_full.png" "/tmp/trash_icons/$item/$subfolder/$trash_full"
     mv "/tmp/trash_icons/$item/$subfolder/$trash_empty.png" "/tmp/trash_icons/$item/$subfolder/$trash_empty"

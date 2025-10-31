@@ -2,6 +2,6 @@
 Name=Godot
 Comment=Super Nintendo Entertainment System (TM) emulator
 Exec=godot4 %f
-Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/godot.png
+Icon=/home/ronnas/develop/personal/dotfiles/icons/godot.png
 Terminal=false
 Type=Application

@@ -2,7 +2,7 @@
 Name=ChromeBurp
 Exec=storage-explorer
 
-Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/azure2.png
+Icon=/home/ronnas/develop/personal/dotfiles/icons/azure2.png
 Type=Application
 
 Name[en_US]=azureStorage

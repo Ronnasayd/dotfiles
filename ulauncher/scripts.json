@@ -2,63 +2,63 @@
   {
     "name": "stop-docker",
     "description": "Stop all docker running containers",
-    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/docker.png",
+    "icon": "/home/ronnas/develop/personal/dotfiles/icons/docker.png",
     "script": "docker ps -aq | xargs docker stop && docker ps -aq | xargs docker rm -f",
     "default_arguments": []
   },
   {
     "name": "incognito",
     "description": "Opens chrome in incognito mode",
-    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/incognito.png",
+    "icon": "/home/ronnas/develop/personal/dotfiles/icons/incognito.png",
     "script": "google-chrome --profile-directory='Default' --incognito",
     "default_arguments": []
   },
   {
     "name": "clear-notification",
     "description": "Clear all notifications in the system",
-    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/clear-notification.png",
+    "icon": "/home/ronnas/develop/personal/dotfiles/icons/clear-notification.png",
     "script": "xdotool key --clearmodifiers Shift+Super+c",
     "default_arguments": []
   },
   {
     "name": "color-picker",
     "description": "Get a color as rgb",
-    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/color-picker.png",
+    "icon": "/home/ronnas/develop/personal/dotfiles/icons/color-picker.png",
     "script": "color-picker",
     "default_arguments": []
   },
   {
     "name": "qrcode",
     "description": "Generate a qrcode",
-    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/qrcode.png",
+    "icon": "/home/ronnas/develop/personal/dotfiles/icons/qrcode.png",
     "script": "/home/ronnas/develop/personal/dotfiles/scripts/generate-qrcode.sh",
     "default_arguments": []
   },
   {
     "name": "qrcopy",
     "description": "Generate a qrcode from clipboard path",
-    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/qrcode.png",
+    "icon": "/home/ronnas/develop/personal/dotfiles/icons/qrcode.png",
     "script": "qr-copy",
     "default_arguments": []
   },
   {
     "name": "clear-trash",
     "description": "Clear trash",
-    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/trash_full.png",
+    "icon": "/home/ronnas/develop/personal/dotfiles/icons/trash_full.png",
     "script": "gio trash --empty",
     "default_arguments": []
   },
   {
     "name": "clear-recent-files",
     "description": "Clear recent files",
-    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/trash_full.png",
+    "icon": "/home/ronnas/develop/personal/dotfiles/icons/trash_full.png",
     "script": "echo -n '' > ~/.local/share/recently-used.xbel",
     "default_arguments": []
   },
   {
     "name": "rss",
     "description": "Open current rss",
-    "icon": "/home/ronnas/develop/personal/dotfiles/ulauncher/icons/rss.png",
+    "icon": "/home/ronnas/develop/personal/dotfiles/icons/rss.png",
     "script": "/bin/zsh -i -c 'rss'",
     "default_arguments": []
   }

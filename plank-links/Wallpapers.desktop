@@ -6,6 +6,6 @@ Type=Application
 Terminal=false
 Exec=nemo Pictures/wallpapers
 Name=Open Downloads
-Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/Pictures.png
+Icon=/home/ronnas/develop/personal/dotfiles/icons/Pictures.png
 
 Name[en_US]=Wallpapers

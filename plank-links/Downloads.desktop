@@ -6,6 +6,6 @@ Type=Application
 Terminal=false
 Exec=nemo Downloads
 Name=Open Downloads
-Icon=/home/ronnas/develop/personal/dotfiles/plank-links/icons/Downloads.png
+Icon=/home/ronnas/develop/personal/dotfiles/icons/Downloads.png
 
 Name[en_US]=Downloads
