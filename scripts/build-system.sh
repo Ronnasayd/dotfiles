@@ -7,6 +7,9 @@ wget https://github.com/asdf-vm/asdf/releases/download/v0.18.0/asdf-v0.18.0-linu
 tar -xvzf /tmp/asdf.tar.gz
 mv asdf /usr/local/bin/asdf
 
+# Install Docker
+bash ./docker.install.sh
+
 # Install yq
 wget https://github.com/mikefarah/yq/releases/download/v4.45.4/yq_linux_amd64 -O /usr/local/bin/yq && chmod +x /usr/local/bin/yq
 
