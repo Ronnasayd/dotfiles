@@ -1,5 +1,6 @@
 #!/bin/bash
-bash /scripts/build-system.sh
+# bash /scripts/build-system.sh
+# bash zsh/zsh.install.sh
 dconf dump / < $(pwd)/gnome/dconf.gnome.bkp
 
 mkdir -p /tmp/.backup
