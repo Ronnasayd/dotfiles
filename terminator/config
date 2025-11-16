@@ -30,7 +30,7 @@
     background_darkness = 0.96
     background_type = transparent
     background_image = /home/ronnas/Pictures/wallpapers/images/1a1f192b2df7977815ed8cccc617ea0b.jpeg
-    font = JetBrainsMono Nerd Font Medium 12
+    font = JetBrains Mono NL Medium Italic 12
     foreground_color = "#c0caf5"
     show_titlebar = False
     palette = "#15161e:#f7768e:#9ece6a:#e0af68:#7aa2f7:#bb9af7:#7dcfff:#a9b1d6:#414868:#f7768e:#9ece6a:#e0af68:#7aa2f7:#bb9af7:#7dcfff:#c0caf5"
