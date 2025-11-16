@@ -1,29 +1,29 @@
 ---@diagnostic disable: lowercase-global, undefined-global
 
 align_right = true
-window_width = 1366
-window_height = 768
+window_width = 1532
+window_height = 1080
 bg_padding_x = 10
 bg_padding_y = 70
-bg_width = 310
-bg_aspect = 1396 / 686
+bg_width = 320
+bg_aspect = 2.2
 bg_path = "~/.config/conky/MyMimosa/res/dark4/bg-main.png"
 
 bg_vert_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-s.png"
 bg_vert_width = 220
-bg_vert_aspect = 250 / 250
+bg_vert_aspect = 1
 bg_vert_padding_x = 20
 bg_vert_padding_y = 360
 
 bg_calendar_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-h.png"
-bg_calendar_width = 310
-bg_calendar_aspect = 270 / 720
+bg_calendar_width = 320
+bg_calendar_aspect = 0.375
 bg_calendar_padding_x = 20
 bg_calendar_padding_y = 590
 
 bg_player_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-s.png"
 bg_player_width = 220
-bg_player_aspect = 1120 / 720
+bg_player_aspect = 1.55
 bg_player_padding_x = 10
 bg_player_padding_y = 354
 
@@ -33,7 +33,7 @@ player_img_padding_x = 10
 
 radius = 26
 thickness = 12
-padding_y = 10
+padding_y = 125
 initial_space = bg_vert_padding_y + 2 * radius - 10
 empty = 35
 
