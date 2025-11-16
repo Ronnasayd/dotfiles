@@ -74,5 +74,9 @@ sudo ln -sf $(pwd)/plank-links/charles.desktop /usr/share/applications/charles.d
 sudo ln -sf $(pwd)/plank-links/Burp.desktop /usr/share/applications/Burp.desktop
 
 
+ln -sf  $(pwd)/autostart/conky.desktop ~/.config/autostart/conky.desktop
+ln -sf  $(pwd)/autostart/plank.desktop ~/.config/autostart/plank.desktop
+
+
 
 bash ~/.config/conky/MyMimosa/start.sh

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Plank
+Comment=Application launcher for Linux
+Categories=GNOME;GTK;Utility;
+Exec=/usr/bin/plank
+Icon=plank
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true

@@ -113,7 +113,7 @@ if data["reference"] != name:
         generate_image(img, newpath_main, reference_main, [1046, 70, 310, 630])
         generate_image(img, newpath_calendar, reference_calendar, [20, 590, 310, 116])
         generate_image(img, newpath_player, reference_player, [826, 350, 220, 342])
-        generate_image(img, newpath_bar, "", [0, 0, 1366, 42])
+        generate_image(img, newpath_bar, "", [0, 0, 1920, 42])
 
     with open(f"{HOME}/.config/conky/MyMimosa/.cache/ref.json", "w") as file:
         file.write(

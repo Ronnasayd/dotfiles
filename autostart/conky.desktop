@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Conky
+Comment=Application launcher for Linux
+Categories=GNOME;GTK;Utility;
+Exec=/home/ronnas/.config/conky/MyMimosa/start.sh
+Icon=conky
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
