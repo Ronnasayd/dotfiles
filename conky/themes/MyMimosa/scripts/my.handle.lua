@@ -31,11 +31,11 @@ player_img_width = 180
 player_img_height = player_img_width
 player_img_padding_x = 10
 
-radius = 26
-thickness = 12
-padding_y = 125
+radius = 32
+thickness = 14
+padding_y = 116
 initial_space = bg_vert_padding_y + 2 * radius - 10
-empty = 35
+empty = 40
 
 
 
@@ -50,7 +50,7 @@ settings_table = {
     fg_colour = 0x00d4ff,
     fg_alpha = 1,
     y = initial_space + padding_y,
-    x = align_right and bg_vert_padding_x + bg_vert_width / 4 + thickness / 2 or
+    x = align_right and bg_vert_padding_x + bg_vert_width / 4 + thickness / 2 + 20 or
         window_width - bg_vert_padding_x - bg_vert_width / 4 + thickness / 2 - 100,
     radius = radius,
     thickness = thickness,
@@ -70,7 +70,7 @@ settings_table = {
     fg_colour = 0x03ffb1,
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
-    x = align_right and bg_vert_padding_x + bg_vert_width / 4 + thickness / 2 or
+    x = align_right and bg_vert_padding_x + bg_vert_width / 4 + thickness / 2 + 20 or
         window_width - bg_vert_padding_x - bg_vert_width / 4 + thickness / 2 - 100,
     radius = radius,
     thickness = thickness,
@@ -79,7 +79,7 @@ settings_table = {
     icon = "",
     icon_size = 20,
     suffix = '%',
-    real_max = 5.69
+    real_max = 32.0
   },
   {
     name = 'swapperc',
@@ -90,7 +90,7 @@ settings_table = {
     fg_colour = 0x01c386,
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
-    x = align_right and bg_vert_padding_x + bg_vert_width / 4 + thickness / 2 or
+    x = align_right and bg_vert_padding_x + bg_vert_width / 4 + thickness / 2 + 20 or
         window_width - bg_vert_padding_x - bg_vert_width / 4 + thickness / 2 - 100,
     radius = radius,
     thickness = thickness,
@@ -109,7 +109,7 @@ settings_table = {
     fg_colour = 0x03ff60,
     fg_alpha = 1,
     y = initial_space + padding_y,
-    x = align_right and bg_vert_padding_x + bg_vert_width / 3.5 + thickness / 2 + 100 or
+    x = align_right and bg_vert_padding_x + bg_vert_width / 3.5 + thickness / 2 + 140 or
         window_width - bg_vert_padding_x - bg_vert_width / 3.5 + thickness / 2,
     radius = radius,
     thickness = thickness,
@@ -128,7 +128,7 @@ settings_table = {
     fg_colour = 0x03ff24,
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
-    x = align_right and bg_vert_padding_x + bg_vert_width / 3.5 + thickness / 2 + 100 or
+    x = align_right and bg_vert_padding_x + bg_vert_width / 3.5 + thickness / 2 + 140 or
         window_width - bg_vert_padding_x - bg_vert_width / 3.5 + thickness / 2,
     radius = radius,
     thickness = thickness,
