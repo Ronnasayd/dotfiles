@@ -27,7 +27,7 @@
     copy_on_selection = True
   [[tokyonight]]
     background_color = "#1a1b26"
-    background_darkness = 0.96
+    background_darkness = 0.98
     background_type = transparent
     background_image = /home/ronnas/Pictures/wallpapers/images/1a1f192b2df7977815ed8cccc617ea0b.jpeg
     font = JetBrains Mono NL Medium Italic 12
