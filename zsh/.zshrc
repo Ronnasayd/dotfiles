@@ -210,7 +210,7 @@ setopt hist_find_no_dups
 # setopt GLOB_DOTS
 
 source ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh
-eval "$(fzf)"
+# eval "$(fzf --zsh)"
 # Enable preview for `cd` completion
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always $realpath'
 # Enable preview for ALL path completions (not just cd)

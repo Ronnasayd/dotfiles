@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt install imagemagick
 icon_theme=$(gsettings get org.gnome.desktop.interface icon-theme  | tr -d "'")
 folder="/usr/share/icons/$icon_theme"
 trash_full="user-trash-full.svg"
