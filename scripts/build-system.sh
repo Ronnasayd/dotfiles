@@ -1,6 +1,6 @@
 # Install base packages
-sudo apt-get update
-sudo apt-get install -y terminator playerctl jq python3-pip fd-find pavucontrol git-lfs ffmpeg vlc qbittorrent silversearcher-ag neovim bat wget xclip trash-cli
+sudo apt update
+sudo apt install -y terminator playerctl jq python3-pip fd-find pavucontrol git-lfs ffmpeg vlc qbittorrent silversearcher-ag neovim bat wget xclip trash-cli xdotool
 
 # Install asdf
 wget https://github.com/asdf-vm/asdf/releases/download/v0.18.0/asdf-v0.18.0-linux-amd64.tar.gz -O /tmp/asdf.tar.gz
@@ -26,22 +26,22 @@ sudo apt install /tmp/chrome.deb
 
 # Install plank
 sudo add-apt-repository -y ppa:ricotz/docky
-sudo apt-get update
-sudo apt-get install -y plank
+sudo apt update
+sudo apt install -y plank
 
 # Install conky
 sudo apt install -y conky-all
 
 # Install font-manager
 sudo add-apt-repository ppa:font-manager/staging
-sudo apt-get update
+sudo apt update
 sudo apt install font-manager
 
 # Install papirus icon theme
 sudo add-apt-repository ppa:papirus/papirus
-sudo apt-get update
-sudo apt-get install papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
-sudo apt-get install epapirus-icon-theme # ePapirus, and ePapirus-Dark for elementaryOS only
+sudo apt update
+sudo apt install papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
+sudo apt install epapirus-icon-theme # ePapirus, and ePapirus-Dark for elementaryOS only
 
 # Install ulauncher
 sudo add-apt-repository universe -y
@@ -50,8 +50,8 @@ sudo apt update && sudo apt install ulauncher
 
 # Install qbittorrent
 sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
-sudo apt-get update
-sudo apt-get install qbittorrent
+sudo apt update
+sudo apt install qbittorrent
 
 # Install bat
 sudo mv /usr/bin/batcat /usr/bin/bat
