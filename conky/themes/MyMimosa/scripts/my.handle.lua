@@ -3,29 +3,34 @@
 align_right = true
 window_width = 1532
 window_height = 1080
-bg_padding_x = 10
-bg_padding_y = 70
-bg_width = 320
+
+bg_padding_x = math.floor(window_width * 0.02)
+bg_padding_y = math.floor(window_width * 0.065)
+bg_width = math.floor(window_width * 0.21)
 bg_aspect = 2.2
 bg_path = "~/.config/conky/MyMimosa/res/dark4/bg-main.png"
 
-bg_vert_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-s.png"
-bg_vert_width = 220
-bg_vert_aspect = 1
-bg_vert_padding_x = 20
-bg_vert_padding_y = 360
+
+
+bg_rings_aspect = 1
+bg_rings_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-s.png"
+bg_rings_width = math.floor(window_width * 0.15)
+bg_rings_padding_x = math.floor(window_width * 0.013)
+bg_rings_padding_y = math.floor(window_width * 0.235)
+
 
 bg_calendar_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-h.png"
-bg_calendar_width = 320
-bg_calendar_aspect = 0.375
-bg_calendar_padding_x = 20
-bg_calendar_padding_y = 590
+bg_calendar_width = math.floor(window_width * 0.25)
+bg_calendar_aspect = 0.4
+bg_calendar_padding_x = math.floor(window_width * 0.013)
+bg_calendar_padding_y = math.floor(window_width * 0.4)
+
 
 bg_player_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-s.png"
-bg_player_width = 220
+bg_player_width = math.floor(window_width * 0.14)
 bg_player_aspect = 1.55
-bg_player_padding_x = 10
-bg_player_padding_y = 354
+bg_player_padding_x = math.floor(window_width * 0.006)
+bg_player_padding_y = math.floor(window_width * 0.23)
 
 player_img_width = 180
 player_img_height = player_img_width
@@ -34,7 +39,7 @@ player_img_padding_x = 10
 radius = 32
 thickness = 14
 padding_y = 116
-initial_space = bg_vert_padding_y + 2 * radius - 10
+initial_space = bg_rings_padding_y + 2 * radius - 10
 empty = 40
 
 
@@ -50,8 +55,8 @@ settings_table = {
     fg_colour = 0x00d4ff,
     fg_alpha = 1,
     y = initial_space + padding_y,
-    x = align_right and bg_vert_padding_x + bg_vert_width / 4 + thickness / 2 + 20 or
-        window_width - bg_vert_padding_x - bg_vert_width / 4 + thickness / 2 - 100,
+    x = align_right and bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + 20 or
+        window_width - bg_rings_padding_x - bg_rings_width / 4 + thickness / 2 - 100,
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -70,8 +75,8 @@ settings_table = {
     fg_colour = 0x03ffb1,
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
-    x = align_right and bg_vert_padding_x + bg_vert_width / 4 + thickness / 2 + 20 or
-        window_width - bg_vert_padding_x - bg_vert_width / 4 + thickness / 2 - 100,
+    x = align_right and bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + 20 or
+        window_width - bg_rings_padding_x - bg_rings_width / 4 + thickness / 2 - 100,
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -90,8 +95,8 @@ settings_table = {
     fg_colour = 0x01c386,
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
-    x = align_right and bg_vert_padding_x + bg_vert_width / 4 + thickness / 2 + 20 or
-        window_width - bg_vert_padding_x - bg_vert_width / 4 + thickness / 2 - 100,
+    x = align_right and bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + 20 or
+        window_width - bg_rings_padding_x - bg_rings_width / 4 + thickness / 2 - 100,
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -109,8 +114,8 @@ settings_table = {
     fg_colour = 0x03ff60,
     fg_alpha = 1,
     y = initial_space + padding_y,
-    x = align_right and bg_vert_padding_x + bg_vert_width / 3.5 + thickness / 2 + 140 or
-        window_width - bg_vert_padding_x - bg_vert_width / 3.5 + thickness / 2,
+    x = align_right and bg_rings_padding_x + bg_rings_width / 3.5 + thickness / 2 + 140 or
+        window_width - bg_rings_padding_x - bg_rings_width / 3.5 + thickness / 2,
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -128,8 +133,8 @@ settings_table = {
     fg_colour = 0x03ff24,
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
-    x = align_right and bg_vert_padding_x + bg_vert_width / 3.5 + thickness / 2 + 140 or
-        window_width - bg_vert_padding_x - bg_vert_width / 3.5 + thickness / 2,
+    x = align_right and bg_rings_padding_x + bg_rings_width / 3.5 + thickness / 2 + 140 or
+        window_width - bg_rings_padding_x - bg_rings_width / 3.5 + thickness / 2,
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -277,18 +282,18 @@ function conky_render_main_bg()
 end
 
 function conky_render_vert_bg()
-  bg_vert_height = bg_vert_aspect * bg_vert_width
+  bg_vert_height = bg_rings_aspect * bg_rings_width
   bg_pos_x = 0
-  bg_pos_y = 0 + bg_vert_padding_y
+  bg_pos_y = 0 + bg_rings_padding_y
   if align_right then
-    bg_pos_x = bg_vert_padding_x
+    bg_pos_x = bg_rings_padding_x
   else
-    bg_pos_x = window_width - bg_vert_width - bg_vert_padding_x
+    bg_pos_x = window_width - bg_rings_width - bg_rings_padding_x
   end
   bg = conky_parse(
     '${exec jq .vert <  ~/.config/conky/MyMimosa/.cache/ref.json }')
   bg = bg:gsub('"', '')
-  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_vert_width, bg_vert_height, bg_pos_x,
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_rings_width, bg_vert_height, bg_pos_x,
     bg_pos_y)
 end
 
@@ -364,18 +369,23 @@ function conky_player_base_offset()
 end
 
 function conky_base_voffset()
-  voffset = bg_padding_y + 8
+  voffset = bg_padding_y
+  return string.format("${voffset %d}", voffset)
+end
+
+function conky_percent_voffset(percent)
+  voffset = math.floor(window_height * percent)
   return string.format("${voffset %d}", voffset)
 end
 
 function conky_base_vert_voffset()
-  voffset = bg_vert_padding_y
+  voffset = bg_rings_padding_y
   return string.format("${voffset %d}", voffset)
 end
 
 function conky_icon_offset()
-  offset = align_right and bg_vert_padding_x + bg_vert_width / 2 + thickness / 2 - 10 or
-      window_width - bg_vert_padding_x - bg_vert_width / 2 + thickness / 2 - 10
+  offset = align_right and bg_rings_padding_x + bg_rings_width / 2 + thickness / 2 - 10 or
+      window_width - bg_rings_padding_x - bg_rings_width / 2 + thickness / 2 - 10
   return string.format("${offset %d}", offset)
 end
 
