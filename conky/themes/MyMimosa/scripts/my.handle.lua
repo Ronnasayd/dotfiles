@@ -5,7 +5,7 @@ window_width = 1920
 window_height = 1080
 
 bg_main_padding_x = math.floor(window_width * 0.01)
-bg_main_padding_y = math.floor(window_width * 0.04)
+bg_main_padding_y = math.floor(window_width * 0.045)
 bg_main_width = math.floor(window_width * 0.17)
 bg_main_aspect = 2.2
 bg_main_height = bg_main_aspect * bg_main_width
@@ -16,7 +16,7 @@ print("BG-MAIN " .. bg_main_width .. "x" .. bg_main_height .. " at " .. bg_main_
 
 
 bg_rss_padding_x = math.floor(window_width * 0.21)
-bg_rss_padding_y = math.floor(window_width * 0.04)
+bg_rss_padding_y = math.floor(window_width * 0.045)
 bg_rss_width = math.floor(window_width * 0.12)
 bg_rss_aspect = 1.2
 bg_rss_height = bg_rss_aspect * bg_rss_width
@@ -280,7 +280,7 @@ function conky_render_bar()
   bg = conky_parse(
     '${exec jq .bar <  ~/.config/conky/MyMimosa/.cache/ref.json }')
   bg = bg:gsub('"', '')
-  return string.format("${image %s -s %sx%s -p %s,%s}", bg, window_width, 42, 0, 0)
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, 1920, 42, 0, 0)
 end
 
 function conky_render_rss()

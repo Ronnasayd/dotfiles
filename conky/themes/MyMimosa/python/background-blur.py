@@ -77,26 +77,31 @@ if data["reference"] != name:
             file.seek(0)
             file.write(json.dumps(stats))
 
-    newpath_vert = f"{HOME}/.config/conky/MyMimosa/.cache/vert_{name}.png"
-    reference_vert = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
+    newpath_rings = f"{HOME}/.config/conky/MyMimosa/.cache/vert_{name}.png"
+    reference_rings = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
+    rings_dimensions = dict(x=35, y=452, width=286, height=286)
 
     newpath_rss = f"{HOME}/.config/conky/MyMimosa/.cache/rss_{name}.png"
     reference_rss = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
+    rss_dimensions = dict(x=35, y=96, width=278, height=340)
 
     newpath_main = f"{HOME}/.config/conky/MyMimosa/.cache/main_{name}.png"
     reference_main = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-main.png"
+    main_dimensions = dict(x=1498, y=96, width=384, height=876)
 
     newpath_calendar = f"{HOME}/.config/conky/MyMimosa/.cache/calendar_{name}.png"
     reference_calendar = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
+    calendar_dimensions = dict(x=35, y=758, width=484, height=148)
 
     newpath_player = f"{HOME}/.config/conky/MyMimosa/.cache/player_{name}.png"
     reference_player = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-player.png"
+    player_dimensions = dict(x=826, y=350, width=220, height=342)
 
     newpath_bar = f"{HOME}/.config/conky/MyMimosa/.cache/bar_{name}.png"
 
     isProcessed = (
         subprocess.run(
-            f"ls {HOME}/.config/conky/MyMimosa/.cache/*png | grep {newpath_vert}",
+            f"ls {HOME}/.config/conky/MyMimosa/.cache/*png | grep {newpath_rings}",
             stdout=subprocess.PIPE,
             shell=True,
         )
@@ -109,18 +114,74 @@ if data["reference"] != name:
     img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
     cv2.imwrite(f"{HOME}/.config/conky/MyMimosa/.cache/current_background.png", img)
     if not isProcessed:
-        generate_image(img, newpath_vert, reference_vert, [20, 360, 220, 200])
-        generate_image(img, newpath_rss, reference_rss, [20, 100, 200, 250])
-        generate_image(img, newpath_main, reference_main, [1046, 70, 310, 630])
-        generate_image(img, newpath_calendar, reference_calendar, [20, 590, 310, 116])
-        generate_image(img, newpath_player, reference_player, [826, 350, 220, 342])
-        generate_image(img, newpath_bar, "", [0, 0, 1920, 42])
+        generate_image(
+            img,
+            newpath_rings,
+            reference_rings,
+            [
+                rings_dimensions["x"],
+                rings_dimensions["y"],
+                rings_dimensions["width"],
+                rings_dimensions["height"],
+            ],
+        )
+        generate_image(
+            img,
+            newpath_rss,
+            reference_rss,
+            [
+                rss_dimensions["x"],
+                rss_dimensions["y"],
+                rss_dimensions["width"],
+                rss_dimensions["height"],
+            ],
+        )
+        generate_image(
+            img,
+            newpath_main,
+            reference_main,
+            [
+                main_dimensions["x"],
+                main_dimensions["y"],
+                main_dimensions["width"],
+                main_dimensions["height"],
+            ],
+        )
+
+        generate_image(
+            img,
+            newpath_calendar,
+            reference_calendar,
+            [
+                calendar_dimensions["x"],
+                calendar_dimensions["y"],
+                calendar_dimensions["width"],
+                calendar_dimensions["height"],
+            ],
+        )
+        generate_image(
+            img,
+            newpath_player,
+            reference_player,
+            [
+                player_dimensions["x"],
+                player_dimensions["y"],
+                player_dimensions["width"],
+                player_dimensions["height"],
+            ],
+        )
+        generate_image(
+            img,
+            newpath_bar,
+            "",
+            [0, 0, 1920, 42],
+        )
 
     with open(f"{HOME}/.config/conky/MyMimosa/.cache/ref.json", "w") as file:
         file.write(
             json.dumps(
                 {
-                    "vert": newpath_vert,
+                    "vert": newpath_rings,
                     "rss": newpath_rss,
                     "main": newpath_main,
                     "calendar": newpath_calendar,
