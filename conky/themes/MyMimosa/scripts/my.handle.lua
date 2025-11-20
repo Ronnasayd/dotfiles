@@ -1,12 +1,12 @@
 ---@diagnostic disable: lowercase-global, undefined-global
 
 align_right = true
-window_width = 1532
+window_width = 1920
 window_height = 1080
 
-bg_main_padding_x = math.floor(window_width * 0.02)
-bg_main_padding_y = math.floor(window_width * 0.065)
-bg_main_width = math.floor(window_width * 0.21)
+bg_main_padding_x = math.floor(window_width * 0.01)
+bg_main_padding_y = math.floor(window_width * 0.04)
+bg_main_width = math.floor(window_width * 0.17)
 bg_main_aspect = 2.2
 bg_main_height = bg_main_aspect * bg_main_width
 bg_main_pos_x = window_width - bg_main_width - bg_main_padding_x
@@ -15,9 +15,9 @@ print("BG-MAIN " .. bg_main_width .. "x" .. bg_main_height .. " at " .. bg_main_
 -- bg_main_path = "~/.config/conky/MyMimosa/res/dark4/bg-main.png"
 
 
-bg_rss_padding_x = math.floor(window_width * 0.013)
-bg_rss_padding_y = math.floor(window_width * 0.065)
-bg_rss_width = math.floor(window_width * 0.16)
+bg_rss_padding_x = math.floor(window_width * 0.21)
+bg_rss_padding_y = math.floor(window_width * 0.04)
+bg_rss_width = math.floor(window_width * 0.12)
 bg_rss_aspect = 1.2
 bg_rss_height = bg_rss_aspect * bg_rss_width
 bg_rss_pos_x = bg_rss_padding_x
@@ -26,10 +26,10 @@ print("BG-RSS " .. bg_rss_width .. "x" .. bg_rss_height .. " at " .. bg_rss_pos_
 -- bg_rss_path = "~/.config/conky/MyMimosa/res/dark4/bg-rss.png"
 
 
-bg_rings_padding_x = math.floor(window_width * 0.013)
+bg_rings_padding_x = math.floor(window_width * 0.21)
 -- bg_rings_padding_y = math.floor(window_width * 0.235)
-bg_rings_padding_y = bg_rss_padding_y + bg_rss_height + math.floor(window_height * 0.005)
-bg_rings_width = math.floor(window_width * 0.15)
+bg_rings_padding_y = bg_rss_padding_y + bg_rss_height + math.floor(window_height * 0.01)
+bg_rings_width = math.floor(window_width * 0.12)
 bg_rings_aspect = 1
 bg_rings_height = bg_rings_aspect * bg_rings_width
 bg_rings_pos_x = bg_rings_padding_x
@@ -39,11 +39,11 @@ print("BG-RINGS " .. bg_rings_width .. "x" .. bg_rings_height .. " at " .. bg_ri
 
 
 
-bg_calendar_padding_x = math.floor(window_width * 0.013)
+bg_calendar_padding_x = math.floor(window_width * 0.21)
 -- bg_calendar_padding_y = math.floor(window_width * 0.4)
-bg_calendar_padding_y = bg_rings_padding_y + bg_rings_height + math.floor(window_height * 0.005)
-bg_calendar_width = math.floor(window_width * 0.26)
-bg_calendar_aspect = 0.32
+bg_calendar_padding_y = bg_rings_padding_y + bg_rings_height + math.floor(window_height * 0.01)
+bg_calendar_width = math.floor(window_width * 0.21)
+bg_calendar_aspect = 0.31
 bg_calendar_height = bg_calendar_aspect * bg_calendar_width
 bg_calendar_pos_x = bg_calendar_padding_x
 bg_calendar_pos_y = bg_calendar_padding_y
@@ -69,7 +69,7 @@ player_img_padding_x = 10
 
 radius = 34
 thickness = 16
-padding_y = 112
+padding_y = 102
 initial_space = bg_rings_padding_y + 2 * radius - 10
 empty = 46
 
@@ -85,8 +85,7 @@ settings_table = {
     fg_colour = 0x00d4ff,
     fg_alpha = 1,
     y = initial_space + padding_y,
-    x = align_right and bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + 20 or
-        window_width - bg_rings_padding_x - bg_rings_width / 4 + thickness / 2 - 100,
+    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.06),
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -104,8 +103,7 @@ settings_table = {
     fg_colour = 0x03ffb1,
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
-    x = align_right and bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + 20 or
-        window_width - bg_rings_padding_x - bg_rings_width / 4 + thickness / 2 - 100,
+    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.06),
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -124,8 +122,7 @@ settings_table = {
     fg_colour = 0x01c386,
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
-    x = align_right and bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + 20 or
-        window_width - bg_rings_padding_x - bg_rings_width / 4 + thickness / 2 - 100,
+    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.06),
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -143,8 +140,7 @@ settings_table = {
     fg_colour = 0x03ff60,
     fg_alpha = 1,
     y = initial_space + padding_y,
-    x = align_right and bg_rings_padding_x + bg_rings_width / 3.5 + thickness / 2 + 140 or
-        window_width - bg_rings_padding_x - bg_rings_width / 3.5 + thickness / 2,
+    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.128),
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -162,8 +158,7 @@ settings_table = {
     fg_colour = 0x03ff24,
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
-    x = align_right and bg_rings_padding_x + bg_rings_width / 3.5 + thickness / 2 + 140 or
-        window_width - bg_rings_padding_x - bg_rings_width / 3.5 + thickness / 2,
+    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.128),
     radius = radius,
     thickness = thickness,
     start_angle = 0,
