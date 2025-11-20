@@ -7,8 +7,8 @@ from random import choices
 
 import cv2
 
-WIDTH = 1366
-HEIGHT = 768
+WIDTH = 1920
+HEIGHT = 1080
 HOME = os.path.expanduser("~")
 
 
@@ -107,6 +107,7 @@ if data["reference"] != name:
     img = cv2.resize(img, (WIDTH, HEIGHT))
     img = cv2.blur(img, (15, 15))
     img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
+    cv2.imwrite(f"{HOME}/.config/conky/MyMimosa/.cache/current_background.png", img)
     if not isProcessed:
         generate_image(img, newpath_vert, reference_vert, [20, 360, 220, 200])
         generate_image(img, newpath_rss, reference_rss, [20, 100, 200, 250])
