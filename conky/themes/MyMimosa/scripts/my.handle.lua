@@ -4,44 +4,74 @@ align_right = true
 window_width = 1532
 window_height = 1080
 
-bg_padding_x = math.floor(window_width * 0.02)
-bg_padding_y = math.floor(window_width * 0.065)
-bg_width = math.floor(window_width * 0.21)
-bg_aspect = 2.2
-bg_path = "~/.config/conky/MyMimosa/res/dark4/bg-main.png"
+bg_main_padding_x = math.floor(window_width * 0.02)
+bg_main_padding_y = math.floor(window_width * 0.065)
+bg_main_width = math.floor(window_width * 0.21)
+bg_main_aspect = 2.2
+bg_main_height = bg_main_aspect * bg_main_width
+bg_main_pos_x = window_width - bg_main_width - bg_main_padding_x
+bg_main_pos_y = bg_main_padding_y
+print("BG-MAIN " .. bg_main_width .. "x" .. bg_main_height .. " at " .. bg_main_pos_x .. "," .. bg_main_pos_y)
+-- bg_main_path = "~/.config/conky/MyMimosa/res/dark4/bg-main.png"
 
 
+bg_rss_padding_x = math.floor(window_width * 0.013)
+bg_rss_padding_y = math.floor(window_width * 0.065)
+bg_rss_width = math.floor(window_width * 0.16)
+bg_rss_aspect = 1.2
+bg_rss_height = bg_rss_aspect * bg_rss_width
+bg_rss_pos_x = bg_rss_padding_x
+bg_rss_pos_y = bg_rss_padding_y
+print("BG-RSS " .. bg_rss_width .. "x" .. bg_rss_height .. " at " .. bg_rss_pos_x .. "," .. bg_rss_pos_y)
+-- bg_rss_path = "~/.config/conky/MyMimosa/res/dark4/bg-rss.png"
 
-bg_rings_aspect = 1
-bg_rings_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-s.png"
-bg_rings_width = math.floor(window_width * 0.15)
+
 bg_rings_padding_x = math.floor(window_width * 0.013)
-bg_rings_padding_y = math.floor(window_width * 0.235)
+-- bg_rings_padding_y = math.floor(window_width * 0.235)
+bg_rings_padding_y = bg_rss_padding_y + bg_rss_height + math.floor(window_height * 0.005)
+bg_rings_width = math.floor(window_width * 0.15)
+bg_rings_aspect = 1
+bg_rings_height = bg_rings_aspect * bg_rings_width
+bg_rings_pos_x = bg_rings_padding_x
+bg_rings_pos_y = bg_rings_padding_y
+print("BG-RINGS " .. bg_rings_width .. "x" .. bg_rings_height .. " at " .. bg_rings_pos_x .. "," .. bg_rings_pos_y)
+-- bg_rings_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-s.png"
 
 
-bg_calendar_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-h.png"
-bg_calendar_width = math.floor(window_width * 0.25)
-bg_calendar_aspect = 0.4
+
 bg_calendar_padding_x = math.floor(window_width * 0.013)
-bg_calendar_padding_y = math.floor(window_width * 0.4)
+-- bg_calendar_padding_y = math.floor(window_width * 0.4)
+bg_calendar_padding_y = bg_rings_padding_y + bg_rings_height + math.floor(window_height * 0.005)
+bg_calendar_width = math.floor(window_width * 0.26)
+bg_calendar_aspect = 0.32
+bg_calendar_height = bg_calendar_aspect * bg_calendar_width
+bg_calendar_pos_x = bg_calendar_padding_x
+bg_calendar_pos_y = bg_calendar_padding_y
+print("BG-CALENDAR " ..
+  bg_calendar_width .. "x" .. bg_calendar_height .. " at " .. bg_calendar_pos_x .. "," .. bg_calendar_pos_y)
+-- bg_calendar_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-h.png"
 
 
-bg_player_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-s.png"
-bg_player_width = math.floor(window_width * 0.14)
-bg_player_aspect = 1.55
+
 bg_player_padding_x = math.floor(window_width * 0.006)
 bg_player_padding_y = math.floor(window_width * 0.23)
+bg_player_width = math.floor(window_width * 0.14)
+bg_player_aspect = 1.55
+bg_player_height = bg_player_aspect * bg_player_width
+bg_player_pos_y = bg_player_padding_y
+bg_player_pos_x = window_width - bg_main_width - bg_player_width - bg_player_padding_x
+print("BG-PLAYER " .. bg_player_width .. "x" .. bg_player_height .. " at " .. bg_player_pos_x .. "," .. bg_player_pos_y)
+-- bg_player_path = "~/.config/conky/MyMimosa/res/dark4/bg-piece-s.png"
 
 player_img_width = 180
 player_img_height = player_img_width
 player_img_padding_x = 10
 
-radius = 32
-thickness = 14
-padding_y = 116
+radius = 34
+thickness = 16
+padding_y = 112
 initial_space = bg_rings_padding_y + 2 * radius - 10
-empty = 40
-
+empty = 46
 
 
 settings_table = {
@@ -64,7 +94,6 @@ settings_table = {
     icon = "",
     icon_size = 24,
     suffix = '%',
-    real_max = 2.50
   },
   {
     name = 'memperc',
@@ -84,7 +113,7 @@ settings_table = {
     icon = "",
     icon_size = 20,
     suffix = '%',
-    real_max = 32.0
+    real_max = 31.1
   },
   {
     name = 'swapperc',
@@ -107,7 +136,7 @@ settings_table = {
   },
   {
     name = 'battery_percent',
-    arg = 'BAT0',
+    arg = 'BAT1',
     max = 100,
     bg_colour = 0xFFFFFF,
     bg_alpha = 0.2,
@@ -191,16 +220,16 @@ function draw_ring(cr, cr2, t, pt)
   cairo_show_text(cr2, pt["icon"])
 
   cairo_select_font_face(cr2, "Roboto", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
-  cairo_set_font_size(cr2, 12)
+  cairo_set_font_size(cr2, 15)
   if pt['name'] == 'cpu' then
-    cairo_move_to(cr2, xc - 14, yc + 45)
+    cairo_move_to(cr2, xc - 14, yc + 45 + 12)
     cairo_show_text(cr2, string.format("%03.0f%s", t * 100, pt['suffix']))
-    cairo_move_to(cr2, xc - 14 - 14, yc + 45 + 12)
-    cairo_show_text(cr2, string.format("%s", cpu_freq_mean(4)))
+    cairo_move_to(cr2, xc - 14 - 14, yc + 45 + 24)
+    cairo_show_text(cr2, string.format("%s", cpu_freq_mean(16)))
   elseif pt['name'] == 'memperc' then
-    cairo_move_to(cr2, xc - 14, yc + 45)
+    cairo_move_to(cr2, xc - 14, yc + 45 + 12)
     cairo_show_text(cr2, string.format("%03.0f%s", t * 100, pt['suffix']))
-    cairo_move_to(cr2, xc - 14 - 10, yc + 45 + 12)
+    cairo_move_to(cr2, xc - 14 - 10, yc + 45 + 24)
     cairo_show_text(cr2, string.format("%03.2f GB", t * pt['real_max']))
   elseif pt['name'] == 'swapperc' then
     -- cairo_move_to(cr2, xc + 18, yc + 45)
@@ -208,7 +237,7 @@ function draw_ring(cr, cr2, t, pt)
     -- cairo_move_to(cr2, xc + 18, yc + 45 + 12)
     -- cairo_show_text(cr2, string.format(" / %03.2f GB", t * 8))
   else
-    cairo_move_to(cr2, xc - 14, yc + 45 + 6)
+    cairo_move_to(cr2, xc - 14, yc + 45 + 12)
     cairo_show_text(cr2, string.format("%03.0f%s", t * 100, pt['suffix']))
   end
 end
@@ -256,77 +285,46 @@ function conky_render_bar()
   bg = conky_parse(
     '${exec jq .bar <  ~/.config/conky/MyMimosa/.cache/ref.json }')
   bg = bg:gsub('"', '')
-  return string.format("${image %s -s %sx%s -p %s,%s}", bg, 1366, 42, 0, 0)
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, window_width, 42, 0, 0)
 end
 
 function conky_render_rss()
   bg = conky_parse(
     '${exec jq .rss <  ~/.config/conky/MyMimosa/.cache/ref.json }')
   bg = bg:gsub('"', '')
-  return string.format("${image %s -s %sx%s -p %s,%s}", bg, 220, 250, 20, 100)
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_rss_width, bg_rss_height, bg_rss_pos_x, bg_rss_pos_y)
 end
 
 function conky_render_main_bg()
-  bg_height = bg_aspect * bg_width
-  bg_pos_x = 0
-  bg_pos_y = 0 + bg_padding_y
-  if (align_right) then
-    bg_pos_x = bg_pos_x + window_width - bg_width - bg_padding_x
-  else
-    bg_pos_x = bg_pos_x + bg_padding_x
-  end
   bg = conky_parse(
     '${exec jq .main <  ~/.config/conky/MyMimosa/.cache/ref.json }')
   bg = bg:gsub('"', '')
-  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_width, bg_height, bg_pos_x, bg_pos_y)
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_main_width, bg_main_height, bg_main_pos_x,
+    bg_main_pos_y)
 end
 
 function conky_render_vert_bg()
-  bg_vert_height = bg_rings_aspect * bg_rings_width
-  bg_pos_x = 0
-  bg_pos_y = 0 + bg_rings_padding_y
-  if align_right then
-    bg_pos_x = bg_rings_padding_x
-  else
-    bg_pos_x = window_width - bg_rings_width - bg_rings_padding_x
-  end
   bg = conky_parse(
     '${exec jq .vert <  ~/.config/conky/MyMimosa/.cache/ref.json }')
   bg = bg:gsub('"', '')
-  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_rings_width, bg_vert_height, bg_pos_x,
-    bg_pos_y)
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_rings_width, bg_rings_height, bg_rings_pos_x,
+    bg_rings_pos_y)
 end
 
 function conky_render_calendar_bg()
-  bg_calendar_height = bg_calendar_aspect * bg_calendar_width
-  bg_pos_x = 0
-  bg_pos_y = 0 + bg_calendar_padding_y
-  if align_right then
-    bg_pos_x = bg_calendar_padding_x
-  else
-    bg_pos_x = window_width - bg_calendar_width - bg_calendar_padding_x
-  end
   bg = conky_parse(
     '${exec jq .calendar <  ~/.config/conky/MyMimosa/.cache/ref.json }')
   bg = bg:gsub('"', '')
   return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_calendar_width, bg_calendar_height,
-    bg_pos_x, bg_pos_y)
+    bg_calendar_pos_x, bg_calendar_pos_y)
 end
 
 function conky_render_player_bg()
-  bg_player_height = bg_player_aspect * bg_player_width
-  bg_pos_x = 0
-  bg_pos_y = 0 + bg_player_padding_y
-  if align_right then
-    bg_pos_x = bg_pos_x + window_width - bg_width - bg_player_width - bg_player_padding_x
-  else
-    bg_pos_x = bg_player_width + bg_player_padding_x
-  end
   bg = conky_parse(
     '${exec jq .player <  ~/.config/conky/MyMimosa/.cache/ref.json }')
   bg = bg:gsub('"', '')
-  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_player_width, bg_player_height, bg_pos_x,
-    bg_pos_y)
+  return string.format("${image %s -s %sx%s -p %s,%s}", bg, bg_player_width, bg_player_height, bg_player_pos_x,
+    bg_player_pos_y)
 end
 
 function conky_render_player_image(flag)
@@ -340,7 +338,7 @@ function conky_render_player_image(flag)
   bg_pos_y = 0 + bg_player_padding_y + 20
 
   if align_right then
-    bg_pos_x = bg_pos_x + window_width - bg_width - bg_player_width - bg_player_padding_x + player_img_padding_x
+    bg_pos_x = bg_pos_x + window_width - bg_main_width - bg_player_width - bg_player_padding_x + player_img_padding_x
   else
     bg_pos_x = bg_player_width + bg_player_padding_x + player_img_padding_x
   end
@@ -351,9 +349,9 @@ end
 function conky_base_offset()
   offset = 0
   if align_right then
-    offset = window_width - bg_width - bg_padding_x
+    offset = window_width - bg_main_width - bg_main_padding_x
   else
-    offset = bg_padding_x
+    offset = bg_main_padding_x
   end
   return string.format("${offset %d}", offset)
 end
@@ -361,15 +359,15 @@ end
 function conky_player_base_offset()
   offset = 0
   if align_right then
-    offset = window_width - bg_width - bg_player_width
+    offset = window_width - bg_main_width - bg_player_width
   else
-    offset = bg_width + bg_player_padding_x + player_img_width
+    offset = bg_main_width + bg_player_padding_x + player_img_width
   end
   return string.format("${offset %d}", offset)
 end
 
 function conky_base_voffset()
-  voffset = bg_padding_y
+  voffset = bg_main_padding_y
   return string.format("${voffset %d}", voffset)
 end
 
