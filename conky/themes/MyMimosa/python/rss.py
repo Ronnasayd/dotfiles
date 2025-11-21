@@ -7,7 +7,7 @@ with open("/tmp/rss.json") as file:
     data = json.loads(file.read())
 
 if __name__ == "__main__":
-    offset = 420
+    offset = 40
     interval = 30
     if len(sys.argv) > 1:
         time_param = sys.argv[1]

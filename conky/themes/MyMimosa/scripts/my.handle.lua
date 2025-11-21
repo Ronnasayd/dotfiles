@@ -3,7 +3,7 @@
 window_width = 1920
 window_height = 1080
 
-bg_main_padding_x = math.floor(window_width * 0.01)
+bg_main_padding_x = math.floor(window_width * 0.21)
 bg_main_padding_y = math.floor(window_width * 0.045)
 bg_main_width = math.floor(window_width * 0.17)
 bg_main_aspect = 2.2
@@ -14,7 +14,7 @@ print("BG-MAIN " .. bg_main_width .. "x" .. bg_main_height .. " at " .. bg_main_
 -- bg_main_path = "~/.config/conky/MyMimosa/res/dark4/bg-main.png"
 
 
-bg_rss_padding_x = math.floor(window_width * 0.21)
+bg_rss_padding_x = math.floor(window_width * 0.01)
 bg_rss_padding_y = math.floor(window_width * 0.045)
 bg_rss_width = math.floor(window_width * 0.12)
 bg_rss_aspect = 1.2
@@ -25,7 +25,7 @@ print("BG-RSS " .. bg_rss_width .. "x" .. bg_rss_height .. " at " .. bg_rss_pos_
 -- bg_rss_path = "~/.config/conky/MyMimosa/res/dark4/bg-rss.png"
 
 
-bg_rings_padding_x = math.floor(window_width * 0.21)
+bg_rings_padding_x = math.floor(window_width * 0.01)
 -- bg_rings_padding_y = math.floor(window_width * 0.235)
 bg_rings_padding_y = bg_rss_padding_y + bg_rss_height + math.floor(window_height * 0.01)
 bg_rings_width = math.floor(window_width * 0.12)
@@ -38,7 +38,7 @@ print("BG-RINGS " .. bg_rings_width .. "x" .. bg_rings_height .. " at " .. bg_ri
 
 
 
-bg_calendar_padding_x = math.floor(window_width * 0.21)
+bg_calendar_padding_x = math.floor(window_width * 0.01)
 -- bg_calendar_padding_y = math.floor(window_width * 0.4)
 bg_calendar_padding_y = bg_rings_padding_y + bg_rings_height + math.floor(window_height * 0.01)
 bg_calendar_width = math.floor(window_width * 0.21)
@@ -52,7 +52,7 @@ print("BG-CALENDAR " ..
 
 
 
-bg_player_padding_x = math.floor(window_width * 0.001)
+bg_player_padding_x = math.floor(window_width * 0.21)
 bg_player_padding_y = math.floor(window_width * 0.23)
 bg_player_width = math.floor(window_width * 0.12)
 bg_player_aspect = 1.4
@@ -84,7 +84,7 @@ settings_table = {
     fg_colour = 0x00d4ff,
     fg_alpha = 1,
     y = initial_space + padding_y,
-    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.06),
+    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.01),
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -102,7 +102,7 @@ settings_table = {
     fg_colour = 0x03ffb1,
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
-    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.06),
+    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.01),
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -121,7 +121,7 @@ settings_table = {
     fg_colour = 0x01c386,
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
-    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.06),
+    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.01),
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -139,7 +139,7 @@ settings_table = {
     fg_colour = 0x03ff60,
     fg_alpha = 1,
     y = initial_space + padding_y,
-    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.128),
+    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.08),
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -157,7 +157,7 @@ settings_table = {
     fg_colour = 0x03ff24,
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
-    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.128),
+    x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.08),
     radius = radius,
     thickness = thickness,
     start_angle = 0,
@@ -331,20 +331,19 @@ function conky_render_player_image(flag)
   bg_pos_x = 0 + bg_player_padding_x
   bg_pos_y = 0 + bg_player_padding_y + 20
 
-  bg_pos_x = bg_pos_x + window_width - bg_main_width - bg_player_width - bg_player_padding_x + player_img_padding_x
+  bg_pos_x = bg_pos_x + window_width - bg_main_width - bg_player_width - bg_player_padding_x + player_img_padding_x -
+      math.floor(window_width * 0.203)
   return string.format("${image %s -s %sx%s -p %s,%s}", banner, player_img_width, player_img_height, bg_pos_x,
     bg_pos_y)
 end
 
 function conky_base_offset()
-  offset = 0
   offset = window_width - bg_main_width - bg_main_padding_x
   return string.format("${offset %d}", offset)
 end
 
 function conky_player_base_offset()
-  offset = 0
-  offset = window_width - bg_main_width - bg_player_width
+  offset = window_width - bg_main_width - bg_player_width - math.floor(window_width * 0.203)
   return string.format("${offset %d}", offset)
 end
 
