@@ -7,8 +7,9 @@ from random import choices
 
 import cv2
 
-WIDTH = 1920
-HEIGHT = 1080
+PROPORTION = 100 / 125
+WIDTH = int(PROPORTION * 1920)
+HEIGHT = int(PROPORTION * 1080)
 HOME = os.path.expanduser("~")
 
 
