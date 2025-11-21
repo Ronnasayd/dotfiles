@@ -80,23 +80,24 @@ if data["reference"] != name:
 
     newpath_rings = f"{HOME}/.config/conky/MyMimosa/.cache/vert_{name}.png"
     reference_rings = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
-    rings_dimensions = dict(x=19, y=372, width=230, height=230)
+    rings_dimensions = dict(x=15, y=373, width=245, height=245)
 
     newpath_rss = f"{HOME}/.config/conky/MyMimosa/.cache/rss_{name}.png"
     reference_rss = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
-    rss_dimensions = dict(x=19, y=86, width=230, height=276)
+    rss_dimensions = dict(x=15, y=69, width=245, height=294)
 
     newpath_main = f"{HOME}/.config/conky/MyMimosa/.cache/main_{name}.png"
     reference_main = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-main.png"
-    main_dimensions = dict(x=1191, y=86, width=326, height=717)
+    main_dimensions = dict(x=1199, y=69, width=322, height=708)
 
     newpath_calendar = f"{HOME}/.config/conky/MyMimosa/.cache/calendar_{name}.png"
     reference_calendar = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
-    calendar_dimensions = dict(x=19, y=612, width=403, height=124)
+    calendar_dimensions = dict(x=15, y=628, width=384, height=119)
 
     newpath_player = f"{HOME}/.config/conky/MyMimosa/.cache/player_{name}.png"
     reference_player = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-player.png"
-    player_dimensions = dict(x=961, y=441, width=230, height=322)
+    player_dimensions = dict(x=938, y=407, width=261, height=365)
+
     newpath_bar = f"{HOME}/.config/conky/MyMimosa/.cache/bar_{name}.png"
 
     isProcessed = (
@@ -174,7 +175,7 @@ if data["reference"] != name:
             img,
             newpath_bar,
             "",
-            [0, 0, 1920, 42],
+            [0, 0, WIDTH, 42],
         )
 
     with open(f"{HOME}/.config/conky/MyMimosa/.cache/ref.json", "w") as file:
