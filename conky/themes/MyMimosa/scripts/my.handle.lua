@@ -1,6 +1,5 @@
 ---@diagnostic disable: lowercase-global, undefined-global
 
-align_right = true
 window_width = 1920
 window_height = 1080
 
@@ -53,10 +52,10 @@ print("BG-CALENDAR " ..
 
 
 
-bg_player_padding_x = math.floor(window_width * 0.006)
+bg_player_padding_x = math.floor(window_width * 0.001)
 bg_player_padding_y = math.floor(window_width * 0.23)
-bg_player_width = math.floor(window_width * 0.14)
-bg_player_aspect = 1.55
+bg_player_width = math.floor(window_width * 0.12)
+bg_player_aspect = 1.4
 bg_player_height = bg_player_aspect * bg_player_width
 bg_player_pos_y = bg_player_padding_y
 bg_player_pos_x = window_width - bg_main_width - bg_player_width - bg_player_padding_x
@@ -332,32 +331,20 @@ function conky_render_player_image(flag)
   bg_pos_x = 0 + bg_player_padding_x
   bg_pos_y = 0 + bg_player_padding_y + 20
 
-  if align_right then
-    bg_pos_x = bg_pos_x + window_width - bg_main_width - bg_player_width - bg_player_padding_x + player_img_padding_x
-  else
-    bg_pos_x = bg_player_width + bg_player_padding_x + player_img_padding_x
-  end
+  bg_pos_x = bg_pos_x + window_width - bg_main_width - bg_player_width - bg_player_padding_x + player_img_padding_x
   return string.format("${image %s -s %sx%s -p %s,%s}", banner, player_img_width, player_img_height, bg_pos_x,
     bg_pos_y)
 end
 
 function conky_base_offset()
   offset = 0
-  if align_right then
-    offset = window_width - bg_main_width - bg_main_padding_x
-  else
-    offset = bg_main_padding_x
-  end
+  offset = window_width - bg_main_width - bg_main_padding_x
   return string.format("${offset %d}", offset)
 end
 
 function conky_player_base_offset()
   offset = 0
-  if align_right then
-    offset = window_width - bg_main_width - bg_player_width
-  else
-    offset = bg_main_width + bg_player_padding_x + player_img_width
-  end
+  offset = window_width - bg_main_width - bg_player_width
   return string.format("${offset %d}", offset)
 end
 
@@ -377,8 +364,7 @@ function conky_base_vert_voffset()
 end
 
 function conky_icon_offset()
-  offset = align_right and bg_rings_padding_x + bg_rings_width / 2 + thickness / 2 - 10 or
-      window_width - bg_rings_padding_x - bg_rings_width / 2 + thickness / 2 - 10
+  offset = bg_rings_padding_x + bg_rings_width / 2 + thickness / 2 - 10
   return string.format("${offset %d}", offset)
 end
 
@@ -458,11 +444,7 @@ function conky_calendar()
   file = io.open('/tmp/conky-calendar', 'r')
   contents = file:read("*a")
   file:close()
-  if align_right then
-    offset = bg_calendar_padding_x + 20
-  else
-    offset = window_width - bg_calendar_width - bg_calendar_padding_x + 20
-  end
+  offset = bg_calendar_padding_x + 20
   offset_str = string.format('${offset %d}${font Roboto:size=8}', offset)
   contents = string.gsub(contents, "offset|", offset_str)
   contents = string.gsub(contents, "bold|", "${font Roboto:bold:size=8} ")
