@@ -177,3 +177,4 @@ alias extc="extract_columns" # (Fn) Extract columns from piped input: extc <colu
 alias ici="mkdir -p ./.github && cp ~/develop/personal/AI-pair-programming/instructions/copilot.instructions.md ./.github/copilot.instructions.md && echo 'copilot.instructions.md' >> .gitignore" # Copy copilot instructions to current repo
 alias adown="aria-download" # (Fn) Download a file using aria2c with optimized settings: adown <file_url> <output_filename>
 alias systeminfo="LANG=C inxi -Fxxxrzc0 --usb" # show some system info
+alias findapp="ls /usr/share/applications | fzf | xargs -I{} echo \"/usr/share/aplications/{}\"" # find application desktop file with fzf
