@@ -41,7 +41,7 @@ print("BG-RINGS " .. bg_rings_width .. "x" .. bg_rings_height .. " at " .. bg_ri
 bg_calendar_padding_x = math.floor(window_width * 0.01)
 -- bg_calendar_padding_y = math.floor(window_width * 0.4)
 bg_calendar_padding_y = bg_rings_padding_y + bg_rings_height + math.floor(window_height * 0.01)
-bg_calendar_width = math.floor(window_width * 0.25)
+bg_calendar_width = math.floor(window_width * 0.27)
 bg_calendar_aspect = 0.31
 bg_calendar_height = bg_calendar_aspect * bg_calendar_width
 bg_calendar_pos_x = bg_calendar_padding_x
