@@ -42,7 +42,7 @@
     "3ae80c90-c1a5-4e0b-844b-ba0f86270e94": {
         "id": "3ae80c90-c1a5-4e0b-844b-ba0f86270e94",
         "name": "translate to english",
-        "keyword": "eng",
+        "keyword": "treng",
         "cmd": "https://translate.google.com.br/?sl=pt&tl=en&text=%s&op=translate",
         "icon": "~/develop/personal/dotfiles/ulauncher/icons/translate.png",
         "is_default_search": true,
@@ -52,7 +52,7 @@
     "84b8461e-12da-4e71-b421-f73fba10c018": {
         "id": "84b8461e-12da-4e71-b421-f73fba10c018",
         "name": "translate to portuguese",
-        "keyword": "ptbr",
+        "keyword": "trpt",
         "cmd": "https://translate.google.com.br/?sl=en&tl=pt&text=%s&op=translate",
         "icon": "~/develop/personal/dotfiles/ulauncher/icons/translate.png",
         "is_default_search": true,

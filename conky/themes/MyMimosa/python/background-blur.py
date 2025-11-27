@@ -92,7 +92,7 @@ if data["reference"] != name:
 
     newpath_calendar = f"{HOME}/.config/conky/MyMimosa/.cache/calendar_{name}.png"
     reference_calendar = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
-    calendar_dimensions = dict(x=15, y=628, width=384, height=119)
+    calendar_dimensions = dict(x=15, y=628, width=414, height=128)
 
     newpath_player = f"{HOME}/.config/conky/MyMimosa/.cache/player_{name}.png"
     reference_player = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-player.png"
