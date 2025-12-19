@@ -59,7 +59,7 @@
     "name": "rss",
     "description": "Open current rss",
     "icon": "/home/ronnas/develop/personal/dotfiles/icons/rss.png",
-    "script": "/bin/zsh -i -c 'rss'",
+    "script": "/bin/zsh -i -c 'open $(cat /tmp/rss.txt)'",
     "default_arguments": []
   }
 ]

@@ -512,7 +512,7 @@ fn-replace() {
 
 
 jump-to-original-dir(){
-  z $(readlink -f $1)
+  cd $(readlink -f $1)
 }
 
 fuzzy-code-workspaces(){
