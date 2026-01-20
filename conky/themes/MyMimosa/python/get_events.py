@@ -1,5 +1,5 @@
-from datetime import datetime, timedelta
-
+from datetime import datetime, timedelta, date, timezone
+import tzlocal
 from decouple import config
 from gcsa.google_calendar import GoogleCalendar
 
@@ -23,11 +23,44 @@ for email, token_path in zip(emails, tokens):
         data.append(event)
 
 if len(data) > 1:
-    data = sorted(data, key=lambda x: x.start)
+
+    def get_event_start_as_datetime(event):
+        start = event.start
+        if isinstance(start, datetime):
+            dt = start
+        elif isinstance(start, date):
+            dt = datetime.combine(start, datetime.min.time())
+        else:
+            dt = start
+        # Garantir que seja offset-aware
+        if dt.tzinfo is None or dt.tzinfo.utcoffset(dt) is None:
+            try:
+                local_tz = tzlocal.get_localzone()
+                dt = dt.replace(tzinfo=local_tz)
+            except Exception:
+                dt = dt.replace(tzinfo=timezone.utc)
+        return dt
+
+    data = sorted(data, key=lambda x: get_event_start_as_datetime(x))
     counter = 0
     content = ""
     for event in data[:NUMBER_EVENTS]:
-        line = f"offset|{event.start.strftime('%d/%m %H:%M')} to {event.end.strftime('%H:%M')} bold|{event.summary[:32].strip()}\n"
+        start_dt = get_event_start_as_datetime(event)
+        end = event.end
+        if isinstance(end, datetime):
+            end_dt = end
+        elif isinstance(end, date):
+            end_dt = datetime.combine(end, datetime.min.time())
+        else:
+            end_dt = end
+        # Garantir que end_dt também seja offset-aware
+        if end_dt.tzinfo is None or end_dt.tzinfo.utcoffset(end_dt) is None:
+            try:
+                local_tz = tzlocal.get_localzone()
+                end_dt = end_dt.replace(tzinfo=local_tz)
+            except Exception:
+                end_dt = end_dt.replace(tzinfo=timezone.utc)
+        line = f"offset|{start_dt.strftime('%d/%m %H:%M')} to {end_dt.strftime('%H:%M')} bold|{event.summary[:32].strip()}\n"
         content += line
         counter += 1
 

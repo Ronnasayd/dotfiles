@@ -14,3 +14,5 @@
 	required = true
 [http]
 	postBuffer = 1048576000
+[url "https://:@github.com/"]
+	insteadOf = https://github.com/

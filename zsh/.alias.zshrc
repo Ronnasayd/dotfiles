@@ -175,7 +175,7 @@ alias task-master="ASDF_NODEJS_VERSION=23.11.1 TASKMASTER_SKIP_AUTO_UPDATE=1 tas
 alias sc="strip_colors" # (Fn) Remove color codes from text
 alias fdpkgl="dpkg --list | extract_columns 2 3 | fzf" # Search installed dpkg packages with fzf
 alias extc="extract_columns" # (Fn) Extract columns from piped input: extc <column_numbers>
-alias ici="mkdir -p ./.github && cp ~/develop/personal/AI-pair-programming/instructions/copilot.instructions.md ./.github/copilot.instructions.md && echo 'copilot.instructions.md' >> .gitignore" # Copy copilot instructions to current repo
+alias ici="mkdir -p ./.github/instructions && cp ~/develop/personal/AI-pair-programming/instructions/copilot.instructions.md ./.github/instructions/copilot.instructions.md && echo '.github/instructions/' >> .gitignore" # Copy copilot instructions to current repo
 alias adown="aria-download" # (Fn) Download a file using aria2c with optimized settings: adown <file_url> <output_filename>
 alias systeminfo="LANG=C inxi -Fxxxrzc0 --usb" # show some system info
 alias findapp="ls /usr/share/applications | fzf | xargs -I{} echo \"/usr/share/aplications/{}\"" # find application desktop file with fzf
