@@ -2,27 +2,21 @@ from datetime import datetime, timedelta, date, timezone
 import tzlocal
 from decouple import config
 from gcsa.google_calendar import GoogleCalendar
-import logging
 
-logging.basicConfig(
-    filename="/tmp/get_events.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-)
 
 time_min = datetime.now()
 time_max = datetime.now() + timedelta(days=2)
 
-logging.info("Starting get_events script")
+print("Starting get_events script")
 
 NUMBER_EVENTS = 5
 
 try:
     emails = config("EMAILS").split(";")
     tokens = config("TOKENS_PATH").split(";")
-    logging.info(f"Loaded {len(emails)} email accounts.")
+    print(f"Loaded {len(emails)} email accounts.")
 except Exception as e:
-    logging.error(f"Error loading configuration: {e}")
+    print(f"Error loading configuration: {e}")
     emails = []
     tokens = []
 
@@ -34,14 +28,16 @@ for email, token_path in zip(emails, tokens):
             email,
             token_path=token_path,
         )
+        print(f"Fetching events for {email} from {time_min} to {time_max}")
         for event in calendar.get_events(
             time_min, time_max, order_by="startTime", single_events=True
         ):
+            print(f"Fetched event: {event.summary} from {email}")
             data.append(event)
     except Exception as e:
-        logging.error(f"Error fetching events for {email}: {e}")
+        print(f"Error fetching events for {email}: {e}")
 
-logging.info(f"Fetched {len(data)} events from calendars.")
+print(f"Fetched {len(data)} events from calendars.")
 
 if len(data) > 1:
 
@@ -63,7 +59,7 @@ if len(data) > 1:
         return dt
 
     data = sorted(data, key=lambda x: get_event_start_as_datetime(x))
-    logging.info(f"Processing top {min(len(data), NUMBER_EVENTS)} events.")
+    print(f"Processing top {min(len(data), NUMBER_EVENTS)} events.")
     counter = 0
     content = ""
     for event in data[:NUMBER_EVENTS]:
@@ -91,9 +87,9 @@ if len(data) > 1:
             with open("/tmp/conky-calendar", "w", encoding="utf-8") as file:
                 file.write(content)
                 file.write("\n" * max(NUMBER_EVENTS - counter, 0))
-            logging.info("Successfully wrote calendar data to /tmp/conky-calendar")
+            print("Successfully wrote calendar data to /tmp/conky-calendar")
         except Exception as e:
-            logging.error(f"Error writing to /tmp/conky-calendar: {e}")
+            print(f"Error writing to /tmp/conky-calendar: {e}")
     else:
         # system("rm /tmp/conky-calendar")
         try:
@@ -101,17 +97,15 @@ if len(data) > 1:
                 file.write("\n")
                 file.write("offset|No events at the moment ...")
                 file.write("\n" * (NUMBER_EVENTS - 1))
-            logging.info(
-                "Successfully wrote 'no events' message to /tmp/conky-calendar"
-            )
+            print("Successfully wrote 'no events' message to /tmp/conky-calendar")
         except Exception as e:
-            logging.error(f"Error writing to /tmp/conky-calendar: {e}")
+            print(f"Error writing to /tmp/conky-calendar: {e}")
 else:
     try:
         with open("/tmp/conky-calendar", "w", encoding="utf-8") as file:
             file.write("\n")
             file.write("offset|No events at the moment ...")
             file.write("\n" * (NUMBER_EVENTS - 1))
-        logging.info("Successfully wrote 'no events' message to /tmp/conky-calendar")
+        print("Successfully wrote 'no events' message to /tmp/conky-calendar")
     except Exception as e:
-        logging.error(f"Error writing to /tmp/conky-calendar: {e}")
+        print(f"Error writing to /tmp/conky-calendar: {e}")
