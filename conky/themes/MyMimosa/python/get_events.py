@@ -28,6 +28,7 @@ for email, token_path in zip(emails, tokens):
             email,
             token_path=token_path,
         )
+        print(f"Credenciais validas: {calendar.credentials.valid}")
         print(f"Fetching events for {email} from {time_min} to {time_max}")
         for event in calendar.get_events(
             time_min, time_max, order_by="startTime", single_events=True
