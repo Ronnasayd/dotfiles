@@ -6,6 +6,7 @@ from langdetect import detect
 from langdetect.lang_detect_exception import LangDetectException
 import feedparser
 from bs4 import BeautifulSoup
+import requests
 
 rss = [
     {"source": "Tecmundo", "url": "https://rss.tecmundo.com.br/feed"},
@@ -86,7 +87,16 @@ for row in rss:
     url = row["url"]
     print(f"Parsing RSS feed: {url}")
     source = row["source"]
-    feed = feedparser.parse(url)
+    try:
+        response = requests.get(url, timeout=30)
+        response.raise_for_status()
+        feed = feedparser.parse(response.content)
+    except requests.exceptions.Timeout:
+        print(f"Timeout parsing RSS feed: {url}")
+        continue
+    except Exception as e:
+        print(f"Error parsing RSS feed: {url} - {e}")
+        continue
     for entry in feed.entries:
         summary = entry.summary
         if url == "https://rss.tecmundo.com.br/feed":
@@ -111,10 +121,13 @@ for row in rss:
         if published_dt.tzinfo is None:
             published_dt = published_dt.replace(tzinfo=timezone.utc)
         try:
-            is_correct_language = detect(wrapped_title) in ['pt','en']
+            is_correct_language = detect(wrapped_title) in ["pt", "en"]
         except LangDetectException as e:
             is_correct_language = False
-        if datetime.now(timezone.utc) - published_dt < timedelta(days=60) and is_correct_language:
+        if (
+            datetime.now(timezone.utc) - published_dt < timedelta(days=60)
+            and is_correct_language
+        ):
             data.append(
                 dict(
                     title=wrapped_title,

@@ -2,6 +2,14 @@ from datetime import datetime, timedelta, date, timezone
 import tzlocal
 from decouple import config
 from gcsa.google_calendar import GoogleCalendar
+import signal
+
+
+def timeout_handler(signum, frame):
+    raise TimeoutError("Timeout occurred")
+
+
+signal.signal(signal.SIGALRM, timeout_handler)
 
 
 time_min = datetime.now()
@@ -30,13 +38,25 @@ for email, token_path in zip(emails, tokens):
         )
         print(f"Credenciais validas: {calendar.credentials.valid}")
         print(f"Fetching events for {email} from {time_min} to {time_max}")
-        for event in calendar.get_events(
-            time_min, time_max, order_by="startTime", single_events=True
-        ):
-            print(f"Fetched event: {event.summary} from {email}")
-            data.append(event)
+        try:
+            signal.alarm(30)
+            events = list(
+                calendar.get_events(
+                    time_min, time_max, order_by="startTime", single_events=True
+                )
+            )
+            signal.alarm(0)
+            for event in events:
+                print(f"Fetched event: {event.summary} from {email}")
+                data.append(event)
+        except TimeoutError:
+            print(f"Timeout fetching events for {email} after 30 seconds")
+            signal.alarm(0)
+        except Exception as e:
+            print(f"Error fetching events for {email}: {e}")
+            signal.alarm(0)
     except Exception as e:
-        print(f"Error fetching events for {email}: {e}")
+        print(f"Error initializing calendar for {email}: {e}")
 
 print(f"Fetched {len(data)} events from calendars.")
 

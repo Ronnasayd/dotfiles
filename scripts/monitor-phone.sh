@@ -1,5 +1,5 @@
 #!/bin/bash
-
+pactl list cards short # listar os cards disponíveis para identificar o nome correto
 CARD="alsa_card.pci-0000_00_1f.3-platform-skl_hda_dsp_generic"
 pactl set-card-profile "$CARD" output:stereo-fallback+input:stereo-fallback
 
