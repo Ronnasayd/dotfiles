@@ -1,15 +1,41 @@
 #!/bin/sh
 
-# Salva mudanças não preparadas para evitar interferências
-git stash -q --keep-index
+# ─── CONFIGURATION ────────────────────────────────────────────────────────────
+# Diretório raiz dos módulos (relativo à raiz do repositório)
+MODULES_ROOT="src/modules"
 
-# Executa os testes
-pytest --disable-warnings --verbose # Substitua pelo comando adequado ao seu projeto
+# Comando para executar testes dos módulos afetados.
+# Use o placeholder {PATTERN} onde o filtro de caminho deve ser injetado.
+#
+# Exemplos por framework:
+#   Jest:   "yarn test:prepare && NODE_ENV=test jest --passWithNoTests --runInBand --bail --detectOpenHandles --testPathPattern={PATTERN}"
+#   pytest: "pytest {PATTERN}"
+#   Go:     "go test ./{PATTERN}/..."
+#   Vitest: "vitest run {PATTERN}"
+MODULE_TEST_CMD="yarn test {PATTERN}"
+# ──────────────────────────────────────────────────────────────────────────────
 
-TEST_RESULT=$?
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR)
 
-# Restaura as mudanças stashed
-git stash pop -q
+if [ -z "$STAGED_FILES" ]; then
+  exit 0
+fi
 
-# Se testes falharem, o commit é bloqueado (código de saída diferente de zero)
-exit $TEST_RESULT
+# Extrai os nomes únicos dos módulos afetados a partir dos arquivos staged
+MODULES=$(echo "$STAGED_FILES" | grep -E "^${MODULES_ROOT}/" | sed -E "s|^${MODULES_ROOT}/([^/]+)/.*|\1|" | sort -u)
+
+if [ -z "$MODULES" ]; then
+  echo "[pre-commit] Nenhum arquivo de módulo alterado. Pulando testes."
+  exit 0
+fi
+
+# Monta o padrão de teste unindo os caminhos dos módulos com "|"
+TEST_PATTERN=$(echo "$MODULES" | sed -E "s|^|${MODULES_ROOT}/|" | tr '\n' '|' | sed 's/|$//')
+
+echo "[pre-commit] Módulos afetados: $(echo "$MODULES" | tr '\n' ' ')"
+echo "[pre-commit] Executando testes para: $TEST_PATTERN"
+
+# Injeta o padrão no comando de teste e executa
+CMD=$(echo "$MODULE_TEST_CMD" | sed "s|{PATTERN}|${TEST_PATTERN}|g")
+eval "$CMD"
+exit $?
