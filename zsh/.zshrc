@@ -225,6 +225,7 @@ eval "$(zoxide init zsh)"
 
 
 [[ ! -f ~/.alias.zshrc ]] || source ~/.alias.zshrc
+[[ ! -f ~/.gemini.alias.zshrc ]] || source ~/.gemini.alias.zshrc
 
 # pnpm
 export PNPM_HOME="/home/ronnas/.local/share/pnpm"

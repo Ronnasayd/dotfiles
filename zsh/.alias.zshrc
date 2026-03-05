@@ -1,5 +1,6 @@
 # Remove aliases
 unalias gcb
+
 # Custom aliases
 alias glom="git pull origin master" # Pull the latest changes from the master branch
 alias glod="git pull origin develop" # Pull the latest changes from the develop branch
@@ -164,7 +165,7 @@ alias gssh="ssh-keygen -t rsa -b 4096 -C " # Generate private and public keys in
 alias gcia="~/bin/generate-context-ia" # Script que gera um context de arquivos para usar em prompts de IA
 alias gcvia="~/bin/generate-coverage-ia" # Script que gera um context de cobertura de testes para usar em prompts de IA
 alias ws="~/.local/bin/ws" # List recent VS Code workspaces and folders
-alias gemini="ASDF_NODEJS_VERSION=20.13.0 gemini" # using correct node version for gemini
+alias gemini="ASDF_NODEJS_VERSION=23.11.1 gemini" # using correct node version for gemini
 alias curlheaders="~/.local/bin/curl_headers" # Fetch and display HTTP headers from a URL
 alias pscpu="~/.local/bin/pscpu" # Display processes sorted by CPU usage
 alias commitai="~/.local/bin/commitai" # Generate a git commit message using AI based on the changes
@@ -179,3 +180,4 @@ alias ici="mkdir -p ./.github/instructions && cp ~/develop/personal/AI-pair-prog
 alias adown="aria-download" # (Fn) Download a file using aria2c with optimized settings: adown <file_url> <output_filename>
 alias systeminfo="LANG=C inxi -Fxxxrzc0 --usb" # show some system info
 alias findapp="ls /usr/share/applications | fzf | xargs -I{} echo \"/usr/share/aplications/{}\"" # find application desktop file with fzf
+alias loopvideo="loop-video" # (Fn) Loop a video file indefinitely using ffmpeg: loopvideo <input_video> <output_video>

@@ -627,3 +627,30 @@ aria-download() {
     aria2c -x10 -j10 "$1" -o "$2"
   fi
 }
+
+loop-video() {
+    input="$1"
+    output="$2"
+
+    if [[ -z "$input" || -z "$output" ]]; then
+        echo "Uso: loop_video input.mp4 output.mp4"
+        return 1
+    fi
+
+    tmp_reverse="__reverse_temp__.mp4"
+    tmp_list="__list_temp__.txt"
+
+    echo "Gerando versão invertida..."
+    ffmpeg -y -i "$input" -vf reverse -af areverse "$tmp_reverse"
+
+    echo "Criando lista de concatenação..."
+    printf "file '%s'\nfile '%s'\n" "$input" "$tmp_reverse" > "$tmp_list"
+
+    echo "Concatenando..."
+    ffmpeg -y -f concat -safe 0 -i "$tmp_list" -c copy "$output"
+
+    echo "Limpando temporários..."
+    rm -f "$tmp_reverse" "$tmp_list"
+
+    echo "Loop criado: $output"
+}
