@@ -1,10 +1,11 @@
 # Changelog
 
-## v2026.03.09 (Unreleased - based on v1.0.5)
+## v2026.03.10 (Unreleased - based on v1.0.5)
 
 ### ✨ Features
 
 **2026-03-09**
+* Add build-changelog alias to generate changelog from git commit history ([a80cc79](https://github.com/Ronnasayd/dotfiles/commit/a80cc79))
 * Add new git diff aliases and enhance remote repository functions in zsh configuration ([f79890c](https://github.com/Ronnasayd/dotfiles/commit/f79890c))
 
 **2026-03-05**
@@ -926,6 +927,12 @@
 
 ### 🧹 Chores
 
+**2026-03-10**
+* Update .gitignore to include github and task management files ([2c8195f](https://github.com/Ronnasayd/dotfiles/commit/2c8195f))
+
+**2026-03-09**
+* Update project dependencies to latest versions ([d9a365f](https://github.com/Ronnasayd/dotfiles/commit/d9a365f))
+
 **2026-03-05**
 * Remove deprecated gemini alias file from zsh configuration ([8422f62](https://github.com/Ronnasayd/dotfiles/commit/8422f62))
 
@@ -1061,4 +1068,4 @@ d6a6def - update theme | 2023-12-14
 ad0251f - updates | 2023-12-12
 
 ---
-Generated on 2026-03-09 21:27:56
+Generated on 2026-03-10 09:42:25

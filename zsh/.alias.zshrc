@@ -1,6 +1,37 @@
 # Remove aliases
 unalias gcb
 
+# Custom function aliases
+alias gdbl="git-diff-branch" # (FN) Show the comparison between current branch and another branch in the terminal (~/.functions.zshrc)
+alias ogdb="open-git-diff-branch" # (FN) Open the comparison between current branch and another branch in the browser (~/.functions.zshrc)
+alias openr="open-remote-git-repository" # (Fn) Open remote repository URL in default browser (~/.functions.zshrc)
+alias openrb="open-remote-git-repository-with-branch" # (Fn) Open remote repository URL in current branch at browser (~/.functions.zshrc)
+alias openpr="open-remote-git-repository-pull-request" # (Fn) Open remote repository URL for creating a pull request in browser (~/.functions.zshrc)
+alias openj="open-remote-Jira" # (Fn) Open remote Jira task by branch (~/.functions.zshrc)
+alias dcob="docker-compose-build" # (Fn) Build Docker containers using a specified Docker Compose file: dcob <docker_compose_file> (~/.functions.zshrc)
+alias dcou="docker-compose-up" # (Fn) Start Docker containers using a specified Docker Compose file: dcou <docker_compose_file> (~/.functions.zshrc)
+alias renameall="rename-all" # (Fn) Rename all files and directories matching a given name: renameall <old_name> <new_name> (~/.functions.zshrc)
+alias gsib="git-search-pattern-in-branches" # (Fn) Search for a pattern in all branches of a Git repository: gsib <pattern> (~/.functions.zshrc)
+alias clwd="list-code-workspaces-by-date" # (Fn) List workspaces with their last modified dates (~/.functions.zshrc)
+alias ldbd="list-directories-by-date" # (Fn) List directories sorted by their last modified date: ldbd <pattern> <path> (~/.functions.zshrc)
+alias mkfile="make-file" # (Fn) Create a file and its parent directories if they do not exist: mkfile <file_path> (~/.functions.zshrc)
+alias ftext="find-text" # (Fn) Search for text in files and display matching lines with context: ftext <search_text> <?directory> (~/.functions.zshrc)
+alias fdirr="find-directory" # (Fn) Find directories by name and display their last modified dates: fdirr <directory_name> (~/.functions.zshrc)
+alias v2f="video2frames" # (Fn) Convert a video file into a series of PNG images: v2f <video_path> (~/.functions.zshrc)
+alias f2v="frames2video" # (Fn) Create a video file from a series of PNG images: f2v <output_video_filename> <frames_per_second> (~/.functions.zshrc)
+alias cutvideo="cut-video" # (Fn) Cut a segment from a video file using ffmpeg: cutvideo <input_filename> <start_time> <duration> <output_filename> (~/.functions.zshrc)
+alias gfps="get-fps" # (Fn) Calculate and round the average frame rate of a video file: gfps <video_file> (~/.functions.zshrc)
+alias m3ud="m3u-download" # (Fn) Download a video stream from an .m3u8 playlist file using ffmpeg: m3ud <m3u8_url> <output_filename> (~/.functions.zshrc)
+alias replace="fn-replace" # (Fn) replace a part of a string with a new string: cutvideo <string> <substring> <new_substring> (~/.functions.zshrc)
+alias cd="z" # (Fn) Use z of zoxide to navigate to directories more easily (~/.functions.zshrc)
+alias cdl="jump-to-original-dir" # (Fn) Jump to original directory of a symbolic link (~/.functions.zshrc)
+alias copilot_commit="copilot-generate-commit" # (Fn) Generate a git commit message using GitHub Copilot based on the staged changes (~/.functions.zshrc)
+alias sc="strip_colors" # (Fn) Remove color codes from text (~/.functions.zshrc)
+alias xcol="extract_columns" # (Fn) Extract columns from piped input: extc <column_numbers> (~/.functions.zshrc)
+alias adown="aria-download" # (Fn) Download a file using aria2c with optimized settings: adown <file_url> <output_filename> (~/.functions.zshrc)
+alias loopvideo="loop-video" # (Fn) Loop a video file indefinitely using ffmpeg: loopvideo <input_video> <output_video> (~/.functions.zshrc)
+
+
 # Custom aliases
 alias glom="git pull origin master" # Pull the latest changes from the master branch
 alias glod="git pull origin develop" # Pull the latest changes from the develop branch
@@ -22,8 +53,6 @@ alias gsurl="git remote set-url origin" # Set remote origin url of current git r
 alias gd="git diff" # Show changes between commits, commit and working tree, etc
 alias gds="git diff --staged" # Show changes between staged changes and the last commit
 alias gdc="git diff --cached" # Show changes between staged changes and the last
-alias gdbl="git-diff-branch" # (FN) Show the comparison between current branch and another branch in the terminal
-alias ogdb="open-git-diff-branch" # (FN) Open the comparison between current branch and another branch in the browser
 alias pyserver="python3 -m http.server 8000 --directory" # Start a simple HTTP server in a specified directory
 alias pyv="python3 -m venv venv && source venv/bin/activate" # Create and activate a Python virtual environment
 alias pyv3="virtualenv --python=python3.6 venv" # Create a virtual environment with Python 3.6
@@ -111,10 +140,6 @@ alias ximg='xclip -selection clipboard -t image/png -o >' # Copy image from clip
 alias ctf='xclip -selection clipboard  -o >' # Copy content from clipboard to file
 alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1' # Count number of frames in video file
 alias echc='pactl load-module module-echo-cancel' # Load PulseAudio module for echo cancellation
-alias openr="open-remote-git-repository" # (Fn) Open remote repository URL in default browser
-alias openrb="open-remote-git-repository-with-branch" # (Fn) Open remote repository URL in current branch at browser
-alias openpr="open-remote-git-repository-pull-request" # (Fn) Open remote repository URL for creating a pull request in browser
-alias openj="open-remote-Jira" # (Fn) Open remote Jira task by branch
 alias mkdir='mkdir -p' # Create directory, including parent directories if necessary
 alias ccat='ccat' # Syntax-highlighted cat command
 alias forcefsck='sudo touch /forcefsck' # Force file system check on next boot
@@ -125,20 +150,6 @@ alias rmrf="rm -rf" # Remove files and directories recursively
 alias las="la -S" # List files by size
 alias hsf="history | fzf" # Search history with fzf
 alias psf="printenv | fzf" # Search printenv with fzf
-alias dcob="docker-compose-build" # (Fn) Build Docker containers using a specified Docker Compose file: dcob <docker_compose_file>
-alias dcou="docker-compose-up" # (Fn) Start Docker containers using a specified Docker Compose file: dcou <docker_compose_file>
-alias renameall="rename-all" # (Fn) Rename all files and directories matching a given name: renameall <old_name> <new_name>
-alias gsib="git-search-pattern-in-branches" # (Fn) Search for a pattern in all branches of a Git repository: gsib <pattern>
-alias clwd="list-code-workspaces-by-date" # (Fn) List workspaces with their last modified dates
-alias ldbd="list-directories-by-date" # (Fn) List directories sorted by their last modified date: ldbd <pattern> <path>
-alias mkfile="make-file" # (Fn) Create a file and its parent directories if they do not exist: mkfile <file_path>
-alias ftext="find-text" # (Fn) Search for text in files and display matching lines with context: ftext <search_text> <?directory>
-alias fdirr="find-directory" # (Fn) Find directories by name and display their last modified dates: fdirr <directory_name>
-alias v2f="video2frames" # (Fn) Convert a video file into a series of PNG images: v2f <video_path>
-alias f2v="frames2video" # (Fn) Create a video file from a series of PNG images: f2v <output_video_filename> <frames_per_second>
-alias cutvideo="cut-video" # (Fn) Cut a segment from a video file using ffmpeg: cutvideo <input_filename> <start_time> <duration> <output_filename>
-alias gfps="get-fps" # (Fn) Calculate and round the average frame rate of a video file: gfps <video_file>
-alias m3ud="m3u-download" # (Fn) Download a video stream from an .m3u8 playlist file using ffmpeg: m3ud <m3u8_url> <output_filename>
 alias pifi="pip-install-break" # Install Python packages using pip3 with system package break handling: pifi <package_names>
 alias cwe="copy-with-exclusion" # Copies files from a source directory to a destination directory while excluding specified directories from the copy process: cwe <source_dir> <dest_dir> <exclude_dirs>
 alias pc="print-colors" # Display a list of ANSI colors with their corresponding codes.
@@ -161,9 +172,6 @@ alias psmem="sudo ps_mem" # Display processes sorted by memory usage
 alias _vi="sudo -E vim" # Open vi with root privileges
 alias _vim="sudo -E vim" # Open vi with root privileges
 alias random-bg="~/.local/bin/change_background &" # Change background every 60 seconds
-alias replace="fn-replace" # (Fn) replace a part of a string with a new string: cutvideo <string> <substring> <new_substring>
-alias cd="z" # (Fn) Use z of zoxide to navigate to directories more easily
-alias cdl="jump-to-original-dir" # (Fn) Jump to original directory of a symbolic link
 alias bat="/usr/bin/bat" # Use bat instead of cat
 alias wse="/usr/local/bin/wse" # Utility to enable or disable extensions
 alias rss="open $(cat /tmp/rss.txt)" # Open current rss link showing at conky
@@ -177,16 +185,11 @@ alias gemini-pro-2="ASDF_NODEJS_VERSION=23.11.1 gemini --model gemini-2.5-pro" #
 alias curlheaders="~/.local/bin/curl_headers" # Fetch and display HTTP headers from a URL
 alias pscpu="~/.local/bin/pscpu" # Display processes sorted by CPU usage
 alias commitai="~/.local/bin/commitai" # Generate a git commit message using AI based on the changes
-alias copilot_commit="copilot-generate-commit" # (Fn) Generate a git commit message using GitHub Copilot based on the staged changes
 alias cpw="~/.local/bin/create_python_wrapper" # Create a Python script wrapper with shebang and executable permissions
 alias copilot_ollama="~/bin/copilot_ollama" # Up a ollama server based on GitHub Copilot model
 alias task-master="ASDF_NODEJS_VERSION=23.11.1 TASKMASTER_SKIP_AUTO_UPDATE=1 task-master" # using correct node version for task-master
-alias sc="strip_colors" # (Fn) Remove color codes from text
 alias fdpkgl="dpkg --list | extract_columns 2 3 | fzf" # Search installed dpkg packages with fzf
-alias xcol="extract_columns" # (Fn) Extract columns from piped input: extc <column_numbers>
 alias initai="init-ai" # Execute a command with an AI-generated context based on the current directory's files: initai
-alias adown="aria-download" # (Fn) Download a file using aria2c with optimized settings: adown <file_url> <output_filename>
 alias systeminfo="LANG=C inxi -Fxxxrzc0 --usb" # show some system info
 alias findapp="ls /usr/share/applications | fzf | xargs -I{} echo \"/usr/share/aplications/{}\"" # find application desktop file with fzf
-alias loopvideo="loop-video" # (Fn) Loop a video file indefinitely using ffmpeg: loopvideo <input_video> <output_video>
-alias buildchangelog="build-changelog" # (Fn) Generate a changelog from git commit history: buildchangelog
+alias makechangelog="~/bin/build-changelog" # Generate a changelog from git commit history: buildchangelog
