@@ -189,3 +189,4 @@ alias adown="aria-download" # (Fn) Download a file using aria2c with optimized s
 alias systeminfo="LANG=C inxi -Fxxxrzc0 --usb" # show some system info
 alias findapp="ls /usr/share/applications | fzf | xargs -I{} echo \"/usr/share/aplications/{}\"" # find application desktop file with fzf
 alias loopvideo="loop-video" # (Fn) Loop a video file indefinitely using ffmpeg: loopvideo <input_video> <output_video>
+alias buildchangelog="build-changelog" # (Fn) Generate a changelog from git commit history: buildchangelog
