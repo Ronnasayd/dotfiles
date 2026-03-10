@@ -445,18 +445,45 @@ open-remote-git-repository-with-branch() {
   branch=$(git rev-parse --abbrev-ref HEAD)
   browsable_url="${https_url}/tree/${branch}"
   echo "Abrindo: $browsable_url"
-  xdg-open "$browsable_url"
+  xdg-open "$browsable_url" > /dev/null 2>&1
+}
+
+open-remote-git-repository-pull-request() {
+  https_url=$(get-remote-git-repository)
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  browsable_url="${https_url}/pull/new/${branch}"
+  echo "Abrindo: $browsable_url"
+  xdg-open "$browsable_url" > /dev/null 2>&1
 }
 
 open-remote-git-repository() {
     https_url=$(get-remote-git-repository)
     echo "Abrindo: $https_url"
-    xdg-open "$https_url"
+    xdg-open "$https_url" > /dev/null 2>&1
 }
 
+open-git-diff-branch() {
+  if [ -z "$1" ]; then
+    echo "Usage: git-diff-branch <branch>"
+    return 1
+  fi
+  https_url=$(get-remote-git-repository)
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  browsable_url="${https_url}/compare/$1...${branch}"
+  echo "Abrindo: $browsable_url"
+  xdg-open "$browsable_url" > /dev/null 2>&1
+}
+
+git-diff-branch() {
+  if [ -z "$1" ]; then
+    echo "Usage: git-diff-branch <branch>"
+    return 1
+  fi
+  git diff $1...$branch
+}
 
 open-remote-Jira() {
-  xdg-open https://queroquitar.atlassian.net/browse/$(git rev-parse --abbrev-ref HEAD | cut -f2 --delimiter="/")
+  xdg-open https://queroquitar.atlassian.net/browse/$(git rev-parse --abbrev-ref HEAD | cut -f2 --delimiter="/") &
 }
 
 # Split a video file into multiple segments based on specified time intervals.

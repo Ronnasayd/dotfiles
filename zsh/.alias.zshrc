@@ -19,6 +19,11 @@ alias gm="git merge" # Join two or more development histories together
 alias gfur="git fetch --all --prune --tags --prune-tags --progress" # Update list of remote branches
 alias ggurl="git config --get remote.origin.url" # Get remote origin url of current git repo
 alias gsurl="git remote set-url origin" # Set remote origin url of current git repo
+alias gd="git diff" # Show changes between commits, commit and working tree, etc
+alias gds="git diff --staged" # Show changes between staged changes and the last commit
+alias gdc="git diff --cached" # Show changes between staged changes and the last
+alias gdbl="git-diff-branch" # (FN) Show the comparison between current branch and another branch in the terminal
+alias ogdb="open-git-diff-branch" # (FN) Open the comparison between current branch and another branch in the browser
 alias pyserver="python3 -m http.server 8000 --directory" # Start a simple HTTP server in a specified directory
 alias pyv="python3 -m venv venv && source venv/bin/activate" # Create and activate a Python virtual environment
 alias pyv3="virtualenv --python=python3.6 venv" # Create a virtual environment with Python 3.6
@@ -108,6 +113,7 @@ alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stre
 alias echc='pactl load-module module-echo-cancel' # Load PulseAudio module for echo cancellation
 alias openr="open-remote-git-repository" # (Fn) Open remote repository URL in default browser
 alias openrb="open-remote-git-repository-with-branch" # (Fn) Open remote repository URL in current branch at browser
+alias openpr="open-remote-git-repository-pull-request" # (Fn) Open remote repository URL for creating a pull request in browser
 alias openj="open-remote-Jira" # (Fn) Open remote Jira task by branch
 alias mkdir='mkdir -p' # Create directory, including parent directories if necessary
 alias ccat='ccat' # Syntax-highlighted cat command
@@ -165,7 +171,9 @@ alias gssh="ssh-keygen -t rsa -b 4096 -C " # Generate private and public keys in
 alias gcia="~/bin/generate-context-ia" # Script que gera um context de arquivos para usar em prompts de IA
 alias gcvia="~/bin/generate-coverage-ia" # Script que gera um context de cobertura de testes para usar em prompts de IA
 alias ws="~/.local/bin/ws" # List recent VS Code workspaces and folders
-alias gemini="ASDF_NODEJS_VERSION=23.11.1 gemini" # using correct node version for gemini
+alias gemini="ASDF_NODEJS_VERSION=23.11.1 gemini --model auto" # using correct node version for gemini
+alias gemini-pro="ASDF_NODEJS_VERSION=23.11.1 gemini --model gemini-3-pro-preview" # using correct node version for gemini
+alias gemini-pro-2="ASDF_NODEJS_VERSION=23.11.1 gemini --model gemini-2.5-pro" # using correct node version for gemini
 alias curlheaders="~/.local/bin/curl_headers" # Fetch and display HTTP headers from a URL
 alias pscpu="~/.local/bin/pscpu" # Display processes sorted by CPU usage
 alias commitai="~/.local/bin/commitai" # Generate a git commit message using AI based on the changes
@@ -176,7 +184,7 @@ alias task-master="ASDF_NODEJS_VERSION=23.11.1 TASKMASTER_SKIP_AUTO_UPDATE=1 tas
 alias sc="strip_colors" # (Fn) Remove color codes from text
 alias fdpkgl="dpkg --list | extract_columns 2 3 | fzf" # Search installed dpkg packages with fzf
 alias xcol="extract_columns" # (Fn) Extract columns from piped input: extc <column_numbers>
-alias ici="mkdir -p ./.github/instructions && cp ~/develop/personal/AI-pair-programming/instructions/copilot.instructions.md ./.github/instructions/copilot.instructions.md && echo '.github/instructions/' >> .gitignore" # Copy copilot instructions to current repo
+alias initai="init-ai" # Execute a command with an AI-generated context based on the current directory's files: initai
 alias adown="aria-download" # (Fn) Download a file using aria2c with optimized settings: adown <file_url> <output_filename>
 alias systeminfo="LANG=C inxi -Fxxxrzc0 --usb" # show some system info
 alias findapp="ls /usr/share/applications | fzf | xargs -I{} echo \"/usr/share/aplications/{}\"" # find application desktop file with fzf

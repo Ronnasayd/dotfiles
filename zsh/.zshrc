@@ -29,6 +29,7 @@ export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
 export _ZO_RESOLVE_SYMLINKS=1
 
 [[ ! -f ~/.functions.zshrc ]] || source ~/.functions.zshrc
+[[ ! -f ~/.secrets/zsh.env ]] || source ~/.secrets/zsh.env
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -237,3 +238,7 @@ esac
 # Task Master aliases added on 9/19/2025
 alias tm='task-master'
 alias taskmaster='task-master'
+
+# Task Master aliases added on 3/7/2026
+alias hamster='task-master'
+alias ham='task-master'
