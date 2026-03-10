@@ -64,14 +64,16 @@ def get_commits(since_tag=None):
 
 def categorize_commits(commits, repo_url):
     """Categorizes commits based on conventional commit prefixes."""
-    # Agora, cada categoria será um dict de datas para lista de commits
-    categories = {
-        "Features": {},
-        "Bug Fixes": {},
-        "Documentation": {},
-        "Chores": {},
-        "Refactoring": {},
-        "Other Changes": {},
+    # Group by date first, then include category info in each item
+    dates = {}
+
+    category_emojis = {
+        "Features": "✨",
+        "Bug Fixes": "🐛",
+        "Documentation": "📚",
+        "Chores": "🧹",
+        "Refactoring": "♻️",
+        "Other Changes": "🚧",
     }
 
     for commit_line in commits:
@@ -87,33 +89,41 @@ def categorize_commits(commits, repo_url):
 
         match = re.match(r"(\w+) - (\w+)(?:\(([^)]+)\))?: (.*)", commit_main.strip())
         if not match:
-            # Agrupa outros por data
-            categories["Other Changes"].setdefault(commit_date, []).append(commit_line)
-            continue
+            cat = "Other Changes"
+            description = commit_line
+            commit_hash = ""
+        else:
+            commit_hash, commit_type, scope, description = match.groups()
+            if commit_type == "feat":
+                cat = "Features"
+            elif commit_type == "fix":
+                cat = "Bug Fixes"
+            elif commit_type == "docs":
+                cat = "Documentation"
+            elif commit_type == "chore":
+                cat = "Chores"
+            elif commit_type == "refactor":
+                cat = "Refactoring"
+            else:
+                cat = "Other Changes"
 
-        commit_hash, commit_type, scope, description = match.groups()
-        if repo_url:
+        if repo_url and commit_hash:
             commit_link = f"[{commit_hash}]({repo_url}/commit/{commit_hash})"
         else:
-            commit_link = commit_hash
-        clean_description = f"* {description.strip().capitalize()} ({commit_link})"
+            commit_link = ""
 
-        if commit_type == "feat":
-            cat = "Features"
-        elif commit_type == "fix":
-            cat = "Bug Fixes"
-        elif commit_type == "docs":
-            cat = "Documentation"
-        elif commit_type == "chore":
-            cat = "Chores"
-        elif commit_type == "refactor":
-            cat = "Refactoring"
-        else:
-            cat = "Other Changes"
+        emoji = category_emojis.get(cat, "")
+        clean_description = f"[{emoji} **{cat}**] {description.strip().capitalize()}"
+        if commit_link:
+            clean_description += f" ({commit_link})"
 
-        categories[cat].setdefault(commit_date, []).append(clean_description)
+        # Group by date first
+        if commit_date not in dates:
+            dates[commit_date] = []
 
-    return categories
+        dates[commit_date].append(clean_description)
+
+    return dates
 
 
 def generate_changelog():
@@ -139,29 +149,15 @@ def generate_changelog():
         changelog_content.append("")
         commits = get_commits()
 
-    categorized_commits = categorize_commits(commits, repo_url)
+    dates_dict = categorize_commits(commits, repo_url)
 
-    # Define order of categories and their titles
-    category_order = [
-        ("Features", "✨ Features"),
-        ("Bug Fixes", "🐛 Bug Fixes"),
-        ("Documentation", "📚 Documentation"),
-        ("Refactoring", "♻️ Refactoring"),
-        ("Chores", "🧹 Chores"),
-        ("Other Changes", "🚧 Other Changes"),
-    ]
-
-    for category_name, title in category_order:
-        category_dict = categorized_commits[category_name]
-        if category_dict:
-            changelog_content.append(f"### {title}")
-            changelog_content.append("")
-            # Ordena datas decrescente (mais recente primeiro)
-            for date in sorted(category_dict.keys(), reverse=True):
-                changelog_content.append(f"**{date}**")
-                for item in category_dict[date]:
-                    changelog_content.append(item)
-                changelog_content.append("")
+    # Sort dates in descending order (most recent first)
+    for date in sorted(dates_dict.keys(), reverse=True):
+        changelog_content.append(f"### **{date}**")
+        changelog_content.append("")
+        for item in dates_dict[date]:
+            changelog_content.append(f"- {item}")
+        changelog_content.append("")
 
     changelog_content.append("---")
     changelog_content.append(
