@@ -227,3 +227,9 @@ venv.bak/
 pip-selfcheck.json
 
 # End of https://www.gitignore.io/api/node,python,virtualenv
+.github/skills/
+.github/prompts/
+.github/instructions/
+.github/agents/
+.taskmaster/
+GEMINI.md
