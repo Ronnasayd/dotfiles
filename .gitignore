@@ -233,3 +233,5 @@ pip-selfcheck.json
 .github/agents/
 .taskmaster/
 GEMINI.md
+.github/hooks/
+.agent/skills/

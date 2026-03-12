@@ -21,6 +21,23 @@ def get_repo_url():
     return url
 
 
+def remove_emojis(text):
+    """Removes emojis from the given text."""
+    # Matches characters in the common emoji ranges
+    emoji_pattern = re.compile(
+        "["
+        "\U0001f600-\U0001f64f"  # emoticons
+        "\U0001f300-\U0001f5ff"  # symbols & pictographs
+        "\U0001f680-\U0001f6ff"  # transport & map symbols
+        "\U0001f1e0-\U0001f1ff"  # flags (iOS)
+        "\U00002702-\U000027b0"
+        "\U000024c2-\U0001f251"
+        "]+",
+        flags=re.UNICODE,
+    )
+    return emoji_pattern.sub(r"", text).strip()
+
+
 def run_git_command(command):
     """Runs a git command and returns its output."""
     try:
@@ -113,7 +130,9 @@ def categorize_commits(commits, repo_url):
             commit_link = ""
 
         emoji = category_emojis.get(cat, "")
-        clean_description = f"[{emoji} **{cat}**] {description.strip().capitalize()}"
+        clean_description = (
+            f"**[{emoji} {cat}]** {remove_emojis(description).capitalize()}"
+        )
         if commit_link:
             clean_description += f" ({commit_link})"
 
