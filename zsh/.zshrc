@@ -19,8 +19,8 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export EDITOR=/usr/bin/code
-export VISUAL=/usr/bin/code
+export EDITOR="/usr/bin/code --wait"
+export VISUAL="/usr/bin/code --wait"
 
 export ANDROID_HOME=$HOME/android
 export PATH=$ANDROID_HOME/platform-tools/:$PATH

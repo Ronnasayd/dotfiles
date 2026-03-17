@@ -30,6 +30,7 @@ alias sc="strip_colors" # (Fn) Remove color codes from text (~/.functions.zshrc)
 alias xcol="extract_columns" # (Fn) Extract columns from piped input: extc <column_numbers> (~/.functions.zshrc)
 alias adown="aria-download" # (Fn) Download a file using aria2c with optimized settings: adown <file_url> <output_filename> (~/.functions.zshrc)
 alias loopvideo="loop-video" # (Fn) Loop a video file indefinitely using ffmpeg: loopvideo <input_video> <output_video> (~/.functions.zshrc)
+alias ghget="ghget" # (Fn) Download a directory from a GitHub repository. Usage: ghget <github-url> [output-dir] (~/.functions.zshrc)
 
 
 # Custom aliases
@@ -179,9 +180,11 @@ alias gssh="ssh-keygen -t rsa -b 4096 -C " # Generate private and public keys in
 alias gcia="~/bin/generate-context-ia" # Script que gera um context de arquivos para usar em prompts de IA
 alias gcvia="~/bin/generate-coverage-ia" # Script que gera um context de cobertura de testes para usar em prompts de IA
 alias ws="~/.local/bin/ws" # List recent VS Code workspaces and folders
-alias gemini="ASDF_NODEJS_VERSION=23.11.1 gemini --model auto" # using correct node version for gemini
-alias gemini-pro="ASDF_NODEJS_VERSION=23.11.1 gemini --model gemini-3-pro-preview" # using correct node version for gemini
-alias gemini-pro-2="ASDF_NODEJS_VERSION=23.11.1 gemini --model gemini-2.5-pro" # using correct node version for gemini
+alias gemini="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model auto" # using correct node version for gemini
+alias gemini-pro="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-pro-preview" # using correct node version for gemini
+alias gemini-pro-2="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-2.5-pro" # using correct node version for gemini
+alias gemini-flash="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-flash-preview" # using correct node version for gemini
+
 alias curlheaders="~/.local/bin/curl_headers" # Fetch and display HTTP headers from a URL
 alias pscpu="~/.local/bin/pscpu" # Display processes sorted by CPU usage
 alias commitai="~/.local/bin/commitai" # Generate a git commit message using AI based on the changes
