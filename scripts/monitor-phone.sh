@@ -19,7 +19,7 @@ acpi_listen | while read -r event; do
             pactl set-card-profile "$CARD" pro-audio
             pactl set-default-source "$MIC"
             pactl set-default-sink "$SINK"
-            pactl set-source-volume "$MIC" 100%
+            pactl set-source-volume "$MIC" 140%
         fi
     fi
 done &
@@ -29,9 +29,9 @@ echo "Vigiando volume do microfone..."
 pactl subscribe | while read -r event; do
     if [[ "$event" == *"'change' on source"* ]]; then
         VOL=$(pactl get-source-volume "$MIC" 2>/dev/null | grep -oP '\d+(?=%)' | head -1)
-        if [[ -n "$VOL" && "$VOL" -lt 100 ]]; then
-            echo "⚠️ Volume caiu para ${VOL}% → restaurando para 100%"
-            pactl set-source-volume "$MIC" 100%
+        if [[ -n "$VOL" && "$VOL" -lt 140 ]]; then
+            echo "⚠️ Volume caiu para ${VOL}% → restaurando para 140%"
+            pactl set-source-volume "$MIC" 140%
         fi
     fi
 done
