@@ -196,3 +196,4 @@ alias initai="init-ai" # Execute a command with an AI-generated context based on
 alias systeminfo="LANG=C inxi -Fxxxrzc0 --usb" # show some system info
 alias findapp="ls /usr/share/applications | fzf | xargs -I{} echo \"/usr/share/aplications/{}\"" # find application desktop file with fzf
 alias makechangelog="~/bin/build-changelog" # Generate a changelog from git commit history: buildchangelog
+alias rtk='nocorrect rtk' # Run the rtk command without zsh auto-correction
