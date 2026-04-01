@@ -197,3 +197,5 @@ alias systeminfo="LANG=C inxi -Fxxxrzc0 --usb" # show some system info
 alias findapp="ls /usr/share/applications | fzf | xargs -I{} echo \"/usr/share/aplications/{}\"" # find application desktop file with fzf
 alias makechangelog="~/bin/build-changelog" # Generate a changelog from git commit history: buildchangelog
 alias rtk='nocorrect rtk' # Run the rtk command without zsh auto-correction
+alias claude-ollama="export ANTHROPIC_AUTH_TOKEN=ollama;export ANTHROPIC_BASE_URL=http://localhost:11434; claude  --model github-copilot:gpt-4.1"
+alias claude-ollama-haiku="export ANTHROPIC_AUTH_TOKEN=ollama;export ANTHROPIC_BASE_URL=http://localhost:11434; claude  --model github-copilot:claude-haiku-4.5"

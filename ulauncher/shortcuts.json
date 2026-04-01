@@ -78,5 +78,15 @@
         "is_default_search": false,
         "run_without_argument": true,
         "added": 1761141781.0521257
+    },
+    "393721cd-ef43-475c-80c2-a352656f0885": {
+        "id": "393721cd-ef43-475c-80c2-a352656f0885",
+        "name": "claude",
+        "keyword": "claude",
+        "cmd": "https://claude.ai/new",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1774898893.5347044
     }
 }
