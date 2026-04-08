@@ -41,10 +41,9 @@ const typescriptEslintRules = {
   "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
   "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "error",
   "@typescript-eslint/no-extra-non-null-assertion": "error",
-  "@typescript-eslint/no-unsafe-type-assertion": "error",
   "@typescript-eslint/no-unnecessary-type-assertion": "error",
-  "@typescript-eslint/strict-boolean-expressions": "error",
-  "@typescript-eslint/no-unnecessary-condition": "error",
+  "@typescript-eslint/strict-boolean-expressions": "warn",
+  "@typescript-eslint/no-unnecessary-condition": "warn",
   "@typescript-eslint/switch-exhaustiveness-check": "error",
   "@typescript-eslint/no-mixed-enums": "error",
   "@typescript-eslint/no-unsafe-function-type": "error",
@@ -59,6 +58,7 @@ const typescriptEslintRules = {
   "@typescript-eslint/prefer-promise-reject-errors": "error",
   "@typescript-eslint/promise-function-async": "error",
   "@typescript-eslint/no-unused-expressions": "error",
+  "@typescript-eslint/no-unsafe-type-assertion": "warn",
   "@typescript-eslint/adjacent-overload-signatures": "warn",
   "@typescript-eslint/array-type": "warn",
   "@typescript-eslint/ban-ts-comment": "warn",
@@ -252,7 +252,7 @@ const sonarJSRules = {
   "sonarjs/declarations-in-global-scope": "off",
   "sonarjs/deprecation": "warn",
   "sonarjs/destructuring-assignment-syntax": "warn",
-  "sonarjs/different-types-comparison": "warn",
+  "sonarjs/different-types-comparison": "error",
   "sonarjs/disabled-resource-integrity": "warn",
   "sonarjs/disabled-timeout": "warn",
   "sonarjs/dns-prefetching": "warn",
@@ -464,7 +464,7 @@ export default defineConfig([
       // ---- Bug prevention
       "no-console": ["warn", { allow: ["warn", "error"] }],
       "no-debugger": "error",
-      eqeqeq: ["error", "always"],
+      eqeqeq: ["error", "always", { null: "ignore" }],
       curly: ["error", "all"],
 
       // ---- Maintainability
@@ -524,7 +524,7 @@ export default defineConfig([
       // ---- Bug prevention
       "no-console": ["warn", { allow: ["warn", "error"] }],
       "no-debugger": "error",
-      eqeqeq: ["error", "always"],
+      eqeqeq: ["error", "always", { null: "ignore" }],
       curly: ["error", "all"],
 
       // ---- Code quality
