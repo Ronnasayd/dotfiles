@@ -64,8 +64,9 @@ ln -sf  $(pwd)/plank-links/themes/MyTheme  ~/.local/share/plank/themes/MyTheme
 ln -sf  $(pwd)/.editorconfig ~/.editorconfig
 ln -sf  $(pwd)/code-themes ~/.vscode/extensions/code-themes
 ln -sf  $(pwd)/ssh/config ~/.ssh/config
-ln -sf $(pwd)/eslint.config.mjs ~/eslint.config.mjs
-ln -sf $(pwd)/prettier.config.js ~/prettier.config.js
+
+cp -f $(pwd)/eslint.config.mjs ~/eslint.config.mjs
+cp -f $(pwd)/prettier.config.js ~/prettier.config.js
 
 
 sudo ln -sf $(pwd)/plank-links/godot.desktop /usr/share/applications/godot.desktop
