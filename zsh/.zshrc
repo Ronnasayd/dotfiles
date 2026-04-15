@@ -235,10 +235,9 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# Task Master aliases added on 9/19/2025
-alias tm='task-master'
-alias taskmaster='task-master'
 
-# Task Master aliases added on 3/7/2026
-alias hamster='task-master'
-alias ham='task-master'
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '~/google-cloud-sdk/path.zsh.inc' ]; then . '~/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/completion.zsh.inc'; fi
