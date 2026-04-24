@@ -1,3 +1,4 @@
+import eslintConfigPrettier from "eslint-config-prettier";
 import { defineConfig } from "eslint/config";
 import globals from "globals";
 
@@ -519,6 +520,11 @@ export default defineConfig([
       sonarjs,
       jsdoc
     },
+    extends: [
+      tseslint.configs.eslintRecommended,
+      importPlugin.flatConfigs.recommended,
+      eslintConfigPrettier // MUST be the last item
+    ],
 
     rules: {
       // ---- Structure (keep yours, slightly relaxed)
@@ -540,6 +546,8 @@ export default defineConfig([
         }
       ],
       "import/no-cycle": "error",
+      "import/no-unresolved": "off",
+      "import-x/no-unresolved": "off",
 
       // ---- Bug prevention
       "no-console": ["warn", { allow: ["warn", "error"] }],
@@ -577,6 +585,11 @@ export default defineConfig([
       "unused-imports": unusedImports,
       sonarjs
     },
+    extends: [
+      tseslint.configs.eslintRecommended,
+      importPlugin.flatConfigs.recommended,
+      eslintConfigPrettier // MUST be the last item
+    ],
 
     rules: {
       // ---- Structure
@@ -601,6 +614,8 @@ export default defineConfig([
         }
       ],
       "import/no-cycle": "error",
+      "import/no-unresolved": "off",
+      "import-x/no-unresolved": "off",
 
       // ---- Bug prevention
       "no-console": ["warn", { allow: ["warn", "error"] }],
@@ -618,6 +633,11 @@ export default defineConfig([
   // ========================
   {
     files: ["**/*.test.ts", "**/*.test.js"],
+    extends: [
+      tseslint.configs.eslintRecommended,
+      importPlugin.flatConfigs.recommended,
+      eslintConfigPrettier // MUST be the last item
+    ],
     rules: {
       "sonarjs/cognitive-complexity": "off",
       "@typescript-eslint/no-explicit-any": "off"
