@@ -226,6 +226,11 @@ eval "$(zoxide init zsh)"
 
 
 [[ ! -f ~/.alias.zshrc ]] || source ~/.alias.zshrc
+for file in ~/.?*.alias.zshrc(N); do
+  if [[ -f "$file" ]]; then
+    source "$file"
+  fi
+done
 
 # pnpm
 export PNPM_HOME="/home/ronnas/.local/share/pnpm"
