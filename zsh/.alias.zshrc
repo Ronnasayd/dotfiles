@@ -192,7 +192,6 @@ alias cpw="~/.local/bin/create_python_wrapper" # Create a Python script wrapper 
 alias copilot_ollama="~/bin/copilot_ollama" # Up a ollama server based on GitHub Copilot model
 alias task-master="ASDF_NODEJS_VERSION=23.11.1 TASKMASTER_SKIP_AUTO_UPDATE=1 task-master" # using correct node version for task-master
 alias fdpkgl="dpkg --list | extract_columns 2 3 | fzf" # Search installed dpkg packages with fzf
-alias initai="init-ai" # Execute a command with an AI-generated context based on the current directory's files: initai
 alias systeminfo="LANG=C inxi -Fxxxrzc0 --usb" # show some system info
 alias findapp="ls /usr/share/applications | fzf | xargs -I{} echo \"/usr/share/aplications/{}\"" # find application desktop file with fzf
 alias makechangelog="~/bin/build-changelog" # Generate a changelog from git commit history: buildchangelog

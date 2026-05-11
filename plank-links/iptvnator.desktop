@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=iptvnator
+Exec=/home/ronnas/iptvnator.AppImage
+Icon=/home/ronnas/develop/personal/dotfiles/icons/iptvnator.png
+Type=Application
+Name[en_US]=iptvnator
