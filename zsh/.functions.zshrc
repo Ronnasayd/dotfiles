@@ -765,3 +765,24 @@ for entry in json.load(sys.stdin):
   echo "Using GitHub API + curl..."
   _ghget_recurse "$DIR_PATH" "$OUTPUT_DIR" && echo "Done → $OUTPUT_DIR"
 }
+copy_env_files() {
+  local source_dir="$1"
+  local target_dir="$2"
+
+  if [[ ! -d "$source_dir" ]]; then
+    echo "Erro: Diretório de origem não existe: $source_dir"
+    return 1
+  fi
+
+  if [[ ! -d "$target_dir" ]]; then
+    echo "Erro: Diretório de destino não existe: $target_dir"
+    return 1
+  fi
+
+  echo "Copiando arquivos .env* de $source_dir para $target_dir..."
+  cd "$source_dir" && find . -name ".env*" -exec cp --parents {} "$target_dir" \;
+  echo "Cópia concluída!"
+}
+git_interactive_checkout(){
+  git checkout $(git branch | fzf)
+}

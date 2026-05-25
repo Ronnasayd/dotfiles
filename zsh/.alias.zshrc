@@ -58,6 +58,7 @@ alias gsurl="git remote set-url origin" # Set remote origin url of current git r
 alias gd="git diff" # Show changes between commits, commit and working tree, etc
 alias gds="git diff --staged" # Show changes between staged changes and the last commit
 alias gdc="git diff --cached" # Show changes between staged changes and the last
+alias gigt="git_interactive_checkout" # Git interactive checkout
 alias pyserver="python3 -m http.server 8000 --directory" # Start a simple HTTP server in a specified directory
 alias pyv="python3 -m venv venv && source venv/bin/activate" # Create and activate a Python virtual environment
 alias pyv3="virtualenv --python=python3.6 venv" # Create a virtual environment with Python 3.6
@@ -204,3 +205,4 @@ alias claude-ollama="export ANTHROPIC_AUTH_TOKEN=ollama;export ANTHROPIC_BASE_UR
 alias claude-ollama-haiku="export ANTHROPIC_AUTH_TOKEN=ollama;export ANTHROPIC_BASE_URL=http://localhost:11434; claude  --model github-copilot:claude-haiku-4.5"
 alias tm='task-master'
 alias taskmaster='task-master'
+alias cef="copy_env_files" # copy .env files from current directory to a specified destination directory: cef <destination_directory>
