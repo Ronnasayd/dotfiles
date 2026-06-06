@@ -789,38 +789,29 @@ git_interactive_checkout(){
 
 
 git_diff_code() {
-    local commit="$1"
+  local commit="$1"
 
-    if [ -z "$commit" ]; then
-        echo "Uso: gitdiffcommit <hash-do-commit>"
+    [ -z "$commit" ] && {
+        echo "Uso: gitdiffcommit <commit>"
         return 1
-    fi
+    }
 
-    # Resolve hash parcial
     local full_commit
-    full_commit=$(git rev-parse "$commit" 2>/dev/null)
-
-    if [ $? -ne 0 ]; then
-        echo "Commit não encontrado: $commit"
-        return 1
-    fi
+    full_commit=$(git rev-parse "$commit") || return 1
 
     local parent
-    parent=$(git rev-parse "${full_commit}^" 2>/dev/null)
-
-    if [ $? -ne 0 ]; then
-        echo "Commit sem pai (commit inicial?)"
-        return 1
-    fi
+    parent=$(git rev-parse "${full_commit}^") || return 1
 
     git diff --name-only "$parent" "$full_commit" | while read -r file; do
-        [ -f "$file" ] || continue
+        echo "Comparando $file between $parent and $full_commit"
+        local left="/tmp/$$.before.$(basename "$file")"
+        local right="/tmp/$$.after.$(basename "$file")"
 
-        local old_file="/tmp/$(basename "$file").old.$$"
+        git show "${parent}:${file}" > "$left" 2>/dev/null || true
+        git show "${full_commit}:${file}" > "$right" 2>/dev/null || true
 
-        git show "${parent}:${file}" > "$old_file" 2>/dev/null || continue
-
-        echo "Abrindo diff: $file"
-        code --diff "$old_file" "$file"
+        if [ -s "$left" ] || [ -s "$right" ]; then
+            nohup code --diff "$left" "$right" >/dev/null 2>&1 &
+        fi
     done
 }
