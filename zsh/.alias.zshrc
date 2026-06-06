@@ -32,7 +32,7 @@ alias adown="aria-download" # (Fn) Download a file using aria2c with optimized s
 alias loopvideo="loop-video" # (Fn) Loop a video file indefinitely using ffmpeg: loopvideo <input_video> <output_video> (~/.functions.zshrc)
 alias ghget="ghget" # (Fn) Download a directory from a GitHub repository. Usage: ghget <github-url> [output-dir] (~/.functions.zshrc)
 alias git-diff-code="git_diff_code" # (Fn) Open the diff of hash commit in VS Code: git-diff-code <commit_hash> (~/.functions.zshrc)
-alias helpalias='help_alias' # (Fn) Search for specific aliases in all zshrc files
+alias helpalias='help_alias' # (Fn) Search for specific aliases in all zshrc files: helpalias <alias_name> (~/.functions.zshrc)
 
 
 # Custom aliases
