@@ -815,3 +815,14 @@ git_diff_code() {
         fi
     done
 }
+
+help_alias(){
+    if [ -z "$1" ]; then
+        echo "Usage: help_alias <alias_name>"
+        return 1
+    fi
+    find ~ -path ~/.cache -prune -o -type f -name "*.alias.zshrc" -print 2>/dev/null | while read -r file; do
+        cat "$file"
+    done | grep "$1"
+}
+

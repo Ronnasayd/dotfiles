@@ -32,6 +32,7 @@ alias adown="aria-download" # (Fn) Download a file using aria2c with optimized s
 alias loopvideo="loop-video" # (Fn) Loop a video file indefinitely using ffmpeg: loopvideo <input_video> <output_video> (~/.functions.zshrc)
 alias ghget="ghget" # (Fn) Download a directory from a GitHub repository. Usage: ghget <github-url> [output-dir] (~/.functions.zshrc)
 alias git-diff-code="git_diff_code" # (Fn) Open the diff of hash commit in VS Code: git-diff-code <commit_hash> (~/.functions.zshrc)
+alias helpalias='help_alias' # (Fn) Search for specific aliases in all zshrc files
 
 
 # Custom aliases
@@ -142,7 +143,7 @@ alias fd='fdfind' # Find files/directories using fd command
 alias fnm='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1' # Find node_modules directories and display their last modification time
 alias wcpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"' # Monitor CPU frequency changes every second
 alias lzsh='cat ~/.alias.zshrc | grep alias' # List all aliases defined in zshrc file
-alias helpalias='cat ~/.alias.zshrc | grep alias | grep -i' # Search for specific aliases in zshrc file
+alias helpalias='help_alias' # (Fn) Search for specific aliases in all zshrc files
 alias ximg='xclip -selection clipboard -t image/png -o >' # Copy image from clipboard to specified file
 alias ctf='xclip -selection clipboard  -o >' # Copy content from clipboard to file
 alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1' # Count number of frames in video file
