@@ -235,3 +235,10 @@ pip-selfcheck.json
 GEMINI.md
 .github/hooks/
 .agent/skills/
+*caveman*
+*cavecrew*
+skills-lock.json
+.sessions/*
+.rulesignore
+.skillsignore
+.agentsignore

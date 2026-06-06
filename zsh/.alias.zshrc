@@ -31,6 +31,7 @@ alias xcol="extract_columns" # (Fn) Extract columns from piped input: extc <colu
 alias adown="aria-download" # (Fn) Download a file using aria2c with optimized settings: adown <file_url> <output_filename> (~/.functions.zshrc)
 alias loopvideo="loop-video" # (Fn) Loop a video file indefinitely using ffmpeg: loopvideo <input_video> <output_video> (~/.functions.zshrc)
 alias ghget="ghget" # (Fn) Download a directory from a GitHub repository. Usage: ghget <github-url> [output-dir] (~/.functions.zshrc)
+alias git-diff-code="git_diff_code" # (Fn) Open the diff of hash commit in VS Code: git-diff-code <commit_hash> (~/.functions.zshrc)
 
 
 # Custom aliases
@@ -206,3 +207,4 @@ alias claude-ollama-haiku="export ANTHROPIC_AUTH_TOKEN=ollama;export ANTHROPIC_B
 alias tm='task-master'
 alias taskmaster='task-master'
 alias cef="copy_env_files" # copy .env files from current directory to a specified destination directory: cef <destination_directory>
+alias copilot="ASDF_NODEJS_VERSION=23.11.1 asdf exec copilot" # using correct node version for copilot

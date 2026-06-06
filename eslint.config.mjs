@@ -13,7 +13,7 @@ export default defineConfig([
   // IGNORED PATHS
   // ========================
   {
-    ignores: ["dist", "node_modules", "jest.env-setup.ts", "prisma.config.ts"],
+    ignores: ["dist", "node_modules", "jest.env-setup.ts", "prisma.config.ts"]
   },
 
   // ========================
@@ -25,20 +25,20 @@ export default defineConfig([
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        project: "./tsconfig.json",
+        project: "./tsconfig.json"
       },
       ecmaVersion: 2022,
       sourceType: "module",
       globals: {
-        ...globals.node,
-      },
+        ...globals.node
+      }
     },
 
     plugins: {
       "@typescript-eslint": tseslint.plugin,
       import: importPlugin,
       "unused-imports": unusedImports,
-      jsdoc: jsdoc,
+      jsdoc: jsdoc
     },
 
     extends: [
@@ -47,11 +47,11 @@ export default defineConfig([
       importPlugin.flatConfigs.recommended,
       sonarjs.configs.recommended,
       jsdoc.configs["flat/recommended-tsdoc"],
-      eslintConfigPrettier, // MUST be last
+      eslintConfigPrettier // MUST be last
     ],
 
     rules: {
-      "sonarjs/no-empty-test-file": "off",
+      "sonarjs/no-skipped-tests": "off",
       // ---- Structure
       complexity: ["error", { max: 15 }],
       "max-depth": ["error", 3],
@@ -64,7 +64,7 @@ export default defineConfig([
       "@typescript-eslint/no-misused-promises": "error",
       "@typescript-eslint/consistent-type-imports": [
         "warn",
-        { prefer: "type-imports" },
+        { prefer: "type-imports" }
       ],
       "@typescript-eslint/no-unnecessary-type-assertion": "warn",
       "@typescript-eslint/no-unused-vars": "off", // handled by unused-imports plugin
@@ -79,14 +79,26 @@ export default defineConfig([
         {
           groups: ["builtin", "external", "internal"],
           "newlines-between": "always",
-          alphabetize: { order: "asc", caseInsensitive: true },
-        },
+          alphabetize: { order: "asc", caseInsensitive: true }
+        }
       ],
       "import/no-cycle": "error",
       "import/no-unresolved": "off",
       "import-x/no-unresolved": "off",
 
       // ---- Bug prevention
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              regex: "^\\.\\./",
+              message:
+                "Use path aliases (@src/, @modules/) instead of relative imports that go up directories (../)."
+            }
+          ]
+        }
+      ],
       "no-console": ["warn", { allow: ["warn", "error"] }],
       "no-debugger": "error",
       eqeqeq: ["error", "always", { null: "ignore" }],
@@ -100,17 +112,17 @@ export default defineConfig([
             MethodDefinition: true,
             ClassDeclaration: false,
             ArrowFunctionExpression: false,
-            FunctionExpression: true,
+            FunctionExpression: true
           },
-          publicOnly: false,
-        },
+          publicOnly: false
+        }
       ],
       "jsdoc/require-param": ["error", { enableFixer: false }],
       "jsdoc/require-param-description": "error",
       "jsdoc/require-param-name": "error",
       "jsdoc/require-returns": ["error", { forceReturnsWithAsync: false }],
-      "jsdoc/require-returns-description": "error",
-    },
+      "jsdoc/require-returns-description": "error"
+    }
   },
 
   // ========================
@@ -133,8 +145,8 @@ export default defineConfig([
       "jsdoc/require-jsdoc": "off",
       "jsdoc/require-param": "off",
       "jsdoc/require-returns": "off",
-      "jsdoc/require-description": "off",
-    },
+      "jsdoc/require-description": "off"
+    }
   },
   // ========================
   // INFRASTRUCTURE OVERRIDES
@@ -143,7 +155,7 @@ export default defineConfig([
     // declare global { namespace Express } is the only correct way to augment Express types
     files: ["**/infrastructure/**/*.ts", "**/integrations/**/*.ts"],
     rules: {
-      "@typescript-eslint/no-namespace": "off",
-    },
-  },
+      "@typescript-eslint/no-namespace": "off"
+    }
+  }
 ]);

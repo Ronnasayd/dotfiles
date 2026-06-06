@@ -786,3 +786,41 @@ copy_env_files() {
 git_interactive_checkout(){
   git checkout $(git branch | fzf)
 }
+
+
+git_diff_code() {
+    local commit="$1"
+
+    if [ -z "$commit" ]; then
+        echo "Uso: gitdiffcommit <hash-do-commit>"
+        return 1
+    fi
+
+    # Resolve hash parcial
+    local full_commit
+    full_commit=$(git rev-parse "$commit" 2>/dev/null)
+
+    if [ $? -ne 0 ]; then
+        echo "Commit não encontrado: $commit"
+        return 1
+    fi
+
+    local parent
+    parent=$(git rev-parse "${full_commit}^" 2>/dev/null)
+
+    if [ $? -ne 0 ]; then
+        echo "Commit sem pai (commit inicial?)"
+        return 1
+    fi
+
+    git diff --name-only "$parent" "$full_commit" | while read -r file; do
+        [ -f "$file" ] || continue
+
+        local old_file="/tmp/$(basename "$file").old.$$"
+
+        git show "${parent}:${file}" > "$old_file" 2>/dev/null || continue
+
+        echo "Abrindo diff: $file"
+        code --diff "$old_file" "$file"
+    done
+}
