@@ -16,8 +16,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.listOpenTextFiles",
-        "title": "List Open Text Files"
+        "command": "extension.copyFullPathOpenTextFiles",
+        "title": "Copy Full Path of Open Text Files"
+      },
+      {
+        "command": "extension.copyRelativePathOpenTextFiles",
+        "title": "Copy Relative Path of Open Text Files"
       }
     ]
   },
@@ -31,7 +35,8 @@
     "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
     "test": "vscode-test",
-    "package:build": "vsce package"
+    "package:build": "vsce package",
+    "install": "code --install-extension *.vsix "
   },
   "devDependencies": {
     "@types/mocha": "^10.0.7",

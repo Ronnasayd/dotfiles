@@ -249,3 +249,7 @@ if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/co
 
 # opencode
 export PATH=/home/ronnas/.opencode/bin:$PATH
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/ronnas/.local/bin:$PATH"
