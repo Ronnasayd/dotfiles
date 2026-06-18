@@ -126,11 +126,11 @@ alias ka="killall " # Kill all processes by name
 alias open='xdg-open 2>/dev/null' # Open files or URLs with default application
 alias rmv='sudo apt-get autoremove && sudo apt-get autoclean' # Clean up unused packages
 alias prg='sudo dpkg --purge "dpkg --get-selections | grep deinstall | cut -f1"' # Purge uninstalled packages
-alias curbg='gsettings get org.cinnamon.desktop.background picture-uri' # Get current desktop background URI
-alias rmcurbg='replace $(curbg) "file\:\/\/" "" | xargs -I{} gio trash {}' # delete current background image
+alias crbg='gsettings get org.cinnamon.desktop.background picture-uri' # Get current desktop background URI
+alias rcbg='replace $(curbg) "file\:\/\/" "" | xargs -I{} gio trash {}' # delete current background image
 alias portainer='docker run --rm -d -p 9000:9000 --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer; xdg-open http://localhost:9000' # Run Portainer Docker container and open it in browser
-alias gports='sudo netstat -tulpn | grep -i' # Check which processes are listening on which ports
-alias lports='sudo netstat -tulpn' # List all listening ports
+alias gps='sudo netstat -tulpn | grep -i' # Check which processes are listening on which ports
+alias lps='sudo netstat -tulpn' # List all listening ports
 alias pkgc='dpkg --list | wc --lines' # Count installed packages
 alias ffont='fc-list | grep -i' # Find font location by name
 alias lfont='fc-list' # List all installed fonts
@@ -143,14 +143,13 @@ alias fd='fdfind' # Find files/directories using fd command
 alias fnm='find . -name "node_modules" -prune -exec sh -c "echo -n \"{}\"; stat -c \" %y\" \"{}\"" \; | awk "{print \$2\" \"\$1}" | sort -k1' # Find node_modules directories and display their last modification time
 alias wcpu='watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"' # Monitor CPU frequency changes every second
 alias lzsh='cat ~/.alias.zshrc | grep alias' # List all aliases defined in zshrc file
-alias helpalias='help_alias' # (Fn) Search for specific aliases in all zshrc files
 alias ximg='xclip -selection clipboard -t image/png -o >' # Copy image from clipboard to specified file
 alias ctf='xclip -selection clipboard  -o >' # Copy content from clipboard to file
 alias nfr='ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=nb_frames -of default=noprint_wrappers=1:nokey=1' # Count number of frames in video file
 alias echc='pactl load-module module-echo-cancel' # Load PulseAudio module for echo cancellation
 alias mkdir='mkdir -p' # Create directory, including parent directories if necessary
 alias ccat='ccat' # Syntax-highlighted cat command
-alias forcefsck='sudo touch /forcefsck' # Force file system check on next boot
+alias sdtf='sudo touch /forcefsck' # Force file system check on next boot
 alias gcri="google-chrome --incognito" # Open chrome in incognito mode
 alias ska=" showkey -a" # Show pressed characters in terminal. Press Ctrl+D to stop
 alias rm="trash" # Use trash to prevent permanent exclusion
@@ -162,11 +161,11 @@ alias pilb="pip-install-break" # Install Python packages using pip3 with system 
 alias cwe="copy-with-exclusion" # Copies files from a source directory to a destination directory while excluding specified directories from the copy process: cwe <source_dir> <dest_dir> <exclude_dirs>
 alias pc="print-colors" # Display a list of ANSI colors with their corresponding codes.
 alias rc="remove-colors" # Remove color codes from text.
-alias clogs="colorize-logs" # Colorize log messages based on a specified delimiter: clogs <delimiter>
+alias clgs="colorize-logs" # Colorize log messages based on a specified delimiter: clogs <delimiter>
 alias pxc="google-chrome -proxy-server=http://127.0.0.1:8888 --ignore-certificate-errors --disable-web-security --user-data-dir=~/proxy-chrome-data-dir" # Start Google Chrome with a proxy server and some insecure options
 alias igc="google-chrome --ignore-certificate-errors --disable-web-security --user-data-dir=~/proxy-chrome-data-dir" # Start Google Chrome with some insecure options
 alias zipe='git archive --format=zip -o output.zip HEAD ":(exclude).gitignore"' # Zip archive with git a exclude files at .gitignore
-alias xwhats='echo "https://api.whatsapp.com/send?text=$(xclip -o -selection clipboard)" | xclip -selection clipboard' # Transform clipboard content link to WhatsApp message link
+alias xwpp='echo "https://api.whatsapp.com/send?text=$(xclip -o -selection clipboard)" | xclip -selection clipboard' # Transform clipboard content link to WhatsApp message link
 alias m="make" # Alias to make command
 alias asdfls="asdf list" # List installed plugins. Optionally show git urls and git-ref
 alias asdfla="asdf list all" # List plugins registered on asdf-plugins repository with URLs
@@ -179,7 +178,7 @@ alias asdfpys="asdf set --home python system" # Set the Python system version in
 alias psmem="sudo ps_mem" # Display processes sorted by memory usage
 alias _vi="sudo -E vim" # Open vi with root privileges
 alias _vim="sudo -E vim" # Open vi with root privileges
-alias random-bg="~/.local/bin/change_background &" # Change background every 60 seconds
+alias rdbg="~/.local/bin/change_background &" # Change background every 60 seconds
 alias bat="/usr/bin/bat" # Use bat instead of cat
 alias wse="/usr/local/bin/wse" # Utility to enable or disable extensions
 alias rss="open $(cat /tmp/rss.txt)" # Open current rss link showing at conky
@@ -187,25 +186,23 @@ alias gssh="ssh-keygen -t rsa -b 4096 -C " # Generate private and public keys in
 alias gcia="~/bin/generate-context-ia" # Script que gera um context de arquivos para usar em prompts de IA
 alias gcvia="~/bin/generate-coverage-ia" # Script que gera um context de cobertura de testes para usar em prompts de IA
 alias ws="~/.local/bin/ws" # List recent VS Code workspaces and folders
-alias gemini="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model auto" # using correct node version for gemini
-alias gemini-pro="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-pro-preview" # using correct node version for gemini
-alias gemini-pro-2="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-2.5-pro" # using correct node version for gemini
-alias gemini-flash="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-flash-preview" # using correct node version for gemini
+alias gm="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model auto" # using correct node version for gemini
+alias gmp="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-pro-preview" # using correct node version for gemini
+alias gmp2="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-2.5-pro" # using correct node version for gemini
+alias gmf="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-flash-preview" # using correct node version for gemini
 
 alias clh="~/.local/bin/curl_headers" # Fetch and display HTTP headers from a URL
 alias pscpu="~/.local/bin/pscpu" # Display processes sorted by CPU usage
-alias commitai="~/.local/bin/commitai" # Generate a git commit message using AI based on the changes
+alias cmtai="~/.local/bin/commitai" # Generate a git commit message using AI based on the changes
 alias cpw="~/.local/bin/create_python_wrapper" # Create a Python script wrapper with shebang and executable permissions
-alias copilot_ollama="~/bin/copilot_ollama" # Up a ollama server based on GitHub Copilot model
-alias task-master="ASDF_NODEJS_VERSION=23.11.1 TASKMASTER_SKIP_AUTO_UPDATE=1 task-master" # using correct node version for task-master
+alias coll="~/bin/copilot_ollama" # Up a ollama server based on GitHub Copilot model
+alias tm="ASDF_NODEJS_VERSION=23.11.1 TASKMASTER_SKIP_AUTO_UPDATE=1 task-master" # using correct node version for task-master
 alias fdpkgl="dpkg --list | extract_columns 2 3 | fzf" # Search installed dpkg packages with fzf
-alias systeminfo="LANG=C inxi -Fxxxrzc0 --usb" # show some system info
-alias findapp="ls /usr/share/applications | fzf | xargs -I{} echo \"/usr/share/aplications/{}\"" # find application desktop file with fzf
-alias makechangelog="~/bin/build-changelog" # Generate a changelog from git commit history: buildchangelog
+alias smif="LANG=C inxi -Fxxxrzc0 --usb" # show some system info
+alias fapf="ls /usr/share/applications | fzf | xargs -I{} echo \"/usr/share/aplications/{}\"" # find application desktop file with fzf
+alias bclg="~/bin/build-changelog" # Generate a changelog from git commit history: buildchangelog
 alias rtk='nocorrect rtk' # Run the rtk command without zsh auto-correction
-alias claude-ollama="export ANTHROPIC_AUTH_TOKEN=ollama;export ANTHROPIC_BASE_URL=http://localhost:11434; claude  --model github-copilot:gpt-4.1"
-alias claude-ollama-haiku="export ANTHROPIC_AUTH_TOKEN=ollama;export ANTHROPIC_BASE_URL=http://localhost:11434; claude  --model github-copilot:claude-haiku-4.5"
-alias tm='task-master'
-alias taskmaster='task-master'
+alias clol="export ANTHROPIC_AUTH_TOKEN=ollama;export ANTHROPIC_BASE_URL=http://localhost:11434; claude  --model github-copilot:gpt-4.1"
+alias clolh="export ANTHROPIC_AUTH_TOKEN=ollama;export ANTHROPIC_BASE_URL=http://localhost:11434; claude  --model github-copilot:claude-haiku-4.5"
 alias cef="copy_env_files" # copy .env files from current directory to a specified destination directory: cef <destination_directory>
-alias copilot="ASDF_NODEJS_VERSION=23.11.1 asdf exec copilot" # using correct node version for copilot
+alias cpt="ASDF_NODEJS_VERSION=23.11.1 asdf exec copilot" # using correct node version for copilot
