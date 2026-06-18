@@ -2,37 +2,37 @@
 unalias gcb
 
 # Custom function aliases
-alias gdbl="git-diff-branch" # (FN) Show the comparison between current branch and another branch in the terminal (~/.functions.zshrc)
+alias gdbr="git-diff-branch" # (FN) Show the comparison between current branch and another branch in the terminal (~/.functions.zshrc)
 alias ogdb="open-git-diff-branch" # (FN) Open the comparison between current branch and another branch in the browser (~/.functions.zshrc)
-alias openr="open-remote-git-repository" # (Fn) Open remote repository URL in default browser (~/.functions.zshrc)
-alias openrb="open-remote-git-repository-with-branch" # (Fn) Open remote repository URL in current branch at browser (~/.functions.zshrc)
-alias openpr="open-remote-git-repository-pull-request" # (Fn) Open remote repository URL for creating a pull request in browser (~/.functions.zshrc)
-alias openj="open-remote-Jira" # (Fn) Open remote Jira task by branch (~/.functions.zshrc)
-alias dcob="docker-compose-build" # (Fn) Build Docker containers using a specified Docker Compose file: dcob <docker_compose_file> (~/.functions.zshrc)
-alias dcou="docker-compose-up" # (Fn) Start Docker containers using a specified Docker Compose file: dcou <docker_compose_file> (~/.functions.zshrc)
-alias renameall="rename-all" # (Fn) Rename all files and directories matching a given name: renameall <old_name> <new_name> (~/.functions.zshrc)
-alias gsib="git-search-pattern-in-branches" # (Fn) Search for a pattern in all branches of a Git repository: gsib <pattern> (~/.functions.zshrc)
-alias clwd="list-code-workspaces-by-date" # (Fn) List workspaces with their last modified dates (~/.functions.zshrc)
-alias ldbd="list-directories-by-date" # (Fn) List directories sorted by their last modified date: ldbd <pattern> <path> (~/.functions.zshrc)
-alias mkfile="make-file" # (Fn) Create a file and its parent directories if they do not exist: mkfile <file_path> (~/.functions.zshrc)
-alias ftext="find-text" # (Fn) Search for text in files and display matching lines with context: ftext <search_text> <?directory> (~/.functions.zshrc)
-alias fdirr="find-directory" # (Fn) Find directories by name and display their last modified dates: fdirr <directory_name> (~/.functions.zshrc)
-alias v2f="video2frames" # (Fn) Convert a video file into a series of PNG images: v2f <video_path> (~/.functions.zshrc)
-alias f2v="frames2video" # (Fn) Create a video file from a series of PNG images: f2v <output_video_filename> <frames_per_second> (~/.functions.zshrc)
-alias cutvideo="cut-video" # (Fn) Cut a segment from a video file using ffmpeg: cutvideo <input_filename> <start_time> <duration> <output_filename> (~/.functions.zshrc)
+alias orgr="open-remote-git-repository" # (Fn) Open remote repository URL in default browser (~/.functions.zshrc)
+alias orgrb="open-remote-git-repository-with-branch" # (Fn) Open remote repository URL in current branch at browser (~/.functions.zshrc)
+alias orgrpr="open-remote-git-repository-pull-request" # (Fn) Open remote repository URL for creating a pull request in browser (~/.functions.zshrc)
+alias orj="open-remote-Jira" # (Fn) Open remote Jira task by branch (~/.functions.zshrc)
+alias dcb="docker-compose-build" # (Fn) Build Docker containers using a specified Docker Compose file: dcob <docker_compose_file> (~/.functions.zshrc)
+alias dcu="docker-compose-up" # (Fn) Start Docker containers using a specified Docker Compose file: dcou <docker_compose_file> (~/.functions.zshrc)
+alias ra="rename-all" # (Fn) Rename all files and directories matching a given name: renameall <old_name> <new_name> (~/.functions.zshrc)
+alias gspb="git-search-pattern-in-branches" # (Fn) Search for a pattern in all branches of a Git repository: gsib <pattern> (~/.functions.zshrc)
+alias lcwd="list-code-workspaces-by-date" # (Fn) List workspaces with their last modified dates (~/.functions.zshrc)
+alias ldd="list-directories-by-date" # (Fn) List directories sorted by their last modified date: ldbd <pattern> <path> (~/.functions.zshrc)
+alias mf="make-file" # (Fn) Create a file and its parent directories if they do not exist: mkfile <file_path> (~/.functions.zshrc)
+alias ft="find-text" # (Fn) Search for text in files and display matching lines with context: ftext <search_text> <?directory> (~/.functions.zshrc)
+alias fdr="find-directory" # (Fn) Find directories by name and display their last modified dates: fdirr <directory_name> (~/.functions.zshrc)
+alias vf="video2frames" # (Fn) Convert a video file into a series of PNG images: v2f <video_path> (~/.functions.zshrc)
+alias fv="frames2video" # (Fn) Create a video file from a series of PNG images: f2v <output_video_filename> <frames_per_second> (~/.functions.zshrc)
+alias cv="cut-video" # (Fn) Cut a segment from a video file using ffmpeg: cutvideo <input_filename> <start_time> <duration> <output_filename> (~/.functions.zshrc)
 alias gfps="get-fps" # (Fn) Calculate and round the average frame rate of a video file: gfps <video_file> (~/.functions.zshrc)
 alias m3ud="m3u-download" # (Fn) Download a video stream from an .m3u8 playlist file using ffmpeg: m3ud <m3u8_url> <output_filename> (~/.functions.zshrc)
-alias replace="fn-replace" # (Fn) replace a part of a string with a new string: cutvideo <string> <substring> <new_substring> (~/.functions.zshrc)
+alias frepl="fn-replace" # (Fn) replace a part of a string with a new string: cutvideo <string> <substring> <new_substring> (~/.functions.zshrc)
 alias cd="z" # (Fn) Use z of zoxide to navigate to directories more easily (~/.functions.zshrc)
 alias cdl="jump-to-original-dir" # (Fn) Jump to original directory of a symbolic link (~/.functions.zshrc)
-alias copilot_commit="copilot-generate-commit" # (Fn) Generate a git commit message using GitHub Copilot based on the staged changes (~/.functions.zshrc)
+alias cgc="copilot-generate-commit" # (Fn) Generate a git commit message using GitHub Copilot based on the staged changes (~/.functions.zshrc)
 alias sc="strip_colors" # (Fn) Remove color codes from text (~/.functions.zshrc)
-alias xcol="extract_columns" # (Fn) Extract columns from piped input: extc <column_numbers> (~/.functions.zshrc)
-alias adown="aria-download" # (Fn) Download a file using aria2c with optimized settings: adown <file_url> <output_filename> (~/.functions.zshrc)
-alias loopvideo="loop-video" # (Fn) Loop a video file indefinitely using ffmpeg: loopvideo <input_video> <output_video> (~/.functions.zshrc)
-alias ghget="ghget" # (Fn) Download a directory from a GitHub repository. Usage: ghget <github-url> [output-dir] (~/.functions.zshrc)
-alias git-diff-code="git_diff_code" # (Fn) Open the diff of hash commit in VS Code: git-diff-code <commit_hash> (~/.functions.zshrc)
-alias helpalias='help_alias' # (Fn) Search for specific aliases in all zshrc files: helpalias <alias_name> (~/.functions.zshrc)
+alias xc="extract_columns" # (Fn) Extract columns from piped input: extc <column_numbers> (~/.functions.zshrc)
+alias ard="aria-download" # (Fn) Download a file using aria2c with optimized settings: adown <file_url> <output_filename> (~/.functions.zshrc)
+alias lpv="loop-video" # (Fn) Loop a video file indefinitely using ffmpeg: loopvideo <input_video> <output_video> (~/.functions.zshrc)
+alias ghg="ghget" # (Fn) Download a directory from a GitHub repository. Usage: ghget <github-url> [output-dir] (~/.functions.zshrc)
+alias gdfc="git_diff_code" # (Fn) Open the diff of hash commit in VS Code: git-diff-code <commit_hash> (~/.functions.zshrc)
+alias ha='help_alias' # (Fn) Search for specific aliases in all zshrc files: helpalias <alias_name> (~/.functions.zshrc)
 
 
 # Custom aliases
@@ -61,7 +61,7 @@ alias gd="git diff" # Show changes between commits, commit and working tree, etc
 alias gds="git diff --staged" # Show changes between staged changes and the last commit
 alias gdc="git diff --cached" # Show changes between staged changes and the last
 alias gigt="git_interactive_checkout" # Git interactive checkout
-alias pyserver="python3 -m http.server 8000 --directory" # Start a simple HTTP server in a specified directory
+alias pys="python3 -m http.server 8000 --directory" # Start a simple HTTP server in a specified directory
 alias pyv="python3 -m venv venv && source venv/bin/activate" # Create and activate a Python virtual environment
 alias pyv3="virtualenv --python=python3.6 venv" # Create a virtual environment with Python 3.6
 alias pyv4="virtualenv --python=python2.7 venv" # Create a virtual environment with Python 2.7
@@ -90,7 +90,7 @@ alias yt="yarn test" # Run tests defined in package.json using Yarn
 alias yrm="yarn remove" # Remove a package using Yarn
 alias yr="yarn run" # Run an arbitrary command defined in package.json using Yarn
 alias pnpi="pnpm install" # Install all dependencies defined in package.json using pnpm
-alias cows="fuzzy-code-workspaces && exit" # Open a workspace in Visual Studio Code using fzf to select from recent workspaces
+alias fcw="fuzzy-code-workspaces && exit" # Open a workspace in Visual Studio Code using fzf to select from recent workspaces
 alias co="code" # Open Visual Studio Code editor
 alias cog="code -g" # Open Visual studio code with goto argument
 alias cox="code . && exit" # Open current directory in VS Code and exit terminal
@@ -115,10 +115,10 @@ alias aggi="ag --path-to-ignore .gitignore --files-with-matches" # Search for ma
 alias kubectl="minikube kubectl --" # Use minikube's kubectl command
 alias dsize="sudo du -d 1 -h" # Display disk usage of current directory in human-readable format
 alias chmdn="stat --format '%a'" # Show file permissions in numeric format
-alias apt_search="apt-cache search" # Search for packages in APT
-alias cpf="copyfile" # Copy file command alias
+alias acs="apt-cache search" # Search for packages in APT
+alias cf="copyfile" # Copy file command alias
 alias cplc="fc -ln -1 | xsel --clipboard" # Copy last command to clipboard
-alias json="pp_json" # Pretty print JSON data
+alias pjson="pp_json" # Pretty print JSON data
 alias vjson="is_json" # Validate if input is valid JSON
 alias alg="alias | grep " # Search for specific aliases
 alias q="exit 0" # Exit terminal session gracefully
@@ -151,20 +151,20 @@ alias echc='pactl load-module module-echo-cancel' # Load PulseAudio module for e
 alias mkdir='mkdir -p' # Create directory, including parent directories if necessary
 alias ccat='ccat' # Syntax-highlighted cat command
 alias forcefsck='sudo touch /forcefsck' # Force file system check on next boot
-alias incognito="google-chrome --incognito" # Open chrome in incognito mode
+alias gcri="google-chrome --incognito" # Open chrome in incognito mode
 alias ska=" showkey -a" # Show pressed characters in terminal. Press Ctrl+D to stop
 alias rm="trash" # Use trash to prevent permanent exclusion
 alias rmrf="rm -rf" # Remove files and directories recursively
 alias las="la -S" # List files by size
 alias hsf="history | fzf" # Search history with fzf
 alias psf="printenv | fzf" # Search printenv with fzf
-alias pifi="pip-install-break" # Install Python packages using pip3 with system package break handling: pifi <package_names>
+alias pilb="pip-install-break" # Install Python packages using pip3 with system package break handling: pifi <package_names>
 alias cwe="copy-with-exclusion" # Copies files from a source directory to a destination directory while excluding specified directories from the copy process: cwe <source_dir> <dest_dir> <exclude_dirs>
 alias pc="print-colors" # Display a list of ANSI colors with their corresponding codes.
 alias rc="remove-colors" # Remove color codes from text.
 alias clogs="colorize-logs" # Colorize log messages based on a specified delimiter: clogs <delimiter>
-alias proxy-chrome="google-chrome -proxy-server=http://127.0.0.1:8888 --ignore-certificate-errors --disable-web-security --user-data-dir=~/proxy-chrome-data-dir" # Start Google Chrome with a proxy server and some insecure options
-alias insecure-chrome="google-chrome --ignore-certificate-errors --disable-web-security --user-data-dir=~/proxy-chrome-data-dir" # Start Google Chrome with some insecure options
+alias pxc="google-chrome -proxy-server=http://127.0.0.1:8888 --ignore-certificate-errors --disable-web-security --user-data-dir=~/proxy-chrome-data-dir" # Start Google Chrome with a proxy server and some insecure options
+alias igc="google-chrome --ignore-certificate-errors --disable-web-security --user-data-dir=~/proxy-chrome-data-dir" # Start Google Chrome with some insecure options
 alias zipe='git archive --format=zip -o output.zip HEAD ":(exclude).gitignore"' # Zip archive with git a exclude files at .gitignore
 alias xwhats='echo "https://api.whatsapp.com/send?text=$(xclip -o -selection clipboard)" | xclip -selection clipboard' # Transform clipboard content link to WhatsApp message link
 alias m="make" # Alias to make command
@@ -192,7 +192,7 @@ alias gemini-pro="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-
 alias gemini-pro-2="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-2.5-pro" # using correct node version for gemini
 alias gemini-flash="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-flash-preview" # using correct node version for gemini
 
-alias curlheaders="~/.local/bin/curl_headers" # Fetch and display HTTP headers from a URL
+alias clh="~/.local/bin/curl_headers" # Fetch and display HTTP headers from a URL
 alias pscpu="~/.local/bin/pscpu" # Display processes sorted by CPU usage
 alias commitai="~/.local/bin/commitai" # Generate a git commit message using AI based on the changes
 alias cpw="~/.local/bin/create_python_wrapper" # Create a Python script wrapper with shebang and executable permissions
