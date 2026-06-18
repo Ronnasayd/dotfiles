@@ -821,7 +821,8 @@ help_alias(){
         echo "Usage: help_alias <alias_name>"
         return 1
     fi
-    find ~ -path ~/.cache -prune -o -type f -name "*.alias.zshrc" -print 2>/dev/null | while read -r file; do
+    # find ~ -path ~/.cache -prune -o -type f -name "*.alias.zshrc" -print 2>/dev/null | while read -r file; do
+    ls -la ~ | grep alias.zshrc | extract_columns 9 | xargs -I{} echo "$HOME/{}" | while read -r file; do
         cat "$file"
     done | grep "$1"
 }
