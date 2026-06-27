@@ -242,3 +242,12 @@ skills-lock.json
 .rulesignore
 .skillsignore
 .agentsignore
+.claude/skills/*
+.claude/commands/*
+.claude/instructions/*
+.claude/agents/*
+.claude/hooks/*
+.claude/context-refs.json
+.claude/skills/skills.db
+.mcp.json
+CLAUDE.md

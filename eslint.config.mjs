@@ -1,3 +1,11 @@
+// yarn add eslint-config-prettier \
+// eslint \
+// globals \
+// eslint-plugin-import-x \
+// eslint-plugin-jsdoc \
+// eslint-plugin-sonarjs \
+// eslint-plugin-unused-imports \
+// typescript-eslint
 import eslintConfigPrettier from "eslint-config-prettier";
 import { defineConfig } from "eslint/config";
 import globals from "globals";
@@ -55,6 +63,10 @@ export default defineConfig([
       // ---- Structure
       complexity: ["error", { max: 15 }],
       "max-depth": ["error", 3],
+      "max-lines-per-function": [
+        "error",
+        { max: 20, skipBlankLines: true, skipComments: true }
+      ],
       // max-params disabled at base — DI constructors legitimately exceed 4
       "max-params": "off",
 
@@ -121,7 +133,8 @@ export default defineConfig([
       "jsdoc/require-param-description": "error",
       "jsdoc/require-param-name": "error",
       "jsdoc/require-returns": ["error", { forceReturnsWithAsync: false }],
-      "jsdoc/require-returns-description": "error"
+      "jsdoc/require-returns-description": "error",
+      "jsdoc/require-example": "error"
     }
   },
 
@@ -145,7 +158,17 @@ export default defineConfig([
       "jsdoc/require-jsdoc": "off",
       "jsdoc/require-param": "off",
       "jsdoc/require-returns": "off",
-      "jsdoc/require-description": "off"
+      "jsdoc/require-description": "off",
+      "max-lines-per-function": "off"
+    }
+  },
+  // ========================
+  // TSX OVERRIDES
+  // ========================
+  {
+    files: ["src/**/*.tsx"],
+    rules: {
+      "max-lines-per-function": "off"
     }
   },
   // ========================

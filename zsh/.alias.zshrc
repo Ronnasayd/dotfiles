@@ -4,9 +4,9 @@ unalias gcb
 # Custom function aliases
 alias gdbr="git-diff-branch" # (FN) Show the comparison between current branch and another branch in the terminal (~/.functions.zshrc)
 alias ogdb="open-git-diff-branch" # (FN) Open the comparison between current branch and another branch in the browser (~/.functions.zshrc)
-alias orgr="open-remote-git-repository" # (Fn) Open remote repository URL in default browser (~/.functions.zshrc)
-alias orgrb="open-remote-git-repository-with-branch" # (Fn) Open remote repository URL in current branch at browser (~/.functions.zshrc)
-alias orgrpr="open-remote-git-repository-pull-request" # (Fn) Open remote repository URL for creating a pull request in browser (~/.functions.zshrc)
+alias ogr="open-remote-git-repository" # (Fn) Open remote repository URL in default browser (~/.functions.zshrc)
+alias orb="open-remote-git-repository-with-branch" # (Fn) Open remote repository URL in current branch at browser (~/.functions.zshrc)
+alias opr="open-remote-git-repository-pull-request" # (Fn) Open remote repository URL for creating a pull request in browser (~/.functions.zshrc)
 alias orj="open-remote-Jira" # (Fn) Open remote Jira task by branch (~/.functions.zshrc)
 alias dcb="docker-compose-build" # (Fn) Build Docker containers using a specified Docker Compose file: dcob <docker_compose_file> (~/.functions.zshrc)
 alias dcu="docker-compose-up" # (Fn) Start Docker containers using a specified Docker Compose file: dcou <docker_compose_file> (~/.functions.zshrc)

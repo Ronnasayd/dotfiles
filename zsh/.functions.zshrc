@@ -824,6 +824,6 @@ help_alias(){
     # find ~ -path ~/.cache -prune -o -type f -name "*.alias.zshrc" -print 2>/dev/null | while read -r file; do
     ls -la ~ | grep alias.zshrc | extract_columns 9 | xargs -I{} echo "$HOME/{}" | while read -r file; do
         cat "$file"
-    done | grep "$1"
+    done | grep "$1" | bat --paging=never -l log
 }
 
