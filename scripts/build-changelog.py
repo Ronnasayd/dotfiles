@@ -1,13 +1,18 @@
+"""Generate changelog from Git commit history and tags."""
+
 import datetime
+import logging
 import re
 import subprocess
 
+logger = logging.getLogger(__name__)
 
-def get_repo_url():
-    """Obtém a URL do repositório remoto e converte para formato web se necessário."""
+
+def get_repo_url() -> str | None:
+    """Get repository URL and convert to web format if needed."""
     url = run_git_command(["git", "config", "--get", "remote.origin.url"])
     if not url:
-        print("Erro: não foi possível obter a URL do repositório remoto.")
+        logger.warning("Could not obtain repository URL")
         return None
     # Converte SSH para HTTPS se necessário
     if url.endswith(".git"):
@@ -21,48 +26,50 @@ def get_repo_url():
     return url
 
 
-def remove_emojis(text):
-    """Removes emojis from the given text."""
+def remove_emojis(text: str) -> str:
+    """Remove emojis from text."""
     # Matches characters in the common emoji ranges
     emoji_pattern = re.compile(
-        "["
-        "\U0001f600-\U0001f64f"  # emoticons
-        "\U0001f300-\U0001f5ff"  # symbols & pictographs
-        "\U0001f680-\U0001f6ff"  # transport & map symbols
-        "\U0001f1e0-\U0001f1ff"  # flags (iOS)
-        "\U00002702-\U000027b0"
-        "\U000024c2-\U0001f251"
-        "]+",
+        r"["
+        r"\U0001f600-\U0001f64f"  # emoticons
+        r"\U0001f300-\U0001f5ff"  # symbols & pictographs
+        r"\U0001f680-\U0001f6ff"  # transport & map symbols
+        r"\U0001f1e0-\U0001f1ff"  # flags (iOS)
+        r"\U00002702-\U000027b0"
+        r"\U000024c2-\U0001f251"
+        r"]+",
         flags=re.UNICODE,
     )
     return emoji_pattern.sub(r"", text).strip()
 
 
-def run_git_command(command):
-    """Runs a git command and returns its output."""
+def run_git_command(command: list[str]) -> str | None:
+    """Run git command and return output."""
     try:
-        result = subprocess.run(command, capture_output=True, text=True, check=True)
+        result = subprocess.run(  # noqa: S603
+            command,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
         return result.stdout.strip()
     except subprocess.CalledProcessError as e:
-        print(f"Error running git command: {e}")
-        print(f"Stderr: {e.stderr}")
+        logger.error("Git command failed: %s", e)
+        logger.error("Stderr: %s", e.stderr)
         return None
 
 
-def get_last_tag():
-    """Gets the latest Git tag."""
+def get_last_tag() -> str | None:
+    """Get the latest Git tag."""
     return run_git_command(["git", "describe", "--tags", "--abbrev=0"])
 
 
-def get_commits(since_tag=None):
+def get_commits(since_tag: str | None = None) -> list[str]:
+    """Get formatted commit messages.
+
+    Format: hash - subject (author, date).
     """
-    Gets formatted commit messages.
-    Format: hash - subject (author, date)
-    """
-    if since_tag:
-        commit_range = f"{since_tag}..HEAD"
-    else:
-        commit_range = "HEAD"  # All commits
+    commit_range = f"{since_tag}..HEAD" if since_tag else "HEAD"
 
     # Inclui a data (YYYY-MM-DD) ao final de cada linha
     command = [
@@ -79,10 +86,12 @@ def get_commits(since_tag=None):
     return []
 
 
-def categorize_commits(commits, repo_url):
-    """Categorizes commits based on conventional commit prefixes."""
+def categorize_commits(
+    commits: list[str], repo_url: str | None
+) -> dict[str, list[str]]:
+    """Categorize commits based on conventional commit prefixes."""
     # Group by date first, then include category info in each item
-    dates = {}
+    dates: dict[str, list[str]] = {}
 
     category_emojis = {
         "Features": "✨",
@@ -110,7 +119,7 @@ def categorize_commits(commits, repo_url):
             description = commit_line
             commit_hash = ""
         else:
-            commit_hash, commit_type, scope, description = match.groups()
+            commit_hash, commit_type, _scope, description = match.groups()
             if commit_type == "feat":
                 cat = "Features"
             elif commit_type == "fix":
@@ -145,8 +154,8 @@ def categorize_commits(commits, repo_url):
     return dates
 
 
-def generate_changelog():
-    """Generates the changelog in Markdown format."""
+def generate_changelog() -> str:
+    """Generate changelog in Markdown format."""
     changelog_content = ["# Changelog", ""]
 
     repo_url = get_repo_url()
@@ -154,17 +163,14 @@ def generate_changelog():
         repo_url = None  # fallback, links ficarão sem URL
 
     last_tag = get_last_tag()
+    today = datetime.datetime.now().strftime("%Y.%m.%d")
     if last_tag:
-        changelog_content.append(
-            f"## v{datetime.datetime.now().strftime('%Y.%m.%d')} (Unreleased - based on {last_tag})"
-        )
+        changelog_content.append(f"## v{today} (Unreleased - based on {last_tag})")
         changelog_content.append("")
         commits = get_commits(since_tag=last_tag)
     else:
-        print("Warning: No tags found. Generating changelog from all commits.")
-        changelog_content.append(
-            f"## v{datetime.datetime.now().strftime('%Y.%m.%d')} (Initial Release / Full History)"
-        )
+        logger.warning("No tags found. Generating changelog from all commits.")
+        changelog_content.append(f"## v{today} (Initial Release / Full History)")
         changelog_content.append("")
         commits = get_commits()
 
@@ -174,8 +180,7 @@ def generate_changelog():
     for date in sorted(dates_dict.keys(), reverse=True):
         changelog_content.append(f"### **{date}**")
         changelog_content.append("")
-        for item in dates_dict[date]:
-            changelog_content.append(f"- {item}")
+        changelog_content.extend(f"- {item}" for item in dates_dict[date])
         changelog_content.append("")
 
     changelog_content.append("---")
@@ -190,4 +195,4 @@ if __name__ == "__main__":
     changelog = generate_changelog()
     with open("CHANGELOG.md", "w") as f:
         f.write(changelog)
-    print("CHANGELOG.md generated successfully.")
+    logger.info("CHANGELOG.md generated successfully.")
