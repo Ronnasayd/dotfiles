@@ -483,7 +483,12 @@ git-diff-branch() {
 }
 
 open-remote-Jira() {
-  xdg-open https://queroquitar.atlassian.net/browse/$(git rev-parse --abbrev-ref HEAD | cut -f2 --delimiter="/") &
+  if git config --get remote.origin.url | grep qq; then
+    xdg-open $JIRA_BASE_URL_Q/browse/$(git rev-parse --abbrev-ref HEAD | cut -f2 --delimiter="/") &
+  fi
+  if git config --get remote.origin.url | grep lingo; then
+    xdg-open $JIRA_BASE_URL_L/browse/$(git rev-parse --abbrev-ref HEAD | cut -f2 --delimiter="/") &
+  fi
 }
 
 # Split a video file into multiple segments based on specified time intervals.
