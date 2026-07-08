@@ -6,7 +6,9 @@
     "ms-python.pylint",
     "ms-python.python",
     "ms-python.vscode-pylance",
-    "njqdev.vscode-python-typehint"
+    "njqdev.vscode-python-typehint",
+    "ms-python.vscode-python-envs",
+    "charliermarsh.ruff"
   ],
   "gohtml": [
     "jinliming2.vscode-go-template"

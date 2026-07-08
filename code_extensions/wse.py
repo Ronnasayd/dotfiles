@@ -2,7 +2,6 @@
 import argparse
 import json
 import os
-import shutil
 import sqlite3
 import subprocess
 import sys
@@ -46,11 +45,17 @@ def disable_extensions_json(language):
         file.write(json.dumps(extensions))
 
 
+def connect_vscdb(path):
+    conn = sqlite3.connect(path, timeout=5)
+    conn.execute("PRAGMA journal_mode=WAL;")
+    conn.execute("PRAGMA busy_timeout=5000;")
+    return conn
+
+
 def disable(language: str):
     # disable_extensions_json(language)
-    verify_code_is_open()
     add, path = get_data(language)
-    conn = sqlite3.connect("/tmp/state.vscdb")
+    conn = connect_vscdb(path)
     cursor = conn.cursor()
     fetchone = cursor.execute(
         "select * from ItemTable WHERE KEY IS 'extensionsIdentifiers/enabled'"
@@ -66,15 +71,13 @@ def disable(language: str):
         )
         conn.commit()
         conn.close()
-        shutil.copyfile("/tmp/state.vscdb", path)
 
 
 def enable(language: str):
     # enable_extensions_json(language)
-    verify_code_is_open()
     add, path = get_data(language)
 
-    conn = sqlite3.connect("/tmp/state.vscdb")
+    conn = connect_vscdb(path)
     cursor = conn.cursor()
 
     cursor.execute(
@@ -115,8 +118,6 @@ def enable(language: str):
     conn.commit()
     conn.close()
 
-    shutil.copyfile("/tmp/state.vscdb", path)
-
 
 def get_data(language):
     with open(f"{base_path}/languagens/languages.json", encoding="utf-8") as file:
@@ -148,7 +149,7 @@ def list_extensions():
         .strip()
     )
     print(f"using file: {path}")
-    conn = sqlite3.connect("/tmp/state.vscdb")
+    conn = connect_vscdb(path)
     cursor = conn.cursor()
     fetchone = cursor.execute(
         "select * from ItemTable WHERE KEY IS 'extensionsIdentifiers/enabled'"
@@ -160,28 +161,13 @@ def list_extensions():
             print(extension["id"])
 
 
-def verify_code_is_open():
-    status = (
-        subprocess.run(
-            f"pgrep -x code".split(),
-            check=False,
-            stdout=subprocess.PIPE,
-        )
-        .stdout.decode()
-        .strip()
-    )
-    if status != "":
-        print("Code is running. Please close all")
-        exit(1)
-
-
 def main():
     parser = argparse.ArgumentParser(
         description="Enable or disable language extensions to a workspace in vscode"
     )
     parser.add_argument("--enable", choices=languages)
     parser.add_argument("--disable", choices=languages)
-    parser.add_argument("-list", action="store_true")
+    parser.add_argument("--list", action="store_true")
     if len(sys.argv) == 1:
         parser.print_help()
         sys.exit(1)
