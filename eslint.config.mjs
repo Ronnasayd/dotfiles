@@ -10,7 +10,6 @@ import eslintConfigPrettier from "eslint-config-prettier";
 import { defineConfig } from "eslint/config";
 import globals from "globals";
 
-import importPlugin from "eslint-plugin-import-x";
 import jsdoc from "eslint-plugin-jsdoc";
 import sonarjs from "eslint-plugin-sonarjs";
 import unusedImports from "eslint-plugin-unused-imports";
@@ -21,14 +20,81 @@ export default defineConfig([
   // IGNORED PATHS
   // ========================
   {
-    ignores: ["dist", "node_modules", "jest.env-setup.ts", "prisma.config.ts"]
+    ignores: [
+      "**/node_modules/**",
+      "**/.yarn/**",
+      "**/dist/**",
+      "**/build/**",
+      "jest.env-setup.ts",
+      "prisma.config.ts"
+    ]
+  },
+
+  // ========================
+  // TESTS OVERRIDE
+  // ========================
+  {
+    files: [
+      "**/*.spec.ts",
+      "**/*.test.ts",
+      "**/*.spec.js",
+      "**/*.test.js",
+      "**/*.spec.tsx",
+      "**/*.test.tsx"
+    ],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: "./tsconfig.json"
+      },
+      ecmaVersion: 2022,
+      sourceType: "module",
+      globals: {
+        ...globals.node
+      }
+    },
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+      "unused-imports": unusedImports,
+      jsdoc: jsdoc
+    },
+    extends: [
+      tseslint.configs.eslintRecommended,
+      ...tseslint.configs.recommendedTypeChecked,
+      sonarjs.configs.recommended,
+      jsdoc.configs["flat/recommended-tsdoc"],
+      eslintConfigPrettier
+    ],
+    rules: {
+      "sonarjs/cognitive-complexity": "off",
+      "sonarjs/no-duplicate-string": "off",
+      "sonarjs/prefer-specific-assertions": "off",
+      "sonarjs/null-dereference": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-floating-promises": "off",
+      "@typescript-eslint/no-misused-promises": "off",
+      "@typescript-eslint/no-unsafe-argument": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
+      // False positive: jest.fn() mocks are always bound — toHaveBeenCalledWith pattern
+      "@typescript-eslint/unbound-method": "off",
+      // Safe in tests: .catch((e) => e) pattern for asserting error properties
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-return": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+      "jsdoc/require-jsdoc": "off",
+      "jsdoc/require-param": "off",
+      "jsdoc/require-returns": "off",
+      "jsdoc/require-description": "off",
+      "max-lines-per-function": "off"
+    }
   },
 
   // ========================
   // TYPESCRIPT CONFIG
   // ========================
   {
-    files: ["**/*.ts", "**/*.tsx"],
+    files: ["src/**/*.ts", "src/**/*.tsx"],
+    ignores: ["**/*.spec.ts", "**/*.test.ts", "**/*.spec.tsx", "**/*.test.tsx"],
 
     languageOptions: {
       parser: tseslint.parser,
@@ -44,7 +110,7 @@ export default defineConfig([
 
     plugins: {
       "@typescript-eslint": tseslint.plugin,
-      import: importPlugin,
+      // import: importPlugin,
       "unused-imports": unusedImports,
       jsdoc: jsdoc
     },
@@ -52,7 +118,7 @@ export default defineConfig([
     extends: [
       tseslint.configs.eslintRecommended,
       ...tseslint.configs.recommendedTypeChecked,
-      importPlugin.flatConfigs.recommended,
+      // importPlugin.flatConfigs.recommended,
       sonarjs.configs.recommended,
       jsdoc.configs["flat/recommended-tsdoc"],
       eslintConfigPrettier // MUST be last
@@ -81,22 +147,23 @@ export default defineConfig([
       "@typescript-eslint/no-unnecessary-type-assertion": "warn",
       "@typescript-eslint/no-unused-vars": "off", // handled by unused-imports plugin
 
-      // ---- Clean
-      "unused-imports/no-unused-imports": "error",
-      "unused-imports/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      // // ---- Clean
+      // "unused-imports/no-unused-imports": "error",
+      // "unused-imports/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
 
-      // ---- Imports
-      "import/order": [
-        "warn",
-        {
-          groups: ["builtin", "external", "internal"],
-          "newlines-between": "always",
-          alphabetize: { order: "asc", caseInsensitive: true }
-        }
-      ],
-      "import/no-cycle": "error",
-      "import/no-unresolved": "off",
-      "import-x/no-unresolved": "off",
+      // // ---- Imports
+      // "import/order": [
+      //   "warn",
+      //   {
+      //     groups: ["builtin", "external", "internal"],
+      //     "newlines-between": "always",
+      //     alphabetize: { order: "asc", caseInsensitive: true },
+      //   },
+      // ],
+      // "import/no-unresolved": "off",
+      // "import-x/no-unresolved": "off",
+      // "import-x/namespace": "off",
+      // "import/no-cycle": ["error", { maxDepth: 1, ignoreExternal: true }],
 
       // ---- Bug prevention
       "no-restricted-imports": [
@@ -115,6 +182,8 @@ export default defineConfig([
       "no-debugger": "error",
       eqeqeq: ["error", "always", { null: "ignore" }],
       curly: ["error", "all"],
+      "sonarjs/null-dereference": "off",
+      "sonarjs/super-linear-regex": "off",
       "jsdoc/require-description": "error",
       "jsdoc/require-jsdoc": [
         "error",
@@ -123,6 +192,7 @@ export default defineConfig([
             FunctionDeclaration: true,
             MethodDefinition: true,
             ClassDeclaration: false,
+            ClassExpression: false,
             ArrowFunctionExpression: false,
             FunctionExpression: true
           },
@@ -139,44 +209,25 @@ export default defineConfig([
   },
 
   // ========================
-  // TESTS OVERRIDE
-  // ========================
-  {
-    files: ["**/*.spec.ts", "**/*.test.ts", "**/*.spec.js", "**/*.test.js"],
-    rules: {
-      "sonarjs/cognitive-complexity": "off",
-      "sonarjs/no-duplicate-string": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-floating-promises": "off",
-      "@typescript-eslint/no-misused-promises": "off",
-      // False positive: jest.fn() mocks are always bound — toHaveBeenCalledWith pattern
-      "@typescript-eslint/unbound-method": "off",
-      // Safe in tests: .catch((e) => e) pattern for asserting error properties
-      "@typescript-eslint/no-unsafe-assignment": "off",
-      "@typescript-eslint/no-unsafe-return": "off",
-      "@typescript-eslint/no-unsafe-member-access": "off",
-      "jsdoc/require-jsdoc": "off",
-      "jsdoc/require-param": "off",
-      "jsdoc/require-returns": "off",
-      "jsdoc/require-description": "off",
-      "max-lines-per-function": "off"
-    }
-  },
-  // ========================
   // TSX OVERRIDES
   // ========================
   {
     files: ["src/**/*.tsx"],
+    ignores: ["**/*.spec.tsx", "**/*.test.tsx"],
     rules: {
-      "max-lines-per-function": "off"
+      "max-lines-per-function": [
+        "error",
+        { max: 100, skipBlankLines: true, skipComments: true }
+      ]
     }
   },
+
   // ========================
   // INFRASTRUCTURE OVERRIDES
   // ========================
   {
     // declare global { namespace Express } is the only correct way to augment Express types
-    files: ["**/infrastructure/**/*.ts", "**/integrations/**/*.ts"],
+    files: ["src/**/infrastructure/**/*.ts", "src/**/integrations/**/*.ts"],
     rules: {
       "@typescript-eslint/no-namespace": "off"
     }

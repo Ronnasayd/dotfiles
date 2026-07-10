@@ -8,7 +8,8 @@
     "ms-python.vscode-pylance",
     "njqdev.vscode-python-typehint",
     "ms-python.vscode-python-envs",
-    "charliermarsh.ruff"
+    "charliermarsh.ruff",
+    "boileaum.pydoclint"
   ],
   "gohtml": [
     "jinliming2.vscode-go-template"
@@ -24,7 +25,11 @@
     "xabikos.javascriptsnippets",
     "esbenp.prettier-vscode",
     "dsznajder.es7-react-js-snippets",
-    "christian-kohler.path-intellisense",
+    "editorconfig.editorconfig"
+  ],
+  "ts": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
     "editorconfig.editorconfig"
   ],
   "html": [
@@ -45,7 +50,8 @@
     "ms-vscode.cpptools",
     "ms-vscode.cpptools-extension-pack",
     "ms-vscode.cpptools-themes",
-    "jeff-hykin.better-cpp-syntax"
+    "jeff-hykin.better-cpp-syntax",
+    "ms-vscode.cpp-devtools"
   ],
   "cmake": [
     "twxs.cmake",
@@ -94,5 +100,12 @@
     "redhat.vscode-yaml",
     "emsav.swagger-validator",
     "42crunch.vscode-openapi"
+  ],
+  "jupyter": [
+    "ms-toolsai.jupyter",
+    "ms-toolsai.vscode-jupyter-cell-tags",
+    "ms-toolsai.jupyter-keymap",
+    "ms-toolsai.jupyter-renderers",
+    "ms-toolsai.vscode-jupyter-slideshow"
   ]
 }

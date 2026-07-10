@@ -343,6 +343,10 @@ docker-compose-up() {
   docker compose -f "$1" up
 }
 
+docker-compose-down() {
+  docker compose -f "$1" down
+}
+
 # pip-install-break - Install Python packages using pip3 with system package break handling.
 #
 # Usage: pip-install-break <packages>
