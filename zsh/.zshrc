@@ -22,7 +22,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="/usr/bin/code --wait"
 export VISUAL="/usr/bin/code --wait"
 
-export ANDROID_HOME=$HOME/android
+export ANDROID_HOME=/usr/lib/android-sdk
 export PATH=$ANDROID_HOME/platform-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
