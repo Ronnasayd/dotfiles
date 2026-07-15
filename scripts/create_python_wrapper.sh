@@ -23,7 +23,7 @@ fi
 SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
 
 # Verifica se existe venv ou .venv no mesmo diretório do script
-if [[ -f "$SCRIPT_DIR/venv/bin/activate" ]]; then
+if [[ -f "$SCRIPT_DIR/.venv/bin/activate" ]]; then
     VENV_DIR="$SCRIPT_DIR/venv"
     echo "Venv encontrado em: $VENV_DIR"
 elif [[ -f "$SCRIPT_DIR/.venv/bin/activate" ]]; then

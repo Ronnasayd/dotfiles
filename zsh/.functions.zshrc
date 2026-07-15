@@ -11,7 +11,7 @@ on_enter_directory() {
     # export GOPATH=$(~/.asdf/shims/go env GOPATH)
   fi
   if [ -d "$1/venv" ]; then
-    source "$1/venv/bin/activate"
+    source "$1/.venv/bin/activate"
   fi
   SPECIFIC_DIR="/home/ronnas/develop/QQ/"
   QQ_DIR="$GOPATH/src/github.com/queroquitar/"

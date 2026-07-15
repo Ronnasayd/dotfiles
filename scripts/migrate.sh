@@ -14,7 +14,6 @@ find "$SEARCH_ROOT" -name "package.json" -not -path "*/node_modules/*" | while r
       rm -rf node_modules
       pnpm import
       pnpm install
-      mv yarn.lock yarn.lock.bak
       echo "    done: $dir"
     ) || echo "    FAILED: $dir"
   fi

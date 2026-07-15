@@ -1,7 +1,7 @@
-#!/home/ronnas/develop/personal/dotfiles/conky/themes/MyMimosa/python/venv/bin/python3
+#!/home/ronnas/develop/personal/dotfiles/conky/themes/MyMimosa/python/.venv/bin/python3
+from datetime import datetime
 import json
 import sys
-from datetime import datetime
 
 with open("/tmp/rss.json") as file:
     data = json.loads(file.read())

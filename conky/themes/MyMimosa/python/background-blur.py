@@ -1,9 +1,9 @@
-#!/home/ronnas/develop/personal/dotfiles/conky/themes/MyMimosa/python/venv/bin/python3
+#!/home/ronnas/develop/personal/dotfiles/conky/themes/MyMimosa/python/.venv/bin/python3
+from glob import glob
 import json
 import os
-import subprocess
-from glob import glob
 from random import choices
+import subprocess
 
 import cv2
 

@@ -1,8 +1,8 @@
 #!/bin/bash
-source $HOME/.config/conky/MyMimosa/python/venv/bin/activate
+source $HOME/.config/conky/MyMimosa/python/.venv/bin/activate
 /bin/bash -c $HOME/.config/conky/MyMimosa/scripts/my.download.sh
 /bin/bash -c $HOME/.config/conky/MyMimosa/calendar.sh
-/bin/bash -c $HOME/.config/conky/MyMimosa/python/rss_parser.py
+uv run $HOME/.config/conky/MyMimosa/python/rss_parser.py
 
 killall conky
 

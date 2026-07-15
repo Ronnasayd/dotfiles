@@ -1,11 +1,20 @@
-#!/home/ronnas/develop/personal/dotfiles/conky/themes/MyMimosa/python/venv/bin/python3
+#!/usr/bin/env python3
+# /// script
+# dependencies = [
+#     "beautifulsoup4",
+#     "feedparser",
+#     "langdetect",
+#     "requests",
+# ]
+# ///
+from datetime import datetime, timedelta, timezone
 import json
 import textwrap
-from datetime import datetime, timedelta, timezone
+
+from bs4 import BeautifulSoup
+import feedparser
 from langdetect import detect
 from langdetect.lang_detect_exception import LangDetectException
-import feedparser
-from bs4 import BeautifulSoup
 import requests
 
 rss = [
