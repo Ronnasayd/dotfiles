@@ -5,7 +5,8 @@ WEATHER_CODE=$(cat ~/.cache/my-weather.json | jq -r '.current.weather_code')
 WEATHER_ICON=
 function icons(){
   if [ $(docker ps | wc -l) -gt 1 ]; then
-    DOCKER_ICON=" "
+    DOCKER_RUNNING=$(docker ps --filter "status=running" -q | wc -l)
+    DOCKER_ICON="$DOCKER_RUNNING  "
   fi
   if [[ -n "$(nmcli con | grep -i vpn | grep wlp6s0)" ]]; then
     VPN_ICON="󰷛 "
@@ -39,7 +40,7 @@ case $1 in
     cat ~/.cache/my-weather.json | jq -r '.current.relative_humidity_2m' | xargs printf "%02d"
   ;;
   CUR_WS)
-    cat ~/.cache/my-weather.json | jq -r '.current.wind_speed_10m' 
+    cat ~/.cache/my-weather.json | jq -r '.current.wind_speed_10m'
   ;;
   CUR_PREC)
     PRECIPITATION=$(cat ~/.cache/my-weather.json | jq -r '.current.precipitation')
