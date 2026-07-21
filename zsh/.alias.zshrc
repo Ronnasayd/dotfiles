@@ -208,3 +208,4 @@ alias clolh="export ANTHROPIC_AUTH_TOKEN=ollama;export ANTHROPIC_BASE_URL=http:/
 alias cef="copy_env_files" # copy .env files from current directory to a specified destination directory: cef <destination_directory>
 alias cpt="ASDF_NODEJS_VERSION=23.11.1 asdf exec copilot" # using correct node version for copilot
 alias difft="/usr/local/bin/difft" # using difftastic to compare files
+alias sg="$HOME/.local/share/pnpm/ast-grep" # using sg to run ast-grep
