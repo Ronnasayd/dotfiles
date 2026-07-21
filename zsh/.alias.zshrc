@@ -207,3 +207,4 @@ alias clol="export ANTHROPIC_AUTH_TOKEN=ollama;export ANTHROPIC_BASE_URL=http://
 alias clolh="export ANTHROPIC_AUTH_TOKEN=ollama;export ANTHROPIC_BASE_URL=http://localhost:11434; claude  --model github-copilot:claude-haiku-4.5"
 alias cef="copy_env_files" # copy .env files from current directory to a specified destination directory: cef <destination_directory>
 alias cpt="ASDF_NODEJS_VERSION=23.11.1 asdf exec copilot" # using correct node version for copilot
+alias difft="/usr/local/bin/difft" # using difftastic to compare files
