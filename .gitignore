@@ -252,3 +252,5 @@ skills-lock.json
 .mcp.json
 CLAUDE.md
 .agents/skills/*
+.tokensave/*
+.headroom*

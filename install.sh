@@ -7,6 +7,7 @@ mkdir -p /tmp/.backup
 mv ~/.zshrc /tmp/.backup
 mv ~/.alias.zshrc /tmp/.alias.backup
 mv ~/.functions.zshrc /tmp/.functions.backup
+mv ~/.completions.zshrc /tmp/.completions.backup
 mv ~/.vimrc /tmp/.backup
 mv ~/.p10k.zsh /tmp/.backup
 mv ~/.tmux.conf /tmp/.backup
@@ -31,6 +32,7 @@ ln -sf  $(pwd)/conky/themes/MyMimosa ~/.config/conky/MyMimosa
 ln -sf  $(pwd)/zsh/.zshrc ~/.zshrc
 ln -sf  $(pwd)/zsh/.alias.zshrc ~/.alias.zshrc
 ln -sf  $(pwd)/zsh/.functions.zshrc ~/.functions.zshrc
+ln -sf  $(pwd)/zsh/.completions.zshrc ~/.completions.zshrc
 ln -sf  $(pwd)/p10k/.p10k.zsh ~/.p10k.zsh
 ln -sf  $(pwd)/tmux/.tmux.conf ~/.tmux.conf
 ln -sf  $(pwd)/conky/.conkyrc ~/.conkyrc

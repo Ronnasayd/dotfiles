@@ -226,6 +226,7 @@ eval "$(zoxide init zsh)"
 
 
 [[ ! -f ~/.alias.zshrc ]] || source ~/.alias.zshrc
+[[ ! -f ~/.completions.zshrc ]] || source ~/.completions.zshrc
 for file in ~/.?*.alias.zshrc(N); do
   if [[ -f "$file" ]]; then
     source "$file"
