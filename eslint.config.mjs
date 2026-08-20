@@ -11,6 +11,7 @@ export default defineConfig([
   reactHooksRules(),
   jsxA11yRules(),
   reactNativeRules(),
+  tailwindRules(),
 
   // ========================
   // INFRASTRUCTURE OVERRIDES

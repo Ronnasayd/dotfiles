@@ -17,3 +17,8 @@
 	sslCAInfo = /home/ronnas/burp.pem
 [url "https://:@github.com/"]
 	insteadOf = https://github.com/
+
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE

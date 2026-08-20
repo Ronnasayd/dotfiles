@@ -251,10 +251,11 @@ export PATH="/home/ronnas/.local/bin:$PATH"
 
 # add gcloud
 export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/ronnas/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ronnas/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/ronnas/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ronnas/google-cloud-sdk/completion.zsh.inc'; fi
-
+source /home/ronnas/develop/personal/AI-pair-programming/.ai.alias.zshrc

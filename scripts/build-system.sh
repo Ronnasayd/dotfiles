@@ -1,6 +1,6 @@
 # Install base packages
 sudo apt update
-sudo apt install -y terminator playerctl jq python3-pip fd-find pavucontrol git-lfs ffmpeg vlc qbittorrent silversearcher-ag neovim bat wget xclip trash-cli xdotool
+sudo apt install -y terminator playerctl jq python3-pip fd-find pavucontrol git-lfs ffmpeg vlc qbittorrent silversearcher-ag neovim bat wget xclip trash-cli xdotool fzf
 
 # Install asdf
 wget https://github.com/asdf-vm/asdf/releases/download/v0.18.0/asdf-v0.18.0-linux-amd64.tar.gz -O /tmp/asdf.tar.gz
@@ -67,3 +67,6 @@ sudo apt install gh
 curl -LO https://github.com/Wilfred/difftastic/releases/latest/download/difft-x86_64-unknown-linux-gnu.tar.gz
 tar xzf difft-x86_64-unknown-linux-gnu.tar.gz
 sudo mv difft /usr/local/bin/
+
+# Install uv uvx
+curl -LsSf https://astral.sh/uv/install.sh | sh

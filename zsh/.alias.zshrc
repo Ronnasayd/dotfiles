@@ -209,3 +209,4 @@ alias cef="copy_env_files" # copy .env files from current directory to a specifi
 alias cpt="ASDF_NODEJS_VERSION=23.11.1 asdf exec copilot" # using correct node version for copilot
 alias difft="/usr/local/bin/difft" # using difftastic to compare files
 alias sg="$HOME/.local/share/pnpm/ast-grep" # using sg to run ast-grep
+alias bpp="export HTTP_PROXY=http://0.0.0.0:8080 && export HTTPS_PROXY=http://0.0.0.0:8080" # add proxy variables for burp

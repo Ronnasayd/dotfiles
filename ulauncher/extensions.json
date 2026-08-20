@@ -40,5 +40,19 @@
         "updated_at": "2025-11-15T19:40:41.241430",
         "last_commit": "a6c87d222b3c1c8f80359c9f51207c18647005a3",
         "last_commit_time": "2024-11-22T23:29:57"
+    },
+    "com.github.claudiosanches.ulauncher-gnome-session-actions": {
+        "id": "com.github.claudiosanches.ulauncher-gnome-session-actions",
+        "url": "https://github.com/claudiosanches/ulauncher-gnome-session-actions",
+        "updated_at": "2026-07-28T10:08:59.724170",
+        "last_commit": "c4c051395e5db927584639f3b62a4038f311a99d",
+        "last_commit_time": "2026-05-02T17:08:05"
+    },
+    "com.github.adii-5442.ulauncher-portkiller": {
+        "id": "com.github.adii-5442.ulauncher-portkiller",
+        "url": "https://github.com/Adii-5442/ulauncher-portKiller",
+        "updated_at": "2026-07-28T10:14:25.365841",
+        "last_commit": "d44955d25e046459f12794eaf4407018384229ca",
+        "last_commit_time": "2025-09-21T07:51:27"
     }
 }
