@@ -835,4 +835,16 @@ help_alias(){
         cat "$file"
     done | grep "$1" | bat --paging=never -l log
 }
-
+open-redroid(){
+  docker run -itd --rm --privileged \
+    --pull always \
+    -v ~/data11:/data \
+    -p 5555:5555 \
+    --name redroid11 \
+    redroid/redroid:12.0.0_64only-latest
+  sleep 2
+  trap 'docker stop redroid11' EXIT
+  adb connect localhost:5555
+  sleep 2
+  scrcpy -s localhost:5555
+}

@@ -34,6 +34,7 @@ alias lv="loop-video" # (Fn) Loop a video file indefinitely using ffmpeg: loopvi
 alias ghg="ghget" # (Fn) Download a directory from a GitHub repository. Usage: ghget <github-url> [output-dir] (~/.functions.zshrc)
 alias gdfc="git_diff_code" # (Fn) Open the diff of hash commit in VS Code: git-diff-code <commit_hash> (~/.functions.zshrc)
 alias ha='help_alias' # (Fn) Search for specific aliases in all zshrc files: helpalias <alias_name> (~/.functions.zshrc)
+alias ordd="open-redroid" # (Fn) opens redroid
 
 
 # Custom aliases
@@ -210,3 +211,4 @@ alias cpt="ASDF_NODEJS_VERSION=23.11.1 asdf exec copilot" # using correct node v
 alias difft="/usr/local/bin/difft" # using difftastic to compare files
 alias sg="$HOME/.local/share/pnpm/ast-grep" # using sg to run ast-grep
 alias bpp="export HTTP_PROXY=http://0.0.0.0:8080 && export HTTPS_PROXY=http://0.0.0.0:8080" # add proxy variables for burp
+
