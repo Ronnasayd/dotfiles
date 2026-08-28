@@ -837,14 +837,23 @@ help_alias(){
 }
 open-redroid(){
   docker run -itd --rm --privileged \
-    --pull always \
     -v ~/data11:/data \
     -p 5555:5555 \
     --name redroid11 \
-    redroid/redroid:12.0.0_64only-latest
+    ronnasayd/redroid:11.0.0_gapps \
+    androidboot.redroid_gpu_mode=host \
+    androidboot.redroid_width=824 \
+    androidboot.redroid_height=1496
+  sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
   sleep 2
   trap 'docker stop redroid11' EXIT
+  adb disconnect localhost:5555 2>/dev/null
   adb connect localhost:5555
   sleep 2
-  scrcpy -s localhost:5555
+  adb -s localhost:5555 shell pm enable com.android.vending
+  scrcpy -s localhost:5555 --no-audio
+}
+
+open-rss(){
+  open $(cat /tmp/rss.txt)
 }
