@@ -198,7 +198,7 @@ alias pscpu="~/.local/bin/pscpu" # Display processes sorted by CPU usage
 alias cmtai="~/.local/bin/commitai" # Generate a git commit message using AI based on the changes
 alias cpw="~/.local/bin/create_python_wrapper" # Create a Python script wrapper with shebang and executable permissions
 alias coll="~/bin/copilot_ollama" # Up a ollama server based on GitHub Copilot model
-alias tm="ASDF_NODEJS_VERSION=23.11.1 TASKMASTER_SKIP_AUTO_UPDATE=1 task-master" # using correct node version for task-master
+alias tm="ASDF_NODEJS_VERSION=23.11.1 TASKMASTER_SKIP_AUTO_UPDATE=1 npx task-master-ai" # using correct node version for task-master
 alias fdpkgl="dpkg --list | extract_columns 2 3 | fzf" # Search installed dpkg packages with fzf
 alias smif="LANG=C inxi -Fxxxrzc0 --usb" # show some system info
 alias fapf="ls /usr/share/applications | fzf | xargs -I{} echo \"/usr/share/aplications/{}\"" # find application desktop file with fzf
@@ -211,4 +211,4 @@ alias cpt="ASDF_NODEJS_VERSION=23.11.1 asdf exec copilot" # using correct node v
 alias difft="/usr/local/bin/difft" # using difftastic to compare files
 alias sg="$HOME/.local/share/pnpm/ast-grep" # using sg to run ast-grep
 alias bpp="export HTTP_PROXY=http://0.0.0.0:8080 && export HTTPS_PROXY=http://0.0.0.0:8080" # add proxy variables for burp
-
+alias npx="pnpm dlx" # use pnpm dlx instead of npx
