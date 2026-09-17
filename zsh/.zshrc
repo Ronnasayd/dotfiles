@@ -130,6 +130,7 @@ plugins=(
 	zsh-completions
 	fzf-tab
 	alias-tips
+  zsh-claudecode-completion
 )
 
 
@@ -259,3 +260,4 @@ if [ -f '/home/ronnas/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ronnas/goo
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/ronnas/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ronnas/google-cloud-sdk/completion.zsh.inc'; fi
 source /home/ronnas/develop/personal/AI-pair-programming/.ai.alias.zshrc
+export AI_PROJECT_ROOT_DIR="/home/ronnas/develop/personal/AI-pair-programming"
