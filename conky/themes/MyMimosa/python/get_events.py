@@ -1,8 +1,9 @@
-from datetime import datetime, timedelta, date, timezone
-import tzlocal
+from datetime import date, datetime, timedelta, timezone
+import signal
+
 from decouple import config
 from gcsa.google_calendar import GoogleCalendar
-import signal
+import tzlocal
 
 
 def timeout_handler(signum, frame):

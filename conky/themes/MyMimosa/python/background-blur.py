@@ -1,4 +1,6 @@
 #!/home/ronnas/develop/personal/dotfiles/conky/themes/MyMimosa/python/.venv/bin/python3
+"""Generate blurred, cropped background pieces for the MyMimosa conky theme."""
+
 from glob import glob
 import json
 import os
@@ -13,47 +15,69 @@ HEIGHT = int(PROPORTION * 1080)
 HOME = os.path.expanduser("~")
 
 
-def generate_image(img, newpath, reference, dimensions):
+def generate_image(
+    img: cv2.typing.MatLike,
+    newpath: str,
+    reference: str,
+    dimensions: list[int],
+) -> None:
+    """Crop `img`, blend in `reference`'s alpha mask, save to `newpath`.
+
+    Args:
+        img: source image to crop.
+        newpath: output file path.
+        reference: path to alpha-mask reference image, or "" to skip blending.
+        dimensions: [x, y, width, height] crop box.
+
+    Raises:
+        FileNotFoundError: if `reference` is set but can't be read.
+    """
     [x, y, width, height] = dimensions
     img = img[y : y + height, x : x + width]
     if reference:
-        refImg = cv2.imread(
+        ref_img = cv2.imread(
             reference,
             cv2.IMREAD_UNCHANGED,
         )
-        refImg = cv2.resize(refImg, (width, height))
-        img = cv2.addWeighted(src1=img, alpha=0.2, src2=refImg, beta=0.8, gamma=0)
-        alpha = refImg[:, :, 3]
+        if ref_img is None:
+            msg = f"could not read reference image: {reference}"
+            raise FileNotFoundError(msg)
+        ref_img = cv2.resize(ref_img, (width, height))
+        img = cv2.addWeighted(src1=img, alpha=0.2, src2=ref_img, beta=0.8, gamma=0)
+        alpha = ref_img[:, :, 3]
         _, mask = cv2.threshold(alpha, 0, 255, cv2.THRESH_BINARY)
         img = cv2.bitwise_and(img, img, mask=mask)
     cv2.imwrite(newpath, img)
 
 
+GSETTINGS_BIN = "/usr/bin/gsettings"
+
 path = (
-    subprocess.run(
-        f"gsettings get org.cinnamon.desktop.background picture-uri",
+    subprocess.run(  # noqa: S603 - fixed argv, no untrusted input
+        [GSETTINGS_BIN, "get", "org.cinnamon.desktop.background", "picture-uri"],
         stdout=subprocess.PIPE,
-        shell=True,
+        check=True,
     )
     .stdout.decode()
     .strip()
 )
-if not os.path.exists(f"{HOME}/.config/conky/MyMimosa/.cache"):
-    os.system("mkdir {HOME}/.config/conky/MyMimosa/.cache")
+os.makedirs(f"{HOME}/.config/conky/MyMimosa/.cache", exist_ok=True)
 
 images = glob(f"{HOME}/Pictures/wallpapers/images/*.*")
 if not os.path.exists(f"{HOME}/.config/conky/MyMimosa/.cache/stats.json"):
-    stats = {"next": "", "list": {}}
-    with open(f"{HOME}/.config/conky/MyMimosa/.cache/stats.json", "w") as file:
+    stats: dict = {"next": "", "list": {}}
+    stats_path = f"{HOME}/.config/conky/MyMimosa/.cache/stats.json"
+    with open(stats_path, "w", encoding="utf-8") as file:
         for image in images:
             img_name = os.path.basename(image).split(".")[0]
             stats["list"][img_name] = 0
         file.write(json.dumps(stats))
-if not os.path.exists(f"{HOME}/.config/conky/MyMimosa/.cache/ref.json"):
-    with open(f"{HOME}/.config/conky/MyMimosa/.cache/ref.json", "w") as file:
-        file.write(json.dumps(dict(reference="")))
+ref_path = f"{HOME}/.config/conky/MyMimosa/.cache/ref.json"
+if not os.path.exists(ref_path):
+    with open(ref_path, "w", encoding="utf-8") as file:
+        file.write(json.dumps({"reference": ""}))
 
-with open(f"{HOME}/.config/conky/MyMimosa/.cache/ref.json") as file:
+with open(ref_path, encoding="utf-8") as file:
     data = json.loads(file.read())
 
 
@@ -62,59 +86,55 @@ name = os.path.basename(filepath).split(".")[0]
 
 
 if data["reference"] != name:
-    with open(f"{HOME}/.config/conky/MyMimosa/.cache/stats.json", "r+") as file:
+    stats_path = f"{HOME}/.config/conky/MyMimosa/.cache/stats.json"
+    with open(stats_path, "r+", encoding="utf-8") as file:
         stats = json.loads(file.read())
         stats["list"][name] = stats["list"].get(name, 0) + 1
         s = sum(stats["list"].values())
         prob = {k: 0.99999 - v / (s if s > 0 else 1) for k, v in stats["list"].items()}
-        value = choices(list(prob.keys()), weights=list(prob.values()), k=1)
+        value = choices(list(prob.keys()), weights=list(prob.values()), k=1)  # noqa: S311
         while value[0] == name:
-            value = choices(list(prob.keys()), weights=list(prob.values()), k=1)
-        valuePath = f"{HOME}/Pictures/wallpapers/images/{value[0]}.jpeg"
-        if not valuePath in images:
+            value = choices(list(prob.keys()), weights=list(prob.values()), k=1)  # noqa: S311
+        value_path = f"{HOME}/Pictures/wallpapers/images/{value[0]}.jpeg"
+        if value_path not in images:
             del stats["list"][value[0]]
         else:
-            stats["next"] = valuePath
+            stats["next"] = value_path
             file.seek(0)
             file.write(json.dumps(stats))
 
     newpath_rings = f"{HOME}/.config/conky/MyMimosa/.cache/vert_{name}.png"
     reference_rings = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
-    rings_dimensions = dict(x=15, y=373, width=245, height=245)
+    rings_dimensions = {"x": 15, "y": 373, "width": 245, "height": 245}
 
     newpath_rss = f"{HOME}/.config/conky/MyMimosa/.cache/rss_{name}.png"
     reference_rss = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-s.png"
-    rss_dimensions = dict(x=15, y=69, width=245, height=294)
+    rss_dimensions = {"x": 15, "y": 69, "width": 245, "height": 294}
 
     newpath_main = f"{HOME}/.config/conky/MyMimosa/.cache/main_{name}.png"
     reference_main = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-main.png"
-    main_dimensions = dict(x=1199, y=69, width=322, height=708)
+    main_dimensions = {"x": 1199, "y": 69, "width": 322, "height": 708}
 
     newpath_calendar = f"{HOME}/.config/conky/MyMimosa/.cache/calendar_{name}.png"
     reference_calendar = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-piece-h.png"
-    calendar_dimensions = dict(x=15, y=628, width=414, height=128)
+    calendar_dimensions = {"x": 15, "y": 628, "width": 414, "height": 128}
 
     newpath_player = f"{HOME}/.config/conky/MyMimosa/.cache/player_{name}.png"
     reference_player = f"{HOME}/.config/conky/MyMimosa/res/dark5/bg-player.png"
-    player_dimensions = dict(x=938, y=407, width=261, height=365)
+    player_dimensions = {"x": 938, "y": 407, "width": 261, "height": 365}
 
     newpath_bar = f"{HOME}/.config/conky/MyMimosa/.cache/bar_{name}.png"
 
-    isProcessed = (
-        subprocess.run(
-            f"ls {HOME}/.config/conky/MyMimosa/.cache/*png | grep {newpath_rings}",
-            stdout=subprocess.PIPE,
-            shell=True,
-        )
-        .stdout.decode()
-        .strip()
-    )
+    is_processed = os.path.exists(newpath_rings)
     img = cv2.imread(filepath)
+    if img is None:
+        msg = f"could not read wallpaper image: {filepath}"
+        raise FileNotFoundError(msg)
     img = cv2.resize(img, (WIDTH, HEIGHT))
     img = cv2.blur(img, (15, 15))
     img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
     cv2.imwrite(f"{HOME}/.config/conky/MyMimosa/.cache/current_background.png", img)
-    if not isProcessed:
+    if not is_processed:
         generate_image(
             img,
             newpath_rings,
@@ -178,7 +198,7 @@ if data["reference"] != name:
             [0, 0, WIDTH, 42],
         )
 
-    with open(f"{HOME}/.config/conky/MyMimosa/.cache/ref.json", "w") as file:
+    with open(ref_path, "w", encoding="utf-8") as file:
         file.write(
             json.dumps(
                 {
