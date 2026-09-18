@@ -451,11 +451,52 @@ disable=raw-checker-failed,
         C0116,
         C0114,
         C0115,
-        C0413,
         W0401,
         W0614,
         W0621,
-        W120,
+        W0120,
+        # --- covered by ruff, disabled to avoid dupe noise ---
+        # E: pycodestyle errors (ruff E)
+        line-too-long,
+        trailing-whitespace,
+        trailing-newlines,
+        missing-final-newline,
+        mixed-line-endings,
+        multiple-statements,
+        unnecessary-semicolon,
+        bad-indentation,
+        wrong-spelling-in-comment,
+        # F: pyflakes (ruff F)
+        unused-import,
+        unused-variable,
+        unused-argument,
+        undefined-variable,
+        redefined-outer-name,
+        unused-wildcard-import,
+        # I: import order (ruff I)
+        wrong-import-order,
+        wrong-import-position,
+        ungrouped-imports,
+        # C901: complexity (ruff C901)
+        too-many-branches,
+        # D: docstrings (ruff D)
+        missing-module-docstring,
+        missing-class-docstring,
+        missing-function-docstring,
+        # T20/T10 (ruff T20/T10)
+        # UP: pyupgrade — no direct pylint equivalents to disable
+        # B: bugbear overlaps (ruff B)
+        unused-format-string-argument,
+        # SIM: simplify (ruff SIM)
+        simplifiable-if-statement,
+        no-else-return,
+        no-else-raise,
+        consider-using-in,
+        unnecessary-negation,
+        # C4: comprehensions (ruff C4)
+        unnecessary-comprehension,
+        # N: naming (ruff N) — covered by pylint's own naming, keep pylint's (more configurable),
+        # so NOT disabled here; ruff N left enabled too, cheap to run twice on naming only.
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
