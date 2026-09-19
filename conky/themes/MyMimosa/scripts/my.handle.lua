@@ -1,7 +1,10 @@
 ---@diagnostic disable: lowercase-global, undefined-global
 
-window_width = math.floor(100 / 125 * 1920)
-window_height = 1080
+package.path = package.path .. ';' .. os.getenv('HOME') .. '/.config/conky/MyMimosa/scripts/?.lua'
+local cfg = require('config')
+
+window_width = math.floor(100 / 125 * cfg.window_width_ref)
+window_height = cfg.window_height_ref
 
 bg_main_padding_x = math.floor(window_width * 0.01)
 bg_main_padding_y = math.floor(window_width * 0.045)
@@ -81,7 +84,7 @@ settings_table = {
     max = 100,
     bg_colour = 0xffffff,
     bg_alpha = 0.2,
-    fg_colour = 0x00d4ff,
+    fg_colour = tonumber('0x' .. cfg.colors.color1),
     fg_alpha = 1,
     y = initial_space + padding_y,
     x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.01),
@@ -99,7 +102,7 @@ settings_table = {
     max = 100,
     bg_colour = 0xFFFFFFF,
     bg_alpha = 0.2,
-    fg_colour = 0x03ffb1,
+    fg_colour = tonumber('0x' .. cfg.colors.color2),
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
     x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.01),
@@ -136,7 +139,7 @@ settings_table = {
     max = 100,
     bg_colour = 0xFFFFFF,
     bg_alpha = 0.2,
-    fg_colour = 0x03ff60,
+    fg_colour = tonumber('0x' .. cfg.colors.color3),
     fg_alpha = 1,
     y = initial_space + padding_y,
     x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.1),
@@ -154,7 +157,7 @@ settings_table = {
     max = 100,
     bg_colour = 0xFFFFFF,
     bg_alpha = 0.2,
-    fg_colour = 0x03ff24,
+    fg_colour = tonumber('0x' .. cfg.colors.color4),
     fg_alpha = 1,
     y = initial_space + padding_y + 2 * radius + thickness + empty,
     x = bg_rings_padding_x + bg_rings_width / 4 + thickness / 2 + math.floor(window_width * 0.1),
