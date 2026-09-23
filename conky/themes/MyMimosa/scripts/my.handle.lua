@@ -355,6 +355,10 @@ function conky_base_voffset()
   return string.format("${voffset %d}", voffset)
 end
 
+function conky_my_color(name)
+  return string.format("${color %s}", cfg.colors["color" .. name])
+end
+
 function conky_percent_voffset(percent)
   voffset = math.floor(window_height * percent)
   return string.format("${voffset %d}", voffset)
@@ -373,6 +377,14 @@ end
 function conky_icon_voffset(index)
   voffset = 46
   return string.format("${voffset %d}", voffset)
+end
+
+function conky_downspeed_graph()
+  return string.format("${downspeedgraph %s 15,110 %s %s}", cfg.interface, cfg.colors.color1, cfg.colors.color4)
+end
+
+function conky_upspeed_graph()
+  return string.format("${upspeedgraph %s 15,110 %s %s}", cfg.interface, cfg.colors.color1, cfg.colors.color4)
 end
 
 counter = 0
@@ -451,7 +463,7 @@ function conky_calendar()
   contents = string.gsub(contents, "offset|", offset_str)
   contents = string.gsub(contents, "bold|", "${font Roboto:bold:size=8} ")
   contents = offset_str ..
-      "${font FiraCode Nerd Font:size=12}󰃭${font Roboto:bold:size=9}  Events\n${font Roboto:size=8}" .. contents
+      "${lua_parse my_color 10}${font FiraCode Nerd Font:size=12}󰃭${font Roboto:bold:size=9}  Events${color}\n${font Roboto:size=8}" .. contents
   return conky_parse(contents)
 end
 
