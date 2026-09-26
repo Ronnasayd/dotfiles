@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>RSS Feed</title>
+<style>
+  :root {
+    color-scheme: dark;
+  }
+  body {
+    font-family: "Roboto", "Segoe UI", sans-serif;
+    background: #0f0f10;
+    color: #e6e6e6;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    padding: 16px 24px;
+    background: #1a1a1c;
+    border-bottom: 1px solid #2a2a2c;
+    position: sticky;
+    top: 0;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    z-index: 10;
+  }
+  header h1 {
+    font-size: 18px;
+    margin: 0;
+    color: #f74d00;
+    font-weight: 700;
+  }
+  header input, header select {
+    background: #101011;
+    border: 1px solid #333;
+    color: #e6e6e6;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  header input { flex: 1; min-width: 120px; }
+  #count { color: #888; font-size: 12px; white-space: nowrap; }
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  #list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .item {
+    background: #18181a;
+    border: 1px solid #2a2a2c;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    background: #222224;
+    display: block;
+  }
+  .item .body {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .item .meta {
+    font-size: 12px;
+    color: #f74d00;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .item .meta .date { color: #888; font-weight: 400; }
+  .item h2 {
+    font-size: 15px;
+    margin: 0 0 6px 0;
+    white-space: pre-line;
+  }
+  .item h2 a { color: #e6e6e6; text-decoration: none; }
+  .item h2 a:hover { color: #f74d00; text-decoration: underline; }
+  .item p {
+    font-size: 13px;
+    color: #b0b0b0;
+    margin: 0;
+    white-space: pre-line;
+  }
+  #empty, #error {
+    text-align: center;
+    color: #888;
+    padding: 40px;
+  }
+  #error { color: #ff6b5c; }
+</style>
+</head>
+<body>
+<header>
+  <h1>RSS</h1>
+  <input id="search" type="text" placeholder="filtrar por titulo/resumo...">
+  <select id="source"><option value="">todas fontes</option></select>
+  <span id="count"></span>
+</header>
+<main>
+  <div id="error" style="display:none"></div>
+  <div id="list"></div>
+  <div id="empty" style="display:none">Nenhum item encontrado.</div>
+</main>
+<script>
+let data = [];
+
+function render() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const src = document.getElementById('source').value;
+  const list = document.getElementById('list');
+  const filtered = data.filter(item => {
+    const matchSrc = !src || item.source === src;
+    const matchQ = !q || item.title.toLowerCase().includes(q) || item.summary.toLowerCase().includes(q);
+    return matchSrc && matchQ;
+  });
+  document.getElementById('count').textContent = filtered.length + ' / ' + data.length;
+  document.getElementById('empty').style.display = filtered.length ? 'none' : 'block';
+  const placeholder = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="260" height="150"><rect width="100%" height="100%" fill="#222224"/></svg>'
+  );
+  list.innerHTML = filtered.map(item => `
+    <div class="item">
+      <img src="${item.image || placeholder}" alt="" loading="lazy" onerror="this.src='${placeholder}'">
+      <div class="body">
+        <div class="meta"><span>${item.source}</span><span class="date">${new Date(item.published).toLocaleDateString('pt-BR')}</span></div>
+        <h2><a href="${item.url}" target="_blank" rel="noopener">${item.title}</a></h2>
+        <p>${item.summary}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+function populateSources() {
+  const sel = document.getElementById('source');
+  const sources = [...new Set(data.map(d => d.source))].sort();
+  for (const s of sources) {
+    const opt = document.createElement('option');
+    opt.value = s;
+    opt.textContent = s;
+    sel.appendChild(opt);
+  }
+}
+
+fetch('rss.json')
+  .then(r => {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  })
+  .then(json => {
+    data = json;
+    populateSources();
+    render();
+  })
+  .catch(err => {
+    document.getElementById('error').style.display = 'block';
+    document.getElementById('error').textContent =
+      'Erro ao carregar /tmp/rss.json: ' + err.message +
+      ' (abra via servidor local, ex: python3 -m http.server -d /tmp 8000 e acesse http://localhost:8000/rss.json, ou rode este html a partir de /tmp)';
+  });
+
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('source').addEventListener('change', render);
+</script>
+</body>
+</html>

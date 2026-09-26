@@ -254,3 +254,4 @@ CLAUDE.md
 .agents/skills/*
 .tokensave/*
 .headroom*
+rss.json
