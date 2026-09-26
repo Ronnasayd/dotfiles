@@ -3,7 +3,7 @@ local M = {}
 M.window_width_ref = 1920
 M.window_height_ref = 1080
 M.interface = 'wlp63s0'
-M.font_base = 'Roboto'
+M.font_base = 'JetBrains Mono'
 M.font_mono = 'FiraCode Nerd Font'
 
 M.colors = {
