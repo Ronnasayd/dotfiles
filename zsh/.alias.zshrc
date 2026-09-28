@@ -217,3 +217,6 @@ alias r="exec $SHELL" # Restart the current shell session
 alias ghal="gh auth login"
 alias ghas="gh auth status"
 alias ghasa="gh auth status --active"
+alias gcrs="git-crypt status"
+alias gcru="git-crypt unlock"
+alias gcri="git-crypt init"
