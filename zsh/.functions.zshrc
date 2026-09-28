@@ -16,10 +16,10 @@ on_enter_directory() {
   if [ -d "$1/.venv" ]; then
     source "$1/.venv/bin/activate"
   fi
-  SPECIFIC_DIR="/home/ronnas/develop/QQ/"
-  QQ_DIR="$GOPATH/src/github.com/queroquitar/"
+  Q_SPECIFIC_DIR=$Q_SPECIFIC_DIR
+  Q_DIR=$Q_DIR
   CURRENT_DIR="$(pwd)"
-  if [[ "$CURRENT_DIR" == "$SPECIFIC_DIR"* ]] || [[ "$CURRENT_DIR" == "$QQ_DIR"* ]]; then
+  if [[ "$CURRENT_DIR" == "$Q_SPECIFIC_DIR"* ]] || [[ "$CURRENT_DIR" == "$Q_DIR"* ]]; then
     export GOPRIVATE=github.com/queroquitar/*
   fi
   if git -C "$1" rev-parse --git-dir &>/dev/null; then

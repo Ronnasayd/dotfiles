@@ -92,4 +92,4 @@ def scan_directory(directory):
 # Exemplo de uso:
 if __name__ == "__main__":
     # Modo 1: Escanear um diretório inteiro
-    scan_directory("/home/ronnas/develop/QQ/qq-front/qq-manager")
+    scan_directory("/home/ronnas/develop")
