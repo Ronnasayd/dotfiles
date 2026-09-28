@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Obsidian
+Comment=Super Nintendo Entertainment System (TM) emulator
+Exec=obsidian %f
+Icon=/home/ronnas/develop/personal/dotfiles/icons/obsidian.png
+Terminal=false
+Type=Application

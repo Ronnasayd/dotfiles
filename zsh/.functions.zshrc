@@ -11,6 +11,9 @@ on_enter_directory() {
     # export GOPATH=$(~/.asdf/shims/go env GOPATH)
   fi
   if [ -d "$1/venv" ]; then
+    source "$1/venv/bin/activate"
+  fi
+  if [ -d "$1/.venv" ]; then
     source "$1/.venv/bin/activate"
   fi
   SPECIFIC_DIR="/home/ronnas/develop/QQ/"
@@ -19,13 +22,20 @@ on_enter_directory() {
   if [[ "$CURRENT_DIR" == "$SPECIFIC_DIR"* ]] || [[ "$CURRENT_DIR" == "$QQ_DIR"* ]]; then
     export GOPRIVATE=github.com/queroquitar/*
   fi
+  if git -C "$1" rev-parse --git-dir &>/dev/null; then
+    local gh_user
+    gh_user=$(git -C "$1" config user.name)
+    if [[ -n "$gh_user" ]]; then
+      gh auth switch --user "$gh_user" &>/dev/null
+    fi
+  fi
 }
 
 function recursively_on_enter_directory() {
   local RPATH
   RPATH=$(pwd)
   while [[ "$RPATH" != "/" && "$RPATH" != "" ]]; do
-    if [[ -f "$RPATH/.tool-versions" || -f "$RPATH/go.mod" || -f "$RPATH/Gopkg.toml" || -d "$RPATH/venv" ]]; then
+    if [[ -f "$RPATH/.tool-versions" || -f "$RPATH/go.mod" || -f "$RPATH/Gopkg.toml" || -d "$RPATH/venv" || -d "$RPATH/.venv" || -d "$RPATH/.git" ]]; then
       # echo "$RPATH"
       on_enter_directory $RPATH
       break
