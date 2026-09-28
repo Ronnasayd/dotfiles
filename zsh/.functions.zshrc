@@ -16,8 +16,6 @@ on_enter_directory() {
   if [ -d "$1/.venv" ]; then
     source "$1/.venv/bin/activate"
   fi
-  Q_SPECIFIC_DIR=$Q_SPECIFIC_DIR
-  Q_DIR=$Q_DIR
   CURRENT_DIR="$(pwd)"
   if [[ "$CURRENT_DIR" == "$Q_SPECIFIC_DIR"* ]] || [[ "$CURRENT_DIR" == "$Q_DIR"* ]]; then
     export GOPRIVATE=$Q_GOPRIVATE

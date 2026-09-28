@@ -189,11 +189,6 @@ alias gssh="ssh-keygen -t rsa -b 4096 -C " # Generate private and public keys in
 alias gcia="~/bin/generate-context-ia" # Script que gera um context de arquivos para usar em prompts de IA
 alias gcvia="~/bin/generate-coverage-ia" # Script que gera um context de cobertura de testes para usar em prompts de IA
 alias ws="~/.local/bin/ws" # List recent VS Code workspaces and folders
-alias gm="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model auto" # using correct node version for gemini
-alias gmp="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-pro-preview" # using correct node version for gemini
-alias gmp2="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-2.5-pro" # using correct node version for gemini
-alias gmf="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-flash-preview" # using correct node version for gemini
-
 alias clh="~/.local/bin/curl_headers" # Fetch and display HTTP headers from a URL
 alias pscpu="~/.local/bin/pscpu" # Display processes sorted by CPU usage
 alias cmtai="~/.local/bin/commitai" # Generate a git commit message using AI based on the changes
@@ -220,3 +215,10 @@ alias ghasa="gh auth status --active"
 alias gcrs="git-crypt status"
 alias gcru="git-crypt unlock"
 alias gcri="git-crypt init"
+alias uvv="uv venv"
+alias uvs="uv sync"
+alias uvpsr="uv pip sync requirements.txt"
+alias gm="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model auto" # using correct node version for gemini
+alias gmp="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-pro-preview" # using correct node version for gemini
+alias gmp2="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-2.5-pro" # using correct node version for gemini
+alias gmf="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-flash-preview" # using correct node version for gemini

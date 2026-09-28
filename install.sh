@@ -64,6 +64,7 @@ ln -sf  $(pwd)/plank-links/themes/MyTheme  ~/.local/share/plank/themes/MyTheme
 ln -sf  $(pwd)/.editorconfig ~/.editorconfig
 ln -sf  $(pwd)/code-themes ~/.vscode/extensions/code-themes
 ln -sf  $(pwd)/.pylintrc ~/.pylintrc
+ln -sf  $(pwd)/asdf/.tool-versions ~/.tool-versions
 mkdir -p ~/.config/ruff/ && ln -sf  $(pwd)/.ruff.toml  ~/.config/ruff/ruff.toml
 
 
