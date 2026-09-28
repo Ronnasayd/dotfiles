@@ -20,7 +20,7 @@ on_enter_directory() {
   Q_DIR=$Q_DIR
   CURRENT_DIR="$(pwd)"
   if [[ "$CURRENT_DIR" == "$Q_SPECIFIC_DIR"* ]] || [[ "$CURRENT_DIR" == "$Q_DIR"* ]]; then
-    export GOPRIVATE=github.com/queroquitar/*
+    export GOPRIVATE=$Q_GOPRIVATE
   fi
   if git -C "$1" rev-parse --git-dir &>/dev/null; then
     local gh_user
@@ -497,10 +497,10 @@ git-diff-branch() {
 }
 
 open-remote-Jira() {
-  if git config --get remote.origin.url | grep qq; then
+  if git config --get remote.origin.url | grep $Q_JIRA; then
     xdg-open $JIRA_BASE_URL_Q/browse/$(git rev-parse --abbrev-ref HEAD | cut -f2 --delimiter="/") &
   fi
-  if git config --get remote.origin.url | grep lingo; then
+  if git config --get remote.origin.url | grep $L_JIRA; then
     xdg-open $JIRA_BASE_URL_L/browse/$(git rev-parse --abbrev-ref HEAD | cut -f2 --delimiter="/") &
   fi
 }
@@ -585,8 +585,7 @@ dep() {
   if [[ "$1" == "ensure" ]]; then
     local proj_path=$(pwd)
     if [ -f "$proj_path/Gopkg.toml" ]; then
-      # ajuste aqui o nome da org (ex: queroquitar)
-      local org="queroquitar"
+      local org=$Q_ORG
       local link_path=$GOPATH/src/github.com/$org/$(basename $(pwd))
 
       echo "📦 Mudando para GOPATH: $link_path"
