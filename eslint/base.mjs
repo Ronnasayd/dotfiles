@@ -1,6 +1,6 @@
 // Default config, shared by every project type (plain TS, React, React Native).
 // yarn add eslint-config-prettier eslint globals \
-//   eslint-plugin-import-x eslint-plugin-jsdoc eslint-plugin-sonarjs \
+//   eslint-plugin-import-x eslint-plugin-jsdoc eslint-plugin-sonarjs  \
 //   eslint-plugin-unused-imports eslint-plugin-no-secrets eslint-plugin-unicorn \
 //   eslint-plugin-security eslint-plugin-jest @eslint-community/eslint-plugin-eslint-comments \
 //   typescript-eslint
@@ -24,7 +24,7 @@ const TEST_FILES = [
   "**/*.spec.js",
   "**/*.test.js",
   "**/*.spec.tsx",
-  "**/*.test.tsx"
+  "**/*.test.tsx",
 ];
 
 export const ignores = {
@@ -33,9 +33,11 @@ export const ignores = {
     "**/.yarn/**",
     "**/dist/**",
     "**/build/**",
+    "**/.stryker/**",
+    "**/.claude/**",
     "jest.env-setup.ts",
-    "prisma.config.ts"
-  ]
+    "prisma.config.ts",
+  ],
 };
 
 /**
@@ -51,13 +53,13 @@ export function testOverride(tsconfigPath = "./tsconfig.json") {
       parserOptions: { project: tsconfigPath },
       ecmaVersion: 2022,
       sourceType: "module",
-      globals: { ...globals.node }
+      globals: { ...globals.node },
     },
     plugins: {
       "@typescript-eslint": tseslint.plugin,
       "unused-imports": unusedImports,
       jsdoc,
-      jest
+      jest,
     },
     extends: [
       tseslint.configs.eslintRecommended,
@@ -65,7 +67,7 @@ export function testOverride(tsconfigPath = "./tsconfig.json") {
       sonarjs.configs.recommended,
       jsdoc.configs["flat/recommended-tsdoc"],
       jest.configs["flat/recommended"],
-      eslintConfigPrettier
+      eslintConfigPrettier,
     ],
     rules: {
       "jest/no-disabled-tests": "warn",
@@ -93,8 +95,8 @@ export function testOverride(tsconfigPath = "./tsconfig.json") {
       "jsdoc/require-param": "off",
       "jsdoc/require-returns": "off",
       "jsdoc/require-description": "off",
-      "max-lines-per-function": "off"
-    }
+      "max-lines-per-function": "off",
+    },
   };
 }
 
@@ -107,24 +109,18 @@ export function testOverride(tsconfigPath = "./tsconfig.json") {
  */
 export function typescriptBase({
   files = ["src/**/*.ts", "src/**/*.tsx"],
-  tsconfigPath = "./tsconfig.json"
+  tsconfigPath = "./tsconfig.json",
 } = {}) {
   return {
     files,
     ignores: TEST_FILES,
-
-    settings: {
-      // Prevent import-x from feeding dependency source (e.g. react-native's
-      // Flow-typed index.js) to the TS parser — causes "Expression expected".
-      "import-x/ignore": ["node_modules"]
-    },
 
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: { project: tsconfigPath },
       ecmaVersion: 2022,
       sourceType: "module",
-      globals: { ...globals.node }
+      globals: { ...globals.node },
     },
 
     plugins: {
@@ -135,7 +131,7 @@ export function typescriptBase({
       "no-secrets": noSecrets,
       unicorn,
       security,
-      "eslint-comments": eslintComments
+      "eslint-comments": eslintComments,
     },
 
     extends: [
@@ -145,7 +141,7 @@ export function typescriptBase({
       sonarjs.configs.recommended,
       jsdoc.configs["flat/recommended-tsdoc"],
       security.configs.recommended,
-      eslintConfigPrettier // MUST be last
+      eslintConfigPrettier, // MUST be last
     ],
 
     rules: {
@@ -159,7 +155,7 @@ export function typescriptBase({
       // ---- TS suppression comments
       "@typescript-eslint/ban-ts-comment": [
         "error",
-        { "ts-ignore": "allow-with-description", minimumDescriptionLength: 10 }
+        { "ts-ignore": "allow-with-description", minimumDescriptionLength: 10 },
       ],
 
       // ---- Unicorn (curated, non-invasive subset)
@@ -176,7 +172,7 @@ export function typescriptBase({
       "max-depth": ["error", 3],
       "max-lines-per-function": [
         "warn",
-        { max: 60, skipBlankLines: true, skipComments: true }
+        { max: 60, skipBlankLines: true, skipComments: true },
       ],
       // max-params disabled at base — DI constructors legitimately exceed 4
       "max-params": "off",
@@ -187,7 +183,7 @@ export function typescriptBase({
       "@typescript-eslint/no-misused-promises": "error",
       "@typescript-eslint/consistent-type-imports": [
         "warn",
-        { prefer: "type-imports" }
+        { prefer: "type-imports" },
       ],
       "@typescript-eslint/no-unnecessary-type-assertion": "error",
       "@typescript-eslint/no-non-null-assertion": "error",
@@ -195,7 +191,7 @@ export function typescriptBase({
       "@typescript-eslint/require-await": "error",
       "@typescript-eslint/no-confusing-void-expression": [
         "error",
-        { ignoreArrowShorthand: true }
+        { ignoreArrowShorthand: true },
       ],
       "@typescript-eslint/no-unused-vars": "off", // handled by unused-imports plugin
       // Forces agents to declare intended return types instead of letting inference drift silently
@@ -205,7 +201,7 @@ export function typescriptBase({
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
         "warn",
-        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
 
       // ---- Imports
@@ -214,8 +210,8 @@ export function typescriptBase({
         {
           groups: ["builtin", "external", "internal"],
           "newlines-between": "always",
-          alphabetize: { order: "asc", caseInsensitive: true }
-        }
+          alphabetize: { order: "asc", caseInsensitive: true },
+        },
       ],
       "import-x/no-unresolved": "off",
       "import-x/namespace": "off",
@@ -223,13 +219,13 @@ export function typescriptBase({
       "import-x/no-duplicates": "error",
       "import-x/no-extraneous-dependencies": [
         "error",
-        { devDependencies: TEST_FILES }
+        { devDependencies: TEST_FILES },
       ],
 
       // ---- File size
       "max-lines": [
         "warn",
-        { max: 300, skipBlankLines: true, skipComments: true }
+        { max: 300, skipBlankLines: true, skipComments: true },
       ],
 
       // ---- Bug prevention
@@ -240,10 +236,10 @@ export function typescriptBase({
             {
               regex: "^\\.\\./",
               message:
-                "Use path aliases (@src/, @modules/) instead of relative imports that go up directories (../)."
-            }
-          ]
-        }
+                "Use path aliases (@src/, @modules/) instead of relative imports that go up directories (../).",
+            },
+          ],
+        },
       ],
       "no-console": ["warn", { allow: ["warn", "error"] }],
       "no-restricted-syntax": [
@@ -252,8 +248,8 @@ export function typescriptBase({
           selector:
             "CallExpression[callee.object.name='console'] TemplateLiteral > Identifier[name=/token|secret|password|apikey|api_key/i]",
           message:
-            "Do not log tokens/secrets/passwords, even interpolated into a string."
-        }
+            "Do not log tokens/secrets/passwords, even interpolated into a string.",
+        },
       ],
       "no-debugger": "error",
       eqeqeq: ["error", "always", { null: "ignore" }],
@@ -270,10 +266,10 @@ export function typescriptBase({
             ClassDeclaration: false,
             ClassExpression: false,
             ArrowFunctionExpression: false,
-            FunctionExpression: true
+            FunctionExpression: true,
           },
-          publicOnly: false
-        }
+          publicOnly: false,
+        },
       ],
       "jsdoc/require-param": ["error", { enableFixer: false }],
       "jsdoc/require-param-description": "error",
@@ -285,13 +281,13 @@ export function typescriptBase({
       "no-else-return": ["error", { allowElseIf: false }],
       "no-warning-comments": [
         "warn",
-        { terms: ["todo", "fixme", "xxx"], location: "anywhere" }
+        { terms: ["todo", "fixme", "xxx"], location: "anywhere" },
       ],
 
       // ---- Suppression comments: block agents from silencing lint instead of fixing it
       "eslint-comments/no-unlimited-disable": "error",
       "eslint-comments/no-unused-disable": "error",
-      "eslint-comments/require-description": ["error", { ignore: [] }]
-    }
+      "eslint-comments/require-description": ["error", { ignore: [] }],
+    },
   };
 }

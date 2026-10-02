@@ -5,3 +5,4 @@ yarn 1.22.22
 uv 0.11.28
 php 8.4.25
 python system
+bun 1.4.2
