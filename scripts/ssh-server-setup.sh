@@ -24,8 +24,10 @@ else
   sudo passwd "$USER"
 fi
 
-IP=$(ip -4 addr show scope global 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | tail -1)
-[ -z "$IP" ] && IP=$(ifconfig 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v '^127\.' | tail -1)
+IP=$(ip -4 addr show scope global 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | tail -1) || true
+if [ -z "$IP" ]; then
+  IP=$(ifconfig 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v '^127\.' | tail -1) || true
+fi
 
 echo "SSH server ativo na porta $PORT. IP: ${IP:-desconhecido}"
 echo "Conectar com: ssh -p $PORT $(whoami)@${IP:-<ip>}"
