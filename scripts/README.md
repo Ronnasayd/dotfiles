@@ -112,5 +112,7 @@ curl -sL https://raw.githubusercontent.com/Ronnasayd/dotfiles/master/scripts/cle
 | `scan_sensitive_content.py` | Varre arquivos/diretório buscando conteúdo sensível (alta entropia/base64 suspeito).                      | Não      |
 | `set_icons.sh`              | Define ícones customizados para pastas/atalhos via `gio`.                                                 | Não      |
 | `set_trash_icons.sh`        | Substitui ícones de lixeira do tema de ícones atual (com backup).                                         | Não      |
+| `ssh-ngrok.sh`              | Instala openssh-server e expõe via túnel ngrok TCP (Colab/boxes efêmeras).                                | Env vars |
+| `ssh-server-setup.sh`       | Instala openssh-server, configura porta e define senha (Termux + Linux).                                  | Porta    |
 | `vscode-custom-sidebar.js`  | Injeta script no VS Code pra customizar a sidebar via DOM.                                                | Não      |
 | `ws.py`                     | Extrai caminhos de workspace recentes do banco sqlite do VS Code.                                         | Não      |
