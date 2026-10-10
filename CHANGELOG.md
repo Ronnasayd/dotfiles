@@ -1,6 +1,202 @@
 # Changelog
 
-## v2026.03.12 (Unreleased - based on v1.0.5)
+## v2026.10.10 (Unreleased - based on v1.0.5)
+
+### **2026-10-02**
+
+- **[📚 Documentation]** Add readme ([69e925d](https://github.com/Ronnasayd/dotfiles/commit/69e925d))
+
+### **2026-09-28**
+
+- **[✨ Features]** Add uv aliases and asdf tool-versions symlink ([e4fe962](https://github.com/Ronnasayd/dotfiles/commit/e4fe962))
+- **[♻️ Refactoring]** Remove files ([a49b01b](https://github.com/Ronnasayd/dotfiles/commit/a49b01b))
+- **[🚧 Other Changes]** F4b2ede - update aliases | 2026-09-28
+- **[♻️ Refactoring]** Remove ([85cb20a](https://github.com/Ronnasayd/dotfiles/commit/85cb20a))
+- **[♻️ Refactoring]** Remove files ([b27a11c](https://github.com/Ronnasayd/dotfiles/commit/b27a11c))
+- **[✨ Features]** Auto-switch gh account and venv on directory enter ([148d508](https://github.com/Ronnasayd/dotfiles/commit/148d508))
+
+### **2026-09-26**
+
+- **[✨ Features]** Add rss grid viewer with images and local server script ([a2d31b4](https://github.com/Ronnasayd/dotfiles/commit/a2d31b4))
+
+### **2026-09-25**
+
+- **[♻️ Refactoring]** Adjust conky ([450c830](https://github.com/Ronnasayd/dotfiles/commit/450c830))
+
+### **2026-09-23**
+
+- **[♻️ Refactoring]** Update conky ([baf0571](https://github.com/Ronnasayd/dotfiles/commit/baf0571))
+
+### **2026-09-19**
+
+- **[♻️ Refactoring]** Update ([74cca9e](https://github.com/Ronnasayd/dotfiles/commit/74cca9e))
+
+### **2026-09-18**
+
+- **[♻️ Refactoring]** Refactoring pylint ([a873373](https://github.com/Ronnasayd/dotfiles/commit/a873373))
+- **[♻️ Refactoring]** Dedupe pylint checks covered by ruff, install global lint configs ([8346356](https://github.com/Ronnasayd/dotfiles/commit/8346356))
+
+### **2026-09-17**
+
+- **[✨ Features]** Add mymimosa toggle script and shortcut helper ([32c3c84](https://github.com/Ronnasayd/dotfiles/commit/32c3c84))
+- **[♻️ Refactoring]** Remove gitconfig ([5357a50](https://github.com/Ronnasayd/dotfiles/commit/5357a50))
+- **[♻️ Refactoring]** Update ([f055df4](https://github.com/Ronnasayd/dotfiles/commit/f055df4))
+
+### **2026-09-02**
+
+- **[♻️ Refactoring]** Add cleanup-system.sh script to free disk space ([1817d37](https://github.com/Ronnasayd/dotfiles/commit/1817d37))
+- **[♻️ Refactoring]** Update task-master alias to use npx for correct node version ([7a370e8](https://github.com/Ronnasayd/dotfiles/commit/7a370e8))
+
+### **2026-08-29**
+
+- **[♻️ Refactoring]** Update base.mjs ([cc8dedd](https://github.com/Ronnasayd/dotfiles/commit/cc8dedd))
+
+### **2026-08-28**
+
+- **[♻️ Refactoring]** Update rss ([b01b0c6](https://github.com/Ronnasayd/dotfiles/commit/b01b0c6))
+
+### **2026-08-22**
+
+- **[✨ Features]** Add redroid ([6e520a7](https://github.com/Ronnasayd/dotfiles/commit/6e520a7))
+
+### **2026-08-20**
+
+- **[♻️ Refactoring]** Update ([2441fae](https://github.com/Ronnasayd/dotfiles/commit/2441fae))
+
+### **2026-07-22**
+
+- **[✨ Features]** Add completions for custom function aliases in zsh ([d704c28](https://github.com/Ronnasayd/dotfiles/commit/d704c28))
+
+### **2026-07-21**
+
+- **[✨ Features]** Add alias for ast-grep tool in zsh aliases ([21a0429](https://github.com/Ronnasayd/dotfiles/commit/21a0429))
+- **[✨ Features]** Add difftastic installation and alias for file comparison ([4455086](https://github.com/Ronnasayd/dotfiles/commit/4455086))
+
+### **2026-07-20**
+
+- **[🐛 Bug Fixes]** Correct uv command path in start.sh script ([0846039](https://github.com/Ronnasayd/dotfiles/commit/0846039))
+
+### **2026-07-18**
+
+- **[♻️ Refactoring]** Improve docker icon logic in weather script ([a0b5ad7](https://github.com/Ronnasayd/dotfiles/commit/a0b5ad7))
+
+### **2026-07-16**
+
+- **[♻️ Refactoring]** Remove manual background change logic ([eab5174](https://github.com/Ronnasayd/dotfiles/commit/eab5174))
+- **[✨ Features]** Add automatic wallpaper change script and update conky config ([0a1b8ec](https://github.com/Ronnasayd/dotfiles/commit/0a1b8ec))
+
+### **2026-07-15**
+
+- **[🧹 Chores]** Update script paths to use .venv instead of venv ([5f05743](https://github.com/Ronnasayd/dotfiles/commit/5f05743))
+
+### **2026-07-14**
+
+- **[✨ Features]** Add migration script for converting yarn to pnpm and venv to uv projects ([47652f7](https://github.com/Ronnasayd/dotfiles/commit/47652f7))
+
+### **2026-07-10**
+
+- **[♻️ Refactoring]** Update eslint ([d14fda1](https://github.com/Ronnasayd/dotfiles/commit/d14fda1))
+- **[🧹 Chores]** Sync editor extensions, restructure eslint config, add docker-compose-down alias ([ede9103](https://github.com/Ronnasayd/dotfiles/commit/ede9103))
+
+### **2026-07-08**
+
+- **[♻️ Refactoring]** Connect directly to workspace vscdb and drop temp-copy flow ([f90d480](https://github.com/Ronnasayd/dotfiles/commit/f90d480))
+- **[♻️ Refactoring]** Update ([f78099d](https://github.com/Ronnasayd/dotfiles/commit/f78099d))
+
+### **2026-07-03**
+
+- **[🧹 Chores]** Rename shell aliases and add multi-repo jira support ([84204c3](https://github.com/Ronnasayd/dotfiles/commit/84204c3))
+
+### **2026-06-30**
+
+- **[♻️ Refactoring]** Update build-changelog.py to improve logging, type hints, and code clarity ([40ff566](https://github.com/Ronnasayd/dotfiles/commit/40ff566))
+
+### **2026-06-29**
+
+- **[🧹 Chores]** Expand ruff rules to match eslint linting scope ([b60af89](https://github.com/Ronnasayd/dotfiles/commit/b60af89))
+- **[🧹 Chores]** Add ruff configuration for python linting rules ([4869beb](https://github.com/Ronnasayd/dotfiles/commit/4869beb))
+
+### **2026-06-27**
+
+- **[🧹 Chores]** Enhance linting rules and improve shell alias usability ([bf869fb](https://github.com/Ronnasayd/dotfiles/commit/bf869fb))
+
+### **2026-06-18**
+
+- **[🧹 Chores]** Update aliases in .alias.zshrc for improved clarity and consistency ([0e80a80](https://github.com/Ronnasayd/dotfiles/commit/0e80a80))
+- **[🧹 Chores]** Update aliases in .alias.zshrc for improved clarity and consistency ([40f69c1](https://github.com/Ronnasayd/dotfiles/commit/40f69c1))
+- **[♻️ Refactoring]** Simplify help_alias function to directly list alias.zshrc files in home directory. ([307a426](https://github.com/Ronnasayd/dotfiles/commit/307a426))
+
+### **2026-06-15**
+
+- **[🧹 Chores]** Add commands to copy paths of open text files in vscode extension ([7f85123](https://github.com/Ronnasayd/dotfiles/commit/7f85123))
+
+### **2026-06-06**
+
+- **[✨ Features]** Update helpalias function to include usage instructions for searching aliases ([2300db7](https://github.com/Ronnasayd/dotfiles/commit/2300db7))
+- **[✨ Features]** Add help_alias function to search for specific aliases in all zshrc files ([c203707](https://github.com/Ronnasayd/dotfiles/commit/c203707))
+- **[✨ Features]** Enhance git_diff_code function for improved diff comparison and error handling ([b3a8041](https://github.com/Ronnasayd/dotfiles/commit/b3a8041))
+
+### **2026-06-05**
+
+- **[✨ Features]** Add git diff code function and new aliases for improved git workflow ([6b920e3](https://github.com/Ronnasayd/dotfiles/commit/6b920e3))
+
+### **2026-05-25**
+
+- **[✨ Features]** Update eslint configuration to include additional ignored files and enhance type-checking rules ([8a11b00](https://github.com/Ronnasayd/dotfiles/commit/8a11b00))
+- **[✨ Features]** Add git interactive checkout and copy environment files function ([f75bebe](https://github.com/Ronnasayd/dotfiles/commit/f75bebe))
+
+### **2026-05-18**
+
+- **[✨ Features]** Add git worktree aliases for improved repository management ([33c3be0](https://github.com/Ronnasayd/dotfiles/commit/33c3be0))
+
+### **2026-05-11**
+
+- **[✨ Features]** Add iptvnator and krita launchers to plank dock ([d37a5ab](https://github.com/Ronnasayd/dotfiles/commit/d37a5ab))
+
+### **2026-05-05**
+
+- **[✨ Features]** Add support for loading multiple alias configuration files in zsh ([96605eb](https://github.com/Ronnasayd/dotfiles/commit/96605eb))
+
+### **2026-04-24**
+
+- **[✨ Features]** Enhance eslint configuration by adding prettier integration and adjusting import rules ([e18caab](https://github.com/Ronnasayd/dotfiles/commit/e18caab))
+- **[✨ Features]** Update eslint configuration to enhance jsdoc rules and improve typescript error handling ([0b4e93f](https://github.com/Ronnasayd/dotfiles/commit/0b4e93f))
+
+### **2026-04-15**
+
+- **[✨ Features]** Add golangci configuration file for enhanced linting and code quality checks ([33decff](https://github.com/Ronnasayd/dotfiles/commit/33decff))
+
+### **2026-04-08**
+
+- **[✨ Features]** Add jsdoc rules to eslint configuration for improved documentation enforcement ([3cf2256](https://github.com/Ronnasayd/dotfiles/commit/3cf2256))
+- **[🧹 Chores]** Update install script to copy eslint and prettier configuration files instead of creating symlinks ([b938fef](https://github.com/Ronnasayd/dotfiles/commit/b938fef))
+- **[🐛 Bug Fixes]** Adjust typescript eslint rules to use warnings for certain assertions and conditions ([269f484](https://github.com/Ronnasayd/dotfiles/commit/269f484))
+- **[✨ Features]** Enhance eslint configuration with typescript and sonarjs rules ([2f57881](https://github.com/Ronnasayd/dotfiles/commit/2f57881))
+
+### **2026-04-01**
+
+- **[✨ Features]** Add new shortcuts for claude ai and update zsh aliases for ollama integration ([7e635d4](https://github.com/Ronnasayd/dotfiles/commit/7e635d4))
+
+### **2026-03-30**
+
+- **[✨ Features]** Enhance eslint configuration with typescript support and additional plugins ([122a86e](https://github.com/Ronnasayd/dotfiles/commit/122a86e))
+- **[✨ Features]** Add eslint and prettier configuration files; update zsh aliases ([1e78f05](https://github.com/Ronnasayd/dotfiles/commit/1e78f05))
+
+### **2026-03-20**
+
+- **[🐛 Bug Fixes]** Increase microphone volume restoration level to 140% ([3baabf9](https://github.com/Ronnasayd/dotfiles/commit/3baabf9))
+
+### **2026-03-19**
+
+- **[♻️ Refactoring]** Streamline microphone and sink variable initialization in monitor-phone script ([c1e6c72](https://github.com/Ronnasayd/dotfiles/commit/c1e6c72))
+
+### **2026-03-17**
+
+- **[✨ Features]** Add ghget function to download directories from github repositories ([b04deec](https://github.com/Ronnasayd/dotfiles/commit/b04deec))
+
+### **2026-03-12**
+
+- **[✨ Features]** Add emoji removal functionality in changelog generation ([aba0758](https://github.com/Ronnasayd/dotfiles/commit/aba0758))
 
 ### **2026-03-10**
 
@@ -1188,4 +1384,5 @@
 - **[♻️ Refactoring]** Adicionando configuraçoes vscode e lista de extensoes ([d89c49d](https://github.com/Ronnasayd/dotfiles/commit/d89c49d))
 
 ---
-Generated on 2026-03-12 17:17:02
+
+Generated on 2026-10-10 11:16:00

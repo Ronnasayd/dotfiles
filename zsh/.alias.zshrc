@@ -47,6 +47,7 @@ alias gcl="git clone" # Clone a repository into a new directory
 alias gp="git push" # Push local changes to the remote repository
 alias gc="git commit" # Record changes to the repository
 alias gcm="git commit -m" # Commit with a message
+alias gcmnv="git commit --no-verify -m" # Commit with a message
 alias gb="git branch --sort =-committerdate" # List branches sorted by last commit date
 alias gt="git checkout" # Switch branches or restore working tree files
 alias gtb="git checkout -b" # Create a new branch and switch to it
