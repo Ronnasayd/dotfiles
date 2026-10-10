@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PORT="${1:-22}"
+PORT="${1:-2222}"
 
 if command -v pkg >/dev/null 2>&1 && [ -n "${PREFIX:-}" ]; then
   SSHD_CONFIG="$PREFIX/etc/ssh/sshd_config"
