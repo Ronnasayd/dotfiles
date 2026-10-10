@@ -78,6 +78,7 @@ curl -sL https://raw.githubusercontent.com/Ronnasayd/dotfiles/master/scripts/cle
 | --------------------------- | --------------------------------------------------------------------------------------------------------- | -------- |
 | `backgroundslide.sh`        | Troca wallpaper aleatório a cada 15s em loop (Cinnamon/MATE).                                             | Não      |
 | `build-changelog.py`        | Gera `CHANGELOG.md` a partir do histórico git (tags/commits convencionais).                               | Não      |
+| `build-redroid-gapps.sh`    | Clona redroid-script, builda imagem Redroid+GApps e faz push pro Docker Hub.                              | Opcional |
 | `build-system.sh`           | Instala pacotes base, asdf e Docker num sistema novo.                                                     | Não      |
 | `change_background_auto.sh` | Troca wallpaper via conky, sincronizado com cache de stats.                                               | Não      |
 | `change_background.sh`      | Mata instâncias duplicadas do troca-wallpaper e relança (watchdog).                                       | Não      |

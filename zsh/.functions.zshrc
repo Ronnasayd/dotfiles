@@ -844,7 +844,7 @@ help_alias(){
 }
 open-redroid(){
   docker run -itd --rm --privileged \
-    -v ~/redroid11:/data \
+    -v redroid11:/data \
     -p 5555:5555 \
     --name redroid11 \
     ronnasayd/redroid:11.0.0_gapps \
