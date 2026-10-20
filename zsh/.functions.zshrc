@@ -917,7 +917,13 @@ preclaude() {
           ;;
       esac
     done < "$envfile"
-    [[ -n "$CLAUDE_CODE_SSE_PORT" ]] && break
+    if [[ -n "$CLAUDE_CODE_SSE_PORT" ]]; then
+      # why: sem VSCODE_GIT_IPC_HANDLE real nao ha paridade total (doc:
+      # vscode-terminal-detection.md); so forca quando achou processo VS Code
+      # de verdade, pra nao mentir deteccao com nenhuma IDE rodando.
+      export TERM_PROGRAM=vscode
+      break
+    fi
   done
 }
 

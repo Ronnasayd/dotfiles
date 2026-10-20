@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Figma
+Exec=/home/ronnas/.local/bin/figma %u
+Icon=/home/ronnas/develop/personal/dotfiles/icons/figma.png
+MimeType=x-scheme-handler/figma;
+Terminal=false
+Type=Application

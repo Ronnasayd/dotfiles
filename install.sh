@@ -79,6 +79,7 @@ sudo ln -sf $(pwd)/plank-links/plex.desktop /usr/share/applications/plex.desktop
 sudo ln -sf $(pwd)/plank-links/rss.desktop /usr/share/applications/rss.desktop
 sudo ln -sf $(pwd)/plank-links/charles.desktop /usr/share/applications/charles.desktop
 sudo ln -sf $(pwd)/plank-links/Burp.desktop /usr/share/applications/Burp.desktop
+sudo ln -sf $(pwd)/plank-links/figma.desktop /usr/share/applications/figma.desktop
 
 
 ln -sf  $(pwd)/autostart/conky.desktop ~/.config/autostart/conky.desktop
