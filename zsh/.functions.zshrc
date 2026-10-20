@@ -864,3 +864,61 @@ open-redroid(){
 open-rss(){
   open $(cat /tmp/rss.txt)
 }
+ts2date() {
+    local t=${1:?usage: ts2date <unix_timestamp>}
+    (( ${#t} > 10 )) && t=$((t/1000))
+    date -d "@$t" "${2:-+%Y-%m-%d %H:%M:%S %Z}"
+}
+
+# hookify - Wrap a command so pre<cmd>/post<cmd> functions run around it automatically.
+#
+# Usage: hookify <cmd> [<cmd2> ...]
+#
+# Description:
+#   Defines a shell function named <cmd> that shadows the real binary/command.
+#   On call, it runs pre<cmd> (if defined) before, the real <cmd> via `command`,
+#   then post<cmd> (if defined) after - regardless of exit code. Define hooks as
+#   plain functions in ~/.functions.zshrc, e.g.:
+#     preclaude() { echo "starting claude..."; }
+#     postclaude() { echo "claude exited."; }
+#   Then call: hookify claude
+#   Now typing `claude ...` runs preclaude, claude, postclaude automatically.
+hookify() {
+  local cmd
+  for cmd in "$@"; do
+    eval "
+    ${cmd}() {
+      local __hookify_pre=\"pre${cmd}\" __hookify_post=\"post${cmd}\"
+      command -v \"\$__hookify_pre\" >/dev/null 2>&1 && \"\$__hookify_pre\" \"\$@\"
+      command ${cmd} \"\$@\"
+      local __hookify_ec=\$?
+      command -v \"\$__hookify_post\" >/dev/null 2>&1 && \"\$__hookify_post\" \"\$@\"
+      return \$__hookify_ec
+    }
+    "
+  done
+}
+
+# preclaude - Pull VS Code IDE-integration env vars from a running VS Code
+# process into the current shell, so `claude` can connect to the IDE even
+# when launched outside VS Code's integrated terminal (tmux, ssh, another
+# terminal).
+preclaude() {
+  [[ -n "$CLAUDE_CODE_SSE_PORT" ]] && return 0
+
+  local pid envfile line
+  for pid in $(pgrep -f '/code|code-insiders' 2>/dev/null); do
+    envfile="/proc/$pid/environ"
+    [[ -r "$envfile" ]] || continue
+    while IFS= read -r -d '' line; do
+      case "$line" in
+        CLAUDE_CODE_SSE_PORT=*|VSCODE_GIT_IPC_HANDLE=*|VSCODE_INJECTION=*|TERM_PROGRAM=vscode)
+          export "$line"
+          ;;
+      esac
+    done < "$envfile"
+    [[ -n "$CLAUDE_CODE_SSE_PORT" ]] && break
+  done
+}
+
+hookify claude
