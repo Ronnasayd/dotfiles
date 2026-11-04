@@ -926,5 +926,6 @@ preclaude() {
     fi
   done
 }
+postclaude(){}
 
 hookify claude
