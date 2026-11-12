@@ -224,3 +224,4 @@ alias gmp="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-pro-pre
 alias gmp2="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-2.5-pro" # using correct node version for gemini
 alias gmf="ASDF_NODEJS_VERSION=23.11.1 asdf exec gemini --model gemini-3-flash-preview" # using correct node version for gemini
 alias dspf="sudo docker system prune -a --volumes --force"
+alias rmcch='rm -rf */Cache */Code Cache */GPUCache */CacheStorage */DawnGraphiteCache */DawnWebGPUCache */AutofillAiModelCache \ShaderCache GrShaderCache GPUPersistentCache GraphiteDawnCache'

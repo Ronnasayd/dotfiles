@@ -86,8 +86,8 @@ if command -v docker >/dev/null && docker info >/dev/null 2>&1; then
   run "docker network prune -f"
   if [ "$AGGRESSIVE" -eq 1 ]; then
     echo "  --aggressive: imagens sem container + volumes orfaos"
-    run "docker image prune -af"        # tudo que nao tem container rodando
-    run "docker volume prune -f"        # volumes sem link (CUIDADO: dados de DB parados)
+    # hazard: apaga volumes sem container (dados de DB parados somem)
+    run "$SUDO docker system prune -a --volumes --force"
   fi
 else
   echo "  docker nao ativo"

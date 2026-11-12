@@ -5,6 +5,8 @@
 set -euo pipefail
 
 CFG="$HOME/.config/google-chrome"
+# invariant: so cache de disco; Cookies/Login Data ficam em $CFG
+DISK_CACHE="$HOME/.cache/google-chrome"
 
 if pgrep -x chrome >/dev/null; then
   echo "Chrome esta rodando. Feche antes de rodar. Abortado."
@@ -13,7 +15,7 @@ fi
 
 [ -d "$CFG" ] || { echo "$CFG nao existe. Abortado."; exit 1; }
 
-before=$(du -sc "$CFG" 2>/dev/null | tail -1 | cut -f1)
+before=$(du -sc "$CFG" "$DISK_CACHE" 2>/dev/null | tail -1 | cut -f1 || true)
 
 # Service Worker CacheStorage por profile (~1.2G)
 find "$CFG" -mindepth 3 -maxdepth 3 -type d -path "*/Service Worker/CacheStorage" -exec rm -rf {} + 2>/dev/null || true
@@ -24,10 +26,21 @@ rm -rf "$CFG/component_crx_cache" "$CFG/extensions_crx_cache" 2>/dev/null || tru
 # Crash reports (~27M)
 rm -rf "$CFG/Crash Reports" 2>/dev/null || true
 
-# GPUCache por profile (regenera)
-find "$CFG" -mindepth 2 -maxdepth 2 -type d -name GPUCache -exec rm -rf {} + 2>/dev/null || true
+# Caches por profile (regeneram)
+find "$CFG" -mindepth 2 -maxdepth 2 -type d \( \
+  -name Cache -o -name "Code Cache" -o -name GPUCache -o -name CacheStorage \
+  -o -name DawnGraphiteCache -o -name DawnWebGPUCache -o -name AutofillAiModelCache \
+  \) -exec rm -rf {} + 2>/dev/null || true
 
-after=$(du -sc "$CFG" 2>/dev/null | tail -1 | cut -f1)
+# Caches de shader/GPU globais (regeneram)
+for d in ShaderCache GrShaderCache GPUPersistentCache GraphiteDawnCache; do
+  rm -rf "${CFG:?}/$d" 2>/dev/null || true
+done
+
+# Cache de disco HTTP (~/.cache)
+rm -rf "${DISK_CACHE:?}" 2>/dev/null || true
+
+after=$(du -sc "$CFG" "$DISK_CACHE" 2>/dev/null | tail -1 | cut -f1 || true)
 echo "antes:    $((before/1024)) MB"
 echo "depois:   $((after/1024)) MB"
 echo "liberado: $(((before-after)/1024)) MB"

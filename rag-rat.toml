@@ -14,7 +14,7 @@ root = "."
 # claims `.c` + `.h`. Add or remove languages and directories as your layout needs.
 [target_bindings]
 typescript = ["code-themes/src", "my-custom-vscode-extension/src"]
-python = ["code_extensions", "conky/themes/MyMimosa/python", "git_hooks", "scripts"]
+python = ["code_extensions", "conky/themes/MyMimosa/python", "git_hooks", "scripts", "tests"]
 markdown = ["."]
 
 # Richer targets (uncomment to use): a named target with an explicit kind and custom file
