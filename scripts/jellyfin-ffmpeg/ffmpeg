@@ -1,0 +1,19 @@
+#!/bin/bash
+# why: some HLS hosts disguise MPEG-TS segments as .webp; ffmpeg >= 7.1 rejects
+# them ("not in allowed_segment_extensions"). Relax the check only for remote
+# .m3u8 inputs; local files fail with "Option extension_picky not found".
+# invariant: same script serves ffmpeg and ffprobe (ffprobe is a symlink here).
+REAL="${REAL_FFMPEG_DIR:-/usr/lib/jellyfin-ffmpeg}/$(basename "$0")"
+
+args=()
+prev=""
+for a in "$@"; do
+  if [[ "$prev" == "-i" && "$a" =~ ^https?://.*\.m3u8(\?.*)?$ ]]; then
+    unset 'args[${#args[@]}-1]'
+    args+=(-extension_picky 0 -i)
+  fi
+  args+=("$a")
+  prev="$a"
+done
+
+exec "$REAL" "${args[@]}"

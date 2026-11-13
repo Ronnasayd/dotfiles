@@ -6,6 +6,8 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Etc/UTC \
+  -e FFMPEG_PATH=/opt/ffmpeg-wrap/ffmpeg \
+  -v "$(dirname "$(realpath "$0")")/jellyfin-ffmpeg":/opt/ffmpeg-wrap:ro \
   -e JELLYFIN_PublishedServerUrl="http://$(ip route get 1.1.1.1 | awk '{for(i=1;i<=NF;i++) if($i=="src") print $(i+1)}'):8096" \
   -v /home/ronnas/Videos/jellyfin-server/config:/config \
   -v /home/ronnas/Videos/plex-server/filmes:/filmes \
