@@ -99,6 +99,7 @@ curl -sL https://raw.githubusercontent.com/Ronnasayd/dotfiles/master/scripts/cle
 | `generate-qrcode.sh`        | Gera QR code de uma URL (com opção `-w` pra link do WhatsApp).                                            | Sim      |
 | `get_gnome_conf.sh`         | Faz backup do dconf (configs GNOME) num arquivo.                                                          | Não      |
 | `install-codegen-cli.sh`    | Instala swagger-codegen-cli via wrapper em `/usr/local/bin`.                                              | Não      |
+| `jellyfin.sh`               | Recria container Docker do Jellyfin e abre a interface web.                                               | Não      |
 | `jetbrains-mono.sh`         | Baixa e instala a fonte JetBrains Mono Nerd Font.                                                         | Não      |
 | `migrate.sh`                | Busca projetos node/python e migra yarn→pnpm e venv→uv.                                                   | Não      |
 | `monitor-phone.sh`          | Monitora eventos ACPI do jack de áudio e ajusta perfil/input de áudio.                                    | Não      |

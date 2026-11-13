@@ -1,6 +1,5 @@
 [Desktop Entry]
 Name=Plex
-Comment=Super Nintendo Entertainment System (TM) emulator
 Exec=plex %f
 Icon=/home/ronnas/develop/personal/dotfiles/icons/plex.png
 Terminal=false

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Jellyfin
+Exec=jellyfin
+Icon=/home/ronnas/develop/personal/dotfiles/icons/jellyfin.png
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;
+Keywords=jellyfin;media;server;
+Name[en_US]=jellyfin

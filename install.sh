@@ -76,6 +76,8 @@ cp -f $(pwd)/prettier.config.js ~/prettier.config.js
 sudo ln -sf $(pwd)/plank-links/godot.desktop /usr/share/applications/godot.desktop
 sudo ln -sf $(pwd)/plank-links/krita.desktop /usr/share/applications/krita.desktop
 sudo ln -sf $(pwd)/plank-links/plex.desktop /usr/share/applications/plex.desktop
+sudo ln -sf $(pwd)/plank-links/jellyfin.desktop /usr/share/applications/jellyfin.desktop
+sudo ln -sf $(pwd)/scripts/jellyfin.sh /usr/local/bin/jellyfin
 sudo ln -sf $(pwd)/plank-links/rss.desktop /usr/share/applications/rss.desktop
 sudo ln -sf $(pwd)/plank-links/charles.desktop /usr/share/applications/charles.desktop
 sudo ln -sf $(pwd)/plank-links/Burp.desktop /usr/share/applications/Burp.desktop
