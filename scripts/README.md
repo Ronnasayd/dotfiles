@@ -117,4 +117,5 @@ curl -sL https://raw.githubusercontent.com/Ronnasayd/dotfiles/master/scripts/cle
 | `ssh-ngrok.sh`              | Instala openssh-server e expõe via túnel ngrok TCP (Colab/boxes efêmeras).                                                                         | Env vars |
 | `ssh-server-setup.sh`       | Instala openssh-server, configura porta e define senha (Termux + Linux).                                                                           | Porta    |
 | `vscode-custom-sidebar.js`  | Injeta script no VS Code pra customizar a sidebar via DOM.                                                                                         | Não      |
+| `urls-to-strm.sh`           | Lista de URLs (1 por linha) → `01.strm`, `02.strm`... p/ Jellyfin tocar via URL sem baixar. Uso: `urls-to-strm.sh list.txt [dir]`.                 | Não      |
 | `ws.py`                     | Extrai caminhos de workspace recentes do banco sqlite do VS Code.                                                                                  | Não      |
