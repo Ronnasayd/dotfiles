@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# migrate.sh — find and migrate yarn->pnpm and venv->uv projects
+# migrate-node-modules-venv.sh — find and migrate yarn->pnpm and venv->uv projects
 set -euo pipefail
 
 SEARCH_ROOT="${1:-$HOME/develop}"
@@ -14,7 +14,7 @@ find "$SEARCH_ROOT" -name "package.json" -not -path "*/node_modules/*" 2>/dev/nu
       rm -rf node_modules
       rm -rf .next
       pnpm import
-      pnpm install --dangerously-allow-all-builds
+      pnpm install --config.dangerously-allow-all-builds=true
       rm pnpm-lock.yaml
       echo "    done: $dir"
     ) || echo "    FAILED: $dir"
