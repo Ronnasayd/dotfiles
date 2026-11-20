@@ -1,26 +1,28 @@
 #!/usr/bin/env bash
-# migrate.sh — find and migrate yarn->pnpm and venv->uv projects
+# migrate-node-modules-venv.sh — find and migrate yarn->pnpm and venv->uv projects
 set -euo pipefail
 
 SEARCH_ROOT="${1:-$HOME/develop}"
 
 echo "=== Node.js (yarn -> pnpm) projects ==="
-find "$SEARCH_ROOT" -name "package.json" -not -path "*/node_modules/*" | while read -r pkg; do
+find "$SEARCH_ROOT" -name "package.json" -not -path "*/node_modules/*" 2>/dev/null | while read -r pkg; do
   dir=$(dirname "$pkg")
   if [ -f "$dir/yarn.lock" ]; then
     echo ">>> $dir"
     (
       cd "$dir"
       rm -rf node_modules
+      rm -rf .next
       pnpm import
-      pnpm install
+      pnpm install --config.dangerously-allow-all-builds=true
+      rm pnpm-lock.yaml
       echo "    done: $dir"
     ) || echo "    FAILED: $dir"
   fi
-done
+done || true
 
 echo "=== Python (venv -> uv) projects ==="
-find "$SEARCH_ROOT" -name "requirements.txt" -not -path "*/.venv/*" -not -path "*/node_modules/*" | while read -r req; do
+find "$SEARCH_ROOT" -name "requirements.txt" -not -path "*/.venv/*" -not -path "*/node_modules/*" 2>/dev/null | while read -r req; do
   dir=$(dirname "$req")
   if [ -d "$dir/.venv" ] || [ -d "$dir/venv" ]; then
     echo ">>> $dir"
@@ -32,7 +34,8 @@ find "$SEARCH_ROOT" -name "requirements.txt" -not -path "*/.venv/*" -not -path "
       echo "    done: $dir"
     ) || echo "    FAILED: $dir"
   fi
-done
+done || true
 
 echo "=== Summary of remaining old dirs ==="
 find "$SEARCH_ROOT" -name "node_modules" -type d -prune -exec du -sh {} \; 2>/dev/null
+find "$SEARCH_ROOT" \( -name ".venv" -o -name "venv" \) -type d -prune -exec du -sh {} \; 2>/dev/null
