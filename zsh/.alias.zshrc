@@ -35,6 +35,7 @@ alias ghg="ghget" # (Fn) Download a directory from a GitHub repository. Usage: g
 alias gdfc="git_diff_code" # (Fn) Open the diff of hash commit in VS Code: git-diff-code <commit_hash> (~/.functions.zshrc)
 alias ha='help_alias' # (Fn) Search for specific aliases in all zshrc files: helpalias <alias_name> (~/.functions.zshrc)
 alias ordd="open-redroid" # (Fn) opens redroid
+alias oio="open-in-obsidian" # (Fn) opens obsidian with the current directory as vault
 
 
 # Custom aliases

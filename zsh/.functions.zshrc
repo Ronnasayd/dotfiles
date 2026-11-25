@@ -929,3 +929,87 @@ preclaude() {
 postclaude(){}
 
 hookify claude
+
+# open-in-obsidian - Open a file or directory in Obsidian through ~/general-vault.
+#
+# Usage: open-in-obsidian <path>
+#
+# why: symlink instead of copy, so edits land in the original file.
+open-in-obsidian() {
+  emulate -L zsh
+  local vault="$HOME/general-vault"
+  local config="${XDG_CONFIG_HOME:-$HOME/.config}/obsidian/obsidian.json"
+
+  if [[ -z "$1" ]]; then
+    echo "Uso: open-in-obsidian <arquivo|diretorio>" >&2
+    return 1
+  fi
+  if [[ ! -e "$1" ]]; then
+    echo "Erro: '$1' não existe." >&2
+    return 1
+  fi
+
+  local cmd
+  for cmd in obsidian wmctrl jq; do
+    if ! command -v "$cmd" >/dev/null; then
+      echo "Erro: '$cmd' não encontrado." >&2
+      return 1
+    fi
+  done
+
+  mkdir -p "$vault" || return 1
+  # why: Obsidian only resolves obsidian:// URIs for vaults it already knows.
+  if ! jq -e --arg v "$vault" 'any(.vaults[]?; .path == $v)' "$config" &>/dev/null; then
+    echo "Erro: abra '$vault' uma vez no Obsidian ('Open folder as vault') e tente de novo." >&2
+    return 1
+  fi
+
+  local target="${1:A}" real_vault="${vault:A}"
+  # why: Obsidian hides dotfiles, so `.specs` is linked as `specs`.
+  local name="${${target:t}#.}"
+  local link="$vault/$name" other existing
+
+  # invariant: link targets stay disjoint from the vault and from each other,
+  # otherwise Obsidian ignores the symlink.
+  for existing in "$real_vault" "$vault"/*(N@); do
+    other="${existing:A}"
+    [[ "$existing" == "$link" && "$other" == "$target" ]] && continue
+    if [[ "$target/" == "${other%/}/"* || "$other/" == "${target%/}/"* ]]; then
+      echo "Erro: '$target' se sobrepõe a '$other'." >&2
+      return 1
+    fi
+  done
+
+  if [[ ! -L "$link" || "${link:A}" != "$target" ]]; then
+    if [[ -e "$link" || -L "$link" ]]; then
+      echo "Erro: '$link' já existe." >&2
+      return 1
+    fi
+    ln -s -- "$target" "$link" || return 1
+  fi
+
+  {
+    local uri="obsidian://open?vault=${vault:t}"
+    [[ -f "$target" ]] && uri+="&file=$(jq -rn --arg n "$name" '$n|@uri')"
+    obsidian "$uri" &>/dev/null &!
+
+    # why: the Obsidian process outlives this window when other vaults are
+    # open, so closing is tracked by window id.
+    local win="" i
+    for i in {1..60}; do
+      win=$(wmctrl -l | awk -v t=" - ${vault:t} - Obsidian" 'index($0, t) { print $1; exit }')
+      [[ -n "$win" ]] && break
+      sleep 0.5
+    done
+    if [[ -z "$win" ]]; then
+      echo "Erro: a janela do Obsidian não abriu." >&2
+      return 1
+    fi
+    while wmctrl -l | grep -q "^$win "; do sleep 1; done
+    # hazard: Obsidian may still be flushing the last edit through the link.
+    sleep 1
+  } always {
+    # hazard: no -r and no trailing slash, so only the link can be removed.
+    [[ -L "$link" ]] && rm -f -- "$link"
+  }
+}
